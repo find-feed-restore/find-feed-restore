@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./site-footer.module.css";
 
 const quickLinks = [
-  ["Board & Staff", "/about-us/"],
+  ["Board & Staff", "/board-staff/"],
   ["Corporate Partnership", "/live-here-love-here-lake/"],
   ["Hope In Action", "/hope-in-action"],
   ["News", "/news"],

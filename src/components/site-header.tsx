@@ -43,7 +43,7 @@ const navigation: NavItem[] = [
       { label: "Social Media", href: "/hope-in-action/" },
     ],
   },
-  { label: "Board & Staff", href: "/about-us/" },
+  { label: "Board & Staff", href: "/board-staff/" },
   { label: "Contact Us", href: "/contact-us/" },
 ];
 

@@ -192,6 +192,23 @@ async function main() {
         { restingTransform, hoveredTransform },
       );
     }
+    if (route === "/board-staff/") {
+      await desktop.setViewportSize({ width: 1440, height: 900 });
+      const personCards = desktop.locator("main article");
+      const restingTransform = await personCards.first().evaluate(
+        (element) => getComputedStyle(element).transform,
+      );
+      await personCards.first().hover();
+      await desktop.waitForTimeout(300);
+      const hoveredTransform = await personCards.first().evaluate(
+        (element) => getComputedStyle(element).transform,
+      );
+      check(
+        "Board and staff cards remain static",
+        (await personCards.count()) === 17 && restingTransform === "none" && hoveredTransform === "none",
+        { count: await personCards.count(), restingTransform, hoveredTransform },
+      );
+    }
     await desktopContext.close();
 
     const mobileContext = await browser.newContext({ viewport: { width: 390, height: 900 } });
@@ -234,6 +251,20 @@ async function main() {
         mobileSections.length === 5 &&
           mobileSections.every((section) => Math.round(section.x) === 0 && Math.round(section.right) === 390),
         mobileSections,
+      );
+    }
+    if (route === "/board-staff/") {
+      const mobileCards = await mobile.locator("main article").evaluateAll((cards) =>
+        cards.map((card) => {
+          const bounds = card.getBoundingClientRect();
+          return { x: bounds.x, width: bounds.width, right: bounds.right };
+        }),
+      );
+      check(
+        "Board and staff mobile cards do not overflow",
+        mobileCards.length === 17 &&
+          mobileCards.every((card) => card.x >= 0 && Math.round(card.right) <= 390),
+        mobileCards,
       );
     }
     const menuToggle = mobile.locator('button[aria-controls="mobile-site-navigation"]');
@@ -486,6 +517,42 @@ async function main() {
         "Contact semantic heading",
         (await reduced.getByRole("heading", { level: 1, name: "Contact Us" }).count()) === 1,
         await reduced.locator("main h1").allTextContents(),
+      );
+    }
+
+    if (route === "/board-staff/") {
+      const peopleContract = {
+        cards: await reduced.locator("main article").count(),
+        portraits: await reduced.locator("main article img").count(),
+        missingAlt: await reduced.locator('main article img[alt=""]').count(),
+        profileLinks: await reduced.locator("main article a").count(),
+        headings: await reduced.locator("main h1, main h2").allTextContents(),
+        hrefs: await reduced.locator("main a").evaluateAll((links) =>
+          links.map((link) => link.getAttribute("href")),
+        ),
+      };
+      check(
+        "Board and staff identity and static-card contract",
+        peopleContract.cards === 17 &&
+          peopleContract.portraits === 17 &&
+          peopleContract.missingAlt === 0 &&
+          peopleContract.profileLinks === 0,
+        peopleContract,
+      );
+      check(
+        "Board and staff CTA destinations",
+        peopleContract.hrefs.includes("https://findfeedrestore-bloom.kindful.com/") &&
+          peopleContract.hrefs.includes("https://greatthings.typeform.com/to/ZZkgIj"),
+        peopleContract.hrefs,
+      );
+      check(
+        "Board and staff semantic headings",
+        (await reduced
+          .getByRole("heading", { level: 1, name: "Board & Staff Members" })
+          .count()) === 1 &&
+          peopleContract.headings.includes("Staff") &&
+          peopleContract.headings.includes("Board Of Directors"),
+        peopleContract.headings,
       );
     }
 

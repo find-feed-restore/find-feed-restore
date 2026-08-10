@@ -4,7 +4,7 @@ Inventory date: 2026-08-10
 
 Production source: <https://www.findfeedrestore.com/>
 
-Scope: Milestone 2 discovery plus completed Milestone 3–5 migrations for Affordable Housing, Housing First, and Homelessness Avoidance. No other interior route has been migrated.
+Scope: Milestone 2 discovery plus accepted migrations through Milestone 10, including the four program pages, editorial/media pages, Contact Us, and Board & Staff.
 
 ## Discovery method and canonical scope
 
@@ -42,7 +42,7 @@ The inventory combines the production Yoast sitemap index, WordPress core sitema
 | `/live-here-love-here-lake/` | Live Here Love Here Lake | WordPress page; partnership campaign | Header Get Involved; footer Corporate Partnership | Membership/partnership campaign | Unique branded layout; its tiered directory is not interchangeable with Sponsors | Branded hero, price banner, benefits intro/cards, tiered business directory, closing split story | Native hosted MP4; frequently changing tiered business roster | HTML, heading, text editor, video plus global widgets | Typeform partnership intake, hosted MP4, YouTube story link, 25+ business destinations | Very high | **SPECIAL CASE** |
 | `/we-need-trailers/` | We Need Trailers | WordPress page; campaign/lead form | Header Get Involved; footer Donate Trailer; homepage giving CTA currently has a broken legacy alias | Trailer campaign | Unique campaign layout; can reuse general CTA/card/gallery primitives | Campaign hero and fact pills, split intro/impact card, three-step process, trailer lead form, gallery, final image CTA | One inline POST form with name/phone/email/type/message; production action is `#` and no submission handler is present | Primarily HTML plus global widgets | Form implementation decision required; Kindful; standard hover states | Very high | **DYNAMIC** |
 | `/contact-us/` | Contact Us | WordPress page; contact/conversion | Header Contact Us; footer Contact | Contact | Unique arrangement with reusable gallery/CTA/card primitives | Contact hero, phone/email/location split with PlanStreet application card, three action cards, impact gallery, image CTA | No contact form or map; every conversion is a semantic link to an external service or internal route | Primarily custom HTML plus global widgets | PlanStreet public form, Typeform, Kindful; telephone and email URI actions | Medium | **COMPLETE** |
-| `/about-us/` | Board & Staff | WordPress page; people directory | Header Board & Staff; footer Quick Links | People directory | Unique people grids; reuses global image hero and closing CTA conventions | Image hero, founders, staff grid, board grid, image CTA | Staff/board roster is manually maintained in Elementor HTML | Primarily HTML plus global widgets | Typeform volunteer, Kindful; person-card hover only | Medium-high | **READY** |
+| Production `/about-us/` → Next `/board-staff/` | Board & Staff | WordPress page; people directory | Header Board & Staff; footer Quick Links | People directory | Unique people grids; reuses global image hero and closing CTA conventions | Image hero, founders, staff grid, board grid, image CTA | Staff/board roster is manually maintained in Elementor HTML | Primarily HTML plus global widgets | Typeform volunteer, Kindful; static person cards | Medium-high | **COMPLETE** |
 | `/terms-conditions/` | Terms & Conditions | WordPress page; legal/standard content | Footer lower legal link redirects through `/terms` | Legal content | Unique legacy Elementor layout | Breadcrumb title hero, long-form legal copy, footer | Static page content | Heading, icon list, text editor plus global widgets | No page-specific service; breadcrumb is present | Low | **READY** |
 
 ## Excluded and non-canonical discoveries
@@ -74,7 +74,7 @@ There are **10 structural page families** across the 14 canonical URLs. Only the
 | Membership/partnership campaign | `/live-here-love-here-lake/` | Unique brand palette, video, benefits, three sponsorship tiers, and story close | Page-specific composition; logo tiles may share only a primitive with Sponsors. |
 | Trailer campaign | `/we-need-trailers/` | Unique campaign facts, process, and lead form | Page-specific composition; require form decision before completion. |
 | Contact | `/contact-us/` | Unique contact/action-card arrangement | Page-specific composition using shared cards, gallery, and CTA band where measurements match. |
-| People directory | `/about-us/` | Founder/staff/board grids | Dedicated people-grid family components and CMS-ready data shape. |
+| People directory | Production `/about-us/`; Next `/board-staff/` | Founder/staff/board grids | Dedicated people-grid family components and CMS-ready data shape. |
 | Legal content | `/terms-conditions/` | Legacy breadcrumb hero and long-form prose | Small legal layout; do not force it into the newer custom hero system. |
 
 ## Section-pattern inventory
@@ -201,7 +201,7 @@ The order maximizes verified component coverage while postponing service-coupled
 5. **News & Media — COMPLETE** — established the editorial primitives and CMS-ready external press-card data shape.
 6. **Testimonials — COMPLETE** — validated the editorial shell and added accessible click-to-load video cards without merging them with press cards.
 7. **Contact Us — COMPLETE** — established the link-based contact/action architecture and documented that production has no contact-message form backend.
-8. **Board & Staff** — add people-directory cards and a future WordPress-managed data model.
+8. **Board & Staff — COMPLETE** — established the people-directory cards and a future WordPress-managed data shape while mapping the production `/about-us/` source to the approved Next `/board-staff/` route.
 9. **Partners & Sponsors** — add the reusable logo tile and flat sponsor wall after general card primitives are stable.
 10. **Live Here Love Here Lake** — build the branded tiered directory and native-video special case using the proven logo/media primitives.
 11. **We Need Trailers** — build the campaign/process/gallery and stop at the form boundary until submission ownership is approved.
@@ -409,6 +409,35 @@ Breakpoint-adjacent comparisons pass at 1101/1099px and 701/699px. Production an
 All 16 applicable interaction checks pass: sticky header, Programs dropdown, keyboard focus, non-wrapping desktop navigation at 1440/1181/1025px, action-card hover lift, mobile navigation open/close, mobile section containment, floating donation control, complete link destinations, no-form/no-map contract, focusable phone/email links, exact PlanStreet/Typeform/Kindful/internal-link contracts, and one semantic page heading. Required-field validation, submission, success, failure, and spam checks are correctly marked not applicable; no message delivery was attempted or claimed.
 
 Regression QA reproduces the accepted homepage results (4712/4712, 5828/5829, 6108/6108, 8176/8175px), News & Media results (4672/4672, 5189/5189, 5488/5488, 8398/8397px), and Testimonials results (3116/3115, 3460/3460, 3433/3434, 4614/4613px). No accepted route, shared component, global style, header, or footer changed.
+
+## Milestone 10 — Board & Staff implementation and parity QA
+
+`/board-staff/` is implemented in the existing App Router architecture with the accepted `SiteHeader`, `SiteFooter`, floating donation control, and global focus treatment. WordPress canonically serves this content at `/about-us/`; production `/board-staff/` returns 404. The approved Next route is `/board-staff/`, so the route-aware visual utility now accepts `VISUAL_QA_PRODUCTION_ROUTE=/about-us/` to compare the correct rendered source without falsifying the production URL. The local header and footer Board & Staff destinations now point to the implemented Next route; their geometry and styling are unchanged.
+
+The people architecture is intentionally small and composable:
+
+- `PeopleHero` preserves the production Care Coach image hero, overlay, 390px desktop/340px mobile geometry, eyebrow, title, and intro.
+- `PersonCard` is shared because founders, staff, and board members use the same portrait/content shell. Layout containers own the narrow production variants instead of a condition-heavy card API.
+- `StaffSection` owns the centered two-founder row followed by the four-person staff grid.
+- `BoardSection` owns the separate board background, five/three/one-column grid, and optional organization line.
+- `PeopleCta` preserves the production support/volunteer CTA and reuses the accepted sitewide footer after it.
+
+Staff and board cards are not completely identical in content. Founders use 260px desktop cards, larger name/role type, and a centered row that stacks below 900px. Staff uses fixed 240px cards in four, two, then one column. Board uses the common 240px card in five, three, then one column and may add a red uppercase organization line; emeritus members have no organization line. Production cards are static, with no profile, biography, email, social, modal, or card-link behavior, so none was invented.
+
+All 17 exact production portrait thumbnails were preserved under `public/images/people/` with their original 200×300 files, `unoptimized` image delivery, top-center focal treatment, and factual name alt text. The exact 768×576 production hero was also preserved. Hash-based deduplication found that the production `new-home-banner.jpg` CTA is byte-identical to accepted `public/images/give-banner.jpg`, so the existing asset is reused rather than duplicated. No portrait was substituted, generated, recompressed, or silently reassigned.
+
+| Viewport | Status | Production / local height | Rendered comparison | Remaining difference |
+| --- | --- | --- | --- | --- |
+| 1440px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 4601 / 4601px | 1.505% amplified changed-pixel rate; 126px header, hero, founders, four-person staff row, five-column board grid, portrait crops, CTA, and footer align. | Localized browser/font antialiasing and accepted code-native global icon shapes. |
+| 1024px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 5460 / 5460px | 2.010% changed-pixel rate; tablet header, two-column staff, three-column board, title wrapping, CTA, and footer align. | Localized antialiasing/global-icon differences only. |
+| 768px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 5485 / 5485px | 2.220% changed-pixel rate; tablet header, stacked founders, two-column staff, three-column board, exact crops, and cumulative rhythm align. | Localized antialiasing/global-icon differences only. |
+| 390px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 9198 / 9197px | 2.208% changed-pixel rate; mobile hero/title, 17 single-column cards, copy wrapping, CTA, and footer align. | One-pixel aggregate height difference plus localized antialiasing/global-icon differences. |
+
+Breakpoint-adjacent comparison passes at 1101/1100px, 901/900px, and 701/700px, matching the source's three distinct grid transitions. The 1100px boundary changes staff from four to two columns and board from five to three; 900px stacks founders; 700px changes staff and board to one column and applies the 260px mobile portrait crop. The source's later 900px Elementor style block intentionally overrides its earlier 700px founder gap, and the local cascade mirrors that order. No intermediate clipping, overflow, card collision, or unintended name/title wrap was found. At 900px all page-body section geometry is exact; the small aggregate height difference is confined to the accepted responsive footer baseline.
+
+All 15 applicable interaction/accessibility checks pass: sticky header, Programs dropdown, visible keyboard focus, non-wrapping desktop navigation at 1440/1181/1025px, static person-card behavior, 17-card mobile containment, mobile menu open/close, floating donation control, complete link destinations, 17 factual portraits with non-empty alt text, no invented profile links, exact Kindful/Typeform CTA destinations, and semantic page/section headings.
+
+Regression QA reproduces the accepted homepage results (4712/4712, 5828/5829, 6108/6108, 8176/8175px) and Contact Us results (4477/4477, 5554/5554, 5594/5594, 6810/6809px). Only the Board & Staff header/footer destination changed from the unmigrated WordPress path to the completed Next route; no accepted visual measurement, global style, header geometry, or footer geometry regressed.
 
 ## Visual QA requirement for implementation milestones
 

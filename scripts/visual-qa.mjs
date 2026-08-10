@@ -6,9 +6,11 @@ import sharp from "sharp";
 
 const routeArgument = process.argv[2] ?? "/";
 const route = `/${routeArgument.replace(/^\/+|\/+$/g, "")}${routeArgument === "/" ? "" : "/"}`;
+const productionRouteArgument = process.env.VISUAL_QA_PRODUCTION_ROUTE ?? route;
+const productionRoute = `/${productionRouteArgument.replace(/^\/+|\/+$/g, "")}${productionRouteArgument === "/" ? "" : "/"}`;
 const productionBaseUrl = process.env.VISUAL_QA_PRODUCTION_URL ?? "https://www.findfeedrestore.com/";
 const localBaseUrl = process.env.VISUAL_QA_LOCAL_URL ?? "http://localhost:3002/";
-const productionUrl = new URL(route, productionBaseUrl).href;
+const productionUrl = new URL(productionRoute, productionBaseUrl).href;
 const localUrl = new URL(route, localBaseUrl).href;
 const routeKey = route === "/" ? null : route.replaceAll("/", "");
 const outputDirectory = path.resolve(

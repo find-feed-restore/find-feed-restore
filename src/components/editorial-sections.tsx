@@ -66,6 +66,10 @@ export function EditorialHeading({ eyebrow, title, description, id }: EditorialH
   );
 }
 
+export function EditorialContainer({ children }: { children: React.ReactNode }) {
+  return <div className={styles.inner}>{children}</div>;
+}
+
 function NewsCard({ item }: { item: NewsItem }) {
   return (
     <article className={`${styles.newsCard} ${item.featured ? styles.featured : ""}`}>
@@ -91,7 +95,7 @@ function NewsCard({ item }: { item: NewsItem }) {
 export function NewsGrid({ items }: { items: NewsItem[] }) {
   return (
     <section className={styles.newsSection} aria-labelledby="news-press-title">
-      <div className={styles.inner}>
+      <EditorialContainer>
         <EditorialHeading
           eyebrow="In The News"
           title="News & Press"
@@ -103,12 +107,12 @@ export function NewsGrid({ items }: { items: NewsItem[] }) {
             <NewsCard item={item} key={item.href} />
           ))}
         </div>
-      </div>
+      </EditorialContainer>
     </section>
   );
 }
 
-export function EditorialCta() {
+export function EditorialCta({ contactHref = "mailto:info@findfeedrestore.com" }: { contactHref?: string }) {
   return (
     <section className={styles.cta} aria-labelledby="editorial-cta-title">
       <div className={styles.ctaInner}>
@@ -119,7 +123,7 @@ export function EditorialCta() {
           Florida.
         </p>
         <div className={styles.actions}>
-          <a className={styles.button} href="mailto:info@findfeedrestore.com">
+          <a className={styles.button} href={contactHref}>
             Contact Us
           </a>
           <a

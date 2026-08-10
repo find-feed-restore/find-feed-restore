@@ -162,6 +162,19 @@ async function main() {
         { restingTransform, hoveredTransform },
       );
     }
+    if (route === "/testimonials/") {
+      await desktop.setViewportSize({ width: 1440, height: 900 });
+      const firstVideoCard = desktop.locator("main article").first();
+      const restingTransform = await firstVideoCard.evaluate((element) => getComputedStyle(element).transform);
+      await firstVideoCard.hover();
+      await desktop.waitForTimeout(350);
+      const hoveredTransform = await firstVideoCard.evaluate((element) => getComputedStyle(element).transform);
+      check(
+        "Testimonial card hover lift",
+        restingTransform === "none" && hoveredTransform !== "none",
+        { restingTransform, hoveredTransform },
+      );
+    }
     await desktopContext.close();
 
     const mobileContext = await browser.newContext({ viewport: { width: 390, height: 900 } });
@@ -176,6 +189,20 @@ async function main() {
           Math.round(mobileMediaRect?.height ?? 0) === 260 &&
           Math.round((mobileMediaRect?.x ?? 0) + (mobileMediaRect?.width ?? 0)) <= 390,
         mobileMediaRect,
+      );
+    }
+    if (route === "/testimonials/") {
+      const mobileCards = await mobile.locator("main article").evaluateAll((cards) =>
+        cards.map((card) => {
+          const bounds = card.getBoundingClientRect();
+          return { x: bounds.x, width: bounds.width, right: bounds.right };
+        }),
+      );
+      check(
+        "Testimonial mobile cards do not overflow",
+        mobileCards.length === 3 &&
+          mobileCards.every((card) => Math.round(card.x) === 18 && Math.round(card.right) === 372),
+        mobileCards,
       );
     }
     const menuToggle = mobile.locator('button[aria-controls="mobile-site-navigation"]');
@@ -272,6 +299,111 @@ async function main() {
         "News semantic heading",
         (await reduced
           .getByRole("heading", { level: 1, name: "Stories, Press & Community Impact" })
+          .count()) === 1,
+        await reduced.locator("main h1").allTextContents(),
+      );
+    }
+
+    if (route === "/testimonials/") {
+      const videoButtons = reduced.locator('main button[data-youtube-id]');
+      const buttonContracts = await videoButtons.evaluateAll((buttons) =>
+        buttons.map((button) => ({
+          id: button.getAttribute("data-youtube-id"),
+          start: button.getAttribute("data-start"),
+          label: button.getAttribute("aria-label"),
+        })),
+      );
+      check(
+        "Testimonial thumbnail contracts",
+        JSON.stringify(buttonContracts) ===
+          JSON.stringify([
+            { id: "69VFG8OXVAs", start: null, label: "Play Find, Feed & Restore Is Changing Lives" },
+            { id: "3OEgOEgOsSA", start: null, label: "Play Community Support In Action" },
+            { id: "C4Gta9eC0Ho", start: "95", label: "Play Families Moving From Homeless To Hopeful" },
+          ]),
+        buttonContracts,
+      );
+
+      const firstButton = videoButtons.first();
+      const initialMediaRect = await firstButton.boundingBox();
+      await firstButton.focus();
+      const buttonFocused = await firstButton.evaluate((element) => document.activeElement === element);
+      await firstButton.press("Enter");
+      const testimonialFrame = reduced.locator('main iframe[title="Play Find, Feed & Restore Is Changing Lives"]');
+      await testimonialFrame.waitFor({ state: "visible" });
+      const activeMediaRect = await testimonialFrame.boundingBox();
+      const frameContract = {
+        src: await testimonialFrame.getAttribute("src"),
+        allow: await testimonialFrame.getAttribute("allow"),
+        allowFullscreen: await testimonialFrame.getAttribute("allowfullscreen"),
+        articleFrames: await reduced.locator("main article").first().locator("iframe").count(),
+      };
+      check(
+        "Testimonial keyboard activation and in-card iframe geometry",
+        buttonFocused &&
+          Math.abs((initialMediaRect?.width ?? 0) - (activeMediaRect?.width ?? 0)) < 1 &&
+          Math.abs((initialMediaRect?.height ?? 0) - (activeMediaRect?.height ?? 0)) < 1 &&
+          frameContract.articleFrames === 1,
+        { buttonFocused, initialMediaRect, activeMediaRect, frameContract },
+      );
+      check(
+        "Testimonial YouTube and fullscreen contract",
+        frameContract.src === "https://www.youtube.com/embed/69VFG8OXVAs?autoplay=1&rel=0" &&
+          frameContract.allow ===
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" &&
+          frameContract.allowFullscreen !== null,
+        frameContract,
+      );
+
+      await reduced.waitForTimeout(3500);
+      const testimonialProviderFrame = reduced.frames().find((frame) =>
+        frame.url().includes("youtube.com/embed/69VFG8OXVAs"),
+      );
+      let testimonialPlayback = { providerLoaded: false, playing: false, paused: false };
+      if (testimonialProviderFrame) {
+        testimonialPlayback.providerLoaded = true;
+        const providerVideo = testimonialProviderFrame.locator("video").first();
+        testimonialPlayback.playing = await providerVideo
+          .evaluate((video) => !video.paused && video.currentTime > 0)
+          .catch(() => false);
+        if (!testimonialPlayback.playing) {
+          const providerPlayButton = testimonialProviderFrame
+            .getByRole("button", { name: "Play video" })
+            .first();
+          if (await providerPlayButton.isVisible().catch(() => false)) {
+            await providerPlayButton.click({ force: true }).catch(() => undefined);
+          }
+          await providerVideo.evaluate((video) => void video.play()).catch(() => undefined);
+          await reduced.waitForTimeout(500);
+          testimonialPlayback.playing = await providerVideo
+            .evaluate((video) => !video.paused)
+            .catch(() => false);
+        }
+        await providerVideo.evaluate((video) => video.pause()).catch(() => undefined);
+        await reduced.waitForTimeout(300);
+        testimonialPlayback.paused = await providerVideo
+          .evaluate((video) => video.paused)
+          .catch(() => false);
+      }
+      check(
+        "Testimonial provider play and pause",
+        testimonialPlayback.providerLoaded && testimonialPlayback.playing && testimonialPlayback.paused,
+        testimonialPlayback,
+      );
+
+      const testimonialHrefs = await reduced.locator("main a").evaluateAll((links) =>
+        links.map((link) => link.getAttribute("href")),
+      );
+      check(
+        "Testimonial CTA destinations",
+        testimonialHrefs.includes("/contact-us/") &&
+          testimonialHrefs.includes("https://findfeedrestore-bloom.kindful.com/"),
+        testimonialHrefs,
+      );
+      check(
+        "Testimonial semantic heading",
+        (await reduced
+          .getByRole("heading", { level: 1, name: "Lives Changed. Communities Strengthened." })
           .count()) === 1,
         await reduced.locator("main h1").allTextContents(),
       );

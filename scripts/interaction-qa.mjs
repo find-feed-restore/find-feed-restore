@@ -175,6 +175,23 @@ async function main() {
         { restingTransform, hoveredTransform },
       );
     }
+    if (route === "/contact-us/") {
+      await desktop.setViewportSize({ width: 1440, height: 900 });
+      const firstConnectionCard = desktop.locator("main article").nth(1);
+      const restingTransform = await firstConnectionCard.evaluate(
+        (element) => getComputedStyle(element).transform,
+      );
+      await firstConnectionCard.hover();
+      await desktop.waitForTimeout(350);
+      const hoveredTransform = await firstConnectionCard.evaluate(
+        (element) => getComputedStyle(element).transform,
+      );
+      check(
+        "Contact action-card hover lift",
+        restingTransform === "none" && hoveredTransform !== "none",
+        { restingTransform, hoveredTransform },
+      );
+    }
     await desktopContext.close();
 
     const mobileContext = await browser.newContext({ viewport: { width: 390, height: 900 } });
@@ -203,6 +220,20 @@ async function main() {
         mobileCards.length === 3 &&
           mobileCards.every((card) => Math.round(card.x) === 18 && Math.round(card.right) === 372),
         mobileCards,
+      );
+    }
+    if (route === "/contact-us/") {
+      const mobileSections = await mobile.locator("main > section").evaluateAll((sections) =>
+        sections.map((section) => {
+          const bounds = section.getBoundingClientRect();
+          return { x: bounds.x, width: bounds.width, right: bounds.right };
+        }),
+      );
+      check(
+        "Contact mobile sections do not overflow",
+        mobileSections.length === 5 &&
+          mobileSections.every((section) => Math.round(section.x) === 0 && Math.round(section.right) === 390),
+        mobileSections,
       );
     }
     const menuToggle = mobile.locator('button[aria-controls="mobile-site-navigation"]');
@@ -405,6 +436,55 @@ async function main() {
         (await reduced
           .getByRole("heading", { level: 1, name: "Lives Changed. Communities Strengthened." })
           .count()) === 1,
+        await reduced.locator("main h1").allTextContents(),
+      );
+    }
+
+    if (route === "/contact-us/") {
+      const formContract = {
+        forms: await reduced.locator("main form").count(),
+        fields: await reduced.locator("main input, main textarea, main select").count(),
+        submitControls: await reduced.locator('main button[type="submit"], main input[type="submit"]').count(),
+        maps: await reduced.locator("main iframe").count(),
+      };
+      check(
+        "Contact production has no form or map backend",
+        Object.values(formContract).every((count) => count === 0),
+        formContract,
+      );
+
+      const contactLinks = await reduced.locator("main a").evaluateAll((links) =>
+        links.map((link) => ({
+          text: link.textContent.trim(),
+          href: link.getAttribute("href"),
+          target: link.getAttribute("target"),
+          rel: link.getAttribute("rel"),
+          tabIndex: link.tabIndex,
+        })),
+      );
+      const linkByHref = Object.fromEntries(contactLinks.map((link) => [link.href, link]));
+      check(
+        "Contact phone and email links",
+        linkByHref["tel:18662362983"]?.tabIndex === 0 &&
+          linkByHref["mailto:info@findfeedrestore.com"]?.tabIndex === 0,
+        {
+          phone: linkByHref["tel:18662362983"],
+          email: linkByHref["mailto:info@findfeedrestore.com"],
+        },
+      );
+      check(
+        "Contact external service contracts",
+        linkByHref["https://app.planstreetinc.com/findfeedrestore/PublicForm"]?.target === null &&
+          linkByHref["https://greatthings.typeform.com/to/V1SK6LFX"]?.target === "_blank" &&
+          linkByHref["https://greatthings.typeform.com/to/V1SK6LFX"]?.rel === "noopener" &&
+          linkByHref["https://findfeedrestore-bloom.kindful.com/"]?.target === "_blank" &&
+          linkByHref["https://findfeedrestore-bloom.kindful.com/"]?.rel === "noopener" &&
+          linkByHref["/live-here-love-here-lake/"]?.target === null,
+        contactLinks,
+      );
+      check(
+        "Contact semantic heading",
+        (await reduced.getByRole("heading", { level: 1, name: "Contact Us" }).count()) === 1,
         await reduced.locator("main h1").allTextContents(),
       );
     }

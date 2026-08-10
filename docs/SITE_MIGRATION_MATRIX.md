@@ -41,7 +41,7 @@ The inventory combines the production Yoast sitemap index, WordPress core sitema
 | `/sponsors/` | Partners & Sponsors | WordPress page; partner directory | Header Get Involved | Sponsor directory | Unique page shell; logo-tile primitive may be reusable | Image hero, split purpose intro, sponsor logo wall | Sponsor roster/logos/links are manually embedded | Primarily HTML plus global widgets | Eighteen external sponsor sites; logo hover/click | Medium | **READY** |
 | `/live-here-love-here-lake/` | Live Here Love Here Lake | WordPress page; partnership campaign | Header Get Involved; footer Corporate Partnership | Membership/partnership campaign | Unique branded layout; its tiered directory is not interchangeable with Sponsors | Branded hero, price banner, benefits intro/cards, tiered business directory, closing split story | Native hosted MP4; frequently changing tiered business roster | HTML, heading, text editor, video plus global widgets | Typeform partnership intake, hosted MP4, YouTube story link, 25+ business destinations | Very high | **SPECIAL CASE** |
 | `/we-need-trailers/` | We Need Trailers | WordPress page; campaign/lead form | Header Get Involved; footer Donate Trailer; homepage giving CTA currently has a broken legacy alias | Trailer campaign | Unique campaign layout; can reuse general CTA/card/gallery primitives | Campaign hero and fact pills, split intro/impact card, three-step process, trailer lead form, gallery, final image CTA | One inline POST form with name/phone/email/type/message; production action is `#` and no submission handler is present | Primarily HTML plus global widgets | Form implementation decision required; Kindful; standard hover states | Very high | **DYNAMIC** |
-| `/contact-us/` | Contact Us | WordPress page; contact/conversion | Header Contact Us; footer Contact | Contact | Unique arrangement with reusable gallery/CTA/card primitives | Contact hero, address/contact split with application card, three action cards, impact gallery, image CTA | No local form; needs-assistance and volunteer actions leave the site | Primarily HTML plus global widgets | PlanStreet public form, Typeform, Kindful | Medium | **READY** |
+| `/contact-us/` | Contact Us | WordPress page; contact/conversion | Header Contact Us; footer Contact | Contact | Unique arrangement with reusable gallery/CTA/card primitives | Contact hero, phone/email/location split with PlanStreet application card, three action cards, impact gallery, image CTA | No contact form or map; every conversion is a semantic link to an external service or internal route | Primarily custom HTML plus global widgets | PlanStreet public form, Typeform, Kindful; telephone and email URI actions | Medium | **COMPLETE** |
 | `/about-us/` | Board & Staff | WordPress page; people directory | Header Board & Staff; footer Quick Links | People directory | Unique people grids; reuses global image hero and closing CTA conventions | Image hero, founders, staff grid, board grid, image CTA | Staff/board roster is manually maintained in Elementor HTML | Primarily HTML plus global widgets | Typeform volunteer, Kindful; person-card hover only | Medium-high | **READY** |
 | `/terms-conditions/` | Terms & Conditions | WordPress page; legal/standard content | Footer lower legal link redirects through `/terms` | Legal content | Unique legacy Elementor layout | Breadcrumb title hero, long-form legal copy, footer | Static page content | Heading, icon list, text editor plus global widgets | No page-specific service; breadcrumb is present | Low | **READY** |
 
@@ -200,7 +200,7 @@ The order maximizes verified component coverage while postponing service-coupled
 4. **Care Coach — COMPLETE** — validated the explicit YouTube/media variant without creating a separate page system.
 5. **News & Media — COMPLETE** — established the editorial primitives and CMS-ready external press-card data shape.
 6. **Testimonials — COMPLETE** — validated the editorial shell and added accessible click-to-load video cards without merging them with press cards.
-7. **Contact Us** — exercise the shared hero/card/gallery/CTA primitives in a different composition while preserving external intake flows.
+7. **Contact Us — COMPLETE** — established the link-based contact/action architecture and documented that production has no contact-message form backend.
 8. **Board & Staff** — add people-directory cards and a future WordPress-managed data model.
 9. **Partners & Sponsors** — add the reusable logo tile and flat sponsor wall after general card primitives are stable.
 10. **Live Here Love Here Lake** — build the branded tiered directory and native-video special case using the proven logo/media primitives.
@@ -377,6 +377,38 @@ All 18 interaction checks pass: sticky desktop header, Programs dropdown, global
 News & Media regression reproduces its accepted results exactly: 4672/4672, 5189/5189, 5488/5488, and 8398/8397px, with all 14 News interactions passing and its default mailto CTA unchanged. Homepage regression also reproduces 4712/4712, 5828/5829, 6108/6108, and 8176/8175px. No global component, accepted header/footer geometry, or other accepted route changed.
 
 The editorial/media family is now validated at the shared-shell level. Hero, intro, heading, container, and CTA are genuinely shared; the press-card grid and click-to-load testimonial video grid remain intentional page-specific compositions. A single generic editorial-page or media-card template is neither necessary nor supported by the production evidence.
+
+## Milestone 9 — Contact Us implementation and parity QA
+
+`/contact-us/` is implemented in the existing App Router architecture with the accepted `SiteHeader`, `SiteFooter`, floating donation control, and global focus treatment. Its five source sections are preserved in order: Contact hero, contact-details/application split, Ways to Connect cards, impact gallery, and closing housing-support CTA.
+
+The production backend audit found **no contact form**. The rendered page and its WordPress REST HTML contain no `<form>`, `<input>`, `<textarea>`, `<select>`, submit control, map iframe, validation messages, success/error state, spam protection, form action, or form-provider widget. The source comment `CONTACT INTRO + FORM` and unused `.ffr-contact-form-*` CSS do not represent rendered functionality; the right column is a static application card linking to PlanStreet. Therefore, the local page deliberately contains no invented submission backend, server action, email delivery, database, CRM, CAPTCHA, or success claim.
+
+The exact production action contract is:
+
+- `tel:18662362983` for `(866) 236-2983`.
+- `mailto:info@findfeedrestore.com` for the published email address.
+- PlanStreet `https://app.planstreetinc.com/findfeedrestore/PublicForm` for family assistance, preserving the same-tab source behavior.
+- Typeform `https://greatthings.typeform.com/to/V1SK6LFX` for volunteering, opening with `_blank`/`noopener`.
+- Kindful/Bloom `https://findfeedrestore-bloom.kindful.com/` for donation, opening with `_blank`/`noopener`.
+- `/live-here-love-here-lake/` for corporate partnership.
+
+The source-supported contact primitives are `ContactHero`, `ContactDetails`, its small `AssistanceCard`, `ContactWays`, `ContactGallery`, and `ContactCta`. They are composable section components rather than a generalized forms framework. Phone and email use semantic, keyboard-focusable anchors; decorative symbol glyphs are hidden from assistive technology; gallery backgrounds expose concise image labels. There are no field labels, required states, or validation semantics to migrate because no production controls exist.
+
+Asset handling was hash-based. The exact hero is already local as `public/images/programs/affordable-housing/hero.jpg`; the application photograph is byte-identical to `public/images/programs/affordable-housing/support-family.jpg`; and the Care Coach gallery tile/CTA is byte-identical to `public/images/programs/care-coach/care-coach.jpg`. These are reused without duplicate files. Four unique factual gallery photographs were preserved under `public/images/contact/`. No image was generated or substituted; production's repeated hero/application/CTA imagery is preserved because those are documentary/source-defining placements rather than redundant downloads.
+
+| Viewport | Status | Production / local height | Rendered comparison | Remaining difference |
+| --- | --- | --- | --- | --- |
+| 1440px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 4477 / 4477px | 1.823% amplified changed-pixel rate; header, 520px hero, contact split, application crop, three cards, gallery mosaic, CTA, and footer align. | Localized browser/font antialiasing and accepted code-native global icon shapes. |
+| 1024px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 5554 / 5554px | 2.157% changed-pixel rate; tablet header, stacked details/card/actions, two-column gallery, CTA, and footer align. | Localized antialiasing/global-icon differences only. |
+| 768px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 5594 / 5594px | 2.516% changed-pixel rate; tablet header, stacked content, gallery crops, factual links, CTA, and footer align. | Localized antialiasing/global-icon differences only. |
+| 390px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 6810 / 6809px | 3.508% changed-pixel rate; mobile hero, contact rows, application card, single-column actions/gallery, CTA, and footer align. | One-pixel aggregate height difference plus localized antialiasing/global-icon differences. |
+
+Breakpoint-adjacent comparisons pass at 1101/1099px and 701/699px. Production and local both change the contact split/action cards and gallery mosaic at 1100px, then adopt mobile heading, padding, contact-row, card, gallery, and full-width-button geometry below 700px. Aggregate differences remain one to two pixels with no clipped email address, card, gallery tile, CTA, or horizontal overflow.
+
+All 16 applicable interaction checks pass: sticky header, Programs dropdown, keyboard focus, non-wrapping desktop navigation at 1440/1181/1025px, action-card hover lift, mobile navigation open/close, mobile section containment, floating donation control, complete link destinations, no-form/no-map contract, focusable phone/email links, exact PlanStreet/Typeform/Kindful/internal-link contracts, and one semantic page heading. Required-field validation, submission, success, failure, and spam checks are correctly marked not applicable; no message delivery was attempted or claimed.
+
+Regression QA reproduces the accepted homepage results (4712/4712, 5828/5829, 6108/6108, 8176/8175px), News & Media results (4672/4672, 5189/5189, 5488/5488, 8398/8397px), and Testimonials results (3116/3115, 3460/3460, 3433/3434, 4614/4613px). No accepted route, shared component, global style, header, or footer changed.
 
 ## Visual QA requirement for implementation milestones
 

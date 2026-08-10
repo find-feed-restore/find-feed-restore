@@ -35,7 +35,7 @@ The inventory combines the production Yoast sitemap index, WordPress core sitema
 | `/housing-first/` | Housing First | WordPress page; program detail | Header Programs; footer Our Programs; homepage program cards | Program detail | Same family structure as Affordable Housing | Program hero, split intro/logo, application card, story gallery, image CTA, Other Programs cards | External needs-assistance application; no local form | Primarily HTML plus global widgets | PlanStreet public form, Kindful; card/button hover | Medium | **COMPLETE** |
 | `/homelessness-avoidance/` | Homelessness Avoidance | WordPress page; program detail | Header Programs; footer Our Programs; homepage program cards | Program detail | Same family structure as Affordable Housing | Program hero, split intro/logo, application card, story gallery, image CTA, Other Programs cards | External needs-assistance application; no local form | Primarily HTML plus global widgets | PlanStreet public form, Kindful; card/button hover | Medium | **COMPLETE** |
 | `/care-coach-mobile-unit/` | Care Coach | WordPress page; program detail | Header Programs; footer Our Programs; homepage program cards | Program detail | Program-family variant with an embedded video and different gallery proportions | Program hero, split intro/logo, application card, story gallery, YouTube video, image CTA, Other Programs cards | YouTube iframe; external application | Primarily HTML plus global widgets | YouTube embed, Typeform application, Kindful | Medium-high | **COMPLETE** |
-| `/news-media/` | News & Media | WordPress page; editorial/media | Header Hope In Action; footer News redirects here | Editorial/media | Shares hero, intro, and closing CTA shell with Testimonials; unique news-card body | Editorial hero, split intro, featured press card, press-card grid, image CTA | Press items are manually embedded in page HTML, not WordPress posts | Primarily HTML plus global widgets | Eleven external publisher links; Kindful; responsive card reflow | Medium | **READY** |
+| `/news-media/` | News & Media | WordPress page; editorial/media | Header Hope In Action; footer News redirects here | Editorial/media | Shares hero, intro, section heading, and closing CTA with Testimonials; unique news-card body | Editorial hero, split intro, featured press card, press-card grid, image CTA | Press items are manually embedded in page HTML, not WordPress posts | Primarily HTML plus global widgets | Eleven external publisher links; mailto media inquiry; Kindful; responsive card reflow | Medium | **COMPLETE** |
 | `/testimonials/` | Testimonials | WordPress page; editorial/media | Header Hope In Action | Editorial/media | Shares editorial shell with News; unique video-card body | Editorial hero, split intro, three featured video cards, image CTA | Client script replaces clicked thumbnail with autoplay YouTube iframe | Primarily HTML plus global widgets | YouTube thumbnail/CDN and lazy embeds; Kindful | Medium-high | **DYNAMIC** |
 | `/hope-in-action/` | Social Media (display hero: Hope In Action) | WordPress page; live social feed | Header Hope In Action; footer Quick Links | Social feed | Unique feed page; reuses global hero/CTA language only | Image hero, social profile buttons, live feed, image CTA | Live Juicer feed and Load More behavior | Primarily HTML plus global widgets | `juicer.io` embed, Instagram post links, social profiles, Kindful | High | **DYNAMIC** |
 | `/sponsors/` | Partners & Sponsors | WordPress page; partner directory | Header Get Involved | Sponsor directory | Unique page shell; logo-tile primitive may be reusable | Image hero, split purpose intro, sponsor logo wall | Sponsor roster/logos/links are manually embedded | Primarily HTML plus global widgets | Eighteen external sponsor sites; logo hover/click | Medium | **READY** |
@@ -198,7 +198,7 @@ The order maximizes verified component coverage while postponing service-coupled
 2. **Housing First — COMPLETE** — validated the family composition while preserving its larger logo, taller application image, route-owned imagery, and different copy lengths.
 3. **Homelessness Avoidance — COMPLETE** — completed the static program trio and validated both natural long-title wrap transitions without a route-specific heading implementation.
 4. **Care Coach — COMPLETE** — validated the explicit YouTube/media variant without creating a separate page system.
-5. **News & Media** — establish the editorial shell and CMS-ready external press-card data shape.
+5. **News & Media — COMPLETE** — established the editorial primitives and CMS-ready external press-card data shape.
 6. **Testimonials** — reuse the editorial shell and add accessible click-to-load video cards.
 7. **Contact Us** — exercise the shared hero/card/gallery/CTA primitives in a different composition while preserving external intake flows.
 8. **Board & Staff** — add people-directory cards and a future WordPress-managed data model.
@@ -315,6 +315,37 @@ Interaction QA passes all 17 checks: sticky header, Programs dropdown, keyboard 
 Full regression QA reproduces all accepted measurements: Affordable Housing (4096/4096, 4487/4487, 5004/5004, 6166/6164px), Housing First (3898/3898, 4443/4443, 5017/5018, 6170/6169px), Homelessness Avoidance (3981/3980, 4509/4509, 4958/4958, 6171/6169px), and the homepage (4712/4712, 5828/5829, 6108/6108, 8176/8175px). No accepted route shows a geometry regression.
 
 The four-page program family is now fully validated. Care Coach is a narrow media/data/grid variant within the same five-section architecture, not a structurally separate page family. The optional APIs remain composable and preserve unchanged defaults for the three static routes.
+
+## Milestone 7 — News & Media implementation and parity QA
+
+`/news-media/` is implemented in the existing App Router architecture with the accepted `SiteHeader`, `SiteFooter`, floating donation control, and global focus treatment. The rendered source contains four page-body sections in order: editorial hero, split editorial intro, News-specific press-card section, and media-inquiry image CTA. The accepted site footer follows unchanged and remains the single footer implementation for every route.
+
+The composable editorial primitives are:
+
+- `EditorialHero` — shared background-image hero geometry, eyebrow, display title, and description.
+- `EditorialIntro` — shared split heading/copy introduction and responsive single-column transition.
+- `EditorialHeading` — shared centered eyebrow/title/description treatment used above family-specific media grids.
+- `EditorialCta` — shared media-inquiry image CTA with mailto and Kindful actions.
+- `NewsGrid`/`NewsCard` — News-specific featured-card and press-card composition backed by route-owned structured data.
+
+Rendered comparison with `/testimonials/` confirms that Testimonials can later reuse the first four primitives. Its thumbnail-to-YouTube interaction and video-card content remain a separate family component; no Testimonials route, video component, or interaction was implemented in this milestone.
+
+No new image was added or substituted. The production hero file `new-home-banner.jpg` is byte-identical to the accepted local `public/images/give-banner.jpg`, and the production CTA file `find-feed-restore-care-coach-header.jpg` is byte-identical to `public/images/programs/care-coach/care-coach.jpg`. Both exact assets are reused. The hero reuse is intentional source behavior across News and Testimonials, so it was preserved rather than replaced. All eleven article titles, dates, publisher labels, descriptions, and external destinations match the rendered WordPress source.
+
+The press entries are currently hardcoded inside the production Elementor HTML rather than WordPress posts, a CPT, or a taxonomy. The local route models them as typed static data for this parity pass; a later CMS milestone should decide whether they become WordPress-managed press items. Runtime dependencies are limited to the eleven external publisher destinations, the `mailto:info@findfeedrestore.com` media inquiry, and Kindful/Bloom. The page has no video, iframe, form, or plugin-driven body interaction.
+
+| Viewport | Status | Production / local height | Rendered comparison | Remaining difference |
+| --- | --- | --- | --- | --- |
+| 1440px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 4672 / 4672px | 3.081% amplified changed-pixel rate; header, 520px hero, three-line intro heading, featured card, three-column grid, CTA, and footer align. | Localized browser/font antialiasing and accepted code-native global icon shapes. |
+| 1024px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 5189 / 5189px | 3.891% changed-pixel rate; tablet header, stacked intro, two-column grid, card wrapping, CTA, and footer align. | Localized antialiasing/global-icon differences only. |
+| 768px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 5488 / 5488px | 4.824% changed-pixel rate; tablet header, two-column cards, source typography, and cumulative vertical rhythm align. | Localized antialiasing/global-icon differences only. |
+| 390px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 8398 / 8397px | 5.976% changed-pixel rate; mobile hero, single-column intro/cards, full-width buttons, CTA, and footer align. | One-pixel aggregate height difference plus localized antialiasing/global-icon differences. |
+
+Breakpoint-adjacent comparisons pass at 1101/1099px and 701/699px. Production and local both transition from three press columns to two below 1100px, then to one column with mobile spacing and button geometry below 700px. Aggregate page-height differences are one pixel at each adjacent width, with no clipped cards, unexpected wrapping, overflow, or broken intermediate state.
+
+Interaction QA passes all 14 checks: sticky desktop header, Programs dropdown, keyboard focus, non-wrapping desktop navigation at 1440/1181/1025px, mobile navigation open/close, floating donation control, complete link destinations, eleven `_blank`/`noopener` publisher contracts, mailto and Kindful CTA destinations, semantic page heading, and the production `translateY(-8px)` card hover lift. Reduced-motion CSS disables transitions without removing the source layout or content.
+
+Regression QA reproduces the accepted homepage results (4712/4712, 5828/5829, 6108/6108, 8176/8175px) and Care Coach representative program-family results (4557/4557, 4482/4482, 5883/5883, 6184/6182px). Homepage interaction QA also passes. No global component or global runtime style changed, and the accepted header/footer geometry remains intact.
 
 ## Visual QA requirement for implementation milestones
 

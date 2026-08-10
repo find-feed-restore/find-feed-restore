@@ -149,6 +149,19 @@ async function main() {
       const tops = new Set(itemRects.map((item) => item.top));
       check(`desktop navigation single row at ${width}px`, tops.size === 1, itemRects);
     }
+    if (route === "/news-media/") {
+      await desktop.setViewportSize({ width: 1440, height: 900 });
+      const firstNewsCard = desktop.locator("main article").first();
+      const restingTransform = await firstNewsCard.evaluate((element) => getComputedStyle(element).transform);
+      await firstNewsCard.hover();
+      await desktop.waitForTimeout(350);
+      const hoveredTransform = await firstNewsCard.evaluate((element) => getComputedStyle(element).transform);
+      check(
+        "News card hover lift",
+        restingTransform === "none" && hoveredTransform !== "none",
+        { restingTransform, hoveredTransform },
+      );
+    }
     await desktopContext.close();
 
     const mobileContext = await browser.newContext({ viewport: { width: 390, height: 900 } });
@@ -225,6 +238,41 @@ async function main() {
       check(
         `${programPage.name} semantic heading`,
         (await reduced.getByRole("heading", { level: 1, name: programPage.name }).count()) === 1,
+        await reduced.locator("main h1").allTextContents(),
+      );
+    }
+
+    if (route === "/news-media/") {
+      const articleLinks = reduced.locator("main article a");
+      const articleLinkContracts = await articleLinks.evaluateAll((links) =>
+        links.map((link) => ({
+          href: link.getAttribute("href"),
+          target: link.getAttribute("target"),
+          rel: link.getAttribute("rel"),
+        })),
+      );
+      check(
+        "News external article links",
+        articleLinkContracts.length === 11 &&
+          articleLinkContracts.every(
+            (link) => link.href?.startsWith("https://") && link.target === "_blank" && link.rel === "noopener",
+          ),
+        articleLinkContracts,
+      );
+      const mainHrefs = await reduced.locator("main a").evaluateAll((links) =>
+        links.map((link) => link.getAttribute("href")),
+      );
+      check(
+        "News media-inquiry CTA destinations",
+        mainHrefs.includes("mailto:info@findfeedrestore.com") &&
+          mainHrefs.includes("https://findfeedrestore-bloom.kindful.com/"),
+        mainHrefs,
+      );
+      check(
+        "News semantic heading",
+        (await reduced
+          .getByRole("heading", { level: 1, name: "Stories, Press & Community Impact" })
+          .count()) === 1,
         await reduced.locator("main h1").allTextContents(),
       );
     }

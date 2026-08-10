@@ -197,6 +197,14 @@ async function collectMetrics(page) {
         loop: element.hasAttribute("loop"),
         playsInline: element.hasAttribute("playsinline"),
       })),
+      articles: Array.from(
+        document.querySelectorAll("main article, [data-elementor-type='wp-page'] article"),
+      ).map((element) => ({
+        rect: rect(element),
+        paragraph: rect(element.querySelector("p")),
+        paragraphStyle: style(element.querySelector("p")),
+        link: rect(element.querySelector("a")),
+      })),
       mainSections: Array.from(
         document.querySelectorAll("main > section, [data-elementor-type='wp-page'] .elementor-widget-html > .elementor-widget-container > section"),
       ).map((element) => rect(element)),

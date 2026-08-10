@@ -1,26 +1,108 @@
 @import "tailwindcss";
 
 :root {
+  --color-navy: #00283f;
+  --color-ink: #071b2a;
+  --color-charcoal: #252425;
+  --color-text: #6f747e;
+  --color-text-soft: #667085;
+  --color-text-muted: #6b7280;
+  --color-red: #8b0000;
+  --color-red-bright: #c40000;
+  --color-red-elementor: #ad0000;
+  --color-warm: #faf8f5;
+  --color-warm-elementor: #fbf9f5;
+  --color-header: #ececec;
+  --color-rule: #f0f0f0;
+  --color-gray: #c8c8c8;
+  --color-footer-heading: #cccccc;
+  --color-white: #ffffff;
+  --container-elementor: 1140px;
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #6f747e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-noto-sans);
+  --font-serif: var(--font-noto-serif);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+a,
+button,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid #fcbd45;
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-red);
+  color: white;
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 1000;
+  padding: 10px 14px;
+  background: white;
+  color: var(--color-navy);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-150%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

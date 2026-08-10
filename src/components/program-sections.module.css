@@ -1,0 +1,357 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 540px;
+  padding: 140px 24px;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  text-align: center;
+}
+
+.affordableHousingHero {
+  background-image:
+    linear-gradient(rgb(7 27 42 / 74%), rgb(7 27 42 / 74%)),
+    url("/images/programs/affordable-housing/hero.jpg");
+}
+
+.heroContent {
+  max-width: 920px;
+}
+
+.lightEyebrow,
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: var(--color-red);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.lightEyebrow {
+  color: rgb(255 255 255 / 82%);
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(54px, 7vw, 104px);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+}
+
+.hero p {
+  max-width: 720px;
+  margin: 28px auto 0;
+  color: rgb(255 255 255 / 82%);
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.intro {
+  padding: 110px 24px;
+  background: var(--color-warm);
+}
+
+.introInner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 72px;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.programLogo {
+  display: block;
+  width: 145px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 22px;
+}
+
+.introCopy h2,
+.sectionHeading h2,
+.supportCta h2 {
+  margin: 0;
+  color: var(--color-ink);
+  font-family: Georgia, serif;
+  font-size: clamp(42px, 4.6vw, 72px);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.introCopy p {
+  max-width: 650px;
+  margin: 22px 0 0;
+  color: var(--color-text-soft);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  margin-top: 32px;
+  padding: 0 32px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--color-red-bright) 0%, var(--color-red) 100%);
+  box-shadow: 0 18px 38px rgb(139 0 0 / 22%);
+  color: white;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  box-shadow: 0 24px 48px rgb(139 0 0 / 28%);
+  transform: translateY(-2px);
+}
+
+.applicationCard {
+  overflow: hidden;
+  border-radius: 34px;
+  background: white;
+  box-shadow: 0 28px 80px rgb(7 27 42 / 12%);
+}
+
+.applicationCard > img {
+  display: block;
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.applicationCardBody {
+  padding: 36px;
+}
+
+.applicationCard h3 {
+  margin: 0 0 8px;
+  color: var(--color-ink);
+  font-family: Georgia, serif;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.applicationCard p {
+  margin: 0;
+  color: var(--color-text-soft);
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.55;
+}
+
+.media {
+  padding: 100px 24px;
+  background: white;
+}
+
+.mediaInner,
+.otherProgramsInner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.sectionHeading {
+  max-width: 760px;
+  margin: 0 auto 54px;
+  text-align: center;
+}
+
+.sectionHeading p {
+  margin: 22px auto 0;
+  color: var(--color-text-soft);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  border-radius: 26px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.supportCta {
+  padding: 110px 24px;
+  background-image:
+    linear-gradient(rgb(7 27 42 / 78%), rgb(7 27 42 / 78%)),
+    url("/images/programs/affordable-housing/support-family.jpg");
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+
+.supportCtaInner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.supportCta h2 {
+  color: white;
+}
+
+.supportCta p {
+  max-width: 680px;
+  margin: 26px auto 0;
+  color: rgb(255 255 255 / 82%);
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.otherPrograms {
+  padding: 100px 24px;
+  background: var(--color-warm);
+}
+
+.otherProgramsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.otherProgramCard {
+  display: block;
+  min-height: 260px;
+  padding: 38px;
+  border-top: 4px solid var(--color-red);
+  border-radius: 28px;
+  background: white;
+  box-shadow: 0 22px 60px rgb(7 27 42 / 8%);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.otherProgramCard:hover,
+.otherProgramCard:focus-visible {
+  box-shadow: 0 30px 70px rgb(7 27 42 / 12%);
+  transform: translateY(-6px);
+}
+
+.otherProgramCard h3 {
+  margin: 0 0 16px;
+  color: var(--color-ink);
+  font-family: Georgia, serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.otherProgramCard p {
+  margin: 0 0 28px;
+  color: var(--color-text-soft);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.otherProgramCard strong {
+  color: var(--color-red);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+  .gallery,
+  .otherProgramsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 980px) {
+  .introInner {
+    grid-template-columns: 1fr;
+  }
+
+  .introCopy {
+    text-align: center;
+  }
+
+  .introCopy p,
+  .programLogo {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 430px;
+    padding: 100px 18px;
+  }
+
+  .hero h1,
+  .introCopy h2,
+  .sectionHeading h2,
+  .supportCta h2 {
+    font-size: 42px;
+  }
+
+  .hero p,
+  .supportCta p {
+    font-size: 17px;
+  }
+
+  .intro,
+  .media,
+  .supportCta,
+  .otherPrograms {
+    padding: 70px 18px;
+  }
+
+  .gallery,
+  .otherProgramsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .applicationCard > img,
+  .gallery img {
+    height: 230px;
+  }
+
+  .applicationCardBody,
+  .otherProgramCard {
+    padding: 30px;
+  }
+
+  .programLogo {
+    width: 125px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .otherProgramCard {
+    transition: none;
+  }
+}

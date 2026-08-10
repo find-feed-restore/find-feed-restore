@@ -23,6 +23,9 @@ type ProgramIntroProps = {
     src: string;
     alt: string;
   };
+  applicationUrl?: string;
+  logoClassName?: string;
+  applicationImageClassName?: string;
 };
 
 type StoryImage = {
@@ -37,7 +40,7 @@ type OtherProgram = {
 };
 
 const donationUrl = "https://findfeedrestore-bloom.kindful.com/";
-const applicationUrl = "https://app.planstreetinc.com/findfeedrestore/PublicForm";
+const defaultApplicationUrl = "https://app.planstreetinc.com/findfeedrestore/PublicForm";
 
 function ProgramButton({ href, children }: { href: string; children: React.ReactNode }) {
   return (
@@ -59,13 +62,22 @@ export function ProgramHero({ eyebrow, title, description, backgroundClassName }
   );
 }
 
-export function ProgramIntro({ eyebrow, title, paragraphs, logo, applicationImage }: ProgramIntroProps) {
+export function ProgramIntro({
+  eyebrow,
+  title,
+  paragraphs,
+  logo,
+  applicationImage,
+  applicationUrl = defaultApplicationUrl,
+  logoClassName,
+  applicationImageClassName,
+}: ProgramIntroProps) {
   return (
     <section className={styles.intro} aria-labelledby="program-intro-title">
       <div className={styles.introInner}>
         <div className={styles.introCopy}>
           <Image
-            className={styles.programLogo}
+            className={`${styles.programLogo} ${logoClassName ?? ""}`}
             src={logo.src}
             alt={logo.alt}
             width={logo.width}
@@ -82,6 +94,7 @@ export function ProgramIntro({ eyebrow, title, paragraphs, logo, applicationImag
 
         <article className={styles.applicationCard}>
           <Image
+            className={applicationImageClassName}
             src={applicationImage.src}
             alt={applicationImage.alt}
             width={300}
@@ -105,11 +118,18 @@ export function ProgramStoryGallery({
   title,
   description,
   images,
+  galleryClassName,
+  video,
 }: {
   eyebrow: string;
   title: string;
   description: string;
   images: StoryImage[];
+  galleryClassName?: string;
+  video?: {
+    src: string;
+    title: string;
+  };
 }) {
   return (
     <section className={styles.media} aria-labelledby="program-stories-title">
@@ -119,7 +139,7 @@ export function ProgramStoryGallery({
           <h2 id="program-stories-title">{title}</h2>
           <p>{description}</p>
         </header>
-        <div className={styles.gallery}>
+        <div className={`${styles.gallery} ${galleryClassName ?? ""}`}>
           {images.map((image) => (
             <Image
               src={image.src}
@@ -132,14 +152,30 @@ export function ProgramStoryGallery({
             />
           ))}
         </div>
+        {video ? (
+          <div className={styles.programVideo}>
+            <iframe src={video.src} title={video.title} frameBorder="0" allowFullScreen />
+          </div>
+        ) : null}
       </div>
     </section>
   );
 }
 
-export function ProgramSupportCta({ title, description }: { title: string; description: string }) {
+export function ProgramSupportCta({
+  title,
+  description,
+  backgroundClassName,
+}: {
+  title: string;
+  description: string;
+  backgroundClassName?: string;
+}) {
   return (
-    <section className={styles.supportCta} aria-labelledby="program-support-title">
+    <section
+      className={`${styles.supportCta} ${backgroundClassName ?? ""}`}
+      aria-labelledby="program-support-title"
+    >
       <div className={styles.supportCtaInner}>
         <span className={styles.lightEyebrow}>How Can You Help?</span>
         <h2 id="program-support-title">{title}</h2>
@@ -150,7 +186,13 @@ export function ProgramSupportCta({ title, description }: { title: string; descr
   );
 }
 
-export function OtherPrograms({ programs }: { programs: OtherProgram[] }) {
+export function OtherPrograms({
+  programs,
+  gridClassName,
+}: {
+  programs: OtherProgram[];
+  gridClassName?: string;
+}) {
   return (
     <section className={styles.otherPrograms} aria-labelledby="other-programs-title">
       <div className={styles.otherProgramsInner}>
@@ -158,7 +200,7 @@ export function OtherPrograms({ programs }: { programs: OtherProgram[] }) {
           <span className={styles.eyebrow}>Explore More</span>
           <h2 id="other-programs-title">Other Programs</h2>
         </header>
-        <div className={styles.otherProgramsGrid}>
+        <div className={`${styles.otherProgramsGrid} ${gridClassName ?? ""}`}>
           {programs.map((program) => (
             <Link className={styles.otherProgramCard} href={program.href} key={program.title}>
               <h3>{program.title}</h3>

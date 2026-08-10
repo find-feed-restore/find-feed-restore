@@ -12,6 +12,48 @@ const outputDirectory = path.resolve(
   process.cwd(),
   routeKey ? path.join(".visual-qa", "routes", routeKey) : ".visual-qa",
 );
+const programPageExpectations = {
+  "/affordable-housing/": {
+    name: "Affordable Housing",
+    links: [
+      "https://findfeedrestore-bloom.kindful.com/",
+      "https://app.planstreetinc.com/findfeedrestore/PublicForm",
+      "/care-coach-mobile-unit",
+      "/homelessness-avoidance",
+      "/housing-first",
+    ],
+  },
+  "/housing-first/": {
+    name: "Housing First",
+    links: [
+      "https://findfeedrestore-bloom.kindful.com/",
+      "https://app.planstreetinc.com/findfeedrestore/PublicForm",
+      "/affordable-housing",
+      "/homelessness-avoidance",
+      "/care-coach-mobile-unit",
+    ],
+  },
+  "/homelessness-avoidance/": {
+    name: "Homelessness Avoidance",
+    links: [
+      "https://findfeedrestore-bloom.kindful.com/",
+      "https://app.planstreetinc.com/findfeedrestore/PublicForm",
+      "/affordable-housing",
+      "/care-coach-mobile-unit",
+      "/housing-first",
+    ],
+  },
+  "/care-coach-mobile-unit/": {
+    name: "Care Coach",
+    links: [
+      "https://findfeedrestore-bloom.kindful.com/",
+      "https://greatthings.typeform.com/to/ZZkgIj",
+      "/affordable-housing",
+      "/homelessness-avoidance",
+      "/housing-first",
+    ],
+  },
+};
 const chromeCandidates = [
   process.env.PLAYWRIGHT_CHROME_PATH,
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
@@ -35,7 +77,11 @@ async function findChrome() {
 
 async function main() {
   await mkdir(outputDirectory, { recursive: true });
-  const browser = await chromium.launch({ executablePath: await findChrome(), headless: true });
+  const browser = await chromium.launch({
+    executablePath: await findChrome(),
+    headless: true,
+    args: ["--mute-audio"],
+  });
   const checks = [];
   const check = (name, passed, details) => checks.push({ name, passed, details });
 
@@ -71,6 +117,22 @@ async function main() {
     });
     check("keyboard focus treatment", focusOutline.outlineWidth === "3px", focusOutline);
 
+    if (route === "/care-coach-mobile-unit/") {
+      const mediaFrame = desktop.locator('iframe[title="Care Coach Video"]');
+      const mediaRect = await mediaFrame.boundingBox();
+      check(
+        "Care Coach desktop media geometry",
+        Math.round(mediaRect?.width ?? 0) === 1280 && Math.round(mediaRect?.height ?? 0) === 620,
+        mediaRect,
+      );
+      await mediaFrame.focus();
+      check(
+        "Care Coach media keyboard focus",
+        await mediaFrame.evaluate((element) => document.activeElement === element),
+        await mediaFrame.getAttribute("title"),
+      );
+    }
+
     for (const width of [1440, 1181, 1025]) {
       await desktop.setViewportSize({ width, height: 900 });
       await desktop.waitForTimeout(100);
@@ -92,6 +154,17 @@ async function main() {
     const mobileContext = await browser.newContext({ viewport: { width: 390, height: 900 } });
     const mobile = await mobileContext.newPage();
     await mobile.goto(localUrl, { waitUntil: "networkidle" });
+    if (route === "/care-coach-mobile-unit/") {
+      const mobileMediaRect = await mobile.locator('iframe[title="Care Coach Video"]').boundingBox();
+      check(
+        "Care Coach mobile media geometry",
+        Math.round(mobileMediaRect?.x ?? -1) === 18 &&
+          Math.round(mobileMediaRect?.width ?? 0) === 354 &&
+          Math.round(mobileMediaRect?.height ?? 0) === 260 &&
+          Math.round((mobileMediaRect?.x ?? 0) + (mobileMediaRect?.width ?? 0)) <= 390,
+        mobileMediaRect,
+      );
+    }
     const menuToggle = mobile.locator('button[aria-controls="mobile-site-navigation"]');
     await menuToggle.click();
     const mobileNavigation = mobile.getByRole("navigation", { name: "Mobile navigation" });
@@ -139,26 +212,88 @@ async function main() {
     );
     check(`${route} links have destinations`, emptyLinks.length === 0, emptyLinks);
 
-    if (route === "/affordable-housing/") {
-      const expectedLinks = [
-        "https://findfeedrestore-bloom.kindful.com/",
-        "https://app.planstreetinc.com/findfeedrestore/PublicForm",
-        "/care-coach-mobile-unit",
-        "/homelessness-avoidance",
-        "/housing-first",
-      ];
+    const programPage = programPageExpectations[route];
+    if (programPage) {
       const hrefs = await reduced.locator("main a").evaluateAll((links) =>
         links.map((link) => link.getAttribute("href")),
       );
       check(
-        "Affordable Housing CTA and program links",
-        expectedLinks.every((href) => hrefs.includes(href)),
+        `${programPage.name} CTA and program links`,
+        programPage.links.every((href) => hrefs.includes(href)),
         hrefs,
       );
       check(
-        "Affordable Housing semantic heading",
-        (await reduced.getByRole("heading", { level: 1, name: "Affordable Housing" }).count()) === 1,
+        `${programPage.name} semantic heading`,
+        (await reduced.getByRole("heading", { level: 1, name: programPage.name }).count()) === 1,
         await reduced.locator("main h1").allTextContents(),
+      );
+    }
+
+    if (route === "/care-coach-mobile-unit/") {
+      const mediaFrame = reduced.locator('iframe[title="Care Coach Video"]');
+      const mediaContract = {
+        src: await mediaFrame.getAttribute("src"),
+        title: await mediaFrame.getAttribute("title"),
+        allowFullscreen: await mediaFrame.getAttribute("allowfullscreen"),
+        loading: await mediaFrame.getAttribute("loading"),
+        allow: await mediaFrame.getAttribute("allow"),
+      };
+      check(
+        "Care Coach YouTube source and playback contract",
+        mediaContract.src === "https://www.youtube.com/embed/SonlnoRUCQg" &&
+          mediaContract.title === "Care Coach Video" &&
+          mediaContract.allowFullscreen !== null &&
+          mediaContract.loading === null &&
+          mediaContract.allow === null &&
+          !mediaContract.src.includes("autoplay="),
+        mediaContract,
+      );
+
+      const providerFrame = reduced.frames().find((frame) =>
+        frame.url().includes("youtube.com/embed/SonlnoRUCQg"),
+      );
+      let playback = { playVisible: false, controlActivated: false, playing: false, paused: false };
+      if (providerFrame) {
+        await reduced.waitForTimeout(3500);
+        const playButton = providerFrame.getByRole("button", { name: "Play video" }).first();
+        playback.playVisible = await playButton.isVisible().catch(() => false);
+        if (playback.playVisible) {
+          playback.controlActivated = await playButton
+            .click({ force: true })
+            .then(() => true)
+            .catch(() => false);
+          await providerFrame
+            .waitForFunction(
+              () => Array.from(document.querySelectorAll("video")).some((video) => !video.paused && video.currentTime > 0),
+              undefined,
+              { timeout: 10_000 },
+            )
+            .catch(() => undefined);
+          playback.playing = await providerFrame
+            .locator("video")
+            .evaluateAll((videos) => videos.some((video) => !video.paused && video.currentTime > 0))
+            .catch(() => false);
+          const providerVideo = providerFrame.locator("video").first();
+          if (!playback.playing) {
+            await providerVideo.evaluate((video) => {
+              void video.play();
+            }).catch(() => undefined);
+            await reduced.waitForTimeout(400);
+            playback.playing = await providerVideo
+              .evaluate((video) => !video.paused)
+              .catch(() => false);
+          }
+          await providerVideo.evaluate((video) => video.pause()).catch(() => undefined);
+          await reduced.waitForTimeout(400);
+          playback.paused = await providerVideo
+            .evaluate((video) => video.paused)
+            .catch(() => false);
+        }
+      }
+      check(
+        "Care Coach muted media play and pause controls",
+        playback.playVisible && playback.controlActivated && playback.playing && playback.paused,
+        playback,
       );
     }
     await reducedContext.close();

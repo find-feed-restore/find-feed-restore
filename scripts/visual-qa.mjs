@@ -123,6 +123,15 @@ async function collectMetrics(page) {
         letterSpacing: computed.letterSpacing,
       };
     };
+    const lineCount = (element) => {
+      if (!element) return null;
+      const range = document.createRange();
+      range.selectNodeContents(element);
+      const lineTops = Array.from(range.getClientRects())
+        .filter((bounds) => bounds.width > 0 && bounds.height > 0)
+        .map((bounds) => Math.round(bounds.top));
+      return new Set(lineTops).size;
+    };
 
     const heroHeading = heading("Housing For Homeless Families With Children");
     const missionHeading = heading("Homeless to Hopeful");
@@ -168,6 +177,25 @@ async function collectMetrics(page) {
         text: element.textContent?.replace(/\s+/g, " ").trim(),
         rect: rect(element),
         style: style(element),
+        lineCount: lineCount(element),
+      })),
+      media: Array.from(
+        document.querySelectorAll(
+          "main iframe, main video, [data-elementor-type='wp-page'] iframe, [data-elementor-type='wp-page'] video",
+        ),
+      ).map((element) => ({
+        tagName: element.tagName.toLowerCase(),
+        rect: rect(element),
+        src: element.getAttribute("src"),
+        title: element.getAttribute("title"),
+        loading: element.getAttribute("loading"),
+        allow: element.getAttribute("allow"),
+        allowFullscreen: element.hasAttribute("allowfullscreen"),
+        controls: element.hasAttribute("controls"),
+        autoplay: element.hasAttribute("autoplay"),
+        muted: element.hasAttribute("muted"),
+        loop: element.hasAttribute("loop"),
+        playsInline: element.hasAttribute("playsinline"),
       })),
       mainSections: Array.from(
         document.querySelectorAll("main > section, [data-elementor-type='wp-page'] .elementor-widget-html > .elementor-widget-container > section"),

@@ -4,7 +4,7 @@ Inventory date: 2026-08-10
 
 Production source: <https://www.findfeedrestore.com/>
 
-Scope: Milestone 2 discovery plus Milestone 3 implementation of the representative Affordable Housing program page. No other interior route has been migrated.
+Scope: Milestone 2 discovery plus completed Milestone 3–5 migrations for Affordable Housing, Housing First, and Homelessness Avoidance. No other interior route has been migrated.
 
 ## Discovery method and canonical scope
 
@@ -32,9 +32,9 @@ The inventory combines the production Yoast sitemap index, WordPress core sitema
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | `/` | Find Feed Restore - Home | WordPress page; Elementor/custom HTML | Header Home; logo; multiple internal links | Homepage | Unique composition; supplies global chrome and primitives | Header, vision hero, mission grid, impact counters, causes, giving CTA, footer, floating donate | Animated counters; no form | Image, container, nav menu, button, text, HTML, heading, icon list, social icons | Kindful, Typeform, YouTube, Candid, social profiles; sticky header, dropdowns, hover/entrance/shimmer motion | High | **COMPLETE** |
 | `/affordable-housing/` | Affordable Housing | WordPress page; program detail | Header Programs; footer Our Programs; homepage program cards | Program detail | Shared program-family template | Program hero, split intro with program logo, application card, story gallery, image CTA, Other Programs cards | External needs-assistance application; no local form | Body is primarily HTML; global image/nav/button/heading/icon/social widgets | PlanStreet public form, Kindful; card/button hover | Medium | **COMPLETE** |
-| `/housing-first/` | Housing First | WordPress page; program detail | Header Programs; footer Our Programs; homepage program cards | Program detail | Same family structure as Affordable Housing | Program hero, split intro/logo, application card, story gallery, image CTA, Other Programs cards | External needs-assistance application; no local form | Primarily HTML plus global widgets | PlanStreet public form, Kindful; card/button hover | Medium | **READY** |
-| `/homelessness-avoidance/` | Homelessness Avoidance | WordPress page; program detail | Header Programs; footer Our Programs; homepage program cards | Program detail | Same family structure as Affordable Housing | Program hero, split intro/logo, application card, story gallery, image CTA, Other Programs cards | External needs-assistance application; no local form | Primarily HTML plus global widgets | PlanStreet public form, Kindful; card/button hover | Medium | **READY** |
-| `/care-coach-mobile-unit/` | Care Coach | WordPress page; program detail | Header Programs; footer Our Programs; homepage program cards | Program detail | Program-family variant with an embedded video and different gallery proportions | Program hero, split intro/logo, application card, story gallery, YouTube video, image CTA, Other Programs cards | YouTube iframe; external application | Primarily HTML plus global widgets | YouTube embed, Typeform application, Kindful | Medium-high | **DYNAMIC** |
+| `/housing-first/` | Housing First | WordPress page; program detail | Header Programs; footer Our Programs; homepage program cards | Program detail | Same family structure as Affordable Housing | Program hero, split intro/logo, application card, story gallery, image CTA, Other Programs cards | External needs-assistance application; no local form | Primarily HTML plus global widgets | PlanStreet public form, Kindful; card/button hover | Medium | **COMPLETE** |
+| `/homelessness-avoidance/` | Homelessness Avoidance | WordPress page; program detail | Header Programs; footer Our Programs; homepage program cards | Program detail | Same family structure as Affordable Housing | Program hero, split intro/logo, application card, story gallery, image CTA, Other Programs cards | External needs-assistance application; no local form | Primarily HTML plus global widgets | PlanStreet public form, Kindful; card/button hover | Medium | **COMPLETE** |
+| `/care-coach-mobile-unit/` | Care Coach | WordPress page; program detail | Header Programs; footer Our Programs; homepage program cards | Program detail | Program-family variant with an embedded video and different gallery proportions | Program hero, split intro/logo, application card, story gallery, YouTube video, image CTA, Other Programs cards | YouTube iframe; external application | Primarily HTML plus global widgets | YouTube embed, Typeform application, Kindful | Medium-high | **COMPLETE** |
 | `/news-media/` | News & Media | WordPress page; editorial/media | Header Hope In Action; footer News redirects here | Editorial/media | Shares hero, intro, and closing CTA shell with Testimonials; unique news-card body | Editorial hero, split intro, featured press card, press-card grid, image CTA | Press items are manually embedded in page HTML, not WordPress posts | Primarily HTML plus global widgets | Eleven external publisher links; Kindful; responsive card reflow | Medium | **READY** |
 | `/testimonials/` | Testimonials | WordPress page; editorial/media | Header Hope In Action | Editorial/media | Shares editorial shell with News; unique video-card body | Editorial hero, split intro, three featured video cards, image CTA | Client script replaces clicked thumbnail with autoplay YouTube iframe | Primarily HTML plus global widgets | YouTube thumbnail/CDN and lazy embeds; Kindful | Medium-high | **DYNAMIC** |
 | `/hope-in-action/` | Social Media (display hero: Hope In Action) | WordPress page; live social feed | Header Hope In Action; footer Quick Links | Social feed | Unique feed page; reuses global hero/CTA language only | Image hero, social profile buttons, live feed, image CTA | Live Juicer feed and Load More behavior | Primarily HTML plus global widgets | `juicer.io` embed, Instagram post links, social profiles, Kindful | High | **DYNAMIC** |
@@ -195,9 +195,9 @@ Additional interior preservation scope:
 The order maximizes verified component coverage while postponing service-coupled pages until their dependencies can be handled deliberately.
 
 1. **Affordable Housing — COMPLETE** — established the program family (`ProgramHero`, split intro/application card, story gallery, image CTA, Other Programs) with no video variant.
-2. **Housing First** — validate that the family is genuinely data-driven and correct differences in copy length, hero crop, logo, and CTA image.
-3. **Homelessness Avoidance** — complete the static program trio and validate long-title wrapping across all target widths.
-4. **Care Coach** — add the explicit YouTube/media variant without polluting the base program API.
+2. **Housing First — COMPLETE** — validated the family composition while preserving its larger logo, taller application image, route-owned imagery, and different copy lengths.
+3. **Homelessness Avoidance — COMPLETE** — completed the static program trio and validated both natural long-title wrap transitions without a route-specific heading implementation.
+4. **Care Coach — COMPLETE** — validated the explicit YouTube/media variant without creating a separate page system.
 5. **News & Media** — establish the editorial shell and CMS-ready external press-card data shape.
 6. **Testimonials** — reuse the editorial shell and add accessible click-to-load video cards.
 7. **Contact Us** — exercise the shared hero/card/gallery/CTA primitives in a different composition while preserving external intake flows.
@@ -208,7 +208,7 @@ The order maximizes verified component coverage while postponing service-coupled
 12. **Hope In Action** — integrate or deliberately replace only the Juicer presentation contract after dynamic-loading behavior is agreed.
 13. **Terms & Conditions** — migrate the low-risk legacy legal layout without forcing it into modern components.
 
-The Milestone 2 recommendation to migrate `/affordable-housing/` first has now been fulfilled. The next page in the approved sequence would be `/housing-first/`, but it remains unimplemented pending review of this milestone.
+All four program-family pages are complete. The family architecture is validated for the three static-gallery routes and the narrow Care Coach video variant. No later route has been started.
 
 ## Milestone 3 — Affordable Housing implementation and parity QA
 
@@ -236,6 +236,85 @@ Breakpoint-adjacent captures at 1101, 1099, 981, 979, 701, and 699px verified th
 Interaction QA passes for sticky desktop header behavior, Programs dropdown, keyboard focus, single-row desktop navigation at 1440/1181/1025px, mobile navigation open/close, the floating donation control, all route links, both external CTAs, related-program links, and one semantic page-level heading. The page has no unique widget requiring new client-side interaction.
 
 Homepage regression capture reproduces the accepted baseline: 4712/4712px at 1440, 5828/5829px at 1024, 6108/6108px at 768, and 8176/8175px at 390, with the same documented rasterization/icon differences. Homepage interaction checks also pass. No accepted homepage component or global header/footer geometry was changed for this route.
+
+## Milestone 4 — Housing First implementation and parity QA
+
+The rendered source re-audit confirmed that Housing First follows the same five-section order, content ordering, and 1100/980/700px program breakpoints as Affordable Housing. `ProgramHero`, `ProgramIntro`, `ProgramStoryGallery`, `ProgramSupportCta`, and `OtherPrograms` were all reused. Housing First has no unique section or interaction.
+
+The production evidence required only three narrowly scoped variants:
+
+- `ProgramIntro` now accepts optional logo and application-image classes. Housing First uses the source's 165px desktop/140px mobile logo and 350px desktop application-image height; Affordable Housing retains its existing 145/125px logo and 290px image without new route data.
+- `ProgramSupportCta` now accepts an optional route-owned background class. Its default remains the accepted Affordable Housing background.
+- Housing First supplies route-owned hero and support background classes. No global/header/footer styling changed.
+
+The exact production `housing-first.jpg` already existed locally from the homepage migration and is reused for the hero and application card. The four story images are byte-identical source URLs already preserved for Affordable Housing and are reused without duplicate downloads. Only the exact Housing First SVG logo and distinct support-band image were added under `public/images/programs/housing-first/`.
+
+| Viewport | Status | Production / local height | Rendered comparison | Remaining difference |
+| --- | --- | --- | --- | --- |
+| 1440px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 3898 / 3898px | 2.125% amplified changed-pixel rate; header, hero, split intro, 350px application crop, gallery, CTA, cards, and footer align. | Localized browser/font antialiasing and the already accepted code-native global icon shapes. |
+| 1024px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 4443 / 4443px | 2.847% changed-pixel rate; tablet header, two-column gallery/cards, wrapping, and vertical rhythm align. | Localized antialiasing/global-icon differences only. |
+| 768px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 5017 / 5018px | 2.999% changed-pixel rate; stacked intro, source crop, gallery, CTA, related cards, and footer align. | One-pixel aggregate height difference plus localized antialiasing/global-icon differences. |
+| 390px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 6170 / 6169px | 4.102% changed-pixel rate; mobile logo sizing, heading wraps, media crops, 18px gutters, cards, CTA, and footer align. | One-pixel aggregate height difference plus localized antialiasing/global-icon differences. |
+
+Breakpoint-adjacent rendered comparisons at 1101, 1099, 981, 979, 701, and 699px pass. Side-by-side inspection found no broken intermediate state; aggregate page-height differences remain between zero and two pixels.
+
+Housing First interaction QA passes for sticky header, Programs dropdown, keyboard focus, non-wrapping desktop navigation at 1440/1181/1025px, mobile navigation open/close, floating donation control, all link destinations, Kindful and PlanStreet CTAs, related-program links, and one semantic page-level heading.
+
+Affordable Housing regression QA reproduces its accepted four-width results: 4096/4096px, 4487/4487px, 5004/5004px, and 6166/6164px. Its complete interaction suite also passes. Homepage regression QA likewise reproduces 4712/4712px, 5828/5829px, 6108/6108px, and 8176/8175px with passing interactions. No accepted page shows a geometry or behavior regression.
+
+Two completed pages now provide strong evidence that the five-section composition and narrow route-owned visual hooks are stable for the three static program pages. The family is not yet fully validated: Homelessness Avoidance must prove long-title wrapping, and Care Coach still has a documented video/media structural variant.
+
+## Milestone 5 — Homelessness Avoidance implementation and parity QA
+
+The rendered source re-audit confirms that Homelessness Avoidance preserves the same five-section order, 540/430px hero heights, 920px hero title measure, gallery geometry, CTA structure, related-program grid, and 1100/980/700px responsive section rules as the two completed static program pages. All five existing primitives—`ProgramHero`, `ProgramIntro`, `ProgramStoryGallery`, `ProgramSupportCta`, and `OtherPrograms`—were reused unchanged. No new component or hero API variant was required.
+
+The production page applies the common hero typography unchanged: Georgia at `clamp(54px, 7vw, 104px)`, `0.92` line height, and `-0.055em` tracking. It contains no manual line break. The title's two natural wrap transitions were measured and added to the QA metrics as DOM line counts:
+
+- 1116px: one line; 1117px: two lines.
+- 530px: two lines; 531px: one line.
+- Canonical behavior is two lines at 1440px, one line at 1024 and 768px, and two lines at 390px.
+
+Local and production line counts, title heights, font sizes, line heights, and 920px/viewport-constrained title widths match on both sides of each transition. No clipping, overflow, navigation collision, or unintended vertical shift was observed.
+
+The only page-scoped CSS is directly evidenced by production: a 175px desktop/145px mobile program logo, centered desktop application-image crop, and route-owned hero/support backgrounds. The exact application/support image already existed locally as `public/images/homelessness-avoidance.jpg`; the exact hero image is byte-identical to the existing Affordable Housing support asset; and all story images are already shared. Only the deduplicated program-logo SVG was added.
+
+| Viewport | Status | Production / local height | Rendered comparison | Remaining difference |
+| --- | --- | --- | --- | --- |
+| 1440px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 3981 / 3980px | 2.319% amplified changed-pixel rate; two-line hero, split intro, centered application crop, gallery, CTA, related cards, and footer align. | One-pixel aggregate height difference, localized browser/font antialiasing, and accepted code-native global icon shapes. |
+| 1024px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 4509 / 4509px | 2.955% changed-pixel rate; one-line hero title, tablet header, gallery/cards, wrapping, and vertical rhythm align. | Localized antialiasing/global-icon differences only. |
+| 768px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 4958 / 4958px | 3.217% changed-pixel rate; one-line title, stacked intro, media, CTA, related cards, and footer align. | Localized antialiasing/global-icon differences only. |
+| 390px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 6171 / 6169px | 4.409% changed-pixel rate; two-line title, mobile logo, copy wraps, imagery, cards, CTA, and footer align. | Two-pixel aggregate height difference plus localized antialiasing/global-icon differences. |
+
+Shared-breakpoint captures at 1101, 1099, 981, 979, 701, and 699px pass with zero-to-two-pixel aggregate height differences and no broken intermediate layout. Additional local-vs-production captures at 1116/1117px and 530/531px prove exact title-wrap parity.
+
+Interaction QA passes for sticky header, Programs dropdown, keyboard focus, non-wrapping desktop navigation at 1440/1181/1025px, mobile navigation open/close, floating donation control, every link destination, Kindful and PlanStreet CTAs, related-program links, and one semantic page-level heading.
+
+Regression QA reproduces the accepted measurements for Affordable Housing (4096/4096, 4487/4487, 5004/5004, 6166/6164px), Housing First (3898/3898, 4443/4443, 5017/5018, 6170/6169px), and the homepage (4712/4712, 5828/5829, 6108/6108, 8176/8175px). No accepted page shows a visual regression.
+
+The three static program pages now validate the five-section architecture and generic long-title behavior. The complete four-page family is not yet validated because Care Coach still has a documented embedded-video/media variant.
+
+## Milestone 6 — Care Coach implementation and parity QA
+
+The rendered source re-audit confirms that Care Coach retains the established five-section composition and section order. `ProgramHero` and `ProgramSupportCta` are reused unchanged. `ProgramIntro` received one narrow data variant for the production Typeform application destination, while preserving PlanStreet as the default for the other three routes. `ProgramStoryGallery` received an optional iframe slot inside the existing story-media section plus a route-owned gallery class. `OtherPrograms` received only a route-owned grid class to reproduce Care Coach's three-column-to-one-column transition. No new media framework or separate Care Coach page system was introduced.
+
+Production uses an immediate YouTube iframe at `https://www.youtube.com/embed/SonlnoRUCQg` after the three-image gallery. The local iframe matches the source contract: title `Care Coach Video`, `allowfullscreen`, no autoplay query, no custom `allow`, no `loading` override, no replacement poster, and provider-native controls. It has fixed stable rendered dimensions of 1280×620px at 1440, 976×620px at 1024, 720×420px at 768, and 354×260px at 390. Both sides render the same deterministic initial provider frame for screenshot capture. The control remains keyboard-focusable, plays without unexpected audio in QA, pauses correctly, and does not overflow at mobile widths.
+
+Asset preservation was deduplicated before download. The exact Care Coach hero/application image, SVG logo, and 1000×330 framing image were added under `public/images/programs/care-coach/`. The first gallery image is byte-identical to the accepted Affordable Housing family-support image, and the third gallery/support image is byte-identical to the existing global giving banner, so both are reused rather than duplicated.
+
+| Viewport | Status | Production / local height | Rendered comparison | Remaining difference |
+| --- | --- | --- | --- | --- |
+| 1440px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 4557 / 4557px | 1.778% amplified changed-pixel rate; hero, split intro, three-column gallery, 1280×620 media, CTA, cards, and footer align. | Localized browser/font antialiasing and accepted code-native global icon shapes. |
+| 1024px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 4482 / 4482px | 2.765% changed-pixel rate; tablet header, three-column gallery/cards, 976×620 media, and vertical rhythm align. | Localized antialiasing/global-icon differences only. |
+| 768px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 5883 / 5883px | 2.511% changed-pixel rate; stacked intro/gallery/cards, 720×420 media, CTA, and footer align. | Localized antialiasing/global-icon differences only. |
+| 390px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 6184 / 6182px | 4.121% changed-pixel rate; mobile copy wraps, imagery, 354×260 media, cards, CTA, and footer align. | Two-pixel aggregate height difference plus localized antialiasing/global-icon differences. |
+
+Breakpoint-adjacent captures at 981/979px and 701/699px reproduce the source transitions: gallery and related cards change from three columns to one below 980px, and the media height changes from 420px to 260px below 700px. No overflow or broken intermediate layout was found.
+
+Interaction QA passes all 17 checks: sticky header, Programs dropdown, keyboard focus treatment, non-wrapping desktop navigation at 1440/1181/1025px, mobile navigation open/close, floating donation control, every route/CTA/related-program destination, semantic page heading, exact YouTube source contract, iframe focus, stable desktop/mobile media geometry, and muted provider play/pause behavior.
+
+Full regression QA reproduces all accepted measurements: Affordable Housing (4096/4096, 4487/4487, 5004/5004, 6166/6164px), Housing First (3898/3898, 4443/4443, 5017/5018, 6170/6169px), Homelessness Avoidance (3981/3980, 4509/4509, 4958/4958, 6171/6169px), and the homepage (4712/4712, 5828/5829, 6108/6108, 8176/8175px). No accepted route shows a geometry regression.
+
+The four-page program family is now fully validated. Care Coach is a narrow media/data/grid variant within the same five-section architecture, not a structurally separate page family. The optional APIs remain composable and preserve unchanged defaults for the three static routes.
 
 ## Visual QA requirement for implementation milestones
 

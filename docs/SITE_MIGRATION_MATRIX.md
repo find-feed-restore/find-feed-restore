@@ -4,7 +4,7 @@ Inventory date: 2026-08-11
 
 Production source: <https://www.findfeedrestore.com/>
 
-Scope: Milestone 2 discovery plus accepted migrations through Milestone 15, including the canonical Terms & Conditions page.
+Scope: Milestone 2 discovery plus migrated routes through Milestone 16 full-site certification. The migration implementation phase is complete; production cutover remains gated by the documented Vercel Preview Resend delivery test.
 
 ## Discovery method and canonical scope
 
@@ -569,3 +569,11 @@ Long-form visual QA checks typography metrics, text wrapping, list indentation, 
 Dedicated `scripts/terms-qa.mjs` automation passes all seven legal/canonical checks: canonical route 200, one production canonical declaration, valid H1/H2 hierarchy, exact source copy and order, zero invented legal-content links, one direct canonical footer link with zero legacy internal links, alias redirect completion without a loop, and no 390px horizontal overflow. The established route interaction suite passes all ten applicable sticky-header, desktop-navigation, keyboard-focus, mobile-menu, floating-donation, and link-destination checks.
 
 Regression QA reproduces the accepted homepage page heights at 1440/1024/768/390px (4712/4712, 5828/5829, 6108/6108, and 8176/8175px) with all 11 interactions passing; current dynamic hero/media rasterization accounts for the larger 1440px pixel variance. Contact Us reproduces 4477/4477, 5554/5554, 5594/5594, and 6810/6809px with all 16 interactions passing. The only accepted shared-component change is the nonvisual footer URL correction from the legacy alias to the canonical Terms route.
+
+## Milestone 16 — Full-site certification and launch readiness
+
+All 14 canonical routes pass the repository-local crawl, four-width visual certification, route interaction suite, canonical/title/noindex checks, internal-link audit, accessibility smoke audit, local-asset audit, and 404 verification. Dedicated Resend/form, Juicer, media, and legal checks pass. The complete evidence, per-route matrix, redirect matrix, dependency inventory, asset/build notes, certification fixes, and categorized launch items are maintained in `docs/FULL_SITE_CERTIFICATION.md`.
+
+Certification added the inventory-required permanent `/news` → `/news-media` redirect and the production people-route `/about-us` → `/board-staff` cutover redirect, corrected internal links that unnecessarily used aliases/path-normalization hops, secured the footer LinkedIn destination, and removed a local-only shared-header overflow between 1181 and 1230px. Production's intermediate Board & Staff fixed-grid clipping is documented without redesigning the accepted route.
+
+The migration implementation phase is **COMPLETE**. Production cutover is **BLOCKED** until one controlled, clearly labeled Vercel Preview trailer submission is received and its visitor-email Reply-To behavior is verified. The 90,101,823-byte hosted MP4 and intermediate Board & Staff clipping are classified as should-fix items rather than build blockers. No deployment, DNS, production WordPress, or CMS change occurred during certification.

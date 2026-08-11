@@ -14,6 +14,16 @@ const nextConfig: NextConfig = {
         destination: "/terms-conditions",
         permanent: true,
       },
+      {
+        source: "/news",
+        destination: "/news-media",
+        permanent: true,
+      },
+      {
+        source: "/about-us",
+        destination: "/board-staff",
+        permanent: true,
+      },
     ];
   },
 };

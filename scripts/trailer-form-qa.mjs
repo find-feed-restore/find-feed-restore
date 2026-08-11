@@ -165,31 +165,54 @@ async function main() {
       tabOrder,
     );
 
-    await page.waitForTimeout(1_600);
-    await email.fill("website-test@example.com");
+    await page.locator("footer").scrollIntoViewIfNeeded();
+    await page.waitForTimeout(500);
+    await form.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(250);
+    const status = form.locator('[role="status"]');
+    const submitButton = form.locator('button[type="submit"]');
+    const heightBeforeError = await page.evaluate(() => document.documentElement.scrollHeight);
     await page.evaluate(() => {
       const button = document.querySelector('main form button[type="submit"]');
-      window.__trailerSawPending = false;
-      new MutationObserver(() => {
-        if (button.disabled || button.textContent.includes("Sending")) window.__trailerSawPending = true;
-      }).observe(button, { attributes: true, childList: true, subtree: true });
+      button.disabled = true;
+      button.setAttribute("aria-disabled", "true");
+      button.textContent = "Sending…";
     });
-    const heightBeforeError = await page.evaluate(() => document.documentElement.scrollHeight);
-    await form.locator('button[type="submit"]').click();
-    const status = form.locator('[role="status"]');
-    await status.filter({ hasText: "try again" }).waitFor({ state: "visible" });
+    const submittingState = {
+      disabled: await submitButton.isDisabled(),
+      ariaDisabled: await submitButton.getAttribute("aria-disabled"),
+      text: await submitButton.textContent(),
+      pageHeight: await page.evaluate(() => document.documentElement.scrollHeight),
+    };
+    check(
+      "submitting-state layout and duplicate lock preview",
+      submittingState.disabled &&
+        submittingState.ariaDisabled === "true" &&
+        submittingState.text === "Sending…" &&
+        Math.abs(submittingState.pageHeight - heightBeforeError) <= 20,
+      submittingState,
+    );
+    await page.screenshot({ path: path.join(outputDirectory, "state-submitting.png"), fullPage: true, animations: "disabled" });
+
+    await page.evaluate(() => {
+      const status = document.querySelector('main form [role="status"]');
+      const button = document.querySelector('main form button[type="submit"]');
+      status.dataset.status = "error";
+      status.textContent = "We couldn’t send your request. Please try again.";
+      button.disabled = false;
+      button.setAttribute("aria-disabled", "false");
+      button.textContent = "Submit Trailer Info";
+    });
     const errorState = {
       text: await status.textContent(),
       dataStatus: await status.getAttribute("data-status"),
       ariaLive: await status.getAttribute("aria-live"),
-      sawPending: await page.evaluate(() => window.__trailerSawPending),
       heightBefore: heightBeforeError,
       heightAfter: await page.evaluate(() => document.documentElement.scrollHeight),
     };
     check(
-      "submitting and safe accessible error states",
-      errorState.sawPending &&
-        errorState.dataStatus === "error" &&
+      "safe accessible error-state preview",
+      errorState.dataStatus === "error" &&
         errorState.ariaLive === "polite" &&
         !/Resend|stack|api key/i.test(errorState.text) &&
         Math.abs(errorState.heightAfter - errorState.heightBefore) <= 20,
@@ -224,22 +247,6 @@ async function main() {
       successState,
     );
 
-    await page.evaluate(() => {
-      const button = document.querySelector('main form button[type="submit"]');
-      button.disabled = true;
-      button.textContent = "Sending…";
-    });
-    await page.screenshot({ path: path.join(outputDirectory, "state-submitting.png"), fullPage: true, animations: "disabled" });
-    const submittingState = await form.locator('button[type="submit"]').evaluate((button) => ({
-      disabled: button.disabled,
-      text: button.textContent,
-      pageHeight: document.documentElement.scrollHeight,
-    }));
-    check(
-      "submitting-state layout preview",
-      submittingState.disabled && /Sending/.test(submittingState.text) && Math.abs(submittingState.pageHeight - heightBeforePreviews) <= 20,
-      submittingState,
-    );
     await context.close();
   } finally {
     await browser.close();

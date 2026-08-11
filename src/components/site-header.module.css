@@ -180,7 +180,7 @@
   display: none;
 }
 
-@media (max-width: 1180px) and (min-width: 1025px) {
+@media (max-width: 1230px) and (min-width: 1025px) {
   .desktopInner {
     grid-template-columns: 16% 1fr 20%;
   }

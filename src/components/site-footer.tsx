@@ -6,7 +6,7 @@ const quickLinks = [
   ["Board & Staff", "/board-staff/"],
   ["Corporate Partnership", "/live-here-love-here-lake/"],
   ["Hope In Action", "/hope-in-action"],
-  ["News", "/news"],
+  ["News", "/news-media/"],
   ["Volunteer", "https://greatthings.typeform.com/to/V1SK6LFX"],
   ["Contact", "/contact-us/"],
   ["Donate Trailer", "/we-need-trailers/"],
@@ -68,7 +68,7 @@ export function SiteFooter() {
                 <a href="https://www.instagram.com/findfeedrestore" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <SocialIcon label="instagram" />
                 </a>
-                <a href="http://linkedin.com/company/find-feed-&-restore" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/find-feed-%26-restore" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <SocialIcon label="linkedin" />
                 </a>
                 <a href="https://www.youtube.com/@findfeedrestore-n9x" target="_blank" rel="noopener noreferrer" aria-label="YouTube">

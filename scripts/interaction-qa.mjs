@@ -578,7 +578,7 @@ async function main() {
       );
       check(
         "Testimonial CTA destinations",
-        testimonialHrefs.includes("/contact-us/") &&
+        testimonialHrefs.includes("/contact-us") &&
           testimonialHrefs.includes("https://findfeedrestore-bloom.kindful.com/"),
         testimonialHrefs,
       );
@@ -630,7 +630,7 @@ async function main() {
           linkByHref["https://greatthings.typeform.com/to/V1SK6LFX"]?.rel === "noopener" &&
           linkByHref["https://findfeedrestore-bloom.kindful.com/"]?.target === "_blank" &&
           linkByHref["https://findfeedrestore-bloom.kindful.com/"]?.rel === "noopener" &&
-          linkByHref["/live-here-love-here-lake/"]?.target === null,
+          linkByHref["/live-here-love-here-lake"]?.target === null,
         contactLinks,
       );
       check(

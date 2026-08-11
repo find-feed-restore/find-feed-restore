@@ -10,6 +10,7 @@
     "test:trailer-form": "node --test tests/trailer-submission.test.mjs",
     "qa:trailer-form": "node scripts/trailer-form-qa.mjs",
     "qa:hope-feed": "node scripts/hope-feed-qa.mjs",
+    "qa:terms": "node scripts/terms-qa.mjs",
     "visual:qa": "node scripts/visual-qa.mjs",
     "visual:qa:interactions": "node scripts/interaction-qa.mjs"
   },

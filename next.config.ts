@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         destination: "/we-need-trailers",
         permanent: true,
       },
+      {
+        source: "/terms",
+        destination: "/terms-conditions",
+        permanent: true,
+      },
     ];
   },
 };

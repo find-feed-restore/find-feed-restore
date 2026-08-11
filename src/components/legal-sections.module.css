@@ -1,0 +1,121 @@
+.page,
+.page * { box-sizing: border-box; }
+
+.page {
+  color: #6f747e;
+  background: white;
+  font-family: var(--font-noto-sans), sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.hero {
+  position: relative;
+  min-height: 331px;
+  padding: 162px 0 100px;
+  background: url("/images/legal/terms-hero.jpg") 0 29% / cover no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 80%);
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1140px;
+  min-height: 69px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.hero h1 {
+  margin: 0;
+  color: white;
+  font-family: var(--font-noto-serif), sans-serif;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  margin: 0 -2.5px;
+  padding: 0;
+  color: white;
+  list-style: none;
+}
+
+.breadcrumb li { display: flex; align-items: center; }
+.breadcrumb li:last-child { gap: 10px; }
+.chevron { width: 7px; height: 7px; border-right: 2px solid #ccc; border-bottom: 2px solid #ccc; transform: rotate(-45deg); }
+
+.content { padding: 100px 0; }
+
+.contentInner {
+  display: flex;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 10px 40px 10px 10px;
+  flex-direction: column;
+}
+
+.widget { width: 100%; margin-bottom: 20px; }
+.intro { padding-right: 20px; }
+.headingContainer { margin-top: 31px; }
+.headingWidget h2 {
+  margin: 0;
+  color: #020202;
+  font-family: var(--font-noto-serif), sans-serif;
+  font-size: 29px;
+  font-weight: 600;
+  line-height: 29px;
+}
+
+.listContainer { padding-right: 20px; }
+.listWidget ul { margin: 0; padding: 0 0 0 40px; list-style: disc; }
+.listWidget p { margin: 0 0 .9rem; }
+.lastWidget { margin-bottom: 0; }
+
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 316px;
+    margin-top: -62px;
+    padding: 162px 10px 100px;
+    background-position: 0 0;
+  }
+  .heroContainer { min-height: 54px; }
+  .hero h1 { font-size: 26px; }
+  .content { padding: 80px 10px; }
+  .contentInner { max-width: none; padding: 10px; }
+  .intro,
+  .listContainer { padding-right: 0; }
+}
+
+@media (max-width: 767px) {
+  .page { font-size: 14px; line-height: 21px; }
+  .hero {
+    min-height: 280px;
+    padding: 120px 0 80px;
+  }
+  .heroContainer { min-height: 80px; }
+  .heroGrid { grid-template-columns: 1fr; text-align: center; }
+  .hero h1 { font-size: 22px; line-height: 1.3; }
+  .breadcrumb { justify-content: center; margin-top: 10px; }
+  .content { padding: 40px 10px; }
+}

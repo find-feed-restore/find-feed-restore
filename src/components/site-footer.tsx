@@ -100,7 +100,7 @@ export function SiteFooter() {
             <p>
               Copyright © 2025. Find Feed Restore.
               <br />
-              <Link href="/terms">Terms &amp; Conditions</Link>
+              <Link href="/terms-conditions/">Terms &amp; Conditions</Link>
             </p>
           </div>
         </div>

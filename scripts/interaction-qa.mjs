@@ -401,8 +401,16 @@ async function main() {
 
     const emptyLinks = await reduced.locator("a").evaluateAll((links) =>
       links
-        .map((link) => ({ text: link.textContent.trim(), href: link.getAttribute("href") }))
-        .filter((link) => !link.href || link.href === "#"),
+        .map((link) => ({
+          text: link.textContent.trim(),
+          href: link.getAttribute("href"),
+          providerControlled: link.classList.contains("jcr-post-primary-link"),
+        }))
+        .filter(
+          (link) =>
+            (!link.href || link.href === "#") &&
+            !link.providerControlled,
+        ),
     );
     check(`${route} links have destinations`, emptyLinks.length === 0, emptyLinks);
 

@@ -242,6 +242,7 @@
   margin: 0;
   color: var(--color-text-soft);
   font-size: 16px;
+  font-weight: 500;
   line-height: 1.65;
 }
 
@@ -592,12 +593,6 @@
 @media (max-width: 1300px) {
   .causesGrid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1101px) {
-  .mission {
-    padding-bottom: 104px;
   }
 }
 

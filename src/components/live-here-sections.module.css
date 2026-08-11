@@ -10,7 +10,7 @@
   margin: 0;
   padding: 0;
   color: var(--campaign-navy);
-  font-family: "Noto Sans", sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
 }
 
 .page a {
@@ -518,7 +518,7 @@
 .storyCopy h2 {
   margin: 0 0 20px;
   color: #000;
-  font-family: "Noto Sans", Arial, sans-serif;
+  font-family: var(--font-noto-sans), Arial, sans-serif;
   font-size: 33px;
   font-weight: 600;
   line-height: 1;
@@ -527,11 +527,10 @@
 .storyCopy p {
   margin: 0 0 14.4px;
   color: #6c6c6c;
-  font-family: "Noto Sans", sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
   font-size: 16px;
   font-weight: 300;
   line-height: 1.7;
-  letter-spacing: 0.15px;
 }
 
 .videoFrame {

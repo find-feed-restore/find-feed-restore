@@ -6,27 +6,58 @@ Local production target: Next.js 16.3 optimized build served with `next start`
 
 Production comparison source: <https://www.findfeedrestore.com/>
 
-Certification baseline: `db2642a` (`d8f17e3` plus the subsequently requested and pushed header-navigation state correction)
+Certification baseline: accepted Milestone 16 commit `0eefbd6`; this report includes the subsequent dedicated mobile-parity extension
 
 ## Summary
 
 - Canonical routes certified: **14 of 14**
 - Routes returning HTTP 200 with one correct canonical, one H1, unique title, header/footer, no site-code runtime error, no missing local asset, and no unclassified overflow: **14 of 14**
 - Required production/local visual captures completed: **56 of 56**
+- Dedicated production/local mobile visual captures completed: **70 of 70** at 430, 390, 375, 360, and 320px
 - Route interaction assertions passed: **203 of 203**
+- Dedicated mobile route-width interaction assertions passed: **70 of 70**
 - Dedicated Resend/form, Juicer, and legal assertions passed: **37 of 37**
 - Routes with minor documented differences: **3** — We Need Trailers' approved functional form enhancement, Hope In Action's changing live feed, and Board & Staff's source-matched intermediate fixed-grid clipping
 - Blocked routes: **0**
 - Overall migration certification: **PASS WITH DOCUMENTED LAUNCH BLOCKER**
 - Production cutover status: **NOT READY** until one controlled Vercel Preview Resend delivery and visitor Reply-To test is verified
 
-The repository started clean on `main`. The user-supplied Milestone 15 baseline was `d8f17e3`; `HEAD` and `origin/main` were both `db2642a` because the requested shared-header navigation correction had been committed and pushed immediately afterward. Certification used the actual clean shared baseline and did not rewrite history.
+The repository started clean on `main`. The dedicated mobile continuation started from accepted Milestone 16 commit `0eefbd6`, with `HEAD` and `origin/main` aligned. Certification used the actual clean shared baseline and did not rewrite history.
 
 ## Certification method
 
 `scripts/full-site-certification.mjs` is the repository-local crawl harness. It uses Playwright Core and system Chrome against an optimized local production server. It records detailed ignored evidence at `.visual-qa/certification/crawl.json` and checks every route for HTTP/runtime health, local resource failures, canonical/title/description/Open Graph state, noindex, heading order, image alt attributes, control labels, fragments, header/footer presence, internal destinations, desktop/mobile overflow, shared breakpoint behavior, redirects, external origins, and 404 responses.
 
 The existing visual harness generated production/local screenshots, side-by-sides, overlays, amplified differences, element metrics, and page heights at 1440, 1024, 768, and 390px for every route. Board & Staff correctly used production `/about-us/` as its visual source. The existing interaction harness ran on all 14 routes. Dedicated form, Juicer, and legal harnesses supplied service-specific evidence. All `.visual-qa` output remains ignored.
+
+`scripts/mobile-visual-certification.mjs` runs the established visual harness for every canonical route at 430, 390, 375, 360, and 320px, preserving the `/about-us/` production source mapping for Board & Staff. `scripts/mobile-certification.mjs` separately checks each of the 70 route-width combinations for the mobile header/logo/toggle, keyboard menu geometry and close behavior, body-lock restoration, scroll behavior, footer stacking, floating control, clipped text, horizontal overflow, media/images/controls, card stacking, and route-specific form/feed/video/logo/people/legal containment. Evidence is written only under ignored `.visual-qa` paths.
+
+## Dedicated mobile visual-parity certification
+
+All 70 identical-width production/local captures include full-page screenshots, side-by-side images, overlays, amplified differences, and height measurements. Shared mobile geometry is stable across routes: the header is 175/167/164/161/153px high at 430/390/375/360/320px, the centered logo is 215/195/188/180/160px wide, and the 28px menu toggle remains centered and contained. The header begins full-size at page top and scrolls away on mobile, matching production; it does not shrink on navigation or become incorrectly sticky.
+
+Every mobile interaction run confirms the hamburger opens and closes from the keyboard, `aria-expanded` tracks state, menu rows remain at least 47px high, navigation stays within the viewport, and body overflow state is restored after closing. All routes have zero document-level horizontal overflow and zero clipped visible text. CTAs, cards, images, iframes/video, footer sections/logo, and the floating donation control remain contained. People cards and testimonial cards stack in DOM order; the 18-logo sponsor wall and 29-logo campaign directory collapse without overflow; legal text remains contained; and Juicer media stays within its feed wrapper.
+
+We Need Trailers retains all five semantic labels, six visible form controls including submit, full-width field containment, and stable submitting/success/error status geometry at every mobile width. The state checks mutate the local status region only and never invoke the Server Action or send email. Hope In Action is evaluated using static wrapper/section geometry plus live-provider containment; changing Juicer card media and text remain dynamic variance rather than frozen visual data.
+
+| Route | 430px | 390px | 375px | 360px | 320px | Mobile interaction | Horizontal overflow | Remaining documented differences |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `/` | **PASS** 8025/8024 | **PASS** 8176/8175 | **PASS** 8237/8234 | **PASS** 8388/8385 | **PASS** 8694/8691 | **PASS** | **PASS** | 0–3px cumulative raster/font variance. |
+| `/affordable-housing/` | **PASS** 6154/6153 | **PASS** 6166/6164 | **PASS** 6181/6177 | **PASS** 6357/6353 | **PASS** 6488/6484 | **PASS** | **PASS** | 1–4px cumulative raster/font variance. |
+| `/housing-first/` | **PASS** 6117/6116 | **PASS** 6170/6169 | **PASS** 6247/6243 | **PASS** 6289/6285 | **PASS** 6459/6456 | **PASS** | **PASS** | 1–4px cumulative raster/font variance. |
+| `/homelessness-avoidance/` | **PASS** 6128/6127 | **PASS** 6171/6169 | **PASS** 6218/6214 | **PASS** 6319/6315 | **PASS** 6549/6545 | **PASS** | **PASS** | 1–4px cumulative raster/font variance. |
+| `/care-coach-mobile-unit/` | **PASS** 6101/6100 | **PASS** 6184/6182 | **PASS** 6199/6195 | **PASS** 6261/6257 | **PASS** 6412/6408 | **PASS** | **PASS** | 1–4px variance; YouTube frame remains contained and keyboard reachable. |
+| `/news-media/` | **PASS** 8166/8164 | **PASS** 8398/8397 | **PASS** 8474/8470 | **PASS** 8571/8567 | **PASS** 9167/9163 | **PASS** | **PASS** | 1–4px cumulative raster/font variance. |
+| `/testimonials/` | **PASS** 4559/4558 | **PASS** 4614/4613 | **PASS** 4604/4600 | **PASS** 4634/4631 | **PASS** 4708/4705 | **PASS** | **PASS** | 1–4px variance; cards stack and click-to-load media stays contained. |
+| `/contact-us/` | **PASS** 6707/6706 | **PASS** 6810/6809 | **PASS** 6923/6919 | **PASS** 6941/6938 | **PASS** 7078/7075 | **PASS** | **PASS** | 1–4px variance after matching production contact-value typography. |
+| `/board-staff/` | **PASS** 9087/9086 | **PASS** 9198/9197 | **PASS** 9252/9248 | **PASS** 9274/9270 | **PASS** 9324/9321 | **PASS** | **PASS** | 1–4px variance; all 17 cards are single-column and contained. |
+| `/sponsors/` | **PASS** 5952/5951 | **PASS** 5993/5992 | **PASS** 6088/6085 | **PASS** 6152/6149 | **PASS** 6275/6271 | **PASS** | **PASS** | 1–4px variance; all 18 tiles use the production one-column mobile layout. |
+| `/live-here-love-here-lake/` | **PASS** 12370/12369 | **PASS** 12460/12458 | **PASS** 12541/12537 | **PASS** 12664/12660 | **PASS** 12729/12725 | **PASS** | **PASS** | 1–4px variance after binding the route to the loaded production-equivalent Noto Sans metrics. |
+| `/we-need-trailers/` | **PASS WITH MINOR DIFFERENCES** 7766/7693 | **PASS WITH MINOR DIFFERENCES** 7936/7863 | **PASS WITH MINOR DIFFERENCES** 8074/7999 | **PASS WITH MINOR DIFFERENCES** 8059/7983 | **PASS WITH MINOR DIFFERENCES** 8362/8269 | **PASS** | **PASS** | Intentional accessible functional status region replaces production's obsolete form note; field/button geometry passes. |
+| `/hope-in-action/` | **PASS WITH MINOR DIFFERENCES** 13177/13162 | **PASS WITH MINOR DIFFERENCES** 12994/12979 | **PASS WITH MINOR DIFFERENCES** 12930/12912 | **PASS WITH MINOR DIFFERENCES** 12890/12872 | **PASS WITH MINOR DIFFERENCES** 13013/13023 | **PASS** | **PASS** | Changing live Juicer cards/media; static shell, one-column feed, CTA, and footer structure pass. |
+| `/terms-conditions/` | **PASS** 3304/3303 | **PASS** 3415/3414 | **PASS** 3481/3477 | **PASS** 3517/3514 | **PASS** 3644/3641 | **PASS** | **PASS** | 1–4px cumulative legal typography variance; no clipped copy. |
+
+Heights are production/local pixels. The dedicated sweep found and corrected three source mismatches: homepage mission copy now uses production's 500 weight with the matching desktop section padding, Contact values inherit production's Arial 500 treatment instead of Noto Sans 900, and Live Here consistently resolves the loaded Next Noto Sans face while removing a non-source story letter-spacing override. Standard 1440/1024/768/390 visual regressions and full interaction suites were rerun for all three affected routes.
 
 ## Route matrix
 
@@ -171,6 +202,8 @@ Certification made only narrow, evidence-backed changes:
 - Changed the footer News link and two body CTAs to direct 200 canonical paths rather than redirecting path variants.
 - Updated the footer LinkedIn URL from the legacy HTTP form to the verified HTTPS canonical profile.
 - Extended the existing compact-desktop header rule through the measured 1181–1230px local-only overflow range.
+- Corrected three narrow-mobile font metric mismatches on Home, Contact Us, and Live Here without changing content or layout architecture.
+- Added reusable five-width mobile visual and interaction certification runners covering all 14 canonical routes.
 - Added the full-site crawler and expanded shared interaction/form QA so navigation state and non-delivery form states remain regression-tested.
 
 No production deployment, DNS change, WordPress modification, CMS restructuring, redesign, or new feature was performed.

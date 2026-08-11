@@ -12,7 +12,9 @@
     "qa:hope-feed": "node scripts/hope-feed-qa.mjs",
     "qa:terms": "node scripts/terms-qa.mjs",
     "qa:certify": "node scripts/full-site-certification.mjs",
+    "qa:mobile": "node scripts/mobile-certification.mjs",
     "visual:qa": "node scripts/visual-qa.mjs",
+    "visual:qa:mobile": "node scripts/mobile-visual-certification.mjs",
     "visual:qa:interactions": "node scripts/interaction-qa.mjs"
   },
   "dependencies": {

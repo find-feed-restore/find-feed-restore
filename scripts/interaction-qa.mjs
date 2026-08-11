@@ -209,6 +209,41 @@ async function main() {
         { count: await personCards.count(), restingTransform, hoveredTransform },
       );
     }
+    if (route === "/sponsors/") {
+      await desktop.setViewportSize({ width: 1440, height: 900 });
+      const firstSponsor = desktop.locator("main a").filter({ has: desktop.locator("img") }).first();
+      const firstLogo = firstSponsor.locator("img");
+      const resting = await firstSponsor.evaluate((element) => ({
+        transform: getComputedStyle(element).transform,
+        logoFilter: getComputedStyle(element.querySelector("img")).filter,
+        logoOpacity: getComputedStyle(element.querySelector("img")).opacity,
+      }));
+      await firstSponsor.hover();
+      await desktop.waitForTimeout(350);
+      const hovered = await firstSponsor.evaluate((element) => ({
+        transform: getComputedStyle(element).transform,
+        logoFilter: getComputedStyle(element.querySelector("img")).filter,
+        logoOpacity: getComputedStyle(element.querySelector("img")).opacity,
+      }));
+      await firstSponsor.focus();
+      const sponsorFocus = await firstSponsor.evaluate((element) => ({
+        focused: document.activeElement === element,
+        outlineWidth: getComputedStyle(element).outlineWidth,
+      }));
+      check(
+        "Sponsor tile hover and focus treatment",
+        resting.transform === "none" &&
+          resting.logoFilter !== "none" &&
+          resting.logoOpacity === "0.82" &&
+          hovered.transform !== "none" &&
+          hovered.logoFilter === "none" &&
+          hovered.logoOpacity === "1" &&
+          sponsorFocus.focused &&
+          sponsorFocus.outlineWidth === "3px" &&
+          (await firstLogo.count()) === 1,
+        { resting, hovered, sponsorFocus },
+      );
+    }
     await desktopContext.close();
 
     const mobileContext = await browser.newContext({ viewport: { width: 390, height: 900 } });
@@ -265,6 +300,20 @@ async function main() {
         mobileCards.length === 17 &&
           mobileCards.every((card) => card.x >= 0 && Math.round(card.right) <= 390),
         mobileCards,
+      );
+    }
+    if (route === "/sponsors/") {
+      const mobileTiles = await mobile.locator("main a").filter({ has: mobile.locator("img") }).evaluateAll((tiles) =>
+        tiles.map((tile) => {
+          const bounds = tile.getBoundingClientRect();
+          return { x: bounds.x, width: bounds.width, right: bounds.right };
+        }),
+      );
+      check(
+        "Sponsor mobile tiles do not overflow",
+        mobileTiles.length === 18 &&
+          mobileTiles.every((tile) => tile.x >= 0 && Math.round(tile.right) <= 390),
+        mobileTiles,
       );
     }
     const menuToggle = mobile.locator('button[aria-controls="mobile-site-navigation"]');
@@ -553,6 +602,46 @@ async function main() {
           peopleContract.headings.includes("Staff") &&
           peopleContract.headings.includes("Board Of Directors"),
         peopleContract.headings,
+      );
+    }
+
+    if (route === "/sponsors/") {
+      const sponsorLinks = await reduced.locator("main a").filter({ has: reduced.locator("img") }).evaluateAll((links) =>
+        links.map((link) => ({
+          href: link.getAttribute("href"),
+          target: link.getAttribute("target"),
+          rel: link.getAttribute("rel"),
+          label: link.getAttribute("aria-label"),
+          alt: link.querySelector("img")?.getAttribute("alt"),
+        })),
+      );
+      const sponsorHrefs = await reduced.locator("main a").evaluateAll((links) =>
+        links.map((link) => link.getAttribute("href")),
+      );
+      check(
+        "Sponsor identity and external-link contract",
+        sponsorLinks.length === 18 &&
+          sponsorLinks.every(
+            (link) =>
+              link.href?.startsWith("https://") &&
+              link.target === "_blank" &&
+              link.rel === "noopener" &&
+              link.label?.startsWith("Visit ") &&
+              Boolean(link.alt),
+          ),
+        sponsorLinks,
+      );
+      check(
+        "Sponsors support CTA destination",
+        sponsorHrefs.includes("https://findfeedrestore-bloom.kindful.com/"),
+        sponsorHrefs,
+      );
+      check(
+        "Sponsors semantic heading",
+        (await reduced
+          .getByRole("heading", { level: 1, name: "Community Leaders Helping Families Find Home" })
+          .count()) === 1,
+        await reduced.locator("main h1").allTextContents(),
       );
     }
 

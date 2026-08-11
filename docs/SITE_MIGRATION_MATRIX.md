@@ -4,7 +4,7 @@ Inventory date: 2026-08-10
 
 Production source: <https://www.findfeedrestore.com/>
 
-Scope: Milestone 2 discovery plus accepted migrations through Milestone 10, including the four program pages, editorial/media pages, Contact Us, and Board & Staff.
+Scope: Milestone 2 discovery plus accepted migrations through Milestone 11, including the four program pages, editorial/media pages, Contact Us, Board & Staff, and Partners & Sponsors.
 
 ## Discovery method and canonical scope
 
@@ -38,7 +38,7 @@ The inventory combines the production Yoast sitemap index, WordPress core sitema
 | `/news-media/` | News & Media | WordPress page; editorial/media | Header Hope In Action; footer News redirects here | Editorial/media | Shares hero, intro, section heading, and closing CTA with Testimonials; unique news-card body | Editorial hero, split intro, featured press card, press-card grid, image CTA | Press items are manually embedded in page HTML, not WordPress posts | Primarily HTML plus global widgets | Eleven external publisher links; mailto media inquiry; Kindful; responsive card reflow | Medium | **COMPLETE** |
 | `/testimonials/` | Testimonials | WordPress page; editorial/media | Header Hope In Action | Editorial/media | Shares editorial hero, intro, heading, container, and CTA shell with News; unique video-card body | Editorial hero, split intro, three featured video cards, image CTA | Client interaction replaces clicked thumbnail with autoplay YouTube iframe | Primarily HTML plus global widgets | Three YouTube embeds; local preserved thumbnails; Kindful | Medium-high | **COMPLETE** |
 | `/hope-in-action/` | Social Media (display hero: Hope In Action) | WordPress page; live social feed | Header Hope In Action; footer Quick Links | Social feed | Unique feed page; reuses global hero/CTA language only | Image hero, social profile buttons, live feed, image CTA | Live Juicer feed and Load More behavior | Primarily HTML plus global widgets | `juicer.io` embed, Instagram post links, social profiles, Kindful | High | **DYNAMIC** |
-| `/sponsors/` | Partners & Sponsors | WordPress page; partner directory | Header Get Involved | Sponsor directory | Unique page shell; logo-tile primitive may be reusable | Image hero, split purpose intro, sponsor logo wall | Sponsor roster/logos/links are manually embedded | Primarily HTML plus global widgets | Eighteen external sponsor sites; logo hover/click | Medium | **READY** |
+| `/sponsors/` | Partners & Sponsors | WordPress page; partner directory | Header Get Involved | Sponsor directory | Unique page shell with reusable sponsor-tile/grid primitives | Image hero, split purpose intro, flat 18-logo sponsor wall | Sponsor roster/logos/links are manually embedded | Primarily HTML plus global widgets | Eighteen external sponsor sites; grayscale-to-color logo hover/click | Medium | **COMPLETE** |
 | `/live-here-love-here-lake/` | Live Here Love Here Lake | WordPress page; partnership campaign | Header Get Involved; footer Corporate Partnership | Membership/partnership campaign | Unique branded layout; its tiered directory is not interchangeable with Sponsors | Branded hero, price banner, benefits intro/cards, tiered business directory, closing split story | Native hosted MP4; frequently changing tiered business roster | HTML, heading, text editor, video plus global widgets | Typeform partnership intake, hosted MP4, YouTube story link, 25+ business destinations | Very high | **SPECIAL CASE** |
 | `/we-need-trailers/` | We Need Trailers | WordPress page; campaign/lead form | Header Get Involved; footer Donate Trailer; homepage giving CTA currently has a broken legacy alias | Trailer campaign | Unique campaign layout; can reuse general CTA/card/gallery primitives | Campaign hero and fact pills, split intro/impact card, three-step process, trailer lead form, gallery, final image CTA | One inline POST form with name/phone/email/type/message; production action is `#` and no submission handler is present | Primarily HTML plus global widgets | Form implementation decision required; Kindful; standard hover states | Very high | **DYNAMIC** |
 | `/contact-us/` | Contact Us | WordPress page; contact/conversion | Header Contact Us; footer Contact | Contact | Unique arrangement with reusable gallery/CTA/card primitives | Contact hero, phone/email/location split with PlanStreet application card, three action cards, impact gallery, image CTA | No contact form or map; every conversion is a semantic link to an external service or internal route | Primarily custom HTML plus global widgets | PlanStreet public form, Typeform, Kindful; telephone and email URI actions | Medium | **COMPLETE** |
@@ -202,7 +202,7 @@ The order maximizes verified component coverage while postponing service-coupled
 6. **Testimonials — COMPLETE** — validated the editorial shell and added accessible click-to-load video cards without merging them with press cards.
 7. **Contact Us — COMPLETE** — established the link-based contact/action architecture and documented that production has no contact-message form backend.
 8. **Board & Staff — COMPLETE** — established the people-directory cards and a future WordPress-managed data shape while mapping the production `/about-us/` source to the approved Next `/board-staff/` route.
-9. **Partners & Sponsors** — add the reusable logo tile and flat sponsor wall after general card primitives are stable.
+9. **Partners & Sponsors — COMPLETE** — established exact-asset sponsor tiles and the flat responsive logo wall without introducing unsupported tiers.
 10. **Live Here Love Here Lake** — build the branded tiered directory and native-video special case using the proven logo/media primitives.
 11. **We Need Trailers** — build the campaign/process/gallery and stop at the form boundary until submission ownership is approved.
 12. **Hope In Action** — integrate or deliberately replace only the Juicer presentation contract after dynamic-loading behavior is agreed.
@@ -438,6 +438,33 @@ Breakpoint-adjacent comparison passes at 1101/1100px, 901/900px, and 701/700px, 
 All 15 applicable interaction/accessibility checks pass: sticky header, Programs dropdown, visible keyboard focus, non-wrapping desktop navigation at 1440/1181/1025px, static person-card behavior, 17-card mobile containment, mobile menu open/close, floating donation control, complete link destinations, 17 factual portraits with non-empty alt text, no invented profile links, exact Kindful/Typeform CTA destinations, and semantic page/section headings.
 
 Regression QA reproduces the accepted homepage results (4712/4712, 5828/5829, 6108/6108, 8176/8175px) and Contact Us results (4477/4477, 5554/5554, 5594/5594, 6810/6809px). Only the Board & Staff header/footer destination changed from the unmigrated WordPress path to the completed Next route; no accepted visual measurement, global style, header geometry, or footer geometry regressed.
+
+## Milestone 11 — Partners & Sponsors implementation and parity QA
+
+`/sponsors/` is implemented in the existing App Router architecture with the accepted `SiteHeader`, `SiteFooter`, floating donation control, and global focus treatment. The production page has exactly three page-body sections: a large image hero with one Kindful CTA, a split purpose introduction, and one flat 18-logo sponsor wall. There are no sponsor tiers, categories, filtering controls, CMS feed, closing CTA band, or page-specific form. The sponsor wall flows through its white bottom spacing directly into the universal footer.
+
+The route introduces only the source-supported sponsor primitives:
+
+- `SponsorsHero` preserves the 660px minimum hero, source overlay/fade, title measure, copy, and support action.
+- `SponsorsIntro` preserves the two-column purpose/copy composition and its 1100px single-column transition.
+- `SponsorTile` owns one identity-critical logo link, intrinsic image dimensions, grayscale/opacity rest state, color/scale hover state, and accessible label.
+- `SponsorWall` owns the centered section heading and five/four/three/two/one-column responsive grid.
+- `SponsorsPageBody` preserves Elementor's visible 10px outer inset above, beside, and below the page body rather than normalizing it away.
+
+All 18 exact production logo files were downloaded and SHA-256 compared against each other and every accepted local asset. They are unique. The original 15 PNG, two JPEG, and one WebP files are preserved byte-for-byte under `public/images/sponsors/`, retaining source transparency, intrinsic dimensions, and aspect ratios. Images use `unoptimized` local delivery and `object-fit: contain`; none was converted, cropped, recolored, redrawn, recompressed, generated, or substituted. The hero's production `new-home-banner.jpg` is byte-identical to accepted `public/images/give-banner.jpg`, so it is reused without a duplicate download.
+
+| Viewport | Status | Production / local height | Rendered comparison | Remaining difference |
+| --- | --- | --- | --- | --- |
+| 1440px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 3167 / 3166px | 2.248% amplified changed-pixel rate; 5-column grid, 210px tiles, intrinsic logo scale/whitespace, hero, intro, and footer align. | One-pixel aggregate height difference, localized browser/font antialiasing, and accepted code-native global icon shapes. |
+| 1024px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 3641 / 3642px | 3.042% changed-pixel rate; tablet header, source three-line hero wrap, stacked intro, 3-column wall, logos, and footer align. | One-pixel aggregate height difference plus localized antialiasing/global-icon differences. |
+| 768px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 3708 / 3708px | 3.394% changed-pixel rate; mobile typography/padding threshold, 2-column 170px tiles, 82px logo cap, and footer align. | Localized antialiasing/global-icon differences only. |
+| 390px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 5993 / 5992px | 3.733% changed-pixel rate; single-column 155px tiles, exact logo whitespace, full-width hero button, section spacing, and footer align. | One-pixel aggregate height difference plus localized antialiasing/global-icon differences. |
+
+Breakpoint-adjacent comparisons pass at 1281/1280px, 1101/1100px, 769/768px, and 521/520px. Production and local both transition from five to four columns at 1280px, four to three at 1100px, three to two at 768px, and two to one at 520px. Aggregate page-height variance remains 0–2px at every boundary. No tile collision, row misalignment, logo distortion, altered crop, unexpected wrap, or horizontal overflow appears between canonical widths.
+
+All 15 applicable interaction/accessibility checks pass: sticky header, Programs dropdown, visible keyboard focus, non-wrapping desktop navigation at 1440/1181/1025px, sponsor-tile 8px hover lift, grayscale-to-color/opacity/scale transition, explicit tile focus outline, 18-card mobile containment, mobile navigation open/close, floating donation control, complete link destinations, all 18 external `_blank`/`noopener` sponsor contracts, matching `Visit …` labels and non-empty logo alt text, Kindful CTA destination, and one semantic page heading. Reduced-motion mode removes transitions while preserving the source's final hover presentation and layout.
+
+Regression QA reproduces the accepted homepage results (4712/4712, 5828/5829, 6108/6108, 8176/8175px) and Board & Staff results (4601/4601, 5460/5460, 5485/5485, 9198/9197px). No global component, shared style, accepted route, header geometry, or footer geometry changed.
 
 ## Visual QA requirement for implementation milestones
 

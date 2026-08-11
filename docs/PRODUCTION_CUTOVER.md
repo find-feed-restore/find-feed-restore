@@ -101,7 +101,7 @@ The live Yoast page sitemap currently contains exactly 14 content URLs. Thirteen
 
 ## Sitemap, robots, and canonical URLs
 
-`src/app/sitemap.ts` now emits `/sitemap.xml` with only the 14 certified canonical URLs. It excludes aliases, redirects, WordPress paths, technical endpoints, and QA artifacts. `src/app/robots.ts` now emits an allow-all production policy, the canonical host, and the production sitemap URL.
+`src/app/sitemap.ts` emits `/sitemap.xml` with only the 14 certified canonical URLs. It excludes aliases, redirects, WordPress paths, technical endpoints, and QA artifacts. `src/app/robots.ts` emits an allow-all production policy, the canonical host, and the production sitemap URL. `public/llms.txt` provides a concise Markdown directory of the same canonical public content for systems that choose to use the emerging `llms.txt` proposal; it does not replace or override robots directives, canonicals, or the XML sitemap.
 
 All page metadata uses `https://www.findfeedrestore.com` through `metadataBase` and route-specific canonical paths. `trailingSlash: true` aligns Next.js routing with the production WordPress URL convention, canonical tags, sitemap entries, and existing direct internal links, so each canonical sitemap URL returns 200 rather than normalizing through a redirect. No localhost, Vercel Preview, or WordPress-only alias is used as a canonical. Vercel Preview deployments remain a separate concern: standard Preview URLs receive Vercel's `X-Robots-Tag: noindex`, and the inspected protected deployment did so. Production must not receive that header after the custom domain is attached.
 

@@ -1,0 +1,35 @@
+# Find Feed Restore
+
+> Find Feed Restore is a Central Florida nonprofit helping families with children move from homelessness to stability through housing, financial literacy, mental health counseling, and practical support.
+
+This file provides a concise directory of the site's canonical public pages. Use the linked pages as the authoritative source for program details, legal terms, contact information, and current campaigns.
+
+## Main Pages
+
+- [Home](https://www.findfeedrestore.com/): Mission, vision, impact, programs, and ways to support Find Feed Restore.
+- [Contact Us](https://www.findfeedrestore.com/contact-us/): Contact information and links for assistance, volunteering, donations, and partnerships.
+- [Board & Staff](https://www.findfeedrestore.com/board-staff/): Staff and board members guiding the organization.
+- [Sponsors](https://www.findfeedrestore.com/sponsors/): Organizations supporting Find Feed Restore.
+- [Terms & Conditions](https://www.findfeedrestore.com/terms-conditions/): Terms governing use of the website.
+
+## Programs
+
+- [Affordable Housing](https://www.findfeedrestore.com/affordable-housing/): Affordable housing for working families with children.
+- [Housing First](https://www.findfeedrestore.com/housing-first/): Housing and support that help families regain stability.
+- [Homelessness Avoidance](https://www.findfeedrestore.com/homelessness-avoidance/): Assistance for households at risk of homelessness.
+- [Care Coach Mobile Unit](https://www.findfeedrestore.com/care-coach-mobile-unit/): Mobile health, housing, meal, and support resources.
+
+## Stories and Media
+
+- [News & Media](https://www.findfeedrestore.com/news-media/): Published coverage of Find Feed Restore's work.
+- [Testimonials](https://www.findfeedrestore.com/testimonials/): Video stories about families, community support, and impact.
+- [Hope In Action](https://www.findfeedrestore.com/hope-in-action/): Current social updates provided through the site's live Juicer feed.
+
+## Campaigns
+
+- [Live Here Love Here Lake](https://www.findfeedrestore.com/live-here-love-here-lake/): Local business campaign supporting housing for families.
+- [We Need Trailers](https://www.findfeedrestore.com/we-need-trailers/): Trailer ministry information and the website's server-processed inquiry form.
+
+## Site Index
+
+- [XML Sitemap](https://www.findfeedrestore.com/sitemap.xml): Complete list of canonical indexable pages.

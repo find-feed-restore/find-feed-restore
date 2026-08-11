@@ -75,6 +75,11 @@ async function findChrome() {
   throw new Error("No supported Chrome/Chromium executable was found.");
 }
 
+async function loadPage(page) {
+  await page.goto(localUrl, { waitUntil: "domcontentloaded", timeout: 60_000 });
+  await page.waitForLoadState("networkidle", { timeout: 10_000 }).catch(() => undefined);
+}
+
 async function main() {
   await mkdir(outputDirectory, { recursive: true });
   const browser = await chromium.launch({
@@ -88,7 +93,7 @@ async function main() {
   try {
     const desktopContext = await browser.newContext({ viewport: { width: 1440, height: 900 } });
     const desktop = await desktopContext.newPage();
-    await desktop.goto(localUrl, { waitUntil: "networkidle" });
+    await loadPage(desktop);
     await desktop.evaluate(() => document.fonts.ready);
 
     const siteHeader = desktop.getByRole("banner");
@@ -270,7 +275,7 @@ async function main() {
 
     const mobileContext = await browser.newContext({ viewport: { width: 390, height: 900 } });
     const mobile = await mobileContext.newPage();
-    await mobile.goto(localUrl, { waitUntil: "networkidle" });
+    await loadPage(mobile);
     if (route === "/care-coach-mobile-unit/") {
       const mobileMediaRect = await mobile.locator('iframe[title="Care Coach Video"]').boundingBox();
       check(
@@ -376,7 +381,7 @@ async function main() {
       reducedMotion: "reduce",
     });
     const reduced = await reducedContext.newPage();
-    await reduced.goto(localUrl, { waitUntil: "networkidle" });
+    await loadPage(reduced);
     await reduced.waitForTimeout(250);
     if (route === "/") {
       const counterValues = await reduced.locator("article").filter({ hasText: /Families Housed|Children Housed|People Housed/ }).allTextContents();

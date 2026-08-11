@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test:trailer-form": "node --test tests/trailer-submission.test.mjs",
+    "qa:trailer-form": "node scripts/trailer-form-qa.mjs",
     "visual:qa": "node scripts/visual-qa.mjs",
     "visual:qa:interactions": "node scripts/interaction-qa.mjs"
   },

@@ -16,7 +16,7 @@ Certification baseline: accepted Milestone 16 commit `0eefbd6`; this report incl
 - Dedicated production/local mobile visual captures completed: **70 of 70** at 430, 390, 375, 360, and 320px
 - Route interaction assertions passed: **203 of 203**
 - Dedicated mobile route-width interaction assertions passed: **70 of 70**
-- Dedicated Resend/form, Juicer, and legal assertions passed: **37 of 37**
+- Dedicated Resend/form, native Instagram, and legal assertions passed; native feed adds **8 of 8** provider tests and **8 of 8** browser checks
 - Routes with minor documented differences: **3** — We Need Trailers' approved functional form enhancement, Hope In Action's changing live feed, and Board & Staff's source-matched intermediate fixed-grid clipping
 - Blocked routes: **0**
 - Overall migration certification: **PASS — READY FOR CUTOVER**
@@ -28,7 +28,7 @@ The repository started clean on `main`. The dedicated mobile continuation starte
 
 `scripts/full-site-certification.mjs` is the repository-local crawl harness. It uses Playwright Core and system Chrome against an optimized local production server. It records detailed ignored evidence at `.visual-qa/certification/crawl.json` and checks every route for HTTP/runtime health, local resource failures, canonical/title/description/Open Graph state, noindex, heading order, image alt attributes, control labels, fragments, header/footer presence, internal destinations, desktop/mobile overflow, shared breakpoint behavior, redirects, external origins, and 404 responses.
 
-The existing visual harness generated production/local screenshots, side-by-sides, overlays, amplified differences, element metrics, and page heights at 1440, 1024, 768, and 390px for every route. Board & Staff correctly used production `/about-us/` as its visual source. The existing interaction harness ran on all 14 routes. Dedicated form, Juicer, and legal harnesses supplied service-specific evidence. All `.visual-qa` output remains ignored.
+The existing visual harness generated production/local screenshots, side-by-sides, overlays, amplified differences, element metrics, and page heights at 1440, 1024, 768, and 390px for every route. Board & Staff correctly used production `/about-us/` as its visual source. The existing interaction harness ran on all 14 routes. Dedicated form, native Instagram, and legal harnesses supplied service-specific evidence. All `.visual-qa` output remains ignored.
 
 `scripts/mobile-visual-certification.mjs` runs the established visual harness for every canonical route at 430, 390, 375, 360, and 320px, preserving the `/about-us/` production source mapping for Board & Staff. `scripts/mobile-certification.mjs` separately checks each of the 70 route-width combinations for the mobile header/logo/toggle, keyboard menu geometry and close behavior, body-lock restoration, scroll behavior, footer stacking, floating control, clipped text, horizontal overflow, media/images/controls, card stacking, and route-specific form/feed/video/logo/people/legal containment. Evidence is written only under ignored `.visual-qa` paths.
 
@@ -36,9 +36,9 @@ The existing visual harness generated production/local screenshots, side-by-side
 
 All 70 identical-width production/local captures include full-page screenshots, side-by-side images, overlays, amplified differences, and height measurements. Shared mobile geometry is stable across routes: the header is 175/167/164/161/153px high at 430/390/375/360/320px, the centered logo is 215/195/188/180/160px wide, and the 28px menu toggle remains centered and contained. The header begins full-size at page top and scrolls away on mobile, matching production; it does not shrink on navigation or become incorrectly sticky.
 
-Every mobile interaction run confirms the hamburger opens and closes from the keyboard, `aria-expanded` tracks state, menu rows remain at least 47px high, navigation stays within the viewport, and body overflow state is restored after closing. All routes have zero document-level horizontal overflow and zero clipped visible text. CTAs, cards, images, iframes/video, footer sections/logo, and the floating donation control remain contained. People cards and testimonial cards stack in DOM order; the 18-logo sponsor wall and 29-logo campaign directory collapse without overflow; legal text remains contained; and Juicer media stays within its feed wrapper.
+Every mobile interaction run confirms the hamburger opens and closes from the keyboard, `aria-expanded` tracks state, menu rows remain at least 47px high, navigation stays within the viewport, and body overflow state is restored after closing. All routes have zero document-level horizontal overflow and zero clipped visible text. CTAs, cards, images, iframes/video, footer sections/logo, and the floating donation control remain contained. People cards and testimonial cards stack in DOM order; the 18-logo sponsor wall and 29-logo campaign directory collapse without overflow; legal text remains contained; and native Instagram media stays within its feed wrapper.
 
-We Need Trailers retains all five semantic labels, six visible form controls including submit, full-width field containment, and stable submitting/success/error status geometry at every mobile width. The state checks mutate the local status region only and never invoke the Server Action or send email. Hope In Action is evaluated using static wrapper/section geometry plus live-provider containment; changing Juicer card media and text remain dynamic variance rather than frozen visual data.
+We Need Trailers retains all five semantic labels, six visible form controls including submit, full-width field containment, and stable submitting/success/error status geometry at every mobile width. The state checks mutate the local status region only and never invoke the Server Action or send email. Hope In Action is evaluated using static wrapper/section geometry plus live-provider containment; changing Instagram media and captions remain dynamic variance rather than frozen visual data.
 
 | Route | 430px | 390px | 375px | 360px | 320px | Mobile interaction | Horizontal overflow | Remaining documented differences |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -54,7 +54,7 @@ We Need Trailers retains all five semantic labels, six visible form controls inc
 | `/sponsors/` | **PASS** 5952/5951 | **PASS** 5993/5992 | **PASS** 6088/6085 | **PASS** 6152/6149 | **PASS** 6275/6271 | **PASS** | **PASS** | 1–4px variance; all 18 tiles use the production one-column mobile layout. |
 | `/live-here-love-here-lake/` | **PASS** 12370/12369 | **PASS** 12460/12458 | **PASS** 12541/12537 | **PASS** 12664/12660 | **PASS** 12729/12725 | **PASS** | **PASS** | 1–4px variance after binding the route to the loaded production-equivalent Noto Sans metrics. |
 | `/we-need-trailers/` | **PASS WITH MINOR DIFFERENCES** 7766/7693 | **PASS WITH MINOR DIFFERENCES** 7936/7863 | **PASS WITH MINOR DIFFERENCES** 8074/7999 | **PASS WITH MINOR DIFFERENCES** 8059/7983 | **PASS WITH MINOR DIFFERENCES** 8362/8269 | **PASS** | **PASS** | Intentional accessible functional status region replaces production's obsolete form note; field/button geometry passes. |
-| `/hope-in-action/` | **PASS WITH MINOR DIFFERENCES** 13177/13162 | **PASS WITH MINOR DIFFERENCES** 12994/12979 | **PASS WITH MINOR DIFFERENCES** 12930/12912 | **PASS WITH MINOR DIFFERENCES** 12890/12872 | **PASS WITH MINOR DIFFERENCES** 13013/13023 | **PASS** | **PASS** | Changing live Juicer cards/media; static shell, one-column feed, CTA, and footer structure pass. |
+| `/hope-in-action/` | **PASS WITH MINOR DIFFERENCES** 13177/13669 | **PASS WITH MINOR DIFFERENCES** 12994/13086 | **PASS WITH MINOR DIFFERENCES** 12930/13099 | **PASS WITH MINOR DIFFERENCES** 12890/13159 | **PASS WITH MINOR DIFFERENCES** 13013/13210 | **PASS** | **PASS** | Native one-column feed, CTA, footer, and containment pass; changing live content and native caption flow create documented cumulative height variance. |
 | `/terms-conditions/` | **PASS** 3304/3303 | **PASS** 3415/3414 | **PASS** 3481/3477 | **PASS** 3517/3514 | **PASS** 3644/3641 | **PASS** | **PASS** | 1–4px cumulative legal typography variance; no clipped copy. |
 
 Heights are production/local pixels. The dedicated sweep found and corrected three source mismatches: homepage mission copy now uses production's 500 weight with the matching desktop section padding, Contact values inherit production's Arial 500 treatment instead of Noto Sans 900, and Live Here consistently resolves the loaded Next Noto Sans face while removing a non-source story letter-spacing override. Standard 1440/1024/768/390 visual regressions and full interaction suites were rerun for all three affected routes.
@@ -77,10 +77,10 @@ All metadata checks below include one canonical matching `https://www.findfeedre
 | `/sponsors/` | 200 | 3167/3166 · 3641/3642 · 3708/3708 · 5993/5992 | 16/16 | Complete | All 18 identities, secure external contracts, hover/focus pass | **PASS** |
 | `/live-here-love-here-lake/` | 200 | 6686/6685 · 8364/8364 · 8896/8896 · 12460/12458 | 18/18 | Complete | 29-logo directory and native video pass | **PASS** |
 | `/we-need-trailers/` | 200 | 5123/5251 · 7059/7019 · 7017/7099 · 7936/7863 | 11/11 shared + 22/22 form/server | Complete | Functional form difference; all field geometry and states pass | **PASS WITH APPROVED DIFFERENCE** |
-| `/hope-in-action/` | 200 | 4917/4916 · 6147/6147 · 7455/7455 · 12994/12979 | 11/11 shared + 8/8 provider | Complete | Live Juicer behavior/fallback pass | **PASS WITH DYNAMIC TREATMENT** |
+| `/hope-in-action/` | 200 | 4917/4897 · 6147/6172 · 7455/7450 · 12994/13086 | 11/11 shared + 8/8 browser + 8/8 provider | Complete | Native Instagram links, Load More, media, cache, and fallback pass | **PASS WITH DYNAMIC TREATMENT** |
 | `/terms-conditions/` | 200 | 2474/2474 · 2496/2496 · 2562/2562 · 3415/3414 | 11/11 shared + 7/7 legal | Complete | Exact legal copy, hierarchy, canonical and alias pass | **PASS** |
 
-We Need Trailers reproduces the exact Milestone 13 accepted measurements. The larger raster difference is caused by the intentional accessible functional status region replacing production's obsolete form note, not a new regression; the dedicated harness confirms production-equivalent field geometry at all four widths. Hope In Action reproduces exact desktop/tablet static geometry. Its 15px mobile height difference and larger live-card raster variance are changing Juicer content, not static layout drift.
+We Need Trailers reproduces the exact Milestone 13 accepted measurements. The larger raster difference is caused by the intentional accessible functional status region replacing production's obsolete form note, not a new regression; the dedicated harness confirms production-equivalent field geometry at all four widths. Hope In Action retains the certified static shell and exact feed breakpoints. Its remaining page-height/raster variance is changing Instagram content plus the native caption flow, not section, wrapper, CTA, footer, or overflow drift.
 
 ## Shared breakpoint certification
 
@@ -125,11 +125,13 @@ During the initial certification run, the older browser harness assumed local de
 
 Real end-to-end delivery verification remains a **USER ACCEPTANCE TEST / MANUAL POST-DEPLOYMENT CHECK**, owned by the project owner. After an authorized deployment, submit one clearly labeled trailer-form test and confirm receipt plus the visitor-email Reply-To header in the destination inbox or Resend delivery record. This manual acceptance check is not a launch blocker, and another Preview should not be created solely for Resend testing. No additional real email was sent during certification reclassification.
 
-## Juicer certification
+## Native Instagram certification
 
-The provider adapter remains `src/components/hope-social-feed.tsx` with feed slug `findfeedrestore` and standard `https://www.juicer.io/embed/findfeedrestore/embed-code.js` loader. Eight dedicated checks pass: one feed node/loader/runtime, claimed loaded state, Load More, secure external post target/rel and keyboard focus, media containment, all container-query transitions, 390px containment, App Router away/back remount without duplicate initialization, and blocked-loader fallback.
+Hope In Action now uses the Instagram API with Instagram Login through `graph.instagram.com/v26.0`. The server-only provider reads `INSTAGRAM_ACCESS_TOKEN` and `INSTAGRAM_ACCOUNT_ID`, verifies the authorized profile through `/me`, requests at most 24 recent entries from `/me/media`, normalizes only `IMAGE`, `VIDEO`, and `CAROUSEL_ALBUM`, and caches successful Meta responses for 900 seconds. Sixteen cards render initially; Load More reveals the remaining cached eight without sending a cursor or credential to the browser. The authorized-account verification returned 24 valid current image posts. Mocked seams certify video/Reel thumbnails and carousel covers because neither type was present in that live result.
 
-Juicer's optional page-view call to its legacy HTTP endpoint emits a provider CORS console warning on localhost. The feed, cards, links, load-more control, media, and fallback remain operational; no site-code error occurs. No Juicer post media was committed as static content.
+Eight provider tests and eight browser checks pass: current host/version/fields, bearer handling with no token query, account matching, bounded cache configuration, supported media normalization/presentation, safe malformed/error results, no client credential reference, 16-to-24 Load More, secure Instagram permalinks and keyboard focus, square contained media, exact 1/2/3/4-column transitions, five mobile widths without overflow, and singular App Router remount. Missing configuration and an invalid-token API response were separately exercised in a browser; both preserve the complete page shell and show only the direct-profile fallback. Juicer's adapter, script loader/runtime hooks, and route CSS are removed, and no dynamic Instagram media is committed as a static asset.
+
+Meta documents the long-lived token lifetime as approximately 60 days. Operations must refresh an eligible unexpired token after it is 24 hours old through `graph.instagram.com/refresh_access_token` using `grant_type=ig_refresh_token`, update the controlled Vercel environment value, redeploy, and verify the provider. The application intentionally does not mutate immutable Vercel environment configuration or invent token storage.
 
 ## Video and media certification
 
@@ -149,11 +151,11 @@ Production's native MP4 also omits `playsinline`; local preserves that source be
 - The three unique trailer assets remain present. No generated substitute or live social-feed media is committed.
 - Runtime crawling found no missing image, stylesheet, script, font, poster, or other local asset on any canonical route.
 - Hash audit found one existing duplicate pair: `public/images/programs/affordable-housing/hero.jpg` and `public/images/programs/housing-first/support-family.jpg`, SHA-256 `6ac72f949551120c67b281baafdd24672c7ec1f449711f0ba765befcd88f7935`. Both belong to accepted routes; cleanup is deferred rather than changing source paths during certification.
-- Optimized client static output is approximately 912 KB (768 KB JavaScript chunks). Client islands are limited to the shared header, homepage counter, testimonial video activation, native-video poster/control, trailer form, and Juicer adapter.
+- Client islands remain limited to the shared header, homepage counter, testimonial video activation, native-video poster/control, trailer form, and native Instagram progressive reveal. Instagram credentials are absent from client output.
 
 ## Accessibility smoke audit
 
-All 14 routes have one logical H1 and no heading-level skip, no image missing an `alt` attribute, no unlabeled visible form control, no broken fragment, visible three-pixel keyboard focus, keyboard-reachable navigation/dropdowns/forms/media, no keyboard trap found, and accessible form status messaging. Decorative images use empty alt text where appropriate. Route-specific interaction tests cover menus, CTA links, media, testimonial activation, sponsor focus, form order/states, Juicer links, and legal structure. This is a smoke certification, not a complete WCAG conformance claim.
+All 14 routes have one logical H1 and no heading-level skip, no image missing an `alt` attribute, no unlabeled visible form control, no broken fragment, visible three-pixel keyboard focus, keyboard-reachable navigation/dropdowns/forms/media, no keyboard trap found, and accessible form status messaging. Decorative images use empty alt text where appropriate. Route-specific interaction tests cover menus, CTA links, media, testimonial activation, sponsor focus, form order/states, native Instagram links, and legal structure. This is a smoke certification, not a complete WCAG conformance claim.
 
 ## 404 behavior
 
@@ -164,7 +166,7 @@ The clearly nonexistent certification route, `/terms-and-conditions/`, `/wp-admi
 | Dependency | Routes/use | Certification treatment |
 | --- | --- | --- |
 | Resend | Trailer Server Action delivery | Server-only architecture and mocked delivery contract pass; real delivery is a user-owned manual post-deployment check, not a blocker |
-| Juicer | Hope In Action live feed | Loader, feed, remount, links, media, load-more, fallback pass |
+| Instagram API with Instagram Login | Hope In Action live feed | Server-only auth, cache, normalization, links, media, load-more, and safe fallback pass |
 | YouTube | Care Coach and Testimonials | Source, user activation, fullscreen, focus, play/pause pass |
 | Typeform | Volunteer, partnership, application CTAs | Destinations and secure new-tab contracts pass where specified |
 | PlanStreet | Assistance applications | Destination contracts pass |
@@ -195,8 +197,8 @@ The clearly nonexistent certification route, `/terms-and-conditions/`, `/wp-admi
 - Add a branded custom 404.
 - Hash-deduplicate the accepted 211,091-byte program image pair if route paths can be changed safely.
 - Review the 1.52 MB Terms hero and other factual images for non-destructive delivery optimization.
-- Monitor Juicer's optional HTTP page-view CORS warning and live-feed availability; the current adapter fallback is usable.
-- Continue monitoring YouTube, Juicer, Typeform, PlanStreet, Kindful, Candid, publisher, social, and sponsor availability as external operational dependencies.
+- Establish a controlled token-refresh reminder/automation before the approximately 60-day Instagram token lifetime; do not persist a refreshed token in client code or logs.
+- Continue monitoring YouTube, Instagram, Typeform, PlanStreet, Kindful, Candid, publisher, social, and sponsor availability as external operational dependencies.
 
 ## Certification corrections
 

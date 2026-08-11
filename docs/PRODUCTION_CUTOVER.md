@@ -39,15 +39,17 @@ Final preparation gates pass: ESLint, strict TypeScript, `git diff --check`, and
 
 ## Production environment variables
 
-Only three application-specific environment variables are referenced by runtime code, all from the server-only trailer Server Action. Their values must never be printed, logged, documented, committed, or exposed with a `NEXT_PUBLIC_` prefix.
+Five application-specific environment variables are referenced by runtime code. All are server-only: three support the trailer Server Action and two support the native Instagram provider. Their values must never be printed, logged, documented, committed, or exposed with a `NEXT_PUBLIC_` prefix.
 
 | Variable name | Classification | Required scope | Verification |
 | --- | --- | --- | --- |
 | `RESEND_API_KEY` | **REQUIRED FOR LAUNCH** | Production | Owner has reported Vercel configuration; dashboard presence must be confirmed |
 | `CONTACT_FROM_EMAIL` | **REQUIRED FOR LAUNCH** | Production | Owner has reported Vercel configuration; dashboard presence must be confirmed |
 | `CONTACT_TO_EMAIL` | **REQUIRED FOR LAUNCH** | Production | Owner has reported Vercel configuration; dashboard presence must be confirmed |
+| `INSTAGRAM_ACCESS_TOKEN` | **REQUIRED FOR LAUNCH** | Production | Owner has reported Vercel configuration; dashboard presence must be confirmed |
+| `INSTAGRAM_ACCOUNT_ID` | **REQUIRED FOR LAUNCH** | Production | Owner has reported Vercel configuration; dashboard presence must be confirmed |
 
-No additional required, optional, or development-only application variables are referenced. `.env.local` is ignored and is not a source of Production configuration. After confirming the three names in Production scope, redeploy the accepted commit only if Vercel indicates the active production deployment predates the variable configuration.
+No additional required, optional, or development-only application variables are referenced. `.env.local` is ignored and is not a source of Production configuration. After confirming all five names in Production scope, redeploy the accepted/current descendant commit if Vercel indicates the active deployment predates either integration's configuration.
 
 ## Domains and DNS
 
@@ -123,7 +125,7 @@ Until that decision is recorded, cutover configuration remains on hold. The cuto
 | Service | Current Next.js contract | Launch check |
 | --- | --- | --- |
 | Resend | Server-only trailer form; authenticated From, configured To, visitor Reply-To; three required Production variables | Confirm Production variable presence; owner performs one clearly labeled manual acceptance submission after authorized deployment |
-| Juicer | Public `findfeedrestore` client embed behind `HopeSocialFeed`; no private credential | Feed loads once, Load More works, fallback remains usable |
+| Instagram API with Instagram Login | Server-only `graph.instagram.com/v26.0` provider; 24-post/15-minute cache; native React cards and Load More | Confirm both Production variable names, 16 initial cards, secure links, Load More, and fallback |
 | YouTube | Care Coach iframe; testimonial click-to-load iframes; campaign/watch links | Sources, controls, fullscreen, and mobile containment |
 | Typeform | Volunteer/partner/application links | Destination and intended new-tab behavior |
 | PlanStreet | Family-assistance public form link | Destination and same-tab behavior |
@@ -132,7 +134,7 @@ Until that decision is recorded, cutover configuration remains on hold. The cuto
 | Google Analytics / Gauges | Present on WordPress; absent in Next.js | Resolve the pre-cutover continuity decision above |
 | Social, sponsor, and publisher sites | External links only | Sample critical destinations; provider outages do not invalidate the local route |
 
-None of Resend, Juicer, YouTube, Typeform, PlanStreet, Kindful, or Candid depends on Elementor-rendered markup. Juicer remains the only live client-injected content provider. Resend is the only custom server-side external request.
+None of Resend, Instagram, YouTube, Typeform, PlanStreet, Kindful, or Candid depends on Elementor-rendered markup. Instagram and Resend are the two custom server-side external request paths; no Meta credential is sent to the browser.
 
 ## Large hosted video
 
@@ -157,7 +159,7 @@ Perform these against the custom production hostname immediately after DNS conve
 - Homepage, header at page top, desktop navigation/dropdowns, sticky-on-scroll behavior, mobile menu, footer, and floating Donate control
 - Affordable Housing, Housing First, Homelessness Avoidance, Care Coach, News & Media, Testimonials, Contact Us, Board & Staff, Sponsors, Live Here Love Here Lake, We Need Trailers, Hope In Action, and Terms & Conditions
 - One controlled, clearly labeled trailer-form user acceptance submission; verify receipt and Reply-To in inbox/provider records without exposing values
-- Juicer initial load, single initialization, external post links, Load More, and blocked-provider fallback
+- Native Instagram initial 16 posts, secure original-post links, Load More to the bounded 24-post result, and provider-error fallback
 - Care Coach and testimonial YouTube controls plus hosted MP4 playback, seek/range behavior, sound, fullscreen, and mobile containment
 - Typeform, PlanStreet, Kindful, Candid, primary social links, and critical sponsor destinations
 - All four path redirects plus apex-to-`www`, HTTP-to-HTTPS, and no loops/chains
@@ -183,12 +185,13 @@ Vercel's deployment rollback/revert can be used if the custom domain is already 
 
 ### BLOCKER
 
-- The owning Vercel account must verify the existing project settings, `main` production branch, Production scope presence of the three required variable names, and project-specific domain requirements. The available CLI identity cannot access that scope.
+- The owning Vercel account must verify the existing project settings, `main` production branch, Production scope presence of all five required variable names, and project-specific domain requirements. The available CLI identity cannot access that scope.
 - Resolve the Google Analytics/Gauges continuity decision. Existing production tracking makes this **MUST HAVE BEFORE CUTOVER** unless the owner explicitly accepts and records a temporary gap.
 
 ### SHOULD FIX BEFORE CUTOVER
 
 - Decide whether to preserve or separately correct the production-matched Board & Staff intermediate clipping. It is not a deployment blocker.
+- Establish an owned reminder or secure operations job to refresh the long-lived Instagram token before its approximately 60-day expiry, update the Vercel Production value, and redeploy. The application must not attempt to mutate Vercel configuration at runtime.
 
 ### USER ACCEPTANCE TEST / MANUAL POST-DEPLOYMENT CHECK
 
@@ -201,19 +204,20 @@ Vercel's deployment rollback/revert can be used if the custom domain is already 
 - Add a branded custom 404.
 - Consider non-destructive optimization of the Terms hero and other large factual images.
 - Review safe static-asset deduplication without altering public identity assets.
-- Monitor Juicer, YouTube, Resend, Typeform, PlanStreet, Kindful, Candid, publisher, sponsor, and social-provider availability.
+- Monitor Instagram token health/expiry, YouTube, Resend, Typeform, PlanStreet, Kindful, Candid, publisher, sponsor, and social-provider availability.
 
 ## Recommended launch sequence
 
 1. Complete both BLOCKER decisions and record the owner/dashboard evidence.
 2. Verify or configure analytics according to the approved decision; rerun only the affected build/runtime checks.
 3. Confirm the three Resend variable names in Production scope without displaying their values.
-4. Add both domains to the existing Vercel project, establish `www` as primary, configure apex redirect, complete ownership validation, and record the exact Vercel DNS targets.
-5. Confirm the accepted/current descendant commit is the successful Vercel production deployment and run the protected-host smoke checklist.
-6. Export current Cloudflare DNS and confirm WordPress remains healthy and untouched.
-7. In the agreed window, change only apex/`www` web records to the verified Vercel targets.
-8. Run the manual launch checks above, including one owner-controlled Resend acceptance submission.
-9. Monitor SSL, 4xx/5xx, form delivery, Juicer, analytics, video bandwidth, and critical user paths through the stabilization window.
-10. If rollback criteria are met, restore the captured WordPress records immediately; otherwise leave WordPress intact until the agreed retention period ends.
+4. Confirm `INSTAGRAM_ACCESS_TOKEN` and `INSTAGRAM_ACCOUNT_ID` in Production scope without displaying their values, and schedule token refresh before expiry.
+5. Add both domains to the existing Vercel project, establish `www` as primary, configure apex redirect, complete ownership validation, and record the exact Vercel DNS targets.
+6. Confirm the accepted/current descendant commit is the successful Vercel production deployment and run the protected-host smoke checklist.
+7. Export current Cloudflare DNS and confirm WordPress remains healthy and untouched.
+8. In the agreed window, change only apex/`www` web records to the verified Vercel targets.
+9. Run the manual launch checks above, including one owner-controlled Resend acceptance submission.
+10. Monitor SSL, 4xx/5xx, form delivery, Instagram token/feed health, analytics, video bandwidth, and critical user paths through the stabilization window.
+11. If rollback criteria are met, restore the captured WordPress records immediately; otherwise leave WordPress intact until the agreed retention period ends.
 
 No DNS, production WordPress, production traffic, or destructive provider change was made during this preparation milestone.

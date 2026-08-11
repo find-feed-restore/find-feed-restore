@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test:trailer-form": "node --test tests/trailer-submission.test.mjs",
+    "test:instagram-feed": "node --test tests/instagram-feed.test.mjs",
+    "qa:instagram-provider": "node --env-file=.env.local scripts/instagram-provider-verify.mjs",
     "qa:trailer-form": "node scripts/trailer-form-qa.mjs",
     "qa:hope-feed": "node scripts/hope-feed-qa.mjs",
     "qa:terms": "node scripts/terms-qa.mjs",

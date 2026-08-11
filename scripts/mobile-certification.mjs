@@ -116,7 +116,7 @@ async function inspectLayout(page, route, width) {
       const campaignMedia = currentRoute === "/live-here-love-here-lake/"
         ? Array.from(document.querySelectorAll("main video, main img")).filter(visible)
         : [];
-      const feed = currentRoute === "/hope-in-action/" ? document.querySelector(".juicer-feed") : null;
+      const feed = currentRoute === "/hope-in-action/" ? document.querySelector('[data-provider="instagram"]') : null;
       const feedMedia = feed ? Array.from(feed.querySelectorAll("img, video, iframe")).filter(visible) : [];
       const legalContent = currentRoute === "/terms-conditions/" ? document.querySelector("main section:last-of-type") : null;
       const h1Style = h1 ? getComputedStyle(h1) : null;

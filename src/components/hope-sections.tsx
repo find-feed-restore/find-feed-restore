@@ -1,4 +1,5 @@
-import { HopeSocialFeed } from "./hope-social-feed";
+import { Suspense } from "react";
+import { HopeFeedLoading, HopeInstagramFeed } from "./hope-instagram-feed";
 import styles from "./hope-sections.module.css";
 
 const socialLinks = [
@@ -48,7 +49,9 @@ export function HopePageBody() {
               ))}
             </nav>
           </div>
-          <HopeSocialFeed />
+          <Suspense fallback={<HopeFeedLoading />}>
+            <HopeInstagramFeed />
+          </Suspense>
         </div>
       </section>
 

@@ -23,7 +23,7 @@ This file provides a concise directory of the site's canonical public pages. Use
 
 - [News & Media](https://www.findfeedrestore.com/news-media/): Published coverage of Find Feed Restore's work.
 - [Testimonials](https://www.findfeedrestore.com/testimonials/): Video stories about families, community support, and impact.
-- [Hope In Action](https://www.findfeedrestore.com/hope-in-action/): Current social updates provided through the site's live Juicer feed.
+- [Hope In Action](https://www.findfeedrestore.com/hope-in-action/): Current social updates from Find Feed Restore's official Instagram account.
 
 ## Campaigns
 

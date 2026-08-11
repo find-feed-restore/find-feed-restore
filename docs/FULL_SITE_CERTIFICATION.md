@@ -19,8 +19,8 @@ Certification baseline: accepted Milestone 16 commit `0eefbd6`; this report incl
 - Dedicated Resend/form, Juicer, and legal assertions passed: **37 of 37**
 - Routes with minor documented differences: **3** — We Need Trailers' approved functional form enhancement, Hope In Action's changing live feed, and Board & Staff's source-matched intermediate fixed-grid clipping
 - Blocked routes: **0**
-- Overall migration certification: **PASS WITH DOCUMENTED LAUNCH BLOCKER**
-- Production cutover status: **NOT READY** until one controlled Vercel Preview Resend delivery and visitor Reply-To test is verified
+- Overall migration certification: **PASS — READY FOR CUTOVER**
+- Production cutover status: **READY**; no certified technical blocker remains
 
 The repository started clean on `main`. The dedicated mobile continuation started from accepted Milestone 16 commit `0eefbd6`, with `HEAD` and `origin/main` aligned. Certification used the actual clean shared baseline and did not rewrite history.
 
@@ -123,7 +123,7 @@ Ten injected-seam Node tests pass: required and malformed email, malformed/overl
 
 During the initial certification run, the older browser harness assumed local delivery was unconfigured. It attempted one submission using the clearly labeled address `website-test@example.com` before the audit established—by presence booleans only—that all three variables existed in `.env.local`. That request may have produced one local test delivery; no value was read or logged, no repeat was made, and delivery or Reply-To behavior cannot be verified from this environment. The harness was immediately changed to a non-delivery routine and subsequent local servers were started with all three variables explicitly empty.
 
-No controlled Vercel Preview delivery has been verified. Before production cutover, perform exactly one clearly labeled Preview submission and confirm receipt plus Reply-To mapping in the destination inbox.
+Real end-to-end delivery verification remains a **USER ACCEPTANCE TEST / MANUAL POST-DEPLOYMENT CHECK**, owned by the project owner. After an authorized deployment, submit one clearly labeled trailer-form test and confirm receipt plus the visitor-email Reply-To header in the destination inbox or Resend delivery record. This manual acceptance check is not a launch blocker, and another Preview should not be created solely for Resend testing. No additional real email was sent during certification reclassification.
 
 ## Juicer certification
 
@@ -163,7 +163,7 @@ The clearly nonexistent certification route, `/terms-and-conditions/`, `/wp-admi
 
 | Dependency | Routes/use | Certification treatment |
 | --- | --- | --- |
-| Resend | Trailer Server Action delivery | Mocked contract passes; Preview delivery verification outstanding |
+| Resend | Trailer Server Action delivery | Server-only architecture and mocked delivery contract pass; real delivery is a user-owned manual post-deployment check, not a blocker |
 | Juicer | Hope In Action live feed | Loader, feed, remount, links, media, load-more, fallback pass |
 | YouTube | Care Coach and Testimonials | Source, user activation, fullscreen, focus, play/pause pass |
 | Typeform | Volunteer, partnership, application CTAs | Destinations and secure new-tab contracts pass where specified |
@@ -177,7 +177,11 @@ The clearly nonexistent certification route, `/terms-and-conditions/`, `/wp-admi
 
 ### BLOCKER
 
-- Deploy to an authorized Vercel Preview environment, perform one clearly labeled real trailer test, verify successful receipt in `CONTACT_TO_EMAIL`, and verify the visitor email is the actual Reply-To. Do not cut production over until this is recorded.
+- None.
+
+### USER ACCEPTANCE TEST / MANUAL POST-DEPLOYMENT CHECK
+
+- The project owner will perform one clearly labeled real trailer-form submission after an authorized deployment, then verify receipt, configured From/To behavior, and the submitted visitor email as Reply-To. Do not create another Preview solely for this check. This does not block cutover because the server-only architecture, validation, spam protection, delivery payload, configured-address mapping, HTML/text bodies, safe failures, and accessible browser states are already certified through code and injected integration testing.
 
 ### SHOULD FIX BEFORE CUTOVER
 

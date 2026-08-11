@@ -4,7 +4,7 @@ Inventory date: 2026-08-10
 
 Production source: <https://www.findfeedrestore.com/>
 
-Scope: Milestone 2 discovery plus accepted migrations through Milestone 11, including the four program pages, editorial/media pages, Contact Us, Board & Staff, and Partners & Sponsors.
+Scope: Milestone 2 discovery plus accepted migrations through Milestone 12, including the Live Here Love Here Lake campaign.
 
 ## Discovery method and canonical scope
 
@@ -39,7 +39,7 @@ The inventory combines the production Yoast sitemap index, WordPress core sitema
 | `/testimonials/` | Testimonials | WordPress page; editorial/media | Header Hope In Action | Editorial/media | Shares editorial hero, intro, heading, container, and CTA shell with News; unique video-card body | Editorial hero, split intro, three featured video cards, image CTA | Client interaction replaces clicked thumbnail with autoplay YouTube iframe | Primarily HTML plus global widgets | Three YouTube embeds; local preserved thumbnails; Kindful | Medium-high | **COMPLETE** |
 | `/hope-in-action/` | Social Media (display hero: Hope In Action) | WordPress page; live social feed | Header Hope In Action; footer Quick Links | Social feed | Unique feed page; reuses global hero/CTA language only | Image hero, social profile buttons, live feed, image CTA | Live Juicer feed and Load More behavior | Primarily HTML plus global widgets | `juicer.io` embed, Instagram post links, social profiles, Kindful | High | **DYNAMIC** |
 | `/sponsors/` | Partners & Sponsors | WordPress page; partner directory | Header Get Involved | Sponsor directory | Unique page shell with reusable sponsor-tile/grid primitives | Image hero, split purpose intro, flat 18-logo sponsor wall | Sponsor roster/logos/links are manually embedded | Primarily HTML plus global widgets | Eighteen external sponsor sites; grayscale-to-color logo hover/click | Medium | **COMPLETE** |
-| `/live-here-love-here-lake/` | Live Here Love Here Lake | WordPress page; partnership campaign | Header Get Involved; footer Corporate Partnership | Membership/partnership campaign | Unique branded layout; its tiered directory is not interchangeable with Sponsors | Branded hero, price banner, benefits intro/cards, tiered business directory, closing split story | Native hosted MP4; frequently changing tiered business roster | HTML, heading, text editor, video plus global widgets | Typeform partnership intake, hosted MP4, YouTube story link, 25+ business destinations | Very high | **SPECIAL CASE** |
+| `/live-here-love-here-lake/` | Live Here Love Here Lake | WordPress page; partnership campaign | Header Get Involved; footer Corporate Partnership | Membership/partnership campaign | Unique branded layout; its tiered directory is not interchangeable with Sponsors | Branded hero, price banner, benefits intro/cards, tiered business directory, closing split story | Native hosted MP4; frequently changing tiered business roster | HTML, heading, text editor, video plus global widgets | Typeform partnership intake, hosted MP4, YouTube story link, 27 linked business destinations | Very high | **COMPLETE** |
 | `/we-need-trailers/` | We Need Trailers | WordPress page; campaign/lead form | Header Get Involved; footer Donate Trailer; homepage giving CTA currently has a broken legacy alias | Trailer campaign | Unique campaign layout; can reuse general CTA/card/gallery primitives | Campaign hero and fact pills, split intro/impact card, three-step process, trailer lead form, gallery, final image CTA | One inline POST form with name/phone/email/type/message; production action is `#` and no submission handler is present | Primarily HTML plus global widgets | Form implementation decision required; Kindful; standard hover states | Very high | **DYNAMIC** |
 | `/contact-us/` | Contact Us | WordPress page; contact/conversion | Header Contact Us; footer Contact | Contact | Unique arrangement with reusable gallery/CTA/card primitives | Contact hero, phone/email/location split with PlanStreet application card, three action cards, impact gallery, image CTA | No contact form or map; every conversion is a semantic link to an external service or internal route | Primarily custom HTML plus global widgets | PlanStreet public form, Typeform, Kindful; telephone and email URI actions | Medium | **COMPLETE** |
 | Production `/about-us/` → Next `/board-staff/` | Board & Staff | WordPress page; people directory | Header Board & Staff; footer Quick Links | People directory | Unique people grids; reuses global image hero and closing CTA conventions | Image hero, founders, staff grid, board grid, image CTA | Staff/board roster is manually maintained in Elementor HTML | Primarily HTML plus global widgets | Typeform volunteer, Kindful; static person cards | Medium-high | **COMPLETE** |
@@ -71,7 +71,7 @@ There are **10 structural page families** across the 14 canonical URLs. Only the
 | Editorial/media | `/news-media/`, `/testimonials/` | Same `ffr-news-media-*` hero, split intro, section-heading, and closing CTA shell | Share the shell; keep news cards and video cards as separate family components. |
 | Social feed | `/hope-in-action/` | Juicer-backed feed and unique social layout | Page-specific implementation around shared hero/CTA primitives. |
 | Sponsor directory | `/sponsors/` | Flat sponsor wall | Dedicated directory composition using a reusable logo-tile primitive. |
-| Membership/partnership campaign | `/live-here-love-here-lake/` | Unique brand palette, video, benefits, three sponsorship tiers, and story close | Page-specific composition; logo tiles may share only a primitive with Sponsors. |
+| Membership/partnership campaign | `/live-here-love-here-lake/` | Unique brand palette, video, benefits, three sponsorship tiers, and story close | Route-scoped `LiveHereHero`, `LiveHereImpact`, `LiveHereSponsors`, `SponsorLogo`, `LiveHereStory`, and `LiveHereStoryVideo`; the accepted global header/footer are the only shared components. |
 | Trailer campaign | `/we-need-trailers/` | Unique campaign facts, process, and lead form | Page-specific composition; require form decision before completion. |
 | Contact | `/contact-us/` | Unique contact/action-card arrangement | Page-specific composition using shared cards, gallery, and CTA band where measurements match. |
 | People directory | Production `/about-us/`; Next `/board-staff/` | Founder/staff/board grids | Dedicated people-grid family components and CMS-ready data shape. |
@@ -172,7 +172,7 @@ Additional interior preservation scope:
 - Rendered interior pages reference **84 unique WordPress-hosted `<img>` URLs**.
 - Parsing all 14 REST page bodies yields **88 unique image references plus one hosted MP4** after normalizing responsive `-WIDTHxHEIGHT` suffixes.
 - Direct filename comparison is intentionally not treated as a download plan: Elementor thumbnails, resized variants, and homepage files renamed during the first migration can represent the same source asset. Hash/source-dimension comparison must precede any download.
-- Highest-volume groups are Live Here business logos (about 30 rendered assets), About staff/board portraits (about 19), and Sponsors logos (18). Program pages share several family/story images and should deduplicate against the existing homepage program imagery.
+- Live Here's exact campaign logo, 29 business logos, video poster, and 90,101,823-byte hosted MP4 were SHA-256 checked against every accepted local image. None was byte-identical to an existing asset, so all 32 source files are preserved under `public/images/campaigns/live-here-love-here/` without conversion, regeneration, recoloring, or recompression.
 - Additional unique assets include program logos (SVG), Care Coach media, trailer render/gallery photos, editorial background images, YouTube thumbnails, the Live Here brand logo, and the hosted volunteer-day MP4.
 - Preserve originals—not Elementor thumbnail derivatives—where the original is available, while retaining the exact rendered crop through `object-position`, aspect ratio, and responsive CSS.
 - Suggested future local organization: `public/images/programs/`, `public/images/people/`, `public/images/partners/`, `public/images/campaigns/`, and `public/media/`. Do not move accepted homepage assets solely for organizational cleanup.
@@ -203,7 +203,7 @@ The order maximizes verified component coverage while postponing service-coupled
 7. **Contact Us — COMPLETE** — established the link-based contact/action architecture and documented that production has no contact-message form backend.
 8. **Board & Staff — COMPLETE** — established the people-directory cards and a future WordPress-managed data shape while mapping the production `/about-us/` source to the approved Next `/board-staff/` route.
 9. **Partners & Sponsors — COMPLETE** — established exact-asset sponsor tiles and the flat responsive logo wall without introducing unsupported tiers.
-10. **Live Here Love Here Lake** — build the branded tiered directory and native-video special case using the proven logo/media primitives.
+10. **Live Here Love Here Lake — COMPLETE** — established the route-scoped branded tier system and exact native hosted-video contract without changing a shared page family.
 11. **We Need Trailers** — build the campaign/process/gallery and stop at the form boundary until submission ownership is approved.
 12. **Hope In Action** — integrate or deliberately replace only the Juicer presentation contract after dynamic-loading behavior is agreed.
 13. **Terms & Conditions** — migrate the low-risk legacy legal layout without forcing it into modern components.
@@ -469,3 +469,34 @@ Regression QA reproduces the accepted homepage results (4712/4712, 5828/5829, 61
 ## Visual QA requirement for implementation milestones
 
 For every migrated route, extend the existing repository Playwright/system-Chrome workflow carefully rather than creating per-page scripts. Compare production and local at 1440, 1024, 768, and 390px, plus widths adjacent to the accepted 1024/767 header transitions. Generated artifacts must stay under `.visual-qa/`; the accepted homepage screenshots and interaction results remain the regression baseline.
+
+## Milestone 12 — Live Here Love Here Lake implementation and parity QA
+
+`/live-here-love-here-lake/` is implemented as a bespoke, route-scoped campaign composition. It reuses the accepted `SiteHeader`, `SiteFooter`, global focus treatment, and floating donation control without changing their geometry or styling. It does not reuse or modify the program, editorial, people, or Sponsors page systems.
+
+The source-supported campaign primitives are:
+
+- `LiveHereHero`, which preserves the production campaign mark, gray-blue gradient field, bottom fade, serif title, two-action layout, and shimmer/play treatment. Production literally references the invalid placeholder `PASTE-YOUR-HERO-IMAGE-URL-HERE`; the local route intentionally preserves the rendered gradient field instead of inventing a background photograph.
+- `LiveHereImpact`, which owns the $.55 red band, benefit heading/action, and three heart-icon benefit cards.
+- `LiveHereSponsors` and its local `SponsorLogo`, which own three materially different tiers: four Business Leaders, five Business Partners, and twenty Business Members. The source's two non-linked tiles remain static; the other 27 retain their exact external destinations and `_blank`/`noopener` contract.
+- `LiveHereStory`, which owns the legacy 1140px two-column close and its 767px stacking behavior.
+- `LiveHereStoryVideo`, a small client component preserving the production poster-gated native-video interaction. The semantic video retains `controls`, `preload="metadata"`, `controlsList="nodownload"`, no autoplay, no mute, no loop, and no synthetic media provider.
+
+Campaign-only colors, typography, gradients, tiers, card geometry, logo treatments, and breakpoint rules remain in `live-here-sections.module.css`. None was promoted into global tokens. Production transitions are preserved at 1024px for tier grids, 900px for benefit stacking, 767px for hero/story stacking, and 640px for single-column sponsor tiers.
+
+All factual assets are exact production files. SHA-256 comparison found no byte-identical accepted local asset. The preserved set contains one campaign mark, 29 tier logos, one 1000×584 poster, and the exact 90,101,823-byte hosted MP4 (`SHA-256 8dd0c506c5dd9b7d5cd3178dbf3bccb7ce0b8a3b4f009e4ec0858143bc5be2a3`). No asset was generated, redrawn, recolored, cropped, substituted, or recompressed.
+
+Rendered comparison exercised production and local at all four canonical widths and every campaign transition. It verified header, hero, impact, tier, logo-card, story/video, and footer geometry. Source/local Noto Sans files have slightly different wrapping metrics in the legacy story and at the wide-mobile hero/benefit boundary; narrowly scoped letter-spacing values reproduce the measured source line breaks without changing global typography.
+
+| Viewport | Status | Production / local height | Rendered comparison | Remaining difference |
+| --- | --- | --- | --- | --- |
+| 1440px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 6686 / 6685px | 2.017% amplified changed-pixel rate; header, full campaign composition, four-column Leaders/Members grids, story/video, and footer align. | One-pixel aggregate height difference, localized antialiasing, and accepted code-native global icons. |
+| 1024px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 8364 / 8364px | 2.312% changed-pixel rate; tablet header, two-column tiers, content wrapping, media, and footer align. | Localized antialiasing/global-icon differences only. |
+| 768px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 8896 / 8896px | 2.867% changed-pixel rate; tablet header, stacked benefits, two-column tiers, story geometry, and footer align. | Localized antialiasing/global-icon differences only. |
+| 390px | **PASS WITH MINOR DOCUMENTED DIFFERENCES** | 12460 / 12458px | 3.462% changed-pixel rate; mobile logo/title/actions, single-column benefits and 29-logo directory, story/video, and footer align. | Two-pixel aggregate height difference plus localized antialiasing/global-icon differences. |
+
+Breakpoint-adjacent comparison passes at 1025/1023px, 901/900px, 767px, and 641/640px. The campaign body changes at the exact production transitions: four-to-two tier columns at 1024px, three-to-one benefits at 900px, mobile hero/story stacking at 767px, and two-to-one tier columns at 640px. At 641 and 640px the full-page variance is one pixel. At 900px the campaign body varies by at most two pixels; the remaining 12px aggregate variance is confined to the accepted shared footer's intermediate-width wrapping and was not used to justify a global change.
+
+All 17 campaign interaction/accessibility checks pass: sticky header, Programs dropdown, visible focus, non-wrapping desktop navigation at 1440/1181/1025px, logo-card hover/focus, 29-card mobile containment, mobile menu open/close, floating donation control, complete link destinations, 27 external sponsor contracts plus two static tiles, Typeform/YouTube CTA contracts, semantic page heading, exact hosted-video source/dimensions/controls, poster keyboard activation, play, and pause. The video does not autoplay, mute, loop, or add an unverified provider.
+
+Homepage regression reproduces the accepted 4712/4712, 5828/5829, 6108/6108, and 8176/8175px results, with all 11 interactions passing. Sponsors regression reproduces 3167/3166, 3641/3642, 3708/3708, and 5993/5992px, with all 15 interactions passing. No shared component, global stylesheet, accepted header/footer implementation, or accepted route changed during Milestone 12.

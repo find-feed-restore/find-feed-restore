@@ -244,6 +244,28 @@ async function main() {
         { resting, hovered, sponsorFocus },
       );
     }
+    if (route === "/live-here-love-here-lake/") {
+      await desktop.setViewportSize({ width: 1440, height: 900 });
+      const firstCampaignSponsor = desktop.getByRole("link", { name: "Visit Denise Calderon CPA" });
+      const restingTransform = await firstCampaignSponsor.evaluate(
+        (element) => getComputedStyle(element).transform,
+      );
+      await firstCampaignSponsor.hover();
+      await desktop.waitForTimeout(350);
+      const hoveredTransform = await firstCampaignSponsor.evaluate(
+        (element) => getComputedStyle(element).transform,
+      );
+      await firstCampaignSponsor.focus();
+      const focus = await firstCampaignSponsor.evaluate((element) => ({
+        focused: document.activeElement === element,
+        outlineWidth: getComputedStyle(element).outlineWidth,
+      }));
+      check(
+        "Live Here sponsor hover and focus treatment",
+        restingTransform === "none" && hoveredTransform !== "none" && focus.focused && focus.outlineWidth === "3px",
+        { restingTransform, hoveredTransform, focus },
+      );
+    }
     await desktopContext.close();
 
     const mobileContext = await browser.newContext({ viewport: { width: 390, height: 900 } });
@@ -314,6 +336,22 @@ async function main() {
         mobileTiles.length === 18 &&
           mobileTiles.every((tile) => tile.x >= 0 && Math.round(tile.right) <= 390),
         mobileTiles,
+      );
+    }
+    if (route === "/live-here-love-here-lake/") {
+      const campaignLogoCards = await mobile
+        .locator('main img:not([alt="Live Here Love Here Lake"]):not([alt=""])')
+        .evaluateAll((images) =>
+          images.map((image) => {
+            const bounds = image.parentElement.getBoundingClientRect();
+            return { x: bounds.x, width: bounds.width, right: bounds.right };
+          }),
+        );
+      check(
+        "Live Here mobile logo cards do not overflow",
+        campaignLogoCards.length === 29 &&
+          campaignLogoCards.every((card) => card.x >= 0 && Math.round(card.right) <= 390),
+        campaignLogoCards,
       );
     }
     const menuToggle = mobile.locator('button[aria-controls="mobile-site-navigation"]');
@@ -640,6 +678,105 @@ async function main() {
         "Sponsors semantic heading",
         (await reduced
           .getByRole("heading", { level: 1, name: "Community Leaders Helping Families Find Home" })
+          .count()) === 1,
+        await reduced.locator("main h1").allTextContents(),
+      );
+    }
+
+    if (route === "/live-here-love-here-lake/") {
+      const campaignSponsorLinks = await reduced
+        .locator('main a[aria-label^="Visit "]')
+        .evaluateAll((links) =>
+          links.map((link) => ({
+            href: link.getAttribute("href"),
+            target: link.getAttribute("target"),
+            rel: link.getAttribute("rel"),
+            label: link.getAttribute("aria-label"),
+            alt: link.querySelector("img")?.getAttribute("alt"),
+          })),
+        );
+      const campaignLinks = await reduced.locator("main a").evaluateAll((links) =>
+        links.map((link) => ({
+          text: link.textContent.trim(),
+          href: link.getAttribute("href"),
+          target: link.getAttribute("target"),
+          rel: link.getAttribute("rel"),
+        })),
+      );
+      const partnerLinks = campaignLinks.filter((link) => link.href === "https://greatthings.typeform.com/to/JLL8BMEH?typeform-source=link.edgepilot.com");
+      check(
+        "Live Here sponsor identity and external-link contract",
+        campaignSponsorLinks.length === 27 &&
+          campaignSponsorLinks.every(
+            (link) =>
+              link.href?.startsWith("https://") &&
+              link.target === "_blank" &&
+              link.rel === "noopener" &&
+              link.label?.startsWith("Visit ") &&
+              Boolean(link.alt),
+          ) &&
+          (await reduced.locator('main img[alt="Kiwanis"]').count()) === 1 &&
+          (await reduced.locator('main img[alt="Southern Home Specialists"]').count()) === 1,
+        campaignSponsorLinks,
+      );
+      check(
+        "Live Here campaign CTA destinations",
+        partnerLinks.length === 2 &&
+          partnerLinks.some((link) => link.target === "_blank" && link.rel === "noopener") &&
+          partnerLinks.some((link) => link.target === null && link.rel === null) &&
+          campaignLinks.some(
+            (link) =>
+              link.href === "https://www.youtube.com/watch?v=69VFG8OXVAs" &&
+              link.target === "_blank" &&
+              link.rel === "noopener",
+          ),
+        campaignLinks,
+      );
+
+      const campaignVideo = reduced.locator("main video");
+      const campaignPoster = reduced.getByRole("button", { name: "Play Video about movie-poster-ffr" });
+      const initialVideoRect = await campaignVideo.boundingBox();
+      const initialPosterRect = await campaignPoster.boundingBox();
+      const mediaContract = await campaignVideo.evaluate((video) => ({
+        src: video.getAttribute("src"),
+        controls: video.controls,
+        preload: video.preload,
+        controlsList: video.getAttribute("controlsList"),
+        autoplay: video.autoplay,
+        muted: video.muted,
+        loop: video.loop,
+        playsInline: video.playsInline,
+      }));
+      await campaignPoster.focus();
+      const posterFocused = await campaignPoster.evaluate((element) => document.activeElement === element);
+      await campaignPoster.press("Enter");
+      await reduced.waitForTimeout(750);
+      const playing = await campaignVideo.evaluate((video) => !video.paused && video.currentTime > 0);
+      await campaignVideo.evaluate((video) => video.pause());
+      const paused = await campaignVideo.evaluate((video) => video.paused);
+      check(
+        "Live Here hosted-video source and geometry contract",
+        mediaContract.src === "/images/campaigns/live-here-love-here/keller-williams-volunteer-day.mp4" &&
+          mediaContract.controls &&
+          mediaContract.preload === "metadata" &&
+          mediaContract.controlsList === "nodownload" &&
+          !mediaContract.autoplay &&
+          !mediaContract.muted &&
+          !mediaContract.loop &&
+          !mediaContract.playsInline &&
+          Math.abs((initialVideoRect?.width ?? 0) - (initialPosterRect?.width ?? 0)) < 1 &&
+          Math.abs((initialVideoRect?.height ?? 0) - (initialPosterRect?.height ?? 0)) < 1,
+        { mediaContract, initialVideoRect, initialPosterRect },
+      );
+      check(
+        "Live Here hosted-video keyboard play and pause",
+        posterFocused && playing && paused && (await campaignPoster.count()) === 0,
+        { posterFocused, playing, paused },
+      );
+      check(
+        "Live Here semantic heading",
+        (await reduced
+          .getByRole("heading", { level: 1, name: "Local Businesses Helping Families Find Home" })
           .count()) === 1,
         await reduced.locator("main h1").allTextContents(),
       );

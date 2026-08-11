@@ -92,7 +92,7 @@ const connectionCards = [
     description:
       "Partner with Find Feed Restore to make a lasting impact for families across Clermont, Lake County, and Central Florida.",
     label: "Partner With Us",
-    href: "/live-here-love-here-lake",
+    href: "/live-here-love-here-lake/",
     external: false,
   },
   {

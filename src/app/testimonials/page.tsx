@@ -64,7 +64,7 @@ export default function TestimonialsPage() {
           description="From affordable housing milestones and community fundraisers to restored trailers, local partnerships, and mission-driven videos, these stories show the work of Find, Feed & Restore in action."
         />
         <TestimonialVideos videos={videos} />
-        <EditorialCta contactHref="/contact-us" />
+        <EditorialCta contactHref="/contact-us/" />
       </main>
       <SiteFooter />
     </>

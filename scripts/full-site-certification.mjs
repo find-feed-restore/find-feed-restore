@@ -21,10 +21,10 @@ const canonicalRoutes = [
 ];
 
 const redirects = [
-  { source: "/terms", destination: "/terms-conditions" },
-  { source: "/trailer-ministry", destination: "/we-need-trailers" },
-  { source: "/news", destination: "/news-media" },
-  { source: "/about-us", destination: "/board-staff" },
+  { source: "/terms", destination: "/terms-conditions/", expectedRedirects: 2 },
+  { source: "/trailer-ministry", destination: "/we-need-trailers/", expectedRedirects: 2 },
+  { source: "/news", destination: "/news-media/", expectedRedirects: 2 },
+  { source: "/about-us", destination: "/board-staff/", expectedRedirects: 2 },
 ];
 
 const notFoundRoutes = [
@@ -330,8 +330,8 @@ async function main() {
       redirectFailures: redirectResults.filter((result) =>
         result.finalStatus !== 200 ||
         normalizePathname(result.finalPath) !== normalizePathname(result.destination) ||
-        result.hops.length !== 2 ||
-        ![301, 308].includes(result.hops[0]?.status)
+        result.hops.length !== result.expectedRedirects + 1 ||
+        result.hops.slice(0, -1).some((hop) => ![301, 308].includes(hop.status))
       ).map((result) => result.source),
       notFoundFailures: notFoundResults.filter((result) => result.status !== 404),
       breakpointWarnings: results.flatMap((result) => result.sharedBreakpoints

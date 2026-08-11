@@ -4,7 +4,7 @@ Inventory date: 2026-08-11
 
 Production source: <https://www.findfeedrestore.com/>
 
-Scope: Milestone 2 discovery plus migrated routes through Milestone 16 full-site certification. The migration implementation phase is complete; production cutover remains gated by the documented Vercel Preview Resend delivery test.
+Scope: Milestone 2 discovery plus migrated routes through Milestone 17 production-cutover preparation. The migration implementation is certified **PASS — READY FOR CUTOVER**; the remaining owner-operated Vercel, domain, and analytics prerequisites are documented in `docs/PRODUCTION_CUTOVER.md`.
 
 ## Discovery method and canonical scope
 
@@ -578,4 +578,4 @@ Certification added the inventory-required permanent `/news` → `/news-media` r
 
 Dedicated mobile QA generated 70 production/local comparisons and passed 70/70 route-width interaction assertions. It verified mobile header/logo/toggle geometry, keyboard menu open/close and body state, page padding and hero wrapping through rendered comparison, CTA/card/media/form/feed/legal/footer containment, stable trailer form states, and zero horizontal overflow or clipped visible text. Narrow source mismatches found below 390px were corrected only where production evidence supported them: homepage mission weight/desktop padding, Contact value typography, and Live Here Noto Sans/story spacing. Affected standard-width and interaction regressions pass.
 
-The migration implementation phase is **COMPLETE**. Production cutover is **BLOCKED** until one controlled, clearly labeled Vercel Preview trailer submission is received and its visitor-email Reply-To behavior is verified. The 90,101,823-byte hosted MP4 and intermediate Board & Staff clipping are classified as should-fix items rather than build blockers. No deployment, DNS, production WordPress, or CMS change occurred during certification.
+The migration implementation phase is **COMPLETE** and certified **PASS — READY FOR CUTOVER**. Real Resend delivery is an owner-run user acceptance/manual post-deployment check, not a certification blocker. Milestone 17 cutover preparation added the canonical sitemap and robots endpoints, aligned Next.js trailing-slash behavior with production canonicals, corrected the remaining homepage link through `/trailer-ministry` and two slashless body CTAs to direct canonical routes, and documented Vercel, Production variables, domains/DNS, redirects, analytics, external services, media, launch checks, and rollback in `docs/PRODUCTION_CUTOVER.md`. No DNS, production WordPress, CMS, or production-traffic change occurred.

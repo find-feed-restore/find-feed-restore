@@ -47,11 +47,24 @@ const navigation: NavItem[] = [
   { label: "Contact Us", href: "/contact-us/" },
 ];
 
-function NavLink({ item, light = false }: { item: NavItem; light?: boolean }) {
+function NavLink({
+  item,
+  light = false,
+  onNavigate,
+}: {
+  item: NavItem;
+  light?: boolean;
+  onNavigate: () => void;
+}) {
   if (!item.children) {
     return (
       <li className={styles.navItem}>
-        <Link className={light ? styles.lightNavLink : styles.navLink} href={item.href}>
+        <Link
+          className={light ? styles.lightNavLink : styles.navLink}
+          href={item.href}
+          scroll={false}
+          onNavigate={onNavigate}
+        >
           {item.label}
         </Link>
       </li>
@@ -67,7 +80,9 @@ function NavLink({ item, light = false }: { item: NavItem; light?: boolean }) {
       <ul className={styles.dropdown}>
         {item.children.map((child) => (
           <li key={child.label}>
-            <Link href={child.href}>{child.label}</Link>
+            <Link href={child.href} scroll={false} onNavigate={onNavigate}>
+              {child.label}
+            </Link>
           </li>
         ))}
       </ul>
@@ -75,12 +90,18 @@ function NavLink({ item, light = false }: { item: NavItem; light?: boolean }) {
   );
 }
 
-function DesktopNavigation({ light = false }: { light?: boolean }) {
+function DesktopNavigation({
+  light = false,
+  onNavigate,
+}: {
+  light?: boolean;
+  onNavigate: () => void;
+}) {
   return (
     <nav aria-label="Primary navigation">
       <ul className={styles.navList}>
         {navigation.map((item) => (
-          <NavLink item={item} light={light} key={item.label} />
+          <NavLink item={item} light={light} onNavigate={onNavigate} key={item.label} />
         ))}
       </ul>
     </nav>
@@ -98,14 +119,26 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", update);
   }, []);
 
+  const resetForNavigation = () => {
+    window.scrollTo(0, 0);
+    setScrolled(false);
+    setMenuOpen(false);
+  };
+
   return (
     <header className={styles.siteHeader}>
       <div className={`${styles.desktopHeader} ${scrolled ? styles.desktopHeaderScrolled : ""}`}>
         <div className={styles.desktopInner}>
-          <Link className={styles.desktopLogo} href="/" aria-label="Find Feed Restore home">
+          <Link
+            className={styles.desktopLogo}
+            href="/"
+            aria-label="Find Feed Restore home"
+            scroll={false}
+            onNavigate={resetForNavigation}
+          >
             <Image src="/images/ffr-logo.png" alt="Find Feed Restore" width={600} height={236} priority />
           </Link>
-          <DesktopNavigation />
+          <DesktopNavigation onNavigate={resetForNavigation} />
           <a className={styles.supportButton} href="https://findfeedrestore-bloom.kindful.com/">
             Support Our Mission
           </a>
@@ -113,14 +146,26 @@ export function SiteHeader() {
       </div>
 
       <div className={styles.tabletHeader}>
-        <Link className={styles.tabletLogo} href="/" aria-label="Find Feed Restore home">
+        <Link
+          className={styles.tabletLogo}
+          href="/"
+          aria-label="Find Feed Restore home"
+          scroll={false}
+          onNavigate={resetForNavigation}
+        >
           <Image src="/images/ffr-logo.png" alt="Find Feed Restore" width={600} height={236} priority />
         </Link>
-        <DesktopNavigation light />
+        <DesktopNavigation light onNavigate={resetForNavigation} />
       </div>
 
       <div className={styles.mobileHeader}>
-        <Link className={styles.mobileLogo} href="/" aria-label="Find Feed Restore home">
+        <Link
+          className={styles.mobileLogo}
+          href="/"
+          aria-label="Find Feed Restore home"
+          scroll={false}
+          onNavigate={resetForNavigation}
+        >
           <Image src="/images/ffr-logo.png" alt="Find Feed Restore" width={600} height={236} priority />
         </Link>
         <button
@@ -149,7 +194,12 @@ export function SiteHeader() {
                     <ul>
                       {item.children.map((child) => (
                         <li key={child.label}>
-                          <Link href={child.href} onClick={() => setMenuOpen(false)}>
+                          <Link
+                            href={child.href}
+                            scroll={false}
+                            onClick={() => setMenuOpen(false)}
+                            onNavigate={resetForNavigation}
+                          >
                             {child.label}
                           </Link>
                         </li>
@@ -157,7 +207,12 @@ export function SiteHeader() {
                     </ul>
                   </details>
                 ) : (
-                  <Link href={item.href} onClick={() => setMenuOpen(false)}>
+                  <Link
+                    href={item.href}
+                    scroll={false}
+                    onClick={() => setMenuOpen(false)}
+                    onNavigate={resetForNavigation}
+                  >
                     {item.label}
                   </Link>
                 )}

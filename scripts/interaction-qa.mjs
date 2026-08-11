@@ -271,6 +271,26 @@ async function main() {
         { restingTransform, hoveredTransform, focus },
       );
     }
+
+    await desktop.setViewportSize({ width: 1440, height: 900 });
+    await desktop.evaluate(() => window.scrollTo(0, 0));
+    await desktop.waitForTimeout(550);
+    const navigationTarget = route === "/contact-us/" ? "Board & Staff" : "Contact Us";
+    await desktop.getByRole("link", { name: navigationTarget, exact: true }).first().click();
+    await desktop.waitForLoadState("networkidle", { timeout: 10_000 }).catch(() => undefined);
+    await desktop.waitForTimeout(550);
+    const navigationHeader = await desktop.getByRole("banner").boundingBox();
+    const navigationPosition = await desktop.evaluate(() => window.scrollY);
+    check(
+      "header navigation starts at full-size page top",
+      navigationPosition === 0 && Math.round(navigationHeader?.height ?? 0) === Math.round(initialHeader?.height ?? -1),
+      {
+        destination: desktop.url(),
+        scrollY: navigationPosition,
+        initialHeight: initialHeader?.height,
+        navigationHeight: navigationHeader?.height,
+      },
+    );
     await desktopContext.close();
 
     const mobileContext = await browser.newContext({ viewport: { width: 390, height: 900 } });

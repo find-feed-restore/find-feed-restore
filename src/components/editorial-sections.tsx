@@ -21,6 +21,7 @@ type EditorialHeadingProps = {
 };
 
 export type NewsItem = {
+  publishedAt: string;
   day: string;
   monthYear: string;
   source: string;
@@ -28,7 +29,6 @@ export type NewsItem = {
   title: string;
   description: string;
   href: string;
-  featured?: boolean;
 };
 
 export function EditorialHero({ eyebrow, title, description, variant }: EditorialHeroProps) {
@@ -71,10 +71,10 @@ export function EditorialContainer({ children }: { children: React.ReactNode }) 
   return <div className={styles.inner}>{children}</div>;
 }
 
-function NewsCard({ item }: { item: NewsItem }) {
+function NewsCard({ item, featured = false }: { item: NewsItem; featured?: boolean }) {
   return (
-    <article className={`${styles.newsCard} ${item.featured ? styles.featured : ""}`}>
-      <time className={styles.newsDate} dateTime={`${item.monthYear} ${item.day}`}>
+    <article className={`${styles.newsCard} ${featured ? styles.featured : ""}`}>
+      <time className={styles.newsDate} dateTime={item.publishedAt}>
         <span>{item.day}</span>
         <strong>{item.monthYear}</strong>
       </time>
@@ -104,8 +104,8 @@ export function NewsGrid({ items }: { items: NewsItem[] }) {
           id="news-press-title"
         />
         <div className={styles.newsGrid}>
-          {items.map((item) => (
-            <NewsCard item={item} key={item.href} />
+          {items.map((item, index) => (
+            <NewsCard item={item} featured={index === 0} key={item.href} />
           ))}
         </div>
       </EditorialContainer>

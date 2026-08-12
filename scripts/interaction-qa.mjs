@@ -462,11 +462,22 @@ async function main() {
       );
       check(
         "News external article links",
-        articleLinkContracts.length === 15 &&
+        articleLinkContracts.length === 18 &&
           articleLinkContracts.every(
             (link) => link.href?.startsWith("https://") && link.target === "_blank" && link.rel === "noopener",
           ),
         articleLinkContracts,
+      );
+      const publishedDates = await reduced.locator("main article time").evaluateAll((times) =>
+        times.map((time) => time.getAttribute("datetime")),
+      );
+      check(
+        "News articles newest first",
+        publishedDates.length === 18 &&
+          publishedDates.every(
+            (date, index) => index === 0 || (date !== null && date <= publishedDates[index - 1]),
+          ),
+        publishedDates,
       );
       const mainHrefs = await reduced.locator("main a").evaluateAll((links) =>
         links.map((link) => link.getAttribute("href")),

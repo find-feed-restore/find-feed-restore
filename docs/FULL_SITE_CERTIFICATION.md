@@ -86,7 +86,7 @@ All metadata checks below include one canonical matching `https://www.findfeedre
 | `/housing-first/` | 200 | 3898/3898 · 4443/4443 · 5017/5018 · 6170/6169 | 13/13 | Source metadata | Clean | **PASS** |
 | `/homelessness-avoidance/` | 200 | 3981/3980 · 4509/4509 · 4958/4958 · 6171/6169 | 13/13 | Source metadata | Clean | **PASS** |
 | `/care-coach-mobile-unit/` | 200 | 4557/4557 · 4482/4482 · 5883/5883 · 6184/6182 | 18/18 | Source metadata | YouTube source, geometry, focus, play/pause pass | **PASS** |
-| `/news-media/` | 200 | 4672/4672 · 5189/5189 · 5488/5488 · 8398/8397 | 15/15 | Source metadata | Eleven publisher links and CTA contracts pass | **PASS** |
+| `/news-media/` | 200 | 4672/4672 · 5189/5189 · 5488/5488 · 8398/8397 | 16/16 | Complete | Eighteen newest-first publisher links and CTA contracts pass | **PASS** |
 | `/testimonials/` | 200 | 3116/3115 · 3460/3460 · 3433/3434 · 4614/4613 | 19/19 | Source metadata | Three click-to-load YouTube contracts pass | **PASS** |
 | `/contact-us/` | 200 | 4477/4477 · 5554/5554 · 5594/5594 · 6810/6809 | 17/17 | Source metadata | Phone, email, PlanStreet, Typeform, Kindful pass | **PASS** |
 | `/board-staff/` | 200 | 4601/4601 · 5460/5460 · 5485/5485 · 9198/9197 | 16/16 | Complete | Identity assets/cards pass; source-matched intermediate warning below | **PASS WITH WARNING** |

@@ -25,10 +25,17 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background:
-    linear-gradient(rgba(7, 27, 42, 0.72), rgba(7, 27, 42, 0.72)),
-    url("/images/give-banner.jpg") center / cover;
+  background-position: center;
+  background-size: cover;
   color: #fff;
+}
+
+.newsHero {
+  background-image: linear-gradient(rgba(7, 27, 42, 0.72), rgba(7, 27, 42, 0.72)), url("/images/unique/news-hero.webp");
+}
+
+.testimonialsHero {
+  background-image: linear-gradient(rgba(7, 27, 42, 0.72), rgba(7, 27, 42, 0.72)), url("/images/unique/testimonials-hero.webp");
 }
 
 .heroInner {
@@ -287,10 +294,17 @@
 .cta {
   padding: 110px 24px;
   text-align: center;
-  background:
-    linear-gradient(rgba(7, 27, 42, 0.8), rgba(7, 27, 42, 0.82)),
-    url("/images/programs/care-coach/care-coach.jpg") center / cover;
+  background-position: center;
+  background-size: cover;
   color: #fff;
+}
+
+.newsCta {
+  background-image: linear-gradient(rgba(7, 27, 42, 0.8), rgba(7, 27, 42, 0.82)), url("/images/unique/news-cta.webp");
+}
+
+.testimonialsCta {
+  background-image: linear-gradient(rgba(7, 27, 42, 0.8), rgba(7, 27, 42, 0.82)), url("/images/unique/testimonials-cta.webp");
 }
 
 .ctaInner {

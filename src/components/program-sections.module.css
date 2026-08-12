@@ -26,7 +26,7 @@
 .homelessnessAvoidanceHero {
   background-image:
     linear-gradient(rgb(7 27 42 / 74%), rgb(7 27 42 / 74%)),
-    url("/images/programs/affordable-housing/support-family.jpg");
+    url("/images/unique/homelessness-hero.webp");
 }
 
 .careCoachHero {
@@ -262,7 +262,7 @@
   padding: 110px 24px;
   background-image:
     linear-gradient(rgb(7 27 42 / 78%), rgb(7 27 42 / 78%)),
-    url("/images/programs/affordable-housing/support-family.jpg");
+    url("/images/unique/affordable-support.webp");
   background-position: center;
   background-size: cover;
   text-align: center;
@@ -271,13 +271,13 @@
 .housingFirstSupportCta {
   background-image:
     linear-gradient(rgb(7 27 42 / 78%), rgb(7 27 42 / 78%)),
-    url("/images/programs/housing-first/support-family.jpg");
+    url("/images/unique/housing-support.webp");
 }
 
 .homelessnessAvoidanceSupportCta {
   background-image:
     linear-gradient(rgb(7 27 42 / 78%), rgb(7 27 42 / 78%)),
-    url("/images/homelessness-avoidance.jpg");
+    url("/images/unique/homelessness-support.webp");
 }
 
 .careCoachSupportCta {

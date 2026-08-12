@@ -4,6 +4,7 @@ type EditorialHeroProps = {
   eyebrow: string;
   title: string;
   description: string;
+  variant: "news" | "testimonials";
 };
 
 type EditorialIntroProps = {
@@ -30,9 +31,9 @@ export type NewsItem = {
   featured?: boolean;
 };
 
-export function EditorialHero({ eyebrow, title, description }: EditorialHeroProps) {
+export function EditorialHero({ eyebrow, title, description, variant }: EditorialHeroProps) {
   return (
-    <section className={styles.hero} aria-labelledby="editorial-title">
+    <section className={`${styles.hero} ${variant === "news" ? styles.newsHero : styles.testimonialsHero}`} aria-labelledby="editorial-title">
       <div className={styles.heroInner}>
         <span>{eyebrow}</span>
         <h1 id="editorial-title">{title}</h1>
@@ -112,9 +113,15 @@ export function NewsGrid({ items }: { items: NewsItem[] }) {
   );
 }
 
-export function EditorialCta({ contactHref = "mailto:info@findfeedrestore.com" }: { contactHref?: string }) {
+export function EditorialCta({
+  contactHref = "mailto:info@findfeedrestore.com",
+  variant,
+}: {
+  contactHref?: string;
+  variant: "news" | "testimonials";
+}) {
   return (
-    <section className={styles.cta} aria-labelledby="editorial-cta-title">
+    <section className={`${styles.cta} ${variant === "news" ? styles.newsCta : styles.testimonialsCta}`} aria-labelledby="editorial-cta-title">
       <div className={styles.ctaInner}>
         <span>Share The Mission</span>
         <h2 id="editorial-cta-title">Have a media inquiry or story to share?</h2>

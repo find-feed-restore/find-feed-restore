@@ -54,6 +54,7 @@ export default function TestimonialsPage() {
       <SiteHeader />
       <main id="content">
         <EditorialHero
+          variant="testimonials"
           eyebrow="Find, Feed & Restore Testimonails"
           title="Lives Changed. Communities Strengthened."
           description="Explore testimonials from residents, volunteers, donors, and partners who have experienced the impact of Find,  Feed & Restore firsthand. Every story represents a step from crisis toward stability, dignity, and hope."
@@ -64,7 +65,7 @@ export default function TestimonialsPage() {
           description="From affordable housing milestones and community fundraisers to restored trailers, local partnerships, and mission-driven videos, these stories show the work of Find, Feed & Restore in action."
         />
         <TestimonialVideos videos={videos} />
-        <EditorialCta contactHref="/contact-us/" />
+        <EditorialCta contactHref="/contact-us/" variant="testimonials" />
       </main>
       <SiteFooter />
     </>

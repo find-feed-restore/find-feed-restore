@@ -76,7 +76,7 @@ export default function AffordableHousingPage() {
             height: 2317,
           }}
           applicationImage={{
-            src: `${assetRoot}/latoya-family.jpg`,
+            src: "/images/unique/affordable-intro.webp",
             alt: "Family receiving housing support",
           }}
         />

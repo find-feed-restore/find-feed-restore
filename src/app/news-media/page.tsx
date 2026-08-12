@@ -145,6 +145,7 @@ export default function NewsMediaPage() {
       <SiteHeader />
       <main id="content">
         <EditorialHero
+          variant="news"
           eyebrow="Find, Feed & Restore News"
           title="Stories, Press & Community Impact"
           description="Read the latest news, media features, videos, and community stories highlighting how Find, Feed &  is helping families move from homeless to hopeful."
@@ -155,7 +156,7 @@ export default function NewsMediaPage() {
           description="From affordable housing milestones and community fundraisers to restored trailers, local partnerships, and mission-driven videos, these stories show the work of Find, Feed & Restore in action."
         />
         <NewsGrid items={newsItems} />
-        <EditorialCta />
+        <EditorialCta variant="news" />
       </main>
       <SiteFooter />
     </>

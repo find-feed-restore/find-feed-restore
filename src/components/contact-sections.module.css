@@ -24,7 +24,7 @@
   text-align: center;
   background:
     linear-gradient(rgba(7, 27, 42, 0.72), rgba(7, 27, 42, 0.72)),
-    url("/images/programs/affordable-housing/hero.jpg") center 35% / cover;
+    url("/images/unique/contact-hero.webp") center / cover;
   color: #fff;
 }
 
@@ -350,7 +350,7 @@
   text-align: center;
   background:
     linear-gradient(rgba(7, 27, 42, 0.8), rgba(7, 27, 42, 0.8)),
-    url("/images/programs/care-coach/care-coach.jpg") center / cover;
+    url("/images/unique/contact-cta.webp") center / cover;
 }
 
 .ctaInner {

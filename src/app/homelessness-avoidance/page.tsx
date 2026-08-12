@@ -24,10 +24,10 @@ export const metadata: Metadata = {
 };
 
 const storyImages = [
-  { src: "/images/programs/affordable-housing/teresa-family.jpg", alt: "" },
-  { src: "/images/programs/affordable-housing/thalia-family.jpg", alt: "" },
-  { src: "/images/programs/affordable-housing/tammy-family.jpg", alt: "" },
-  { src: "/images/programs/affordable-housing/latoya-family.jpg", alt: "" },
+  { src: "/images/unique/homelessness-story-1.webp", alt: "" },
+  { src: "/images/unique/homelessness-story-2.webp", alt: "" },
+  { src: "/images/unique/homelessness-story-3.webp", alt: "" },
+  { src: "/images/unique/homelessness-story-4.webp", alt: "" },
 ];
 
 const otherPrograms = [

@@ -19,7 +19,7 @@
   text-align: center;
   background:
     linear-gradient(rgba(7, 27, 42, 0.74), rgba(7, 27, 42, 0.74)),
-    url("/images/people/people-hero.jpg") center / cover;
+    url("/images/unique/people-hero.webp") center / cover;
   color: #fff;
 }
 
@@ -222,7 +222,7 @@
   text-align: center;
   background:
     linear-gradient(rgba(7, 27, 42, 0.78), rgba(7, 27, 42, 0.78)),
-    url("/images/give-banner.jpg") center / cover;
+    url("/images/unique/people-cta.webp") center / cover;
 }
 
 .cta h2 {

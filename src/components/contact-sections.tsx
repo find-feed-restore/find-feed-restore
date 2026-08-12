@@ -21,7 +21,7 @@ function AssistanceCard() {
   return (
     <article className={styles.assistanceCard}>
       <Image
-        src="/images/programs/affordable-housing/support-family.jpg"
+        src="/images/unique/contact-intro.webp"
         alt="Family receiving housing support"
         width={2000}
         height={1333}
@@ -137,11 +137,11 @@ export function ContactWays() {
 }
 
 const galleryImages = [
-  { className: styles.large, src: "/images/contact/latoya-family.jpg", label: "Family celebrating a new home" },
+  { className: styles.large, src: "/images/unique/contact-gallery-1.webp", label: "Family celebrating a new home" },
   { src: "/images/contact/family-by-trailer.jpg", label: "Family receiving housing support" },
-  { src: "/images/programs/care-coach/care-coach.jpg", label: "Find Feed Restore Care Coach" },
+  { src: "/images/unique/contact-gallery-2.webp", label: "Family celebrating together" },
   { src: "/images/contact/amelia-and-ariel.jpg", label: "Family celebrating housing support" },
-  { className: styles.wide, src: "/images/contact/welcome-home-trailer.jpg", label: "Family welcomed home beside a trailer" },
+  { className: styles.wide, src: "/images/unique/contact-gallery-3.webp", label: "Family sharing a joyful moment" },
 ];
 
 export function ContactGallery() {

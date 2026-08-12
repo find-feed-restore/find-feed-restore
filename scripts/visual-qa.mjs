@@ -136,7 +136,6 @@ async function collectMetrics(page) {
     };
 
     const heroHeading = heading("Housing For Homeless Families With Children");
-    const missionHeading = heading("Homeless to Hopeful");
     const impactHeading = heading("Housing Families. Restoring Hope.");
     const causesHeading = heading("What We Do");
     const givingHeading = heading("How You Can Give");
@@ -152,13 +151,9 @@ async function collectMetrics(page) {
       heroHeading: rect(heroHeading),
       heroHeadingStyle: style(heroHeading),
       heroSubtitle: rect(heading("Our Vision")),
-      heroText: rect(textElement("p", "Find, Feed & Restore exists to bring an end to homelessness for families with children through housing, financial literacy, and mental health counseling.")),
+      heroText: rect(textElement("p", "Find, Feed & Restore is a Central Florida non-profit organization working to end homelessness for families with children through housing, financial literacy, and mental health counseling.")),
       heroDonationButton: rect(textElement("a", "Support Our Mission")),
       heroVideoButton: rect(textElement("a", "Watch Video")),
-      mission: rect(section("Homeless to Hopeful")),
-      missionHeading: rect(missionHeading),
-      missionHeadingStyle: style(missionHeading),
-      firstMissionTitleStyle: style(section("Homeless to Hopeful")?.querySelector("h3")),
       impact: rect(section("Housing Families. Restoring Hope.")),
       impactHeading: rect(impactHeading),
       causes: rect(section("What We Do")),

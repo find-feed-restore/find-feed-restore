@@ -3,33 +3,6 @@ import Link from "next/link";
 import { AnimatedCounter } from "./animated-counter";
 import styles from "./home-sections.module.css";
 
-const missionItems = [
-  {
-    icon: "⌂",
-    title: "Affordable Housing",
-    text: "Hannah Grace Gardens offers affordable housing for working families with children.",
-    href: "/affordable-housing/",
-  },
-  {
-    icon: "⌂",
-    title: "Housing First",
-    text: "Allows families with children to live rent and utility free while regaining stability.",
-    href: "/housing-first/",
-  },
-  {
-    icon: "✚",
-    title: "Mobile Help",
-    text: "Providing health, housing, meals, and medical assistance for families in need.",
-    href: "/care-coach-mobile-unit/",
-  },
-  {
-    icon: "↑",
-    title: "Homelessness Avoidance",
-    text: "Helping families facing hardship regain stability and avoid homelessness.",
-    href: "/homelessness-avoidance/",
-  },
-];
-
 const impactItems = [
   { value: 191, label: "Families Housed" },
   { value: 349, label: "Children Housed" },
@@ -112,8 +85,8 @@ export function HeroSection() {
         </h1>
         <h2 className={styles.heroSubtitle}>Our Vision</h2>
         <p className={styles.heroText}>
-          Find, Feed &amp; Restore exists to bring an end to homelessness for families with children through housing,
-          financial literacy, and mental health counseling.
+          Find, Feed &amp; Restore is a Central Florida non-profit organization working to end homelessness for families
+          with children through housing, financial literacy, and mental health counseling.
         </p>
         <div className={styles.heroActions}>
           <a className={`${styles.heroButton} ${styles.primaryButton}`} href="https://findfeedrestore-bloom.kindful.com/">
@@ -129,30 +102,6 @@ export function HeroSection() {
             <span className={styles.playIcon} aria-hidden="true" />
             <span>Watch Video</span>
           </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function MissionSection() {
-  return (
-    <section className={styles.mission} aria-labelledby="mission-title">
-      <div className={styles.missionInner}>
-        <header className={styles.missionHeading}>
-          <span>Our Mission</span>
-          <h2 id="mission-title">Homeless to Hopeful</h2>
-        </header>
-        <div className={styles.missionGrid}>
-          {missionItems.map((item) => (
-            <Link className={styles.missionItem} href={item.href} key={item.title}>
-              <span className={styles.missionIcon} aria-hidden="true">
-                {item.icon}
-              </span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </Link>
-          ))}
         </div>
       </div>
     </section>

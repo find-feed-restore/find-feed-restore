@@ -76,7 +76,7 @@ const sponsorTiers: SponsorTier[] = [
 const benefits = [
   ["Community Visibility", "Mention on yearly social media video with over 15,000 local views."],
   ["Brand Recognition", "Business logo and brand recognition during one of our annual events."],
-  ["Local Support", "Live Here, Love Here, Lake support window cling for your business."],
+  ["Local Support", "Corporate Partnership support window cling for your business."],
 ];
 
 export function LiveHereHero() {

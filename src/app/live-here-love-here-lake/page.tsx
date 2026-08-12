@@ -4,16 +4,16 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
-  title: "Live Here Love Here Lake - Find Feed Restore",
-  description: "Local businesses helping families find home through Find, Feed & Restore.",
+  title: "Corporate Partnership - Find Feed Restore",
+  description: "Corporate partnership opportunities for local businesses helping families find home through Find, Feed & Restore.",
   alternates: { canonical: "/live-here-love-here-lake/" },
   openGraph: {
     type: "article",
     locale: "en_US",
     url: "/live-here-love-here-lake/",
     siteName: "Find Feed Restore",
-    title: "Live Here Love Here Lake - Find Feed Restore",
-    description: "Local businesses helping families find home through Find, Feed & Restore.",
+    title: "Corporate Partnership - Find Feed Restore",
+    description: "Corporate partnership opportunities for local businesses helping families find home through Find, Feed & Restore.",
   },
 };
 

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.findfeedrestore.com"),
   title: "Find Feed Restore - Home - Find Feed Restore",
   description:
-    "Find, Feed & Restore exists to bring an end to homelessness for families with children through housing, financial literacy, and mental health counseling.",
+    "Find, Feed & Restore is a Central Florida non-profit organization working to end homelessness for families with children through housing, financial literacy, and mental health counseling.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Find Feed Restore",
     title: "Find Feed Restore - Home - Find Feed Restore",
     description:
-      "Housing for homeless families with children through housing, financial literacy, and mental health counseling.",
+      "A Central Florida non-profit organization helping homeless families with children through housing, financial literacy, and mental health counseling.",
   },
 };
 

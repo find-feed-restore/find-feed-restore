@@ -175,7 +175,7 @@ export function PeopleCta() {
           <a className={styles.button} href="https://findfeedrestore-bloom.kindful.com/">
             Support Our Mission
           </a>
-          <a className={`${styles.button} ${styles.secondaryButton}`} href="https://greatthings.typeform.com/to/ZZkgIj">
+          <a className={`${styles.button} ${styles.secondaryButton}`} href="/volunteer/">
             Volunteer
           </a>
         </div>

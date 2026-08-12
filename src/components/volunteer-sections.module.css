@@ -1,0 +1,453 @@
+.hero,
+.intro,
+.opportunities,
+.steps,
+.cta {
+  font-family: var(--font-noto-sans), sans-serif;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 560px;
+  overflow: hidden;
+  background: var(--color-navy);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(7 27 42 / 94%) 0%, rgb(7 27 42 / 78%) 36%, rgb(7 27 42 / 20%) 68%, transparent 100%);
+}
+
+.heroMedia {
+  position: absolute;
+  inset: 0;
+}
+
+.heroMedia img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 48px), 1140px);
+  margin-inline: auto;
+  color: white;
+}
+
+.heroContent > span,
+.introCopy > span,
+.sectionHeading > span,
+.ctaInner > span {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--color-red-bright);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.heroContent > span,
+.lightHeading > span,
+.ctaInner > span {
+  color: #fff;
+}
+
+.heroContent h1 {
+  max-width: 650px;
+  margin: 0;
+  font-family: var(--font-noto-serif), serif;
+  font-size: clamp(52px, 5.5vw, 78px);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.heroContent p {
+  max-width: 550px;
+  margin: 24px 0 30px;
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 16px 30px;
+  border-radius: 999px;
+  background: var(--color-red-bright);
+  color: white;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  box-shadow: 0 14px 30px rgb(139 0 0 / 24%);
+  transform: translateY(-3px);
+}
+
+.intro {
+  padding: 110px 24px;
+  background: white;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: center;
+  width: min(100%, 1140px);
+  margin-inline: auto;
+  gap: 72px;
+}
+
+.introCopy h2,
+.sectionHeading h2,
+.ctaInner h2 {
+  margin: 0;
+  color: var(--color-ink);
+  font-family: var(--font-noto-serif), serif;
+  font-size: clamp(38px, 4vw, 58px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.introCopy p {
+  margin: 24px 0 0;
+  color: var(--color-text);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.introCopy .button {
+  margin-top: 30px;
+}
+
+.introImage {
+  overflow: hidden;
+  border-radius: 32px;
+  box-shadow: 0 24px 60px rgb(7 27 42 / 15%);
+}
+
+.introImage img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.opportunities {
+  padding: 105px 24px 115px;
+  background: var(--color-warm-elementor);
+}
+
+.sectionInner {
+  width: min(100%, 1140px);
+  margin-inline: auto;
+}
+
+.sectionHeading {
+  max-width: 760px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.sectionHeading > p {
+  max-width: 650px;
+  margin: 20px auto 0;
+  color: var(--color-text);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.opportunityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.opportunityCard {
+  min-height: 330px;
+  padding: 42px 38px;
+  border: 1px solid rgb(7 27 42 / 8%);
+  border-radius: 26px;
+  background: white;
+  box-shadow: 0 18px 44px rgb(7 27 42 / 7%);
+}
+
+.opportunityCard > strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgb(173 0 0 / 8%);
+  color: var(--color-red-elementor);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.opportunityCard h3,
+.stepGrid h3 {
+  margin: 28px 0 14px;
+  color: var(--color-ink);
+  font-family: var(--font-noto-serif), serif;
+  font-size: 26px;
+  line-height: 1.15;
+}
+
+.opportunityCard p,
+.stepGrid p {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.steps {
+  padding: 105px 24px;
+  background: var(--color-navy);
+}
+
+.lightHeading h2 {
+  color: white;
+}
+
+.stepGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 42px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stepGrid li {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  align-items: start;
+  gap: 20px;
+}
+
+.stepGrid li > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgb(255 255 255 / 24%);
+  border-radius: 50%;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.stepGrid h3 {
+  margin: 0 0 12px;
+  color: white;
+}
+
+.stepGrid p {
+  color: rgb(255 255 255 / 72%);
+}
+
+.cta {
+  padding: 110px 24px;
+  background: var(--color-red-elementor);
+  text-align: center;
+}
+
+.ctaInner {
+  width: min(100%, 780px);
+  margin-inline: auto;
+  color: white;
+}
+
+.ctaInner h2 {
+  color: white;
+}
+
+.ctaInner p {
+  max-width: 620px;
+  margin: 22px auto 30px;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.secondaryButton {
+  background: white;
+  color: var(--color-red-elementor);
+}
+
+.secondaryButton:hover,
+.secondaryButton:focus-visible {
+  box-shadow: 0 14px 30px rgb(0 0 0 / 20%);
+}
+
+@media (max-width: 1024px) {
+  .heroContent {
+    width: min(calc(100% - 48px), 900px);
+  }
+
+  .inner {
+    gap: 42px;
+  }
+
+  .opportunityCard {
+    padding: 34px 28px;
+  }
+
+  .stepGrid {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    display: block;
+    min-height: 0;
+  }
+
+  .hero::after {
+    display: none;
+  }
+
+  .heroMedia {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1755 / 896;
+    background: #e9e1d5;
+  }
+
+  .heroMedia img {
+    object-fit: contain;
+  }
+
+  .heroContent {
+    width: 100%;
+    padding: 54px 22px 62px;
+    text-align: center;
+  }
+
+  .heroContent h1 {
+    max-width: 520px;
+    margin-inline: auto;
+    font-size: clamp(42px, 12vw, 58px);
+    line-height: 1.02;
+  }
+
+  .heroContent p {
+    max-width: 520px;
+    margin: 20px auto 26px;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .intro,
+  .opportunities,
+  .steps,
+  .cta {
+    padding: 72px 20px;
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .introCopy {
+    text-align: center;
+  }
+
+  .introCopy h2,
+  .sectionHeading h2,
+  .ctaInner h2 {
+    font-size: clamp(34px, 10vw, 46px);
+  }
+
+  .introCopy p,
+  .sectionHeading > p,
+  .ctaInner p {
+    font-size: 16px;
+  }
+
+  .introImage {
+    border-radius: 24px;
+  }
+
+  .sectionHeading {
+    margin-bottom: 36px;
+  }
+
+  .opportunityGrid,
+  .stepGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .opportunityGrid {
+    gap: 18px;
+  }
+
+  .opportunityCard {
+    min-height: 0;
+    padding: 30px 26px 34px;
+  }
+
+  .stepGrid {
+    gap: 34px;
+  }
+
+  .stepGrid li {
+    grid-template-columns: 46px 1fr;
+    gap: 16px;
+  }
+
+  .stepGrid li > span {
+    width: 46px;
+    height: 46px;
+  }
+
+  .stepGrid h3 {
+    font-size: 23px;
+  }
+
+  .button {
+    width: min(100%, 340px);
+    min-height: 52px;
+    padding-inline: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .heroContent,
+  .intro,
+  .opportunities,
+  .steps,
+  .cta {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .opportunityCard {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+}

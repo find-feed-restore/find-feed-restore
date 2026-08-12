@@ -7,7 +7,7 @@ const quickLinks = [
   ["Corporate Partnership", "/live-here-love-here-lake/"],
   ["Hope In Action", "/hope-in-action"],
   ["News", "/news-media/"],
-  ["Volunteer", "https://greatthings.typeform.com/to/V1SK6LFX"],
+  ["Volunteer", "/volunteer/"],
   ["Contact", "/contact-us/"],
   ["Donate Trailer", "/we-need-trailers/"],
 ];

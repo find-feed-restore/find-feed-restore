@@ -15,6 +15,7 @@ const routes = [
   "/board-staff/",
   "/sponsors/",
   "/hope-in-action/",
+  "/volunteer/",
 ];
 const widths = [1440, 390, 320];
 const chromeCandidates = [

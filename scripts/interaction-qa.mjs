@@ -462,7 +462,7 @@ async function main() {
       );
       check(
         "News external article links",
-        articleLinkContracts.length === 11 &&
+        articleLinkContracts.length === 12 &&
           articleLinkContracts.every(
             (link) => link.href?.startsWith("https://") && link.target === "_blank" && link.rel === "noopener",
           ),
@@ -626,11 +626,10 @@ async function main() {
       check(
         "Contact external service contracts",
         linkByHref["https://app.planstreetinc.com/findfeedrestore/PublicForm"]?.target === null &&
-          linkByHref["https://greatthings.typeform.com/to/V1SK6LFX"]?.target === "_blank" &&
-          linkByHref["https://greatthings.typeform.com/to/V1SK6LFX"]?.rel === "noopener" &&
+          linkByHref["/volunteer/"]?.target === null &&
           linkByHref["https://findfeedrestore-bloom.kindful.com/"]?.target === "_blank" &&
           linkByHref["https://findfeedrestore-bloom.kindful.com/"]?.rel === "noopener" &&
-          linkByHref["/live-here-love-here-lake"]?.target === null,
+          linkByHref["/live-here-love-here-lake/"]?.target === null,
         contactLinks,
       );
       check(
@@ -662,7 +661,7 @@ async function main() {
       check(
         "Board and staff CTA destinations",
         peopleContract.hrefs.includes("https://findfeedrestore-bloom.kindful.com/") &&
-          peopleContract.hrefs.includes("https://greatthings.typeform.com/to/ZZkgIj"),
+          peopleContract.hrefs.includes("/volunteer/"),
         peopleContract.hrefs,
       );
       check(
@@ -673,6 +672,26 @@ async function main() {
           peopleContract.headings.includes("Staff") &&
           peopleContract.headings.includes("Board Of Directors"),
         peopleContract.headings,
+      );
+    }
+
+    if (route === "/volunteer/") {
+      const volunteerContract = {
+        h1: await reduced.locator("main h1").allTextContents(),
+        images: await reduced.locator("main img").count(),
+        formLinks: await reduced.locator('main a[href="https://greatthings.typeform.com/to/V1SK6LFX"]').evaluateAll(
+          (links) => links.map((link) => ({ target: link.getAttribute("target"), rel: link.getAttribute("rel") })),
+        ),
+      };
+      check(
+        "Volunteer page and Typeform CTA contract",
+        volunteerContract.h1.length === 1 &&
+          volunteerContract.images === 2 &&
+          volunteerContract.formLinks.length === 3 &&
+          volunteerContract.formLinks.every(
+            (link) => link.target === "_blank" && link.rel === "noopener noreferrer",
+          ),
+        volunteerContract,
       );
     }
 

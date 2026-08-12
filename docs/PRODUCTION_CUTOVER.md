@@ -35,7 +35,7 @@ The repository root is the application root. `package.json` uses Next.js 16.3 wi
 | Output directory | Next.js automatic output; no manual directory | No repository override; confirm no dashboard override |
 | Node.js runtime | A Next.js 16.3-supported Vercel runtime | No repository pin; record the dashboard selection before launch |
 
-Final preparation gates pass: ESLint, strict TypeScript, `git diff --check`, and the optimized Next.js production build. The production build prerenders all 14 pages plus `/sitemap.xml`, `/robots.txt`, and the framework 404. The full repository crawler also passes all 14 canonical routes, canonical/title/runtime/assets/overflow checks, internal links with zero failures or redirecting links, all four compatibility redirects, and all tested 404s. The only crawler warnings are the already documented production-matched Board & Staff intermediate widths.
+Final preparation gates pass: ESLint, strict TypeScript, `git diff --check`, and the optimized Next.js production build. Following the approved post-certification Volunteer enhancement, the production build prerenders all 15 canonical pages plus `/sitemap.xml`, `/robots.txt`, and the framework 404. The full repository crawler passes all 15 routes, canonical/title/runtime/assets/overflow checks, internal links with zero failures or redirecting links, all four compatibility redirects, and all tested 404s. The only crawler warnings are the already documented production-matched Board & Staff intermediate widths.
 
 ## Production environment variables
 
@@ -102,7 +102,7 @@ The final A/CNAME values must be copied from the owning project's domain screen 
 
 ## Redirect coverage
 
-The live Yoast page sitemap currently contains exactly 14 content URLs. Thirteen retain the same pathname. The WordPress people page `/about-us/` becomes the canonical Next.js `/board-staff/`. Four permanent application redirects cover source routing and known aliases; the homepage trailer card and two previously slashless body CTAs now link directly to their canonical routes rather than consuming redirects.
+The live Yoast page sitemap contains 14 WordPress content URLs. The Next.js sitemap contains those migrated destinations plus the approved post-migration `/volunteer/` route, for 15 canonical URLs. Thirteen WordPress pages retain the same pathname. The WordPress people page `/about-us/` becomes the canonical Next.js `/board-staff/`. Four permanent application redirects cover source routing and known aliases; the homepage trailer card and two previously slashless body CTAs now link directly to their canonical routes rather than consuming redirects.
 
 | Old WordPress URL / alias | New canonical URL | Next.js status | Expected hops | Final result |
 | --- | --- | --- | --- | --- |

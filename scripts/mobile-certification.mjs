@@ -3,7 +3,7 @@ import path from "node:path";
 import process from "node:process";
 import { chromium } from "playwright-core";
 
-const routes = [
+const canonicalRoutes = [
   "/",
   "/affordable-housing/",
   "/housing-first/",
@@ -17,9 +17,15 @@ const routes = [
   "/live-here-love-here-lake/",
   "/we-need-trailers/",
   "/hope-in-action/",
+  "/volunteer/",
   "/terms-conditions/",
 ];
-const widths = [430, 390, 375, 360, 320];
+const routes = process.env.CERTIFICATION_ROUTES
+  ? process.env.CERTIFICATION_ROUTES.split(",").map((route) => route.trim()).filter(Boolean)
+  : canonicalRoutes;
+const widths = process.env.CERTIFICATION_WIDTHS
+  ? process.env.CERTIFICATION_WIDTHS.split(",").map(Number)
+  : [430, 390, 375, 360, 320];
 const baseUrl = process.env.CERTIFICATION_LOCAL_URL ?? "http://localhost:3002/";
 const outputPath = path.resolve(".visual-qa/certification/mobile-interactions.json");
 const chromeCandidates = [
@@ -225,7 +231,7 @@ async function inspectMobileHeaderScroll(page) {
   return {
     initial,
     scrolled,
-    passed: initial?.top === 0 && initial.height === scrolled?.height && (scrolled?.top ?? 0) < 0,
+    passed: initial?.top === 0 && initial.height === scrolled?.height && scrolled?.top === 0,
   };
 }
 

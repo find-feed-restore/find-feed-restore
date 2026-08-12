@@ -27,7 +27,7 @@ const navigation: NavItem[] = [
     label: "Get Involved",
     href: "#",
     children: [
-      { label: "Volunteer", href: "https://greatthings.typeform.com/to/V1SK6LFX" },
+      { label: "Volunteer", href: "/volunteer/" },
       { label: "Live Here Love Here Lake", href: "/live-here-love-here-lake/" },
       { label: "Partners & Sponsors", href: "/sponsors/" },
       { label: "Donate A Trailer", href: "/we-need-trailers/" },

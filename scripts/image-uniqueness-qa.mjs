@@ -16,6 +16,7 @@ const routes = [
   "/live-here-love-here-lake/",
   "/we-need-trailers/",
   "/hope-in-action/",
+  "/volunteer/",
   "/terms-conditions/",
 ];
 const preservedRouteSpecificImages = new Set([

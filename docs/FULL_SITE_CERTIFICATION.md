@@ -24,6 +24,12 @@ Current certified cutover baseline: native Instagram commit `441e86ccfd57bff2e54
 
 The focused native-Instagram refresh started clean on `main` with `HEAD` and `origin/main` aligned at accepted commit `441e86c`. The original full-site and dedicated mobile evidence remains valid for unchanged routes; this refresh reran only Hope In Action plus representative Home and News & Media regressions.
 
+### Post-certification Volunteer enhancement — 2026-08-12
+
+`/volunteer/` is an approved post-migration enhancement beyond the original 14-route WordPress inventory. The current canonical sitemap therefore contains **15 routes**. The route uses the accepted global shell, unique illustrative imagery, and three safe new-tab calls to the existing Typeform volunteer intake at `https://greatthings.typeform.com/to/V1SK6LFX`. It adds no local form backend or new runtime dependency.
+
+Focused certification passes at 1440, 1024, 768, 440, 430, 390, 375, 360, and 320px. The dedicated mobile interaction sweep passes 5/5 widths with the accepted sticky header, keyboard-operable menu, contained imagery, stacked cards/footer, and no clipped text or horizontal overflow. The 15-route crawler confirms HTTP 200, the production-domain canonical, unique metadata, one H1, complete local assets, no site-code console error, no broken/redirecting internal link, and unchanged redirect/404 behavior. Homepage, Contact, Board & Staff, Hope In Action, and News & Media interaction regressions pass after their Volunteer links were routed through the new page.
+
 ## Native Instagram certification refresh
 
 The focused refresh reconfirms `/hope-in-action/` at HTTP 200 on the optimized local build. The live account verifier returned 24 valid recent image posts with media, captions, and direct Instagram permalinks without printing identifiers, content, or credentials. The page renders 16 initially, reveals the remaining eight through Load More, keeps all post links at `_blank` with `noopener noreferrer`, and retains the exact 15-minute Next.js revalidation shown by the optimized build. Eight provider tests, eight dedicated feed browser checks, and eleven shared route interactions pass.

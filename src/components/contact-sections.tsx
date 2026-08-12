@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./contact-sections.module.css";
 
 const planStreetUrl = "https://app.planstreetinc.com/findfeedrestore/PublicForm";
-const volunteerUrl = "https://greatthings.typeform.com/to/V1SK6LFX";
+const volunteerUrl = "/volunteer/";
 const donationUrl = "https://findfeedrestore-bloom.kindful.com/";
 
 export function ContactHero() {
@@ -84,7 +84,7 @@ const connectionCards = [
       "Help families move from crisis to stability through hands-on support, outreach, events, and community service.",
     label: "Become A Volunteer",
     href: volunteerUrl,
-    external: true,
+    external: false,
   },
   {
     icon: "★",
@@ -186,8 +186,6 @@ export function ContactCta() {
           <a
             className={`${styles.mainButton} ${styles.secondaryButton}`}
             href={volunteerUrl}
-            target="_blank"
-            rel="noopener"
           >
             Volunteer
           </a>

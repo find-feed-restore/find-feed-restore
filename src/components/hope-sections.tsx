@@ -62,7 +62,7 @@ export function HopePageBody() {
           <p>Your support helps families with children move from homelessness to hope.</p>
           <div className={styles.ctaActions}>
             <a className={styles.button} href="https://findfeedrestore-bloom.kindful.com/">Donate</a>
-            <a className={`${styles.button} ${styles.secondaryButton}`} href="https://greatthings.typeform.com/to/V1SK6LFX">Volunteer</a>
+            <a className={`${styles.button} ${styles.secondaryButton}`} href="/volunteer/">Volunteer</a>
           </div>
         </div>
       </section>

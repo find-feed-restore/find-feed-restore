@@ -87,7 +87,7 @@ const givingOptions = [
     href: "https://findfeedrestore-bloom.kindful.com/",
   },
   {
-    title: "Support FFR",
+    title: "Support Find Feed Restore",
     text: "Your one-time donation helps Find, Feed & Restore provide immediate housing assistance and practical care for families in need.",
     label: "Give Today",
     href: "https://findfeedrestore-bloom.kindful.com/",

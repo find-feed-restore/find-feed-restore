@@ -17,9 +17,9 @@ const navigation: NavItem[] = [
     label: "Programs",
     href: "#",
     children: [
-      { label: "Care Coach", href: "/care-coach-mobile-unit/" },
       { label: "Affordable Housing", href: "/affordable-housing/" },
       { label: "Housing First", href: "/housing-first/" },
+      { label: "Mobile Help", href: "/care-coach-mobile-unit/" },
       { label: "Homelessness Avoidance", href: "/homelessness-avoidance/" },
     ],
   },

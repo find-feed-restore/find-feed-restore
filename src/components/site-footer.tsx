@@ -57,9 +57,9 @@ export function SiteFooter() {
             <section>
               <h2>Contact Info</h2>
               <address className={styles.contactList}>
-                <p><span aria-hidden="true">●</span> 20180 US Highway 27 Ste 308 Clermont, FL 34715</p>
-                <p><span aria-hidden="true">●</span> <a href="tel:+18662362983">(866) 236-2983</a></p>
-                <p><span aria-hidden="true">●</span> <a href="mailto:info@findfeedrestore.com">info@findfeedrestore.com</a></p>
+                <p><span aria-hidden="true">●</span><span className={styles.contactValue}>20180 US Highway 27 Ste 308<br />Clermont, FL 34715</span></p>
+                <p><span aria-hidden="true">●</span><span className={styles.contactValue}><a href="tel:+18662362983">(866) 236-2983</a></span></p>
+                <p><span aria-hidden="true">●</span><span className={styles.contactValue}><a href="mailto:info@findfeedrestore.com">info@findfeedrestore.com</a></span></p>
               </address>
               <div className={styles.socialLinks} aria-label="Social media links">
                 <a href="https://www.facebook.com/FindFeedRestore" target="_blank" rel="noopener noreferrer" aria-label="Facebook">

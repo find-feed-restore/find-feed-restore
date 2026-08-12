@@ -4,7 +4,7 @@ import { chromium } from "playwright-core";
 
 const baseUrl = process.env.QA_BASE_URL ?? "http://127.0.0.1:3000";
 const outputDirectory = path.join(process.cwd(), ".visual-qa", "mobile-shell");
-const widths = [430, 390, 360, 320];
+const widths = [440, 430, 390, 360, 320];
 const routes = ["/", "/board-staff/"];
 const chromeCandidates = [
   process.env.PLAYWRIGHT_CHROME_PATH,
@@ -58,6 +58,7 @@ for (const width of widths) {
       const logo = [...(header?.querySelectorAll("img") ?? [])].find((element) => element.getBoundingClientRect().width > 0);
       const toggle = [...(header?.querySelectorAll("button") ?? [])].find((element) => element.getBoundingClientRect().width > 0);
       const footer = document.querySelector("footer");
+      const contactValues = [...document.querySelectorAll("footer address p")].map((element) => bounds(element));
       return {
         viewport: document.documentElement.clientWidth,
         scrollWidth: document.documentElement.scrollWidth,
@@ -65,6 +66,7 @@ for (const width of widths) {
         logo: bounds(logo),
         toggle: bounds(toggle),
         footer: bounds(footer),
+        contactValues,
         footerBottom: (footer?.getBoundingClientRect().bottom ?? 0) + window.scrollY,
         documentHeight: document.documentElement.scrollHeight,
       };
@@ -74,6 +76,9 @@ for (const width of widths) {
     if (!shell.logo || shell.logo.left > 30) throw new Error(`${route} logo is not left-aligned at ${width}px`);
     if (!shell.toggle || shell.toggle.right < width - 30) throw new Error(`${route} toggle is not right-aligned at ${width}px`);
     if (!shell.footer || Math.abs(shell.footer.width - width) > 1) throw new Error(`${route} footer is not full-width at ${width}px`);
+    if (shell.contactValues.some((value) => !value || value.width < width - 60)) {
+      throw new Error(`${route} footer contact row is unexpectedly narrow at ${width}px`);
+    }
     if (Math.abs(shell.footerBottom - shell.documentHeight) > 1) {
       throw new Error(`${route} has trailing page whitespace at ${width}px (${shell.footerBottom} vs ${shell.documentHeight})`);
     }

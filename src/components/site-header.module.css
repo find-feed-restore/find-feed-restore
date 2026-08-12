@@ -246,22 +246,30 @@
 }
 
 @media (max-width: 767px) {
+  .siteHeader {
+    position: sticky;
+  }
+
   .tabletHeader {
     display: none;
   }
 
   .mobileHeader {
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    padding: 34px 0 21px;
+    min-height: 88px;
+    padding: 11px 18px;
     background: var(--color-warm-elementor);
+    box-shadow: 0 1px 0 rgb(0 40 63 / 8%);
   }
 
   .mobileLogo {
     display: block;
-    width: 50%;
-    max-width: 279px;
+    width: 142px;
+    max-width: 48vw;
+    justify-self: start;
   }
 
   .mobileLogo img {
@@ -276,27 +284,37 @@
     align-items: stretch;
     justify-content: center;
     gap: 3px;
-    width: 28px;
-    height: 28px;
-    margin: -7px 0 14px;
-    padding: 6px;
-    border: 0;
-    background: #e4e4e4;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 11px;
+    border: 1px solid rgb(0 40 63 / 10%);
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 8px 22px rgb(7 27 42 / 8%);
     cursor: pointer;
+    justify-self: end;
   }
 
   .menuToggle span {
     display: block;
-    height: 2px;
+    height: 3px;
+    border-radius: 999px;
     background: var(--color-navy);
   }
 
   .mobileNavigation {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 30;
     display: grid;
     grid-template-rows: 0fr;
     width: 100%;
     overflow: hidden;
-    background: rgb(255 255 255 / 95%);
+    background: rgb(255 255 255 / 98%);
+    box-shadow: 0 20px 35px rgb(7 27 42 / 15%);
     transition: grid-template-rows 0.28s ease;
   }
 

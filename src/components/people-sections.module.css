@@ -298,7 +298,7 @@
 
   .staffGrid .personCard {
     width: 100%;
-    max-width: 280px;
+    max-width: 320px;
   }
 
   .hero {
@@ -333,12 +333,43 @@
   }
 
   .personCard {
-    max-width: 280px;
+    width: 100%;
+    max-width: 320px;
     min-height: auto;
+    border: 1px solid rgb(7 27 42 / 6%);
+    border-radius: 26px;
+    box-shadow: 0 22px 55px rgb(7 27 42 / 11%);
   }
 
   .personCard img {
-    height: 260px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: contain;
+    object-position: center top;
+    background: #f2f0ed;
+  }
+
+  .personCard div,
+  .founderGrid .personCard div {
+    padding: 22px 22px 24px;
+    border-top: 1px solid rgb(7 27 42 / 6%);
+  }
+
+  .personCard h3,
+  .founderGrid .personCard h3 {
+    margin-bottom: 7px;
+    font-size: 27px;
+  }
+
+  .personCard p,
+  .founderGrid .personCard p {
+    font-size: 15px;
+  }
+
+  .personCard strong {
+    margin-top: 10px;
+    font-size: 9px;
   }
 }
 

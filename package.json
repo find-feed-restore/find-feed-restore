@@ -17,6 +17,7 @@
     "qa:mobile": "node scripts/mobile-certification.mjs",
     "qa:images": "node scripts/image-uniqueness-qa.mjs",
     "qa:image-crops": "node scripts/image-crop-qa.mjs",
+    "qa:mobile-shell": "node scripts/mobile-shell-qa.mjs",
     "visual:qa": "node scripts/visual-qa.mjs",
     "visual:qa:mobile": "node scripts/mobile-visual-certification.mjs",
     "visual:qa:interactions": "node scripts/interaction-qa.mjs"

@@ -312,28 +312,59 @@
 }
 
 @media (max-width: 767px) {
+  .footer {
+    width: 100%;
+    padding: 54px 24px max(30px, env(safe-area-inset-bottom));
+  }
+
+  .footerInner {
+    width: 100%;
+    max-width: 520px;
+  }
+
   .footerGrid {
     grid-template-columns: 1fr;
+    gap: 34px;
+    width: 100%;
+    margin-top: 0;
   }
 
   .footerGrid > section {
+    width: 100%;
     padding-right: 0;
   }
 
   .footerGrid > section + section,
   .supportColumn {
-    margin: 25px 0 0;
+    margin: 0;
+  }
+
+  .footerGrid h2 {
+    margin-bottom: 14px;
+    font-size: 20px;
   }
 
   .linkList a,
   .contactList p,
   .contactList a,
   .supportColumn > p {
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .linkList li + li {
+    margin-top: 8px;
   }
 
   .contactList p {
-    padding-block: 6.5px;
+    grid-template-columns: 14px minmax(0, 1fr);
+    padding-block: 8px;
+    overflow-wrap: anywhere;
+  }
+
+  .socialLinks {
+    gap: 10px;
+    margin-top: 18px;
   }
 
   .footerButton {
@@ -345,17 +376,23 @@
   .footerBottom {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 0;
+    align-items: flex-start;
+    gap: 18px;
+    margin-top: 38px;
+    padding-top: 28px;
+    border-top: 1px solid rgb(255 255 255 / 10%);
   }
 
   .footerBottom > img {
-    width: 45%;
+    width: 150px;
+    max-width: 52%;
   }
 
   .footerBottom p {
+    width: 100%;
     font-size: 12px;
-    text-align: center;
+    line-height: 1.6;
+    text-align: left;
   }
 
   .floatingDonate {

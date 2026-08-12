@@ -197,17 +197,17 @@ The clearly nonexistent certification route, `/terms-and-conditions/`, `/wp-admi
 
 ### SHOULD FIX BEFORE CUTOVER
 
-- Decide whether to retain the 90,101,823-byte MP4 in the Vercel static deployment or move it to an appropriate media/CDN workflow. Current architecture works and is not itself a build blocker.
 - Decide whether to correct the source-matched Board & Staff card clipping at intermediate 1101–1311px and 701–787px widths. No horizontal scrollbar appears because global overflow is suppressed, but edge cards can be clipped.
+- Establish ownership of an Instagram token-expiry reminder or secure rotation workflow before cutover. Runtime token persistence remains prohibited.
 
 ### POST-LAUNCH OPTIMIZATION
 
 - Add researched meta and Open Graph descriptions to the seven source pages that currently omit them.
 - Consider route-appropriate structured data beyond the existing homepage Organization schema.
 - Add a branded custom 404.
+- Move the 90,101,823-byte MP4 to an appropriate media/CDN workflow after measuring launch behavior; the current deployment architecture works and is not a blocker.
 - Hash-deduplicate the accepted 211,091-byte program image pair if route paths can be changed safely.
 - Review the 1.52 MB Terms hero and other factual images for non-destructive delivery optimization.
-- Establish a controlled token-refresh reminder/automation before the approximately 60-day Instagram token lifetime; do not persist a refreshed token in client code or logs.
 - Continue monitoring YouTube, Instagram, Typeform, PlanStreet, Kindful, Candid, publisher, social, and sponsor availability as external operational dependencies.
 
 ## Certification corrections

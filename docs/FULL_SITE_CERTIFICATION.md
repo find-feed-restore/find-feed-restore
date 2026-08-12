@@ -125,9 +125,9 @@ Next.js permanent redirects return 308. Each audited no-slash alias takes one re
 
 ## Metadata and structured data
 
-- All 14 routes have exactly one correct production-domain canonical, a unique title, and no accidental `noindex`.
-- Seven routes have descriptions and matching `og:description`: home, Board & Staff, Sponsors, Live Here Love Here Lake, We Need Trailers, Hope In Action, and Terms.
-- Affordable Housing, Housing First, Homelessness Avoidance, Care Coach, News & Media, Testimonials, and Contact intentionally preserve the production-derived absence of description and `og:description`. Adding researched descriptions is a post-launch SEO enhancement, not a certification rewrite.
+- All 15 current routes have exactly one correct production-domain canonical, a unique title, and no accidental `noindex`.
+- Nine current routes have descriptions and matching `og:description`: home, News & Media, Board & Staff, Sponsors, Corporate Partnership, We Need Trailers, Hope In Action, Volunteer, and Terms.
+- Affordable Housing, Housing First, Homelessness Avoidance, Care Coach, Testimonials, and Contact intentionally preserve the production-derived absence of description and `og:description`. Adding researched descriptions remains a post-launch SEO enhancement rather than a certification requirement.
 - Every route includes the currently implemented Open Graph title, URL, site name, locale, and type.
 - The homepage's Organization JSON-LD is valid and is the only implemented structured-data block. No page schema was invented for certification.
 

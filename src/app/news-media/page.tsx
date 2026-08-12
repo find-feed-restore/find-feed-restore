@@ -11,7 +11,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "News & Media - Find Feed Restore",
-  description: null,
+  description: "Recent news, press coverage, community partnerships, and stories of impact from Find Feed Restore.",
   alternates: { canonical: "/news-media/" },
   openGraph: {
     type: "website",
@@ -19,19 +19,20 @@ export const metadata: Metadata = {
     url: "/news-media/",
     siteName: "Find Feed Restore",
     title: "News & Media - Find Feed Restore",
+    description: "Recent news, press coverage, community partnerships, and stories of impact from Find Feed Restore.",
   },
 };
 
 const newsItems: NewsItem[] = [
   {
-    day: "05",
-    monthYear: "Aug 2019",
-    source: "Spectrum News 13",
-    location: "Central Florida",
-    title: "Everyday Hero: Clermont Pastor Helps Families Get Back on Their Feet",
+    day: "06",
+    monthYear: "May 2026",
+    source: "County Materials",
+    location: "Clermont, FL",
+    title: "Partnering with Find, Feed, & Restore to Support Homeless Families",
     description:
-      "Spectrum News 13 featured Pastor Brian Broadway and the mission of Find Feed Restore, highlighting how homeless families are finding stability, support, and hope through transitional housing and community partnerships.",
-    href: "https://mynews13.com/fl/orlando/news/2019/08/05/everyday-hero--clermont-pastor-helps-families-get-back-on-their-feet",
+      "County Materials highlighted its partnership with Find Feed Restore through the Sonnentag American Foundation, supporting food, clothing, safe housing, and pathways toward self-sufficiency.",
+    href: "https://www.countymaterials.com/our-culture-and-team/partnering-with-find-feed-restore-to-support-homeless-families",
     featured: true,
   },
   {
@@ -75,6 +76,16 @@ const newsItems: NewsItem[] = [
     href: "https://www.midfloridanewspapers.com/clermont_sun/news/a-unique-and-impactful-way-to-support-local-charities/article_1de9a5b2-be28-11ef-90d1-830d586dc15a.html",
   },
   {
+    day: "17",
+    monthYear: "Dec 2024",
+    source: "American Land Title Association",
+    location: "Washington, DC",
+    title: "Your Donations at Work: Stories of Hope and Home from ALTA Good Deeds",
+    description:
+      "ALTA Good Deeds shared how a $6,000 grant helped Find Feed Restore provide stable housing, case management, counseling, and financial education for a working mother and her children.",
+    href: "https://www.alta.org/news-and-publications/news/20241217-Your-Donations-at-Work-Stories-of-Hope-and-Home-from-ALTA-Good-Deeds",
+  },
+  {
     day: "02",
     monthYear: "Dec 2024",
     source: "Style.",
@@ -116,6 +127,16 @@ const newsItems: NewsItem[] = [
   },
   {
     day: "16",
+    monthYear: "Apr 2024",
+    source: "South Lake Tablet",
+    location: "Clermont, FL",
+    title: "Poverty Simulation: Experience The Challenges Of Living in Poverty",
+    description:
+      "Find Feed Restore and the Neighborhood Center of South Lake co-hosted a community simulation focused on the local need for affordable housing and hunger relief.",
+    href: "https://sltablet.com/2024/04/16/poverty-simulation-experience-the-challenges-of-living-in-poverty/",
+  },
+  {
+    day: "16",
     monthYear: "Nov 2023",
     source: "The News Leader",
     location: "Clermont, FL",
@@ -123,6 +144,16 @@ const newsItems: NewsItem[] = [
     description:
       "Find Feed Restore celebrated the groundbreaking of the Hannah Grace Gardens affordable housing community.",
     href: "https://www.midfloridanewspapers.com/clermont_news_leader/construction-begins-on-affordable-housing-project/article_21c1d924-8487-11ee-92d6-a385a518affe.html",
+  },
+  {
+    day: "05",
+    monthYear: "Aug 2019",
+    source: "Spectrum News 13",
+    location: "Central Florida",
+    title: "Everyday Hero: Clermont Pastor Helps Families Get Back on Their Feet",
+    description:
+      "Spectrum News 13 featured Pastor Brian Broadway and the mission of Find Feed Restore, highlighting how homeless families are finding stability, support, and hope through transitional housing and community partnerships.",
+    href: "https://mynews13.com/fl/orlando/news/2019/08/05/everyday-hero--clermont-pastor-helps-families-get-back-on-their-feet",
   },
   {
     day: "19",
@@ -158,7 +189,7 @@ export default function NewsMediaPage() {
           variant="news"
           eyebrow="Find, Feed & Restore News"
           title="Stories, Press & Community Impact"
-          description="Read the latest news, media features, videos, and community stories highlighting how Find, Feed &  is helping families move from homeless to hopeful."
+          description="Read the latest news, media features, videos, and community stories highlighting how Find, Feed & Restore is helping families move from homeless to hopeful."
         />
         <EditorialIntro
           eyebrow="News & Media"

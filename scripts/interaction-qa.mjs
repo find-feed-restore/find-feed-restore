@@ -462,7 +462,7 @@ async function main() {
       );
       check(
         "News external article links",
-        articleLinkContracts.length === 12 &&
+        articleLinkContracts.length === 15 &&
           articleLinkContracts.every(
             (link) => link.href?.startsWith("https://") && link.target === "_blank" && link.rel === "noopener",
           ),

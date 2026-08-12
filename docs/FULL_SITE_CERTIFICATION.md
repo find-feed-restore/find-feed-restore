@@ -6,7 +6,7 @@ Local production target: Next.js 16.3 optimized build served with `next start`
 
 Production comparison source: <https://www.findfeedrestore.com/>
 
-Certification baseline: accepted Milestone 16 commit `0eefbd6`; this report includes the subsequent dedicated mobile-parity extension
+Current certified cutover baseline: native Instagram commit `441e86ccfd57bff2e54a6e377c148a4e892c681a` (`441e86c`)
 
 ## Summary
 
@@ -20,9 +20,19 @@ Certification baseline: accepted Milestone 16 commit `0eefbd6`; this report incl
 - Routes with minor documented differences: **3** — We Need Trailers' approved functional form enhancement, Hope In Action's changing live feed, and Board & Staff's source-matched intermediate fixed-grid clipping
 - Blocked routes: **0**
 - Overall migration certification: **PASS — READY FOR CUTOVER**
-- Production cutover status: **READY**; no certified technical blocker remains
+- Production cutover preparation: **HOLD — OWNER VERCEL VERIFICATION AND ANALYTICS DECISION REMAIN**; neither item is an application-certification failure
 
-The repository started clean on `main`. The dedicated mobile continuation started from accepted Milestone 16 commit `0eefbd6`, with `HEAD` and `origin/main` aligned. Certification used the actual clean shared baseline and did not rewrite history.
+The focused native-Instagram refresh started clean on `main` with `HEAD` and `origin/main` aligned at accepted commit `441e86c`. The original full-site and dedicated mobile evidence remains valid for unchanged routes; this refresh reran only Hope In Action plus representative Home and News & Media regressions.
+
+## Native Instagram certification refresh
+
+The focused refresh reconfirms `/hope-in-action/` at HTTP 200 on the optimized local build. The live account verifier returned 24 valid recent image posts with media, captions, and direct Instagram permalinks without printing identifiers, content, or credentials. The page renders 16 initially, reveals the remaining eight through Load More, keeps all post links at `_blank` with `noopener noreferrer`, and retains the exact 15-minute Next.js revalidation shown by the optimized build. Eight provider tests, eight dedicated feed browser checks, and eleven shared route interactions pass.
+
+Missing-environment and non-secret invalid-token browser runs were repeated at 390px. Both preserve the complete page shell, remain free of horizontal overflow, expose no raw Meta error, and show only the understated unavailable message plus direct organization Instagram link. The post-build scan found zero access-token matches and zero active Juicer runtime/script matches in `.next/static`.
+
+Hope In Action was recaptured at 1440, 1024, 768, 430, 390, 375, 360, and 320px. Native local heights remain exactly equal to accepted `441e86c` evidence: 4897, 6172, 7450, 13669, 13086, 13099, 13159, and 13210px respectively. Card media remains square and contained; the certified one/two/three/four-column transitions remain at 758/1018/1218px; all five mobile widths remain single-column without overflow. During this refresh the legacy WordPress source's client-side social provider did not populate, so current production captures contain the matching static hero, headings, wrapper, CTA styling, and footer but an empty feed wrapper. Those transient source captures are not used to overturn the accepted native-feed geometry. The QA image normalizer now uses canvas compositing so very tall dynamic-source differences can still produce side-by-side, overlay, and amplified-difference artifacts without Sharp's 10,000px edge-padding limit.
+
+Home visual regression remains 4712/4712, 5828/5829, 6108/6108, and 8176/8175px with 12/12 interactions. News & Media remains 4672/4672, 5189/5189, 5488/5488, and 8398/8397px with 15/15 interactions. No shared application or accepted page code changed during the refresh.
 
 ## Certification method
 

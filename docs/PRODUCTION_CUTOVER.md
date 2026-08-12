@@ -6,7 +6,7 @@ Production source: <https://www.findfeedrestore.com/>
 
 ## Readiness summary
 
-- Certified application baseline: `2b4ab5452abd655575c8914ed8fa0601f3da4b4f` (`2b4ab54`)
+- Certified application baseline: `441e86ccfd57bff2e54a6e377c148a4e892c681a` (`441e86c`)
 - Certification status: **PASS — READY FOR CUTOVER**
 - Cutover configuration status: **HOLD — OWNER VERIFICATION REQUIRED**
 - DNS changed: **No**
@@ -17,9 +17,9 @@ The application is certified, but production traffic must not be switched until 
 
 ## Certified baseline and repository
 
-At the start of this milestone, `main`, `HEAD`, and `origin/main` all matched accepted commit `2b4ab54`, and the working tree was clean. The remote is `https://github.com/find-feed-restore/find-feed-restore.git`. `.visual-qa/`, `.env*` overrides, `.next/`, and dependencies remain ignored; no secret file is tracked.
+The native-Instagram certification refresh started with `main`, `HEAD`, and `origin/main` all matching accepted commit `441e86c`, and the working tree was clean. The remote is `https://github.com/find-feed-restore/find-feed-restore.git`. `.visual-qa/`, `.env*` overrides, `.next/`, and dependencies remain ignored; no secret file is tracked.
 
-The certified commit has a successful GitHub/Vercel deployment record for the intended `findfeedrestore/find-feed-restore` project. Its generated Vercel URL is protected by Vercel SSO and returns `X-Robots-Tag: noindex`. This proves the Git integration can build the commit, but it does not independently expose the owning project's dashboard settings or Production environment-variable scope.
+The prior certified commit has a successful GitHub/Vercel deployment record for the intended `findfeedrestore/find-feed-restore` project. Accepted baseline `441e86c` passes the optimized production build locally, but this preparation milestone does not deploy it. The available Vercel access still cannot independently confirm the owning project's dashboard settings, latest deployment selection, or Production environment-variable scope.
 
 The repository root is the application root. `package.json` uses Next.js 16.3 with `npm run build`; it has no custom `engines` entry, output-directory override, or `vercel.json`. The intended owner must verify, without changing working settings:
 
@@ -43,13 +43,25 @@ Five application-specific environment variables are referenced by runtime code. 
 
 | Variable name | Classification | Required scope | Verification |
 | --- | --- | --- | --- |
-| `RESEND_API_KEY` | **REQUIRED FOR LAUNCH** | Production | Owner has reported Vercel configuration; dashboard presence must be confirmed |
-| `CONTACT_FROM_EMAIL` | **REQUIRED FOR LAUNCH** | Production | Owner has reported Vercel configuration; dashboard presence must be confirmed |
-| `CONTACT_TO_EMAIL` | **REQUIRED FOR LAUNCH** | Production | Owner has reported Vercel configuration; dashboard presence must be confirmed |
-| `INSTAGRAM_ACCESS_TOKEN` | **REQUIRED FOR LAUNCH** | Production | Owner has reported Vercel configuration; dashboard presence must be confirmed |
-| `INSTAGRAM_ACCOUNT_ID` | **REQUIRED FOR LAUNCH** | Production | Owner has reported Vercel configuration; dashboard presence must be confirmed |
+| `RESEND_API_KEY` | **REQUIRED FOR LAUNCH** | Production | Owner-reported configured; direct dashboard presence was not accessible during refresh |
+| `CONTACT_FROM_EMAIL` | **REQUIRED FOR LAUNCH** | Production | Owner-reported configured; direct dashboard presence was not accessible during refresh |
+| `CONTACT_TO_EMAIL` | **REQUIRED FOR LAUNCH** | Production | Owner-reported configured; direct dashboard presence was not accessible during refresh |
+| `INSTAGRAM_ACCESS_TOKEN` | **REQUIRED FOR LAUNCH** | Production | Owner-reported configured; direct dashboard presence was not accessible during refresh |
+| `INSTAGRAM_ACCOUNT_ID` | **REQUIRED FOR LAUNCH** | Production | Owner-reported configured; direct dashboard presence was not accessible during refresh |
 
 No additional required, optional, or development-only application variables are referenced. `.env.local` is ignored and is not a source of Production configuration. After confirming all five names in Production scope, redeploy the accepted/current descendant commit if Vercel indicates the active deployment predates either integration's configuration.
+
+## Instagram token lifecycle runbook
+
+The long-lived Instagram User access token has a finite lifetime of approximately 60 days. It must be refreshed while it is still valid; an expired token cannot be recovered through the refresh endpoint. The production procedure is:
+
+1. Refresh the unexpired long-lived token before its expiry through the controlled Meta operations account.
+2. Replace `INSTAGRAM_ACCESS_TOKEN` in the controlled Vercel Production environment without displaying or logging its value.
+3. Redeploy the accepted application commit.
+4. Run the Hope In Action smoke check: HTTP 200, ready provider state, 16 initial cards, secure permalinks, Load More, and no overflow.
+5. Confirm recent media loads from the organization account.
+
+Do not persist tokens in browser code, repository files, logs, or an ad hoc runtime store, and do not attempt to mutate Vercel environment variables from the application. A future owned secret-management workflow may automate renewal reminders, secure rotation, redeployment, and post-deploy smoke checks, but it is not required for this focused refresh.
 
 ## Domains and DNS
 

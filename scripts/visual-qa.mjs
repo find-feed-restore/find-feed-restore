@@ -225,16 +225,20 @@ async function capture(page, url, filename) {
 }
 
 async function normalizeImage(filename, width, height) {
-  const metadata = await sharp(filename).metadata();
-  return sharp(filename)
+  const flattened = await sharp(filename)
     .flatten({ background: "#ffffff" })
-    .extend({
-      top: 0,
-      left: 0,
-      right: width - metadata.width,
-      bottom: height - metadata.height,
+    .png()
+    .toBuffer();
+
+  return sharp({
+    create: {
+      width,
+      height,
+      channels: 4,
       background: "#ffffff",
-    })
+    },
+  })
+    .composite([{ input: flattened, top: 0, left: 0 }])
     .ensureAlpha()
     .raw()
     .toBuffer();

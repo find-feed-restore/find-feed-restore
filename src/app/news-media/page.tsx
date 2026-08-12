@@ -125,6 +125,16 @@ const newsItems: NewsItem[] = [
     href: "https://www.midfloridanewspapers.com/clermont_news_leader/construction-begins-on-affordable-housing-project/article_21c1d924-8487-11ee-92d6-a385a518affe.html",
   },
   {
+    day: "19",
+    monthYear: "Mar 2018",
+    source: "South Lake Tablet",
+    location: "Clermont, FL",
+    title: "Brian Broadway Receives The Gem Of The Hills Award",
+    description:
+      "Brian Broadway received the Gem of the Hills Award in recognition of his community service and his work providing housing and support to homeless families through Find Feed Restore.",
+    href: "https://sltablet.com/2018/03/19/brian-broadway-receives-the-gem-of-the-hills-award/",
+  },
+  {
     day: "27",
     monthYear: "Apr 2017",
     source: "Click Orlando",

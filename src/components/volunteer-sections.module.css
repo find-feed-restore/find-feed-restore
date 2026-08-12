@@ -291,8 +291,8 @@
 .cta {
   padding: 110px 24px;
   background:
-    radial-gradient(circle at top center, rgb(255 255 255 / 8%), transparent 46%),
-    linear-gradient(135deg, #00283f 0%, #071b2a 100%);
+    radial-gradient(circle at top center, rgb(255 255 255 / 12%), transparent 46%),
+    linear-gradient(135deg, #8b0000 0%, #650707 58%, #4e0b0b 100%);
   text-align: center;
 }
 
@@ -316,8 +316,9 @@
 }
 
 .secondaryButton {
-  background: linear-gradient(180deg, var(--color-red-bright) 0%, var(--color-red) 100%);
-  color: white;
+  background: white;
+  box-shadow: 0 18px 38px rgb(42 0 0 / 26%);
+  color: var(--color-red);
 }
 
 .secondaryButton:hover,

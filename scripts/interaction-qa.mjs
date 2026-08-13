@@ -339,13 +339,26 @@ async function main() {
       const mobileCards = await mobile.locator("main article").evaluateAll((cards) =>
         cards.map((card) => {
           const bounds = card.getBoundingClientRect();
-          return { x: bounds.x, width: bounds.width, right: bounds.right };
+          const panel = card.querySelector(":scope > div")?.getBoundingClientRect();
+          return {
+            x: bounds.x,
+            width: bounds.width,
+            right: bounds.right,
+            bottom: bounds.bottom,
+            panelBottom: panel?.bottom,
+          };
         }),
       );
       check(
-        "Board and staff mobile cards do not overflow",
+        "Board and staff mobile cards and labels do not overflow",
         mobileCards.length === 17 &&
-          mobileCards.every((card) => card.x >= 0 && Math.round(card.right) <= 390),
+          mobileCards.every(
+            (card) =>
+              card.x >= 0 &&
+              Math.round(card.right) <= 390 &&
+              card.panelBottom !== undefined &&
+              Math.ceil(card.panelBottom) <= Math.ceil(card.bottom),
+          ),
         mobileCards,
       );
     }

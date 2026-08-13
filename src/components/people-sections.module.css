@@ -350,6 +350,12 @@
     background: #f2f0ed;
   }
 
+  .founderGrid .personCard img {
+    aspect-ratio: 2 / 3;
+    object-fit: contain;
+    object-position: center top;
+  }
+
   .personCard div,
   .founderGrid .personCard div {
     padding: 22px 22px 24px;
@@ -382,6 +388,7 @@
   }
 
   .founderGrid .personCard {
+    flex: 0 0 auto;
     width: 100%;
     max-width: 320px;
   }

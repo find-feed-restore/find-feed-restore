@@ -75,8 +75,8 @@ export default function HousingFirstPage() {
           }}
           logoClassName={programStyles.housingFirstLogo}
           applicationImage={{
-            src: "/images/unique/housing-intro.webp",
-            alt: "Family moving into a home",
+            src: "/images/unique/housing-intro-v2.webp",
+            alt: "Mother and children smiling together in their new home",
           }}
           applicationImageClassName={programStyles.housingFirstApplicationImage}
         />

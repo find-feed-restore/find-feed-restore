@@ -18,9 +18,9 @@ const programPageExpectations = {
     links: [
       "https://findfeedrestore-bloom.kindful.com/",
       "https://app.planstreetinc.com/findfeedrestore/PublicForm",
-      "/care-coach-mobile-unit",
-      "/homelessness-avoidance",
-      "/housing-first",
+      "/care-coach-mobile-unit/",
+      "/homelessness-avoidance/",
+      "/housing-first/",
     ],
   },
   "/housing-first/": {
@@ -28,9 +28,9 @@ const programPageExpectations = {
     links: [
       "https://findfeedrestore-bloom.kindful.com/",
       "https://app.planstreetinc.com/findfeedrestore/PublicForm",
-      "/affordable-housing",
-      "/homelessness-avoidance",
-      "/care-coach-mobile-unit",
+      "/affordable-housing/",
+      "/homelessness-avoidance/",
+      "/care-coach-mobile-unit/",
     ],
   },
   "/homelessness-avoidance/": {
@@ -38,9 +38,9 @@ const programPageExpectations = {
     links: [
       "https://findfeedrestore-bloom.kindful.com/",
       "https://app.planstreetinc.com/findfeedrestore/PublicForm",
-      "/affordable-housing",
-      "/care-coach-mobile-unit",
-      "/housing-first",
+      "/affordable-housing/",
+      "/care-coach-mobile-unit/",
+      "/housing-first/",
     ],
   },
   "/care-coach-mobile-unit/": {
@@ -48,9 +48,9 @@ const programPageExpectations = {
     links: [
       "https://findfeedrestore-bloom.kindful.com/",
       "https://greatthings.typeform.com/to/ZZkgIj",
-      "/affordable-housing",
-      "/homelessness-avoidance",
-      "/housing-first",
+      "/affordable-housing/",
+      "/homelessness-avoidance/",
+      "/housing-first/",
     ],
   },
 };

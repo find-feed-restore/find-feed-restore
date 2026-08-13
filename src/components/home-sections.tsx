@@ -112,11 +112,13 @@ export function ImpactSection() {
   return (
     <section className={styles.impact} aria-labelledby="impact-title">
       <div className={styles.impactInner}>
-        <p className={styles.mottoBadge} aria-label="Our motto: Homeless to Hopeful">
-          <span>Our Motto</span>
-          {" "}
-          <strong>Homeless to Hopeful</strong>
-        </p>
+        <div className={styles.mottoLockup} aria-label="Our motto: Homeless to Hopeful">
+          <span className={styles.mottoMark} aria-hidden="true">♥</span>
+          <p>
+            <span>Our Motto</span>
+            <strong>Homeless to Hopeful</strong>
+          </p>
+        </div>
         <header className={styles.impactHeading}>
           <p className={styles.impactEyebrow}>Our Impact</p>
           <h2 id="impact-title">Housing Families. Restoring Hope.</h2>

@@ -427,8 +427,12 @@ async function main() {
       check(
         "homepage motto",
         (await motto.count()) === 1 &&
-          (await motto.textContent())?.replace(/\s+/g, " ").trim() === "Our Motto Homeless to Hopeful",
-        await motto.textContent(),
+          (await motto.getAttribute("aria-label")) === "Our motto: Homeless to Hopeful" &&
+          (await motto.locator("strong").textContent()) === "Homeless to Hopeful",
+        {
+          label: await motto.getAttribute("aria-label"),
+          statement: await motto.locator("strong").textContent(),
+        },
       );
     }
 

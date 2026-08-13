@@ -90,10 +90,18 @@
   flex: 1 1 auto;
 }
 
-.contactList span {
+.contactList p > span:first-child {
   color: var(--color-footer-heading);
   font-size: 8px;
   line-height: 22px;
+}
+
+.contactValue,
+.contactValue a {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.45;
 }
 
 .socialLinks {
@@ -356,11 +364,16 @@
   }
 
   .linkList a,
-  .contactList p,
-  .contactList a,
   .supportColumn > p {
     font-size: 15px;
     line-height: 1.55;
+  }
+
+  .contactList p,
+  .contactValue,
+  .contactValue a {
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   .linkList li + li {

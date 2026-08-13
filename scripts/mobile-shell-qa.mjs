@@ -58,7 +58,10 @@ for (const width of widths) {
       const logo = [...(header?.querySelectorAll("img") ?? [])].find((element) => element.getBoundingClientRect().width > 0);
       const toggle = [...(header?.querySelectorAll("button") ?? [])].find((element) => element.getBoundingClientRect().width > 0);
       const footer = document.querySelector("footer");
-      const contactValues = [...document.querySelectorAll("footer address p")].map((element) => bounds(element));
+      const contactValues = [...document.querySelectorAll("footer address p")].map((element) => ({
+        ...bounds(element),
+        fontSize: getComputedStyle(element.querySelector(":scope > span:last-child")).fontSize,
+      }));
       return {
         viewport: document.documentElement.clientWidth,
         scrollWidth: document.documentElement.scrollWidth,
@@ -78,6 +81,9 @@ for (const width of widths) {
     if (!shell.footer || Math.abs(shell.footer.width - width) > 1) throw new Error(`${route} footer is not full-width at ${width}px`);
     if (shell.contactValues.some((value) => !value || value.width < width - 60)) {
       throw new Error(`${route} footer contact row is unexpectedly narrow at ${width}px`);
+    }
+    if (shell.contactValues.some((value) => value.fontSize !== "16px")) {
+      throw new Error(`${route} footer contact values are not consistently 16px at ${width}px`);
     }
     if (Math.abs(shell.footerBottom - shell.documentHeight) > 1) {
       throw new Error(`${route} has trailing page whitespace at ${width}px (${shell.footerBottom} vs ${shell.documentHeight})`);

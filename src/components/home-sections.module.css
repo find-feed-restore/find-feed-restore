@@ -175,6 +175,58 @@
   letter-spacing: -0.055em;
 }
 
+.motto {
+  position: relative;
+  padding: 54px 24px 58px;
+  overflow: hidden;
+  border-block: 1px solid rgb(7 27 42 / 7%);
+  background:
+    radial-gradient(circle at center, rgb(139 0 0 / 5%), transparent 54%),
+    var(--color-warm);
+  text-align: center;
+}
+
+.motto::before,
+.motto::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: min(12vw, 170px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(139 0 0 / 42%));
+}
+
+.motto::before {
+  right: calc(50% + min(30vw, 390px));
+}
+
+.motto::after {
+  left: calc(50% + min(30vw, 390px));
+  transform: rotate(180deg);
+}
+
+.motto p {
+  margin: 0;
+  color: var(--color-ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 4.6vw, 66px);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.motto span {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--color-red);
+  font-family: var(--font-noto-sans), sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
 .impact {
   position: relative;
   padding: 110px 24px;
@@ -567,6 +619,19 @@
 }
 
 @media (max-width: 700px) {
+  .motto {
+    padding: 40px 18px 44px;
+  }
+
+  .motto::before,
+  .motto::after {
+    display: none;
+  }
+
+  .motto p {
+    font-size: 38px;
+  }
+
   .causesGrid {
     grid-template-columns: 1fr;
   }

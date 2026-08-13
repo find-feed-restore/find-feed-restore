@@ -108,6 +108,17 @@ export function HeroSection() {
   );
 }
 
+export function MottoSection() {
+  return (
+    <section className={styles.motto} aria-label="Our motto">
+      <p>
+        <span>Our Motto:</span>
+        {" "}Homeless to Hopeful
+      </p>
+    </section>
+  );
+}
+
 export function ImpactSection() {
   return (
     <section className={styles.impact} aria-labelledby="impact-title">

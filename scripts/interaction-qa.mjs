@@ -423,6 +423,13 @@ async function main() {
         ["191", "349", "498"].every((value) => counterValues.some((text) => text.includes(value))),
         counterValues,
       );
+      const motto = reduced.locator('main section[aria-label="Our motto"]');
+      check(
+        "homepage motto",
+        (await motto.count()) === 1 &&
+          (await motto.textContent())?.replace(/\s+/g, " ").trim() === "Our Motto: Homeless to Hopeful",
+        await motto.textContent(),
+      );
     }
 
     const donationHref = await reduced.locator('a[aria-label="Donate now"]').getAttribute("href");

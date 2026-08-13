@@ -108,21 +108,15 @@ export function HeroSection() {
   );
 }
 
-export function MottoSection() {
-  return (
-    <section className={styles.motto} aria-label="Our motto">
-      <p>
-        <span>Our Motto:</span>
-        {" "}Homeless to Hopeful
-      </p>
-    </section>
-  );
-}
-
 export function ImpactSection() {
   return (
     <section className={styles.impact} aria-labelledby="impact-title">
       <div className={styles.impactInner}>
+        <p className={styles.mottoBadge} aria-label="Our motto: Homeless to Hopeful">
+          <span>Our Motto</span>
+          {" "}
+          <strong>Homeless to Hopeful</strong>
+        </p>
         <header className={styles.impactHeading}>
           <p className={styles.impactEyebrow}>Our Impact</p>
           <h2 id="impact-title">Housing Families. Restoring Hope.</h2>

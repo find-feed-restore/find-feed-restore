@@ -3,7 +3,6 @@ import {
   GivingSection,
   HeroSection,
   ImpactSection,
-  MottoSection,
 } from "@/components/home-sections";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -24,7 +23,6 @@ export default function Home() {
       <SiteHeader />
       <main id="content">
         <HeroSection />
-        <MottoSection />
         <ImpactSection />
         <CausesSection />
         <GivingSection />

@@ -113,6 +113,18 @@ async function main() {
     await desktop.waitForTimeout(250);
     const dropdown = programsButton.locator("xpath=..").locator("ul");
     check("desktop navigation dropdown", await dropdown.isVisible(), await dropdown.getAttribute("class"));
+    const expectedProgramOrder = [
+      "Affordable Housing",
+      "Housing First",
+      "Homelessness Avoidance",
+      "Mobile Help",
+    ];
+    const desktopProgramOrder = await dropdown.locator("a").allTextContents();
+    check(
+      "desktop program navigation order",
+      JSON.stringify(desktopProgramOrder) === JSON.stringify(expectedProgramOrder),
+      desktopProgramOrder,
+    );
 
     await desktop.keyboard.press("Tab");
     const focusOutline = await desktop.evaluate(() => {
@@ -401,6 +413,22 @@ async function main() {
       (await menuToggle.getAttribute("aria-expanded")) === "true" && (await mobileNavigation.isVisible()),
       { expanded: await menuToggle.getAttribute("aria-expanded") },
     );
+    const mobileProgramOrder = await mobileNavigation
+      .locator("summary")
+      .filter({ hasText: /^Programs$/ })
+      .locator("xpath=..")
+      .locator("ul a")
+      .allTextContents();
+    check(
+      "mobile program navigation order",
+      JSON.stringify(mobileProgramOrder) === JSON.stringify([
+        "Affordable Housing",
+        "Housing First",
+        "Homelessness Avoidance",
+        "Mobile Help",
+      ]),
+      mobileProgramOrder,
+    );
     await menuToggle.click();
     check(
       "mobile navigation closes",
@@ -441,6 +469,21 @@ async function main() {
       "floating donation control",
       donationHref === "https://findfeedrestore-bloom.kindful.com/",
       donationHref,
+    );
+    const footerProgramOrder = await reduced
+      .locator("footer section")
+      .filter({ has: reduced.getByRole("heading", { name: "Our Programs" }) })
+      .locator("li a")
+      .allTextContents();
+    check(
+      "footer program order",
+      JSON.stringify(footerProgramOrder) === JSON.stringify([
+        "Affordable Housing",
+        "Housing First",
+        "Homelessness Avoidance",
+        "Mobile Help",
+      ]),
+      footerProgramOrder,
     );
 
     const emptyLinks = await reduced.locator("a").evaluateAll((links) =>

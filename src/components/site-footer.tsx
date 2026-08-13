@@ -15,8 +15,8 @@ const quickLinks = [
 const programs = [
   ["Affordable Housing", "/affordable-housing/"],
   ["Housing First", "/housing-first/"],
-  ["Mobile Help", "/care-coach-mobile-unit/"],
   ["Homelessness Avoidance", "/homelessness-avoidance/"],
+  ["Mobile Help", "/care-coach-mobile-unit/"],
 ];
 
 function FooterLinks({ items }: { items: string[][] }) {

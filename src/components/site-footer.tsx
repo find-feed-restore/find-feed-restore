@@ -101,6 +101,8 @@ export function SiteFooter() {
               Copyright © 2025. Find Feed Restore.
               <br />
               <Link href="/terms-conditions/">Terms &amp; Conditions</Link>
+              {" · "}
+              <Link href="/privacy-policy/">Privacy Policy</Link>
             </p>
           </div>
         </div>

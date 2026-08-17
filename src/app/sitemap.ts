@@ -18,6 +18,7 @@ const canonicalRoutes = [
   "/hope-in-action/",
   "/volunteer/",
   "/terms-conditions/",
+  "/privacy-policy/",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

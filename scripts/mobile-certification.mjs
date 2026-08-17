@@ -19,6 +19,7 @@ const canonicalRoutes = [
   "/hope-in-action/",
   "/volunteer/",
   "/terms-conditions/",
+  "/privacy-policy/",
 ];
 const routes = process.env.CERTIFICATION_ROUTES
   ? process.env.CERTIFICATION_ROUTES.split(",").map((route) => route.trim()).filter(Boolean)

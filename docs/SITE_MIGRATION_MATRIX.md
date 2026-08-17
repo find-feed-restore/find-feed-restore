@@ -45,6 +45,7 @@ The inventory combines the production Yoast sitemap index, WordPress core sitema
 | `/contact-us/` | Contact Us | WordPress page; contact/conversion | Header Contact Us; footer Contact | Contact | Unique arrangement with reusable gallery/CTA/card primitives | Contact hero, phone/email/location split with PlanStreet application card, three action cards, impact gallery, image CTA | No contact form or map; every conversion is a semantic link to an external service or internal route | Primarily custom HTML plus global widgets | PlanStreet public form, Typeform, Kindful; telephone and email URI actions | Medium | **COMPLETE** |
 | Production `/about-us/` → Next `/board-staff/` | Board & Staff | WordPress page; people directory | Header Board & Staff; footer Quick Links | People directory | Unique people grids; reuses global image hero and closing CTA conventions | Image hero, founders, staff grid, board grid, image CTA | Staff/board roster is manually maintained in Elementor HTML | Primarily HTML plus global widgets | Typeform volunteer, Kindful; static person cards | Medium-high | **COMPLETE** |
 | `/terms-conditions/` | Terms & Conditions | WordPress page; legal/standard content | Footer lower legal link now points directly to the canonical route; `/terms` remains a redirect alias | Legal content | Unique legacy Elementor layout | Breadcrumb title hero, long-form legal copy, footer | Static page content | Heading, icon list, text editor plus global widgets | No page-specific service; breadcrumb is present | Low | **COMPLETE** |
+| `/privacy-policy/` | Privacy Policy | Post-migration Next.js legal enhancement | Footer lower legal links | Legal and platform disclosure | Reuses accepted legal-page shell | Breadcrumb title hero, long-form privacy disclosures, footer | Static page content | Semantic headings, paragraphs, lists, links, and contact address | Documents website forms, hosting, third parties, and the server-only Meta Instagram API integration | Low | **COMPLETE** |
 
 ## Excluded and non-canonical discoveries
 
@@ -209,7 +210,7 @@ The order maximizes verified component coverage while postponing service-coupled
 12. **Hope In Action** — the inventory called for an explicit provider decision; the later approved enhancement replaced the historical Juicer contract with native Instagram.
 13. **Terms & Conditions** — migrate the low-risk legacy legal layout without forcing it into modern components.
 
-All 14 canonical migration routes are complete. Hope In Action now uses the accepted native Instagram provider at baseline `441e86c`. The later approved `/volunteer/` enhancement adds one Next.js-only canonical route, bringing the current application sitemap to 15 routes.
+All 14 canonical migration routes are complete. Hope In Action now uses the accepted native Instagram provider at baseline `441e86c`. The later approved `/volunteer/` and `/privacy-policy/` enhancements add two Next.js-only canonical routes, bringing the current application sitemap to 16 routes.
 
 ## Milestone 3 — Affordable Housing implementation and parity QA
 

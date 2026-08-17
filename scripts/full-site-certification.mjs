@@ -19,6 +19,7 @@ const canonicalRoutes = [
   "/hope-in-action/",
   "/volunteer/",
   "/terms-conditions/",
+  "/privacy-policy/",
 ];
 
 const redirects = [

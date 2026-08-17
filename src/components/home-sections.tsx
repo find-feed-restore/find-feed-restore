@@ -185,6 +185,13 @@ export function GivingSection() {
           <h2 id="giving-title">How You Can Give</h2>
           <p>Every act of generosity helps provide housing, support, and hope for families experiencing homelessness.</p>
         </header>
+        <div className={styles.givingEfficiency} aria-label="86 cents of every dollar goes directly to our clients">
+          <strong>86¢</strong>
+          <p>
+            <span>Cents Per Dollar</span>
+            Of every dollar donated goes directly to our clients.
+          </p>
+        </div>
         <div className={styles.givingGrid}>
           {givingOptions.map((option) => (
             <article className={styles.givingCard} key={option.title}>

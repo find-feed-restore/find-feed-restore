@@ -462,6 +462,19 @@ async function main() {
           statement: await motto.locator("strong").textContent(),
         },
       );
+      const givingEfficiency = reduced.locator(
+        'main [aria-label="86 cents of every dollar goes directly to our clients"]',
+      );
+      check(
+        "homepage cents-per-dollar statement",
+        (await givingEfficiency.count()) === 1 &&
+          (await givingEfficiency.locator("strong").textContent()) === "86¢" &&
+          (await givingEfficiency.textContent())?.includes("Of every dollar donated goes directly to our clients."),
+        {
+          label: await givingEfficiency.getAttribute("aria-label"),
+          text: await givingEfficiency.textContent(),
+        },
+      );
     }
 
     const donationHref = await reduced.locator('a[aria-label="Donate now"]').getAttribute("href");

@@ -527,10 +527,58 @@
 
 .givingHeading > p {
   max-width: 760px;
-  margin: 28px auto 64px;
+  margin: 28px auto 44px;
   color: rgb(255 255 255 / 78%);
   font-size: 21px;
   line-height: 1.6;
+}
+
+.givingEfficiency {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  max-width: 620px;
+  margin: 0 auto 54px;
+  padding: 12px 30px 12px 12px;
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 94%);
+  box-shadow: 0 22px 60px rgb(0 0 0 / 22%);
+  color: var(--color-ink);
+  text-align: left;
+}
+
+.givingEfficiency strong {
+  display: grid;
+  width: 104px;
+  height: 104px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #c40000, #8b0000);
+  box-shadow: 0 12px 28px rgb(139 0 0 / 28%);
+  color: white;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 45px;
+  line-height: 1;
+}
+
+.givingEfficiency p {
+  margin: 0;
+  color: var(--color-text-soft);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.givingEfficiency span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-red);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .givingGrid {
@@ -695,8 +743,31 @@
   }
 
   .givingHeading > p {
-    margin-bottom: 42px;
+    margin-bottom: 34px;
     font-size: 17px;
+  }
+
+  .givingEfficiency {
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 42px;
+    padding: 10px 20px 10px 10px;
+    border-radius: 24px;
+  }
+
+  .givingEfficiency strong {
+    width: 82px;
+    height: 82px;
+    font-size: 36px;
+  }
+
+  .givingEfficiency p {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .givingEfficiency span {
+    font-size: 9px;
   }
 
   .givingCard {
@@ -731,6 +802,21 @@
 
   .mottoLockup strong {
     font-size: 21px;
+  }
+
+  .givingEfficiency {
+    gap: 12px;
+    padding-right: 14px;
+  }
+
+  .givingEfficiency strong {
+    width: 68px;
+    height: 68px;
+    font-size: 31px;
+  }
+
+  .givingEfficiency p {
+    font-size: 13px;
   }
 }
 

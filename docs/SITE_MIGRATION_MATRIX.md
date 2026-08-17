@@ -388,6 +388,10 @@ News & Media regression reproduces its accepted results exactly: 4672/4672, 5189
 
 The editorial/media family is now validated at the shared-shell level. Hero, intro, heading, container, and CTA are genuinely shared; the press-card grid and click-to-load testimonial video grid remain intentional page-specific compositions. A single generic editorial-page or media-card template is neither necessary nor supported by the production evidence.
 
+### Testimonials content update — 2026-08-17
+
+The three source-migration placeholder videos were replaced with the seven organization-approved entries: Brittney, Alliania, and Andre client testimonials; Housing First; Find Feed Restore on Channel 6 News; the Care Coach Back to School Event 2022; and the Housing and Hunger Simulation. The title-only Channel 6 and Care Coach entries were resolved against their exact public YouTube titles and IDs before implementation. All seven canonical IDs were verified through YouTube, and their unique 480×360 `hqdefault.jpg` thumbnails were downloaded, hash-checked, and stored locally. The established privacy/performance contract remains unchanged: no YouTube iframe loads until a visitor activates a labeled thumbnail, and each resulting player retains native controls and fullscreen support.
+
 ## Milestone 9 — Contact Us implementation and parity QA
 
 `/contact-us/` is implemented in the existing App Router architecture with the accepted `SiteHeader`, `SiteFooter`, floating donation control, and global focus treatment. Its five source sections are preserved in order: Contact hero, contact-details/application split, Ways to Connect cards, impact gallery, and closing housing-support CTA.

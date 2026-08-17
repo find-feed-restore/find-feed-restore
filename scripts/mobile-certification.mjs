@@ -287,7 +287,7 @@ async function inspectTrailerStates(page) {
 
 function routeSpecificPass(route, layout) {
   if (route === "/care-coach-mobile-unit/") return layout.media.length === 1 && layout.mediaContained;
-  if (route === "/testimonials/") return layout.articleCount === 3 && layout.articlesStacked && layout.testimonialMediaContained;
+  if (route === "/testimonials/") return layout.articleCount === 7 && layout.articlesStacked && layout.testimonialMediaContained;
   if (route === "/board-staff/") return layout.peopleCardCount === 17 && layout.articlesStacked && layout.peopleCardsContained;
   if (route === "/sponsors/") return layout.sponsorTileCount === 18 && layout.sponsorTilesContained;
   if (route === "/live-here-love-here-lake/") return layout.media.length === 1 && layout.mediaContained && layout.campaignMediaContained;

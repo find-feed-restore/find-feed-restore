@@ -162,7 +162,7 @@ Meta documents the long-lived token lifetime as approximately 60 days. Operation
 | Route/media | Source and behavior | Result |
 | --- | --- | --- |
 | Care Coach YouTube | `https://www.youtube.com/embed/SonlnoRUCQg`; no autoplay parameter; fullscreen; desktop/mobile aspect geometry; iframe keyboard focus; play/pause verified | **PASS** |
-| Testimonials YouTube | IDs `69VFG8OXVAs`, `3OEgOEgOsSA`, `C4Gta9eC0Ho`; thumbnails load iframe only after keyboard/click activation; autoplay follows user action; `allowFullScreen` and provider play/pause verified | **PASS** |
+| Testimonials YouTube | Seven approved videos: three client stories plus Housing First, Channel 6 News, Care Coach Back to School, and the Housing and Hunger Simulation; local thumbnails load an iframe only after keyboard/click activation; autoplay follows user action; `allowFullScreen` and provider play/pause verified | **PASS** |
 | Live Here hosted MP4 | Local `/images/campaigns/live-here-love-here/keller-williams-volunteer-day.mp4`; controls, metadata preload, no autoplay, poster button, keyboard play/pause, contained geometry; byte-range request returns 206 `video/mp4` | **PASS** |
 
 Production's native MP4 also omits `playsinline`; local preserves that source behavior and mobile keyboard/playback checks pass. There is no autoplay audio. No severe media layout shift appears in accepted screenshots.

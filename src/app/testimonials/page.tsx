@@ -19,29 +19,53 @@ export const metadata: Metadata = {
 
 const videos = [
   {
-    id: "69VFG8OXVAs",
-    eyebrow: "Hope In Action",
-    title: "Find, Feed & Restore Is Changing Lives",
-    description:
-      "Learn how Find, Feed & Restore provides housing solutions, support, and hope for homeless families with children.",
-    thumbnail: "/images/editorial/testimonials/69VFG8OXVAs.jpg",
+    id: "pLxLVhRZUso",
+    eyebrow: "Client Testimonial",
+    title: "Brittney’s Story",
+    description: "Hear Brittney share her experience with Find, Feed & Restore.",
+    thumbnail: "/images/editorial/testimonials/pLxLVhRZUso.jpg",
   },
   {
-    id: "3OEgOEgOsSA",
-    eyebrow: "Community Impact",
-    title: "Community Support In Action",
-    description:
-      "See how neighbors, donors, and volunteers help bring stability and encouragement to families in need.",
-    thumbnail: "/images/editorial/testimonials/3OEgOEgOsSA.jpg",
+    id: "4AtAVDaScBI",
+    eyebrow: "Client Testimonial",
+    title: "Alliania’s Story",
+    description: "Hear Alliania share her experience with Find, Feed & Restore.",
+    thumbnail: "/images/editorial/testimonials/4AtAVDaScBI.jpg",
   },
   {
-    id: "C4Gta9eC0Ho",
-    start: 95,
-    eyebrow: "Mission Moment",
-    title: "Families Moving From Homeless To Hopeful",
-    description:
-      "A closer look at the mission, the families served, and the local impact of Find, Feed & Restore.",
-    thumbnail: "/images/editorial/testimonials/C4Gta9eC0Ho.jpg",
+    id: "SFWs27dkzeM",
+    eyebrow: "Client Testimonial",
+    title: "Andre’s Story",
+    description: "Hear Andre share his experience with Find, Feed & Restore.",
+    thumbnail: "/images/editorial/testimonials/SFWs27dkzeM.jpg",
+  },
+  {
+    id: "xEHiFubpcks",
+    eyebrow: "Program Spotlight",
+    title: "Housing First",
+    description: "See how Housing First helps families move toward stability and self-sufficiency.",
+    thumbnail: "/images/editorial/testimonials/xEHiFubpcks.jpg",
+  },
+  {
+    id: "kyG14I1jJDg",
+    eyebrow: "Media Feature",
+    title: "Find Feed Restore On Channel 6 News",
+    description: "Watch Channel 6 News highlight Find Feed Restore’s work with homeless families and children.",
+    thumbnail: "/images/editorial/testimonials/kyG14I1jJDg.jpg",
+  },
+  {
+    id: "7VC1Sl9h0VI",
+    eyebrow: "Care Coach",
+    title: "Back To School Event 2022",
+    description: "See the Care Coach and community partners support families at the 2022 back-to-school event.",
+    thumbnail: "/images/editorial/testimonials/7VC1Sl9h0VI.jpg",
+  },
+  {
+    id: "8_yZI7EGC84",
+    eyebrow: "Community Education",
+    title: "Hunger And Housing Simulation",
+    description: "Experience a community simulation focused on the realities of hunger and housing instability.",
+    thumbnail: "/images/editorial/testimonials/8_yZI7EGC84.jpg",
   },
 ];
 
@@ -55,9 +79,9 @@ export default function TestimonialsPage() {
       <main id="content">
         <EditorialHero
           variant="testimonials"
-          eyebrow="Find, Feed & Restore Testimonails"
+          eyebrow="Find, Feed & Restore Testimonials"
           title="Lives Changed. Communities Strengthened."
-          description="Explore testimonials from residents, volunteers, donors, and partners who have experienced the impact of Find,  Feed & Restore firsthand. Every story represents a step from crisis toward stability, dignity, and hope."
+          description="Explore testimonials from residents, volunteers, donors, and partners who have experienced the impact of Find, Feed & Restore firsthand. Every story represents a step from crisis toward stability, dignity, and hope."
         />
         <EditorialIntro
           eyebrow="Testimonials"

@@ -328,7 +328,7 @@ async function main() {
       );
       check(
         "Testimonial mobile cards do not overflow",
-        mobileCards.length === 3 &&
+        mobileCards.length === 7 &&
           mobileCards.every((card) => Math.round(card.x) === 18 && Math.round(card.right) === 372),
         mobileCards,
       );
@@ -590,9 +590,13 @@ async function main() {
         "Testimonial thumbnail contracts",
         JSON.stringify(buttonContracts) ===
           JSON.stringify([
-            { id: "69VFG8OXVAs", start: null, label: "Play Find, Feed & Restore Is Changing Lives" },
-            { id: "3OEgOEgOsSA", start: null, label: "Play Community Support In Action" },
-            { id: "C4Gta9eC0Ho", start: "95", label: "Play Families Moving From Homeless To Hopeful" },
+            { id: "pLxLVhRZUso", start: null, label: "Play Brittney’s Story" },
+            { id: "4AtAVDaScBI", start: null, label: "Play Alliania’s Story" },
+            { id: "SFWs27dkzeM", start: null, label: "Play Andre’s Story" },
+            { id: "xEHiFubpcks", start: null, label: "Play Housing First" },
+            { id: "kyG14I1jJDg", start: null, label: "Play Find Feed Restore On Channel 6 News" },
+            { id: "7VC1Sl9h0VI", start: null, label: "Play Back To School Event 2022" },
+            { id: "8_yZI7EGC84", start: null, label: "Play Hunger And Housing Simulation" },
           ]),
         buttonContracts,
       );
@@ -602,7 +606,7 @@ async function main() {
       await firstButton.focus();
       const buttonFocused = await firstButton.evaluate((element) => document.activeElement === element);
       await firstButton.press("Enter");
-      const testimonialFrame = reduced.locator('main iframe[title="Play Find, Feed & Restore Is Changing Lives"]');
+      const testimonialFrame = reduced.locator('main iframe[title="Play Brittney’s Story"]');
       await testimonialFrame.waitFor({ state: "visible" });
       const activeMediaRect = await testimonialFrame.boundingBox();
       const frameContract = {
@@ -621,7 +625,7 @@ async function main() {
       );
       check(
         "Testimonial YouTube and fullscreen contract",
-        frameContract.src === "https://www.youtube.com/embed/69VFG8OXVAs?autoplay=1&rel=0" &&
+        frameContract.src === "https://www.youtube.com/embed/pLxLVhRZUso?autoplay=1&rel=0" &&
           frameContract.allow ===
             "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" &&
           frameContract.allowFullscreen !== null,
@@ -630,7 +634,7 @@ async function main() {
 
       await reduced.waitForTimeout(3500);
       const testimonialProviderFrame = reduced.frames().find((frame) =>
-        frame.url().includes("youtube.com/embed/69VFG8OXVAs"),
+        frame.url().includes("youtube.com/embed/pLxLVhRZUso"),
       );
       let testimonialPlayback = { providerLoaded: false, playing: false, paused: false };
       if (testimonialProviderFrame) {
@@ -669,7 +673,7 @@ async function main() {
       );
       check(
         "Testimonial CTA destinations",
-        testimonialHrefs.includes("/contact-us") &&
+        testimonialHrefs.includes("/contact-us/") &&
           testimonialHrefs.includes("https://findfeedrestore-bloom.kindful.com/"),
         testimonialHrefs,
       );

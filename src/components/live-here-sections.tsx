@@ -57,7 +57,7 @@ const sponsorTiers: SponsorTier[] = [
       { name: "Lincoln Park South Lake Alliance", href: "https://www.lpsla.org/", image: "lincoln-park.webp", width: 224, height: 224 },
       { name: "The Cruz Team Realtor", href: "https://reginacruz.kw.com/", image: "cruz-team.png", width: 263, height: 242 },
       { name: "Olympus Executive Realty", href: "https://www.realtor.com/realestateagents/5fcb610dc8cf620011efbc41", image: "olympus-realty.jpg", width: 399, height: 126 },
-      { name: "Key Food", href: "https://www.keyfood.com/store/keyFood/en/", image: "key-food.png", width: 1280, height: 522 },
+      { name: "Key Food", href: "https://www.keyfood.com/stores/4315", image: "key-food.png", width: 1280, height: 522 },
       { name: "Main Squeeze", href: "https://www.facebook.com/people/Main-Squeeze-Clermont/100087423011062", image: "main-squeeze.jpg", width: 1040, height: 1040 },
       { name: "PDQ", href: "https://www.eatpdq.com/locations/clermont", image: "pdq.png", width: 159, height: 220 },
       { name: "Paula Wold Real Estate", href: "https://www.preferredrebrokers.com/agents/125830-paula-wold", image: "paula-wold.png", width: 300, height: 300 },

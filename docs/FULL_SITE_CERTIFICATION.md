@@ -118,6 +118,8 @@ Board & Staff's fixed 240px people cards produce a 1312px grid width in the 1101
 
 Every anchor in the header, footer, and page body on all 14 routes was collected. After deduplication, every internal destination returns 200 directly; there are no internal 404s, localhost/127.0.0.1 URLs, broken fragments, or links through aliases. The footer's legacy `/news` link was corrected to `/news-media/`; the Testimonials Contact CTA and Contact corporate-partnership CTA were corrected to direct 200 forms without trailing-slash normalization hops. The footer's production-preserved HTTP LinkedIn URL was corrected to its verified HTTPS canonical profile. All external route-specific contracts continue to pass their interaction checks.
 
+An external-link maintenance sweep on August 17, 2026 checked 88 unique destinations. Four confirmed 404s were corrected: three deleted South Lake Tablet stories now link to verified Internet Archive snapshots, and the Key Food sponsor tile now links to its current official Clermont store page. Ten additional provider URLs rejected or rate-limited automated probes; those responses were recorded as provider-side automation restrictions rather than incorrectly classified as confirmed broken links.
+
 ## Redirect matrix
 
 Next.js permanent redirects return 308. Each audited no-slash alias takes one redirect hop and ends in a 200 canonical route without a loop or duplicate indexable page.

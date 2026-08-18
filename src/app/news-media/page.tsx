@@ -77,7 +77,7 @@ const newsItems: NewsItem[] = [
     title: "Cops vs. Docs: A Battle for Hope Benefiting Find, Feed and Restore",
     description:
       "Find Feed & Restore hosted its Battle for Hope fundraiser, bringing the community together to support homeless families.",
-    href: "https://sltablet.com/2025/09/29/cops-vs-docs-a-battle-for-hope-benefiting-find-feed-and-restore/",
+    href: "https://web.archive.org/web/20260607112047/https://sltablet.com/2025/09/29/cops-vs-docs-a-battle-for-hope-benefiting-find-feed-and-restore/",
   },
   {
     publishedAt: "2025-03-27",
@@ -154,7 +154,7 @@ const newsItems: NewsItem[] = [
     title: "Find Feed and Restore: A Battle For Hope",
     description:
       "Battle for Hope brought together Clermont Police and Lake County Sheriff’s Office for a community fundraiser.",
-    href: "https://sltablet.com/2024/09/14/find-feed-and-restore-a-battle-for-hope/",
+    href: "https://web.archive.org/web/20250113042620/https://sltablet.com/2024/09/14/find-feed-and-restore-a-battle-for-hope/",
   },
   {
     publishedAt: "2024-06-28",
@@ -176,7 +176,7 @@ const newsItems: NewsItem[] = [
     title: "Poverty Simulation: Experience The Challenges Of Living in Poverty",
     description:
       "Find Feed Restore and the Neighborhood Center of South Lake co-hosted a community simulation focused on the local need for affordable housing and hunger relief.",
-    href: "https://sltablet.com/2024/04/16/poverty-simulation-experience-the-challenges-of-living-in-poverty/",
+    href: "https://web.archive.org/web/20260317000733/https://sltablet.com/2024/04/16/poverty-simulation-experience-the-challenges-of-living-in-poverty/",
   },
   {
     publishedAt: "2023-11-16",

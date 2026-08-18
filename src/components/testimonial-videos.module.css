@@ -16,6 +16,11 @@
   gap: 28px;
 }
 
+.programSection .grid {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
 .card {
   overflow: hidden;
   border: 1px solid rgba(7, 27, 42, 0.06);

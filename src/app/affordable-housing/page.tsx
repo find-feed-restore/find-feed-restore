@@ -3,12 +3,13 @@ import {
   OtherPrograms,
   ProgramHero,
   ProgramIntro,
-  ProgramStoryGallery,
   ProgramSupportCta,
 } from "@/components/program-sections";
 import programStyles from "@/components/program-sections.module.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { TestimonialVideos } from "@/components/testimonial-videos";
+import { clientTestimonialVideos } from "@/data/testimonial-videos";
 
 export const metadata: Metadata = {
   title: "Affordable Housing - Find Feed Restore",
@@ -24,13 +25,6 @@ export const metadata: Metadata = {
 };
 
 const assetRoot = "/images/programs/affordable-housing";
-
-const storyImages = [
-  { src: `${assetRoot}/teresa-family.jpg`, alt: "" },
-  { src: `${assetRoot}/thalia-family.jpg`, alt: "" },
-  { src: `${assetRoot}/tammy-family.jpg`, alt: "" },
-  { src: `${assetRoot}/latoya-family.jpg`, alt: "" },
-];
 
 const otherPrograms = [
   {
@@ -80,11 +74,12 @@ export default function AffordableHousingPage() {
             alt: "Family receiving housing support",
           }}
         />
-        <ProgramStoryGallery
+        <TestimonialVideos
+          videos={clientTestimonialVideos}
           eyebrow="Stories Of Hope"
-          title="Safe homes. Stronger futures."
-          description="Through affordable housing, families can focus on stability, opportunity, and building a better tomorrow."
-          images={storyImages}
+          title="Hear Their Stories In Their Own Words."
+          description="Brittney, Alliania, and Andre share their experiences with Find, Feed & Restore and the hope that comes with a path toward stability."
+          variant="program"
         />
         <ProgramSupportCta
           title="Your support can help a family come home."

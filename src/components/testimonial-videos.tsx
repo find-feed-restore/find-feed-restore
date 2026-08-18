@@ -1,17 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import type { TestimonialVideo } from "@/data/testimonial-videos";
 import { EditorialContainer, EditorialHeading } from "./editorial-sections";
 import styles from "./testimonial-videos.module.css";
-
-type TestimonialVideo = {
-  id: string;
-  start?: number;
-  eyebrow: string;
-  title: string;
-  description: string;
-  thumbnail: string;
-};
 
 function TestimonialVideoCard({ video }: { video: TestimonialVideo }) {
   const [active, setActive] = useState(false);
@@ -55,14 +47,29 @@ function TestimonialVideoCard({ video }: { video: TestimonialVideo }) {
   );
 }
 
-export function TestimonialVideos({ videos }: { videos: TestimonialVideo[] }) {
+export function TestimonialVideos({
+  videos,
+  eyebrow = "Featured Videos",
+  title = "See The Mission In Motion",
+  description = "Watch stories, outreach moments, community events, and real impact from Find Feed Restore.",
+  variant = "editorial",
+}: {
+  videos: TestimonialVideo[];
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  variant?: "editorial" | "program";
+}) {
   return (
-    <section className={styles.section} aria-labelledby="testimonial-videos-title">
+    <section
+      className={`${styles.section} ${variant === "program" ? styles.programSection : ""}`}
+      aria-labelledby="testimonial-videos-title"
+    >
       <EditorialContainer>
         <EditorialHeading
-          eyebrow="Featured Videos"
-          title="See The Mission In Motion"
-          description="Watch stories, outreach moments, community events, and real impact from Find Feed Restore."
+          eyebrow={eyebrow}
+          title={title}
+          description={description}
           id="testimonial-videos-title"
         />
         <div className={styles.grid}>

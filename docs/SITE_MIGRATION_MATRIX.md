@@ -239,6 +239,10 @@ Interaction QA passes for sticky desktop header behavior, Programs dropdown, key
 
 Homepage regression capture reproduces the accepted baseline: 4712/4712px at 1440, 5828/5829px at 1024, 6108/6108px at 768, and 8176/8175px at 390, with the same documented rasterization/icon differences. Homepage interaction checks also pass. No accepted homepage component or global header/footer geometry was changed for this route.
 
+### Affordable Housing client-story update — 2026-08-17
+
+The later site-audit review identified that the four production “Stories Of Hope” photos did not open or contain the stories implied by that heading. Those unlabeled photos were replaced on Affordable Housing with the three organization-approved client testimonials for Brittney, Alliania, and Andre. Each name is attached only to its verified YouTube video and exact local thumbnail; no pictured-person identity was inferred. The cards retain the established click-to-load YouTube behavior, native controls, fullscreen support, keyboard activation, and mobile containment. Housing First and Homelessness Avoidance retain their route-specific image galleries, while Care Coach and its factual media remain unchanged.
+
 ## Milestone 4 — Housing First implementation and parity QA
 
 The rendered source re-audit confirmed that Housing First follows the same five-section order, content ordering, and 1100/980/700px program breakpoints as Affordable Housing. `ProgramHero`, `ProgramIntro`, `ProgramStoryGallery`, `ProgramSupportCta`, and `OtherPrograms` were all reused. Housing First has no unique section or interaction.

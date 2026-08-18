@@ -333,6 +333,23 @@ async function main() {
         mobileCards,
       );
     }
+    if (route === "/affordable-housing/") {
+      const storyCards = await mobile.locator('main button[data-youtube-id]').evaluateAll((buttons) =>
+        buttons.map((button) => {
+          const card = button.closest("article");
+          const bounds = card?.getBoundingClientRect();
+          return bounds ? { x: bounds.x, width: bounds.width, right: bounds.right } : null;
+        }),
+      );
+      check(
+        "Affordable Housing client stories fit mobile",
+        storyCards.length === 3 &&
+          storyCards.every(
+            (card) => card && Math.round(card.x) === 18 && Math.round(card.right) === 372,
+          ),
+        storyCards,
+      );
+    }
     if (route === "/contact-us/") {
       const mobileSections = await mobile.locator("main > section").evaluateAll((sections) =>
         sections.map((section) => {
@@ -529,6 +546,24 @@ async function main() {
         (await reduced.getByRole("heading", { level: 1, name: programPage.name }).count()) === 1,
         await reduced.locator("main h1").allTextContents(),
       );
+      if (route === "/affordable-housing/") {
+        const storyContracts = await reduced.locator('main button[data-youtube-id]').evaluateAll((buttons) =>
+          buttons.map((button) => ({
+            id: button.getAttribute("data-youtube-id"),
+            label: button.getAttribute("aria-label"),
+          })),
+        );
+        check(
+          "Affordable Housing client story video contracts",
+          JSON.stringify(storyContracts) ===
+            JSON.stringify([
+              { id: "pLxLVhRZUso", label: "Play Brittney’s Story" },
+              { id: "4AtAVDaScBI", label: "Play Alliania’s Story" },
+              { id: "SFWs27dkzeM", label: "Play Andre’s Story" },
+            ]),
+          storyContracts,
+        );
+      }
     }
 
     if (route === "/news-media/") {

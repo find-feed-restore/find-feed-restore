@@ -7,6 +7,8 @@
   --campaign-navy: #071b2a;
   --campaign-red: #8e1f2f;
   --campaign-gray: #687078;
+  --campaign-warm: #f3eee8;
+  --campaign-blue-wash: #edf4f8;
   margin: 0;
   padding: 0;
   color: var(--campaign-navy);
@@ -194,13 +196,23 @@
 }
 
 .impactOuter {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 10px;
+  position: relative;
+  padding: 54px 24px 72px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 12%, rgba(142, 31, 47, 0.1), transparent 27%),
+    radial-gradient(circle at 90% 88%, rgba(15, 59, 99, 0.12), transparent 30%),
+    linear-gradient(180deg, #f7f7f7 0%, var(--campaign-warm) 100%);
 }
 
 .impact {
-  background: #faf8f5;
+  max-width: 1140px;
+  margin: 0 auto;
+  border: 1px solid rgba(7, 27, 42, 0.08);
+  border-radius: 36px;
+  overflow: hidden;
+  background: rgba(250, 248, 245, 0.96);
+  box-shadow: 0 40px 120px rgba(7, 27, 42, 0.12);
 }
 
 .impactBand {
@@ -236,7 +248,13 @@
 }
 
 .impactSection {
+  position: relative;
   padding: 96px 24px 110px;
+  background:
+    linear-gradient(rgba(15, 59, 99, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 59, 99, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(250, 248, 245, 0.92));
+  background-size: 32px 32px, 32px 32px, auto;
 }
 
 .impactInner {
@@ -354,11 +372,28 @@
 }
 
 .sponsors {
+  position: relative;
   padding: 120px 24px;
-  background: #f6f7f8;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(15, 59, 99, 0.14), transparent 28%),
+    radial-gradient(circle at 92% 24%, rgba(142, 31, 47, 0.08), transparent 24%),
+    linear-gradient(180deg, var(--campaign-blue-wash) 0%, #f7f4f0 58%, #f1f4f6 100%);
+}
+
+.sponsors::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(15, 59, 99, 0.13) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: 0.28;
+  pointer-events: none;
 }
 
 .sponsorsInner {
+  position: relative;
+  z-index: 1;
   max-width: 1240px;
   margin: 0 auto;
 }
@@ -500,10 +535,30 @@
 }
 
 .story {
+  position: relative;
   padding: 100px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 15%, rgba(142, 31, 47, 0.3), transparent 28%),
+    radial-gradient(circle at 92% 85%, rgba(30, 91, 137, 0.3), transparent 30%),
+    linear-gradient(135deg, #071b2a 0%, #0c2d43 52%, #071b2a 100%);
+}
+
+.story::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.68), transparent 72%);
+  pointer-events: none;
 }
 
 .storyInner {
+  position: relative;
+  z-index: 1;
   max-width: 1140px;
   margin: 0 auto;
   display: grid;
@@ -517,7 +572,7 @@
 
 .storyCopy h2 {
   margin: 0 0 20px;
-  color: #000;
+  color: #fff;
   font-family: var(--font-noto-sans), Arial, sans-serif;
   font-size: 33px;
   font-weight: 600;
@@ -526,7 +581,7 @@
 
 .storyCopy p {
   margin: 0 0 14.4px;
-  color: #6c6c6c;
+  color: rgba(255, 255, 255, 0.76);
   font-family: var(--font-noto-sans), sans-serif;
   font-size: 16px;
   font-weight: 300;
@@ -537,8 +592,11 @@
   position: relative;
   width: 100%;
   aspect-ratio: 1.77777;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 28px;
   overflow: hidden;
   background: #000;
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.38);
 }
 
 .video {
@@ -609,6 +667,16 @@
 }
 
 @media (max-width: 767px) {
+  .impactOuter {
+    padding: 28px 0 48px;
+  }
+
+  .impact {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+  }
+
   .hero {
     min-height: 640px;
   }

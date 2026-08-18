@@ -203,7 +203,7 @@ The clearly nonexistent certification route, `/terms-and-conditions/`, `/wp-admi
 | --- | --- | --- |
 | Resend | Trailer Server Action delivery | Server-only architecture and mocked delivery contract pass; real delivery is a user-owned manual post-deployment check, not a blocker |
 | Instagram API with Instagram Login | Hope In Action live feed | Server-only auth, cache, normalization, links, media, load-more, and safe fallback pass |
-| YouTube | Care Coach and Testimonials | Source, user activation, fullscreen, focus, play/pause pass |
+| YouTube | Care Coach, Testimonials, Housing First, Affordable Housing, and Volunteer | Source, user activation, fullscreen, focus, play/pause pass |
 | Typeform | Volunteer, partnership, application CTAs | Destinations and secure new-tab contracts pass where specified |
 | PlanStreet | Assistance applications | Destination contracts pass |
 | Kindful/Bloom | Donation CTAs and floating control | Destinations pass on every route |

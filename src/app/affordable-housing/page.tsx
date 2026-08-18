@@ -8,6 +8,8 @@ import {
 import programStyles from "@/components/program-sections.module.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { TestimonialVideos } from "@/components/testimonial-videos";
+import type { TestimonialVideo } from "@/data/testimonial-videos";
 
 export const metadata: Metadata = {
   title: "Affordable Housing - Find Feed Restore",
@@ -24,6 +26,16 @@ export const metadata: Metadata = {
 };
 
 const assetRoot = "/images/programs/affordable-housing";
+
+const affordableHousingVideos: TestimonialVideo[] = [
+  {
+    id: "UIg8fVh3lq0",
+    eyebrow: "Featured Video",
+    title: "HGG Myers Walkthrough",
+    description: "Take a closer look inside Hannah Grace Gardens with Find, Feed & Restore.",
+    thumbnail: `${assetRoot}/UIg8fVh3lq0.jpg`,
+  },
+];
 
 const otherPrograms = [
   {
@@ -73,6 +85,14 @@ export default function AffordableHousingPage() {
             src: "/images/unique/affordable-intro.webp",
             alt: "Family receiving housing support",
           }}
+        />
+        <TestimonialVideos
+          videos={affordableHousingVideos}
+          eyebrow="Inside Hannah Grace Gardens"
+          title="See Affordable Housing In Action."
+          description="Take a closer look at Hannah Grace Gardens through this walkthrough from Find, Feed & Restore."
+          variant="program"
+          layout="feature"
         />
         <ProgramSupportCta
           title="Your support can help a family come home."

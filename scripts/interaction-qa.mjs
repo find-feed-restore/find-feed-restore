@@ -570,6 +570,41 @@ async function main() {
         (await reduced.getByRole("heading", { level: 1, name: programPage.name }).count()) === 1,
         await reduced.locator("main h1").allTextContents(),
       );
+      if (route === "/affordable-housing/") {
+        const featuredVideoButton = reduced.locator('main button[data-youtube-id="UIg8fVh3lq0"]');
+        check(
+          "Affordable Housing featured-video thumbnail contract",
+          (await featuredVideoButton.count()) === 1 &&
+            (await featuredVideoButton.getAttribute("aria-label")) === "Play HGG Myers Walkthrough" &&
+            (await reduced.locator("main iframe").count()) === 0,
+          {
+            count: await featuredVideoButton.count(),
+            label: await featuredVideoButton.getAttribute("aria-label"),
+            initialFrames: await reduced.locator("main iframe").count(),
+          },
+        );
+
+        await featuredVideoButton.focus();
+        const featuredVideoFocused = await featuredVideoButton.evaluate(
+          (element) => document.activeElement === element,
+        );
+        await featuredVideoButton.press("Enter");
+        const featuredVideoFrame = reduced.locator('main iframe[title="Play HGG Myers Walkthrough"]');
+        await featuredVideoFrame.waitFor({ state: "visible" });
+        const featuredVideoContract = {
+          focused: featuredVideoFocused,
+          src: await featuredVideoFrame.getAttribute("src"),
+          allowFullscreen: await featuredVideoFrame.getAttribute("allowfullscreen"),
+        };
+        check(
+          "Affordable Housing featured-video provider contract",
+          featuredVideoContract.focused &&
+            featuredVideoContract.src ===
+              "https://www.youtube.com/embed/UIg8fVh3lq0?autoplay=1&rel=0" &&
+            featuredVideoContract.allowFullscreen !== null,
+          featuredVideoContract,
+        );
+      }
       if (route === "/housing-first/") {
         const storyContracts = await reduced.locator('main button[data-youtube-id]').evaluateAll((buttons) =>
           buttons.map((button) => ({

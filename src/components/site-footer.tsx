@@ -5,8 +5,9 @@ import styles from "./site-footer.module.css";
 const quickLinks = [
   ["Board & Staff", "/board-staff/"],
   ["Corporate Partnership", "/live-here-love-here-lake/"],
-  ["Hope In Action", "/hope-in-action"],
-  ["News", "/news-media/"],
+  ["Social Media", "/hope-in-action/"],
+  ["News & Media", "/news-media/"],
+  ["Testimonials", "/testimonials/"],
   ["Volunteer", "/volunteer/"],
   ["Contact", "/contact-us/"],
   ["Donate Trailer", "/we-need-trailers/"],

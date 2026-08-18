@@ -480,13 +480,15 @@ async function main() {
         },
       );
       const givingEfficiency = reduced.locator(
-        'main [aria-label="86 cents of every dollar goes directly to our clients"]',
+        'main [aria-label="86 cents per dollar donated goes directly toward client services"]',
       );
       check(
         "homepage cents-per-dollar statement",
         (await givingEfficiency.count()) === 1 &&
           (await givingEfficiency.locator("strong").textContent()) === "86¢" &&
-          (await givingEfficiency.textContent())?.includes("Of every dollar donated goes directly to our clients."),
+          (await givingEfficiency.textContent())?.includes(
+            "per dollar donated goes directly toward client services",
+          ),
         {
           label: await givingEfficiency.getAttribute("aria-label"),
           text: await givingEfficiency.textContent(),
@@ -514,6 +516,28 @@ async function main() {
         "Mobile Help",
       ]),
       footerProgramOrder,
+    );
+    const footerQuickLinks = await reduced
+      .locator("footer section")
+      .filter({ has: reduced.getByRole("heading", { name: "Quick Links" }) })
+      .locator("li a")
+      .evaluateAll((links) =>
+        links.map((link) => ({ label: link.textContent?.trim(), href: link.getAttribute("href") })),
+      );
+    check(
+      "footer quick-link labels and destinations",
+      JSON.stringify(footerQuickLinks) ===
+        JSON.stringify([
+          { label: "Board & Staff", href: "/board-staff/" },
+          { label: "Corporate Partnership", href: "/live-here-love-here-lake/" },
+          { label: "Social Media", href: "/hope-in-action/" },
+          { label: "News & Media", href: "/news-media/" },
+          { label: "Testimonials", href: "/testimonials/" },
+          { label: "Volunteer", href: "/volunteer/" },
+          { label: "Contact", href: "/contact-us/" },
+          { label: "Donate Trailer", href: "/we-need-trailers/" },
+        ]),
+      footerQuickLinks,
     );
 
     const emptyLinks = await reduced.locator("a").evaluateAll((links) =>

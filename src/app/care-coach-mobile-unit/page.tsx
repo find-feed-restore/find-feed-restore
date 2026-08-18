@@ -81,7 +81,7 @@ export default function CareCoachPage() {
           applicationUrl="https://greatthings.typeform.com/to/ZZkgIj"
         />
         <ProgramStoryGallery
-          eyebrow="Stories Of Hope"
+          eyebrow="Program Impact"
           title="Real families. Real impact."
           description="See how Find, Feed & Restore is helping families find stability, safety, and a path forward."
           images={storyImages}

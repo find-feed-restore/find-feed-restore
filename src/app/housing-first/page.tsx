@@ -81,7 +81,7 @@ export default function HousingFirstPage() {
           applicationImageClassName={programStyles.housingFirstApplicationImage}
         />
         <ProgramStoryGallery
-          eyebrow="Stories Of Hope"
+          eyebrow="Program Impact"
           title="Stability starts at home."
           description="Through Housing First, families receive the breathing room, support, and stability needed to move toward self-sufficiency."
           images={storyImages}

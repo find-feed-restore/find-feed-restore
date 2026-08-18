@@ -241,7 +241,7 @@ Homepage regression capture reproduces the accepted baseline: 4712/4712px at 144
 
 ### Affordable Housing client-story update — 2026-08-17
 
-The later site-audit review identified that the four production “Stories Of Hope” photos did not open or contain the stories implied by that heading. Those unlabeled photos were replaced on Affordable Housing with the three organization-approved client testimonials for Brittney, Alliania, and Andre. Each name is attached only to its verified YouTube video and exact local thumbnail; no pictured-person identity was inferred. The cards retain the established click-to-load YouTube behavior, native controls, fullscreen support, keyboard activation, and mobile containment. Housing First and Homelessness Avoidance retain their route-specific image galleries, while Care Coach and its factual media remain unchanged.
+The later site-audit review identified that the four production “Stories Of Hope” photos did not open or contain the stories implied by that heading. Those unlabeled photos were replaced on Affordable Housing with the three organization-approved client testimonials for Brittney, Alliania, and Andre. Each name is attached only to its verified YouTube video and exact local thumbnail; no pictured-person identity was inferred. The cards retain the established click-to-load YouTube behavior, native controls, fullscreen support, keyboard activation, and mobile containment. Housing First, Homelessness Avoidance, and Care Coach retain their route-specific imagery but now label those visual sections “Program Impact” rather than implying that the images open named client stories. Care Coach and its factual media remain unchanged.
 
 ## Milestone 4 — Housing First implementation and parity QA
 

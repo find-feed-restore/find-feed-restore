@@ -81,7 +81,7 @@ export default function HomelessnessAvoidancePage() {
           applicationImageClassName={programStyles.centeredApplicationImage}
         />
         <ProgramStoryGallery
-          eyebrow="Stories Of Hope"
+          eyebrow="Program Impact"
           title="Support before crisis becomes homelessness."
           description="Homelessness Avoidance helps families stay housed during unexpected hardship by providing a bridge toward stability."
           images={storyImages}

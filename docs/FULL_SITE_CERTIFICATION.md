@@ -50,7 +50,7 @@ Home visual regression remains 4712/4712, 5828/5829, 6108/6108, and 8176/8175px 
 
 `scripts/full-site-certification.mjs` is the repository-local crawl harness. It uses Playwright Core and system Chrome against an optimized local production server. It records detailed ignored evidence at `.visual-qa/certification/crawl.json` and checks every route for HTTP/runtime health, local resource failures, canonical/title/description/Open Graph state, noindex, heading order, image alt attributes, control labels, fragments, header/footer presence, internal destinations, desktop/mobile overflow, shared breakpoint behavior, redirects, external origins, and 404 responses.
 
-The existing visual harness generated production/local screenshots, side-by-sides, overlays, amplified differences, element metrics, and page heights at 1440, 1024, 768, and 390px for every route. Board & Staff correctly used production `/about-us/` as its visual source. The existing interaction harness ran on all 14 routes. Dedicated form, native Instagram, and legal harnesses supplied service-specific evidence. All `.visual-qa` output remains ignored.
+The existing visual harness generated production/local screenshots, side-by-sides, overlays, amplified differences, element metrics, and page heights at 1440, 1024, 768, and 390px for every route. Board & Staff correctly used production `/about-us/` as its visual source. The existing interaction harness ran across all canonical routes. Dedicated form, native Instagram, and legal harnesses supplied service-specific evidence. All `.visual-qa` output remains ignored.
 
 `scripts/mobile-visual-certification.mjs` runs the established visual harness for every canonical route at 430, 390, 375, 360, and 320px, preserving the `/about-us/` production source mapping for Board & Staff. `scripts/mobile-certification.mjs` separately checks each of the 70 route-width combinations for the mobile header/logo/toggle, keyboard menu geometry and close behavior, body-lock restoration, scroll behavior, footer stacking, floating control, clipped text, horizontal overflow, media/images/controls, card stacking, and route-specific form/feed/video/logo/people/legal containment. Evidence is written only under ignored `.visual-qa` paths.
 
@@ -84,18 +84,18 @@ Heights are production/local pixels. The dedicated sweep found and corrected thr
 
 ## Route matrix
 
-All metadata checks below include one canonical matching `https://www.findfeedrestore.com` plus the listed route, one unique non-empty title, and no `noindex`. “Source metadata” means the page intentionally has no description or `og:description`, matching the accepted production-derived implementation; this is recorded as a later SEO enhancement rather than filled with invented copy.
+All metadata checks below include one canonical matching `https://www.findfeedrestore.com` plus the listed route, one unique non-empty title and description, matching Open Graph metadata, and no `noindex`.
 
 | Route | HTTP | Visual heights: production/local at 1440 · 1024 · 768 · 390 | Interaction | Metadata | Links/runtime/accessibility | Status |
 | --- | --- | --- | --- | --- | --- | --- |
 | `/` | 200 | 4712/4712 · 5828/5829 · 6108/6108 · 8176/8175 | 12/12 | Complete; Organization JSON-LD valid | Clean | **PASS** |
-| `/affordable-housing/` | 200 | 4096/4096 · 4487/4487 · 5004/5004 · 6166/6164 | 13/13 | Source metadata | Clean | **PASS** |
-| `/housing-first/` | 200 | 3898/3898 · 4443/4443 · 5017/5018 · 6170/6169 | 13/13 | Source metadata | Clean | **PASS** |
-| `/homelessness-avoidance/` | 200 | 3981/3980 · 4509/4509 · 4958/4958 · 6171/6169 | 13/13 | Source metadata | Clean | **PASS** |
-| `/care-coach-mobile-unit/` | 200 | 4557/4557 · 4482/4482 · 5883/5883 · 6184/6182 | 18/18 | Source metadata | YouTube source, geometry, focus, play/pause pass | **PASS** |
+| `/affordable-housing/` | 200 | 4096/4096 · 4487/4487 · 5004/5004 · 6166/6164 | 13/13 | Complete | Clean | **PASS** |
+| `/housing-first/` | 200 | 3898/3898 · 4443/4443 · 5017/5018 · 6170/6169 | 13/13 | Complete | Clean | **PASS** |
+| `/homelessness-avoidance/` | 200 | 3981/3980 · 4509/4509 · 4958/4958 · 6171/6169 | 13/13 | Complete | Clean | **PASS** |
+| `/care-coach-mobile-unit/` | 200 | 4557/4557 · 4482/4482 · 5883/5883 · 6184/6182 | 18/18 | Complete | YouTube source, geometry, focus, play/pause pass | **PASS** |
 | `/news-media/` | 200 | 4672/4672 · 5189/5189 · 5488/5488 · 8398/8397 | 16/16 | Complete | Eighteen newest-first publisher links and CTA contracts pass | **PASS** |
-| `/testimonials/` | 200 | 3116/3115 · 3460/3460 · 3433/3434 · 4614/4613 | 19/19 | Source metadata | Three click-to-load YouTube contracts pass | **PASS** |
-| `/contact-us/` | 200 | 4477/4477 · 5554/5554 · 5594/5594 · 6810/6809 | 17/17 | Source metadata | Phone, email, PlanStreet, Typeform, Kindful pass | **PASS** |
+| `/testimonials/` | 200 | 3116/3115 · 3460/3460 · 3433/3434 · 4614/4613 | 19/19 | Complete | Three click-to-load YouTube contracts pass | **PASS** |
+| `/contact-us/` | 200 | 4477/4477 · 5554/5554 · 5594/5594 · 6810/6809 | 17/17 | Complete | Phone, email, PlanStreet, Typeform, Kindful pass | **PASS** |
 | `/board-staff/` | 200 | 4601/4601 · 5460/5460 · 5485/5485 · 9198/9197 | 16/16 | Complete | Identity assets/cards pass; source-matched intermediate warning below | **PASS WITH WARNING** |
 | `/sponsors/` | 200 | 3167/3166 · 3641/3642 · 3708/3708 · 5993/5992 | 16/16 | Complete | All 18 identities, secure external contracts, hover/focus pass | **PASS** |
 | `/live-here-love-here-lake/` | 200 | 6686/6685 · 8364/8364 · 8896/8896 · 12460/12458 | 18/18 | Complete | 29-logo directory and native video pass | **PASS** |
@@ -116,7 +116,7 @@ Board & Staff's fixed 240px people cards produce a 1312px grid width in the 1101
 
 ## Internal-link audit
 
-Every anchor in the header, footer, and page body on all 14 routes was collected. After deduplication, every internal destination returns 200 directly; there are no internal 404s, localhost/127.0.0.1 URLs, broken fragments, or links through aliases. The footer's legacy `/news` link was corrected to `/news-media/`; the Testimonials Contact CTA and Contact corporate-partnership CTA were corrected to direct 200 forms without trailing-slash normalization hops. The footer's production-preserved HTTP LinkedIn URL was corrected to its verified HTTPS canonical profile. All external route-specific contracts continue to pass their interaction checks.
+Every anchor in the header, footer, and page body on all 16 canonical routes was collected. After deduplication, every internal destination returns 200 directly; there are no internal 404s, localhost/127.0.0.1 URLs, broken fragments, or links through aliases. The footer's legacy `/news` link was corrected to `/news-media/`; the Testimonials Contact CTA and Contact corporate-partnership CTA were corrected to direct 200 forms without trailing-slash normalization hops. The footer's production-preserved HTTP LinkedIn URL was corrected to its verified HTTPS canonical profile. All external route-specific contracts continue to pass their interaction checks.
 
 An external-link maintenance sweep on August 17, 2026 checked 88 unique destinations. Four confirmed 404s were corrected: three deleted South Lake Tablet stories now link to verified Internet Archive snapshots, and the Key Food sponsor tile now links to its current official Clermont store page. Ten additional provider URLs rejected or rate-limited automated probes; those responses were recorded as provider-side automation restrictions rather than incorrectly classified as confirmed broken links.
 
@@ -135,11 +135,21 @@ Next.js permanent redirects return 308. Each audited no-slash alias takes one re
 
 ## Metadata and structured data
 
-- All 15 current routes have exactly one correct production-domain canonical, a unique title, and no accidental `noindex`.
-- Nine current routes have descriptions and matching `og:description`: home, News & Media, Board & Staff, Sponsors, Corporate Partnership, We Need Trailers, Hope In Action, Volunteer, and Terms.
-- Affordable Housing, Housing First, Homelessness Avoidance, Care Coach, Testimonials, and Contact intentionally preserve the production-derived absence of description and `og:description`. Adding researched descriptions remains a post-launch SEO enhancement rather than a certification requirement.
+- All 16 current routes have exactly one correct production-domain canonical, a unique title and description, matching `og:description`, and no accidental `noindex`.
 - Every route includes the currently implemented Open Graph title, URL, site name, locale, and type.
 - The homepage's Organization JSON-LD is valid and is the only implemented structured-data block. No page schema was invented for certification.
+
+## Mobile Lighthouse optimization refresh
+
+An August 17, 2026 no-redesign optimization pass ran Google Lighthouse 13.4.1 in simulated 390px mobile mode against every canonical route. All 16 routes now score 100 for Lighthouse SEO and 100 for Lighthouse accessibility. Best Practices is 100 except Care Coach's existing third-party YouTube cookie notice, which remains 96 and does not represent a site runtime error.
+
+- CSS hero images now emit route-specific `preload` resource hints with high fetch priority while preserving their existing CSS crop, overlay, geometry, and source imagery.
+- The shared legal hero was recompressed in place at the same 2048×931 dimensions and path, reducing it from 1,519,993 to 488,846 bytes. Lighthouse's estimated delivery waste fell from 1,174 KiB to 167 KiB.
+- Stable `/images/` assets use a one-day browser cache with a seven-day stale-while-revalidate window; optimized Next.js images use a one-day minimum cache TTL.
+- Local factual images in program, people, sponsor, contact, and campaign cards now use responsive Next.js image delivery. Instagram's signed remote media remains provider-delivered and unmodified.
+- Unique descriptions and matching Open Graph descriptions were added to Affordable Housing, Housing First, Homelessness Avoidance, Care Coach, Testimonials, and Contact Us.
+- News links retain their visible “Read More” text while receiving article-specific accessible names. Instagram timestamps and the Live Here supporting-tier badge now pass contrast. Privacy Policy contact links now pass mobile touch-target sizing.
+- Production/local screenshots at 1440, 1024, 768, and 390px confirm identical section geometry, hero crops, image focal points, card layout, forms, navigation, and footer placement. Privacy Policy gains only the small contact-link hit-area spacing required for touch accessibility.
 
 ## Resend form certification
 
@@ -181,7 +191,7 @@ Production's native MP4 also omits `playsinline`; local preserves that source be
 
 ## Accessibility smoke audit
 
-All 14 routes have one logical H1 and no heading-level skip, no image missing an `alt` attribute, no unlabeled visible form control, no broken fragment, visible three-pixel keyboard focus, keyboard-reachable navigation/dropdowns/forms/media, no keyboard trap found, and accessible form status messaging. Decorative images use empty alt text where appropriate. Route-specific interaction tests cover menus, CTA links, media, testimonial activation, sponsor focus, form order/states, native Instagram links, and legal structure. This is a smoke certification, not a complete WCAG conformance claim.
+All 16 routes have one logical H1 and no heading-level skip, no image missing an `alt` attribute, no unlabeled visible form control, no broken fragment, visible three-pixel keyboard focus, keyboard-reachable navigation/dropdowns/forms/media, no keyboard trap found, and accessible form status messaging. Decorative images use empty alt text where appropriate. Route-specific interaction tests cover menus, CTA links, media, testimonial activation, sponsor focus, form order/states, native Instagram links, and legal structure. This is a smoke certification, not a complete WCAG conformance claim.
 
 ## 404 behavior
 
@@ -218,12 +228,10 @@ The clearly nonexistent certification route, `/terms-and-conditions/`, `/wp-admi
 
 ### POST-LAUNCH OPTIMIZATION
 
-- Add researched meta and Open Graph descriptions to the seven source pages that currently omit them.
 - Consider route-appropriate structured data beyond the existing homepage Organization schema.
 - Add a branded custom 404.
 - Move the 90,101,823-byte MP4 to an appropriate media/CDN workflow after measuring launch behavior; the current deployment architecture works and is not a blocker.
 - Hash-deduplicate the accepted 211,091-byte program image pair if route paths can be changed safely.
-- Review the 1.52 MB Terms hero and other factual images for non-destructive delivery optimization.
 - Continue monitoring YouTube, Instagram, Typeform, PlanStreet, Kindful, Candid, publisher, social, and sponsor availability as external operational dependencies.
 
 ## Certification corrections

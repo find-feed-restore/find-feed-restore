@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HeroImagePreload } from "./hero-image-preload";
 import styles from "./sponsor-sections.module.css";
 
 type Sponsor = {
@@ -32,21 +33,24 @@ const sponsors: Sponsor[] = [
 
 export function SponsorsHero() {
   return (
-    <section className={styles.hero} aria-labelledby="sponsors-title">
-      <div className={styles.heroInner}>
-        <span>Partners & Sponsors</span>
-        <h1 id="sponsors-title">Community Leaders Helping Families Find Home</h1>
-        <p>
-          We are grateful for the businesses, foundations, churches, and community partners investing
-          in housing solutions and brighter futures for families across Central Florida.
-        </p>
-        <div className={styles.actions}>
-          <a className={styles.button} href="https://findfeedrestore-bloom.kindful.com/" target="_blank" rel="noopener">
-            Support the Mission
-          </a>
+    <>
+      <HeroImagePreload href="/images/unique/sponsors-hero.webp" />
+      <section className={styles.hero} aria-labelledby="sponsors-title">
+        <div className={styles.heroInner}>
+          <span>Partners & Sponsors</span>
+          <h1 id="sponsors-title">Community Leaders Helping Families Find Home</h1>
+          <p>
+            We are grateful for the businesses, foundations, churches, and community partners investing
+            in housing solutions and brighter futures for families across Central Florida.
+          </p>
+          <div className={styles.actions}>
+            <a className={styles.button} href="https://findfeedrestore-bloom.kindful.com/" target="_blank" rel="noopener">
+              Support the Mission
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
@@ -83,7 +87,6 @@ function SponsorTile({ sponsor }: { sponsor: Sponsor }) {
         width={sponsor.width}
         height={sponsor.height}
         sizes="(max-width: 520px) calc(100vw - 56px), (max-width: 768px) calc((100vw - 72px) / 2), (max-width: 1100px) calc((100vw - 116px) / 3), (max-width: 1280px) calc((100vw - 140px) / 4), 255px"
-        unoptimized
       />
     </a>
   );

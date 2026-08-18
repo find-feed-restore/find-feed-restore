@@ -39,7 +39,6 @@ export function LiveHereStoryVideo() {
             alt=""
             fill
             sizes="(max-width: 767px) calc(100vw - 40px), 50vw"
-            unoptimized
           />
           <span className={styles.videoPlay} aria-hidden="true" />
         </button>

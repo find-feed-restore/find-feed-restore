@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HeroImagePreload } from "./hero-image-preload";
 import styles from "./program-sections.module.css";
 
 type ProgramHeroProps = {
@@ -7,6 +8,7 @@ type ProgramHeroProps = {
   title: string;
   description: string;
   backgroundClassName: string;
+  backgroundImage: string;
 };
 
 type ProgramIntroProps = {
@@ -50,15 +52,18 @@ function ProgramButton({ href, children }: { href: string; children: React.React
   );
 }
 
-export function ProgramHero({ eyebrow, title, description, backgroundClassName }: ProgramHeroProps) {
+export function ProgramHero({ eyebrow, title, description, backgroundClassName, backgroundImage }: ProgramHeroProps) {
   return (
-    <section className={`${styles.hero} ${backgroundClassName}`} aria-labelledby="program-title">
-      <div className={styles.heroContent}>
-        <span className={styles.lightEyebrow}>{eyebrow}</span>
-        <h1 id="program-title">{title}</h1>
-        <p>{description}</p>
-      </div>
-    </section>
+    <>
+      <HeroImagePreload href={backgroundImage} />
+      <section className={`${styles.hero} ${backgroundClassName}`} aria-labelledby="program-title">
+        <div className={styles.heroContent}>
+          <span className={styles.lightEyebrow}>{eyebrow}</span>
+          <h1 id="program-title">{title}</h1>
+          <p>{description}</p>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -82,7 +87,6 @@ export function ProgramIntro({
             alt={logo.alt}
             width={logo.width}
             height={logo.height}
-            unoptimized
           />
           <span className={styles.eyebrow}>{eyebrow}</span>
           <h2 id="program-intro-title">{title}</h2>
@@ -100,7 +104,6 @@ export function ProgramIntro({
             width={300}
             height={300}
             sizes="(max-width: 980px) calc(100vw - 48px), 44vw"
-            unoptimized
           />
           <div className={styles.applicationCardBody}>
             <h3>Are you a family in need?</h3>
@@ -147,7 +150,6 @@ export function ProgramStoryGallery({
               width={300}
               height={300}
               sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1100px) calc(50vw - 35px), 25vw"
-              unoptimized
               key={image.src}
             />
           ))}

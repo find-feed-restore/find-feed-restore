@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HeroImagePreload } from "./hero-image-preload";
 import styles from "./contact-sections.module.css";
 
 const planStreetUrl = "https://app.planstreetinc.com/findfeedrestore/PublicForm";
@@ -7,13 +8,16 @@ const donationUrl = "https://findfeedrestore-bloom.kindful.com/";
 
 export function ContactHero() {
   return (
-    <section className={styles.hero} aria-labelledby="contact-title">
-      <div className={styles.heroInner}>
-        <span>Get In Touch</span>
-        <h1 id="contact-title">Contact Us</h1>
-        <p>Give a family a place to call home. Take the first step — we’ll do the rest.</p>
-      </div>
-    </section>
+    <>
+      <HeroImagePreload href="/images/unique/contact-hero.webp" />
+      <section className={styles.hero} aria-labelledby="contact-title">
+        <div className={styles.heroInner}>
+          <span>Get In Touch</span>
+          <h1 id="contact-title">Contact Us</h1>
+          <p>Give a family a place to call home. Take the first step — we’ll do the rest.</p>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -26,7 +30,6 @@ function AssistanceCard() {
         width={2000}
         height={1333}
         sizes="(max-width: 1100px) calc(100vw - 48px), 41vw"
-        unoptimized
       />
       <div className={styles.assistanceCardBody}>
         <h3>Are you a family in need?</h3>

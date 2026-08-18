@@ -210,7 +210,7 @@
 .instagramAvatar svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width: 2; }
 .instagramAuthor { display: flex; min-width: 0; flex: 1; flex-direction: column; gap: 3px; }
 .instagramAuthor strong { overflow: hidden; font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
-.instagramAuthor time { color: #8b8f96; font-size: 11px; }
+.instagramAuthor time { color: #6f747c; font-size: 11px; }
 .instagramMark { display: grid; width: 27px; height: 27px; place-items: center; color: #767b83; }
 .instagramMark svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 2; }
 

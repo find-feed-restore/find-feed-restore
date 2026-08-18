@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { HeroImagePreload } from "./hero-image-preload";
 import { HopeFeedLoading, HopeInstagramFeed } from "./hope-instagram-feed";
 import styles from "./hope-sections.module.css";
 
@@ -28,6 +29,7 @@ const socialLinks = [
 export function HopePageBody() {
   return (
     <div className={styles.page}>
+      <HeroImagePreload href="/images/unique/hope-hero.webp" />
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <span>Hope In Action</span>

@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   trailingSlash: true,
   images: {
+    minimumCacheTTL: 86_400,
     remotePatterns: [
       {
         protocol: "https",
@@ -12,6 +13,19 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
+  },
+  async headers() {
+    return [
+      {
+        source: "/images/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
+    ];
   },
   async redirects() {
     return [

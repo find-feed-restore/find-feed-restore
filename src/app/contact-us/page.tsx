@@ -11,7 +11,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Contact Us - Find Feed Restore",
-  description: null,
+  description: "Contact Find Feed Restore for housing assistance, volunteer opportunities, partnerships, donations, and general questions.",
   alternates: { canonical: "/contact-us/" },
   openGraph: {
     type: "website",
@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     url: "/contact-us/",
     siteName: "Find Feed Restore",
     title: "Contact Us - Find Feed Restore",
+    description: "Contact Find Feed Restore for housing assistance, volunteer opportunities, partnerships, donations, and general questions.",
   },
 };
 

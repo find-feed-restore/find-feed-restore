@@ -95,6 +95,7 @@
 .listWidget p { margin: 0 0 .9rem; }
 .listWidget address { font-style: normal; }
 .listWidget a { color: #8f0000; text-underline-offset: 3px; }
+.listWidget address a { display: inline-flex; min-height: 32px; align-items: center; }
 .lastWidget { margin-bottom: 0; }
 
 @media (max-width: 1024px) {

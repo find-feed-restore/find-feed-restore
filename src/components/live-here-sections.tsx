@@ -90,8 +90,8 @@ export function LiveHereHero() {
             alt="Live Here Love Here Lake"
             width={603}
             height={467}
-            priority
-            unoptimized
+            fetchPriority="high"
+            sizes="(max-width: 450px) 80vw, 360px"
           />
         </div>
         <h1 id="live-here-title">Local Businesses Helping Families Find Home</h1>
@@ -153,7 +153,6 @@ function SponsorLogo({ sponsor }: { sponsor: CampaignSponsor }) {
       width={sponsor.width}
       height={sponsor.height}
       sizes="(max-width: 640px) calc(100vw - 98px), (max-width: 1024px) calc((100vw - 184px) / 2), 263px"
-      unoptimized
     />
   );
 

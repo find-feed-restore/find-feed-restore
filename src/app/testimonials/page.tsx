@@ -7,7 +7,7 @@ import { testimonialVideos } from "@/data/testimonial-videos";
 
 export const metadata: Metadata = {
   title: "Testimonials - Find Feed Restore",
-  description: null,
+  description: "Watch client stories and community videos showing how Find Feed Restore helps families move from crisis toward housing, stability, and hope.",
   alternates: { canonical: "/testimonials/" },
   openGraph: {
     type: "website",
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     url: "/testimonials/",
     siteName: "Find Feed Restore",
     title: "Testimonials - Find Feed Restore",
+    description: "Watch client stories and community videos showing how Find Feed Restore helps families move from crisis toward housing, stability, and hope.",
   },
 };
 

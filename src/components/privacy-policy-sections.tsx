@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { HeroImagePreload } from "./hero-image-preload";
 import styles from "./legal-sections.module.css";
 
 export function PrivacyPolicyPageBody() {
   return (
     <div className={styles.page}>
+      <HeroImagePreload href="/images/legal/terms-hero.jpg" />
       <section className={styles.hero} aria-labelledby="privacy-title">
         <div className={styles.heroContainer}>
           <div className={styles.heroGrid}>

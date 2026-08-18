@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { HeroImagePreload } from "./hero-image-preload";
 import styles from "./legal-sections.module.css";
 
 const sections = [
@@ -54,6 +55,7 @@ const sections = [
 export function LegalTermsPageBody() {
   return (
     <div className={styles.page}>
+      <HeroImagePreload href="/images/legal/terms-hero.jpg" />
       <section className={styles.hero} aria-labelledby="terms-title">
         <div className={styles.heroContainer}>
           <div className={styles.heroGrid}>

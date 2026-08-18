@@ -12,7 +12,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Homelessness Avoidance - Find Feed Restore",
-  description: null,
+  description: "Find Feed Restore provides temporary financial assistance and stability services that help Central Florida families avoid homelessness.",
   alternates: { canonical: "/homelessness-avoidance/" },
   openGraph: {
     type: "website",
@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     url: "/homelessness-avoidance/",
     siteName: "Find Feed Restore",
     title: "Homelessness Avoidance - Find Feed Restore",
+    description: "Find Feed Restore provides temporary financial assistance and stability services that help Central Florida families avoid homelessness.",
   },
 };
 
@@ -59,6 +60,7 @@ export default function HomelessnessAvoidancePage() {
           title="Homelessness Avoidance"
           description="Providing temporary financial assistance and stability services to help families avoid homelessness."
           backgroundClassName={programStyles.homelessnessAvoidanceHero}
+          backgroundImage="/images/unique/homelessness-hero.webp"
         />
         <ProgramIntro
           eyebrow="Homelessness Avoidance"

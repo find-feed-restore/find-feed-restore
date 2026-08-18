@@ -13,7 +13,7 @@ import { clientTestimonialVideos } from "@/data/testimonial-videos";
 
 export const metadata: Metadata = {
   title: "Affordable Housing - Find Feed Restore",
-  description: null,
+  description: "Find Feed Restore helps working families with children find safe, stable, and affordable housing in Central Florida.",
   alternates: { canonical: "/affordable-housing/" },
   openGraph: {
     type: "website",
@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     url: "/affordable-housing/",
     siteName: "Find Feed Restore",
     title: "Affordable Housing - Find Feed Restore",
+    description: "Find Feed Restore helps working families with children find safe, stable, and affordable housing in Central Florida.",
   },
 };
 
@@ -55,6 +56,7 @@ export default function AffordableHousingPage() {
           title="Affordable Housing"
           description="Helping working families with children find safe, stable, and affordable housing."
           backgroundClassName={programStyles.affordableHousingHero}
+          backgroundImage="/images/programs/affordable-housing/hero.jpg"
         />
         <ProgramIntro
           eyebrow="Affordable Housing"

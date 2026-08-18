@@ -12,7 +12,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Care Coach - Find Feed Restore",
-  description: null,
+  description: "The Care Coach mobile unit brings health, housing, hunger relief, and practical support to underserved Central Florida communities.",
   alternates: { canonical: "/care-coach-mobile-unit/" },
   openGraph: {
     type: "website",
@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     url: "/care-coach-mobile-unit/",
     siteName: "Find Feed Restore",
     title: "Care Coach - Find Feed Restore",
+    description: "The Care Coach mobile unit brings health, housing, hunger relief, and practical support to underserved Central Florida communities.",
   },
 };
 
@@ -58,6 +59,7 @@ export default function CareCoachPage() {
           title="Care Coach"
           description="Providing health, housing, hunger, and hope to underserved communities."
           backgroundClassName={programStyles.careCoachHero}
+          backgroundImage="/images/programs/care-coach/care-coach.jpg"
         />
         <ProgramIntro
           eyebrow="Care Coach Mobile Unit"

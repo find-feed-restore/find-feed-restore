@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HeroImagePreload } from "./hero-image-preload";
 import styles from "./people-sections.module.css";
 
 type Person = {
@@ -104,7 +105,6 @@ function PersonCard({ person }: { person: Person }) {
         width={200}
         height={300}
         sizes="(max-width: 700px) 280px, 240px"
-        unoptimized
       />
       <div>
         <h3>{person.name}</h3>
@@ -117,13 +117,16 @@ function PersonCard({ person }: { person: Person }) {
 
 export function PeopleHero() {
   return (
-    <section className={styles.hero} aria-labelledby="people-title">
-      <div className={styles.heroInner}>
-        <span>About Find, Feed & Restore</span>
-        <h1 id="people-title">Board & Staff Members</h1>
-        <p>Meet the people helping families move toward stability, housing, and hope.</p>
-      </div>
-    </section>
+    <>
+      <HeroImagePreload href="/images/unique/people-hero.webp" />
+      <section className={styles.hero} aria-labelledby="people-title">
+        <div className={styles.heroInner}>
+          <span>About Find, Feed & Restore</span>
+          <h1 id="people-title">Board & Staff Members</h1>
+          <p>Meet the people helping families move toward stability, housing, and hope.</p>
+        </div>
+      </section>
+    </>
   );
 }
 

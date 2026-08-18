@@ -1,3 +1,4 @@
+import { HeroImagePreload } from "./hero-image-preload";
 import styles from "./editorial-sections.module.css";
 
 type EditorialHeroProps = {
@@ -32,14 +33,21 @@ export type NewsItem = {
 };
 
 export function EditorialHero({ eyebrow, title, description, variant }: EditorialHeroProps) {
+  const backgroundImage = variant === "news"
+    ? "/images/unique/news-hero.webp"
+    : "/images/unique/testimonials-hero.webp";
+
   return (
-    <section className={`${styles.hero} ${variant === "news" ? styles.newsHero : styles.testimonialsHero}`} aria-labelledby="editorial-title">
-      <div className={styles.heroInner}>
-        <span>{eyebrow}</span>
-        <h1 id="editorial-title">{title}</h1>
-        <p>{description}</p>
-      </div>
-    </section>
+    <>
+      <HeroImagePreload href={backgroundImage} />
+      <section className={`${styles.hero} ${variant === "news" ? styles.newsHero : styles.testimonialsHero}`} aria-labelledby="editorial-title">
+        <div className={styles.heroInner}>
+          <span>{eyebrow}</span>
+          <h1 id="editorial-title">{title}</h1>
+          <p>{description}</p>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -86,7 +94,7 @@ function NewsCard({ item, featured = false }: { item: NewsItem; featured?: boole
         <h3>{item.title}</h3>
         <p>{item.description}</p>
         <a className={styles.button} href={item.href} target="_blank" rel="noopener">
-          Read More
+          Read More<span className={styles.visuallyHidden}> about {item.title}</span>
         </a>
       </div>
     </article>

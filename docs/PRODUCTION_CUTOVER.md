@@ -212,9 +212,9 @@ Vercel's deployment rollback/revert can be used if the custom domain is already 
 ### POST-LAUNCH OPTIMIZATION
 
 - Move the 85.93 MiB MP4 to Vercel Blob or another controlled object/CDN store after measuring launch traffic and preserving the accepted media contract.
-- Add researched descriptions for the seven source pages that intentionally omit them and consider route-appropriate structured data.
+- Consider route-appropriate structured data beyond the existing homepage Organization schema.
 - Add a branded custom 404.
-- Consider non-destructive optimization of the Terms hero and other large factual images.
+- Continue reviewing other large factual images for non-destructive delivery optimization.
 - Review safe static-asset deduplication without altering public identity assets.
 - Monitor Instagram token health/expiry, YouTube, Resend, Typeform, PlanStreet, Kindful, Candid, publisher, sponsor, and social-provider availability.
 

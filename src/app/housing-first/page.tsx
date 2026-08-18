@@ -12,7 +12,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Housing First - Find Feed Restore",
-  description: null,
+  description: "Housing First gives homeless families with children temporary rent- and utility-free housing while they regain stability.",
   alternates: { canonical: "/housing-first/" },
   openGraph: {
     type: "website",
@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     url: "/housing-first/",
     siteName: "Find Feed Restore",
     title: "Housing First - Find Feed Restore",
+    description: "Housing First gives homeless families with children temporary rent- and utility-free housing while they regain stability.",
   },
 };
 
@@ -59,6 +60,7 @@ export default function HousingFirstPage() {
           title="Housing First"
           description="Helping homeless families with children live rent and utility free while they regain stability."
           backgroundClassName={programStyles.housingFirstHero}
+          backgroundImage="/images/housing-first.jpg"
         />
         <ProgramIntro
           eyebrow="Housing First"

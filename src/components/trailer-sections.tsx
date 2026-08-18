@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HeroImagePreload } from "./hero-image-preload";
 import { TrailerDonationForm } from "./trailer-form";
 import styles from "./trailer-sections.module.css";
 
@@ -7,6 +8,7 @@ const missionUrl = "https://findfeedrestore-bloom.kindful.com/";
 export function TrailerPageBody() {
   return (
     <div className={styles.page}>
+      <HeroImagePreload href="/images/programs/care-coach/care-coach.jpg" />
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <span>We Need Your Trailer</span>

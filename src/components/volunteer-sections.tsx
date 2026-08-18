@@ -60,7 +60,7 @@ export function VolunteerHero() {
           src="/images/volunteer/volunteer-hero.webp"
           alt="Community volunteers preparing household supplies together"
           fill
-          priority
+          preload
           sizes="100vw"
         />
       </div>

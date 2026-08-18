@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatedCounter } from "./animated-counter";
+import { HeroImagePreload } from "./hero-image-preload";
 import styles from "./home-sections.module.css";
 
 const impactItems = [
@@ -75,36 +76,39 @@ const givingOptions = [
 
 export function HeroSection() {
   return (
-    <section className={styles.hero} aria-labelledby="hero-title">
-      <div className={styles.heroOverlay} />
-      <div className={styles.heroContent}>
-        <h1 id="hero-title" className={styles.heroTitle}>
-          Housing For Homeless
-          <br />
-          Families With Children
-        </h1>
-        <h2 className={styles.heroSubtitle}>Our Vision</h2>
-        <p className={styles.heroText}>
-          Find, Feed &amp; Restore is a Central Florida non-profit organization working to end homelessness for families
-          with children through housing, financial literacy, and mental health counseling.
-        </p>
-        <div className={styles.heroActions}>
-          <a className={`${styles.heroButton} ${styles.primaryButton}`} href="https://findfeedrestore-bloom.kindful.com/">
-            Support Our Mission
-          </a>
-          <a
-            className={`${styles.heroButton} ${styles.videoButton}`}
-            href="https://www.youtube.com/watch?v=69VFG8OXVAs"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className={styles.videoShimmer} />
-            <span className={styles.playIcon} aria-hidden="true" />
-            <span>Watch Video</span>
-          </a>
+    <>
+      <HeroImagePreload href="/images/hero-family.jpg" />
+      <section className={styles.hero} aria-labelledby="hero-title">
+        <div className={styles.heroOverlay} />
+        <div className={styles.heroContent}>
+          <h1 id="hero-title" className={styles.heroTitle}>
+            Housing For Homeless
+            <br />
+            Families With Children
+          </h1>
+          <h2 className={styles.heroSubtitle}>Our Vision</h2>
+          <p className={styles.heroText}>
+            Find, Feed &amp; Restore is a Central Florida non-profit organization working to end homelessness for families
+            with children through housing, financial literacy, and mental health counseling.
+          </p>
+          <div className={styles.heroActions}>
+            <a className={`${styles.heroButton} ${styles.primaryButton}`} href="https://findfeedrestore-bloom.kindful.com/">
+              Support Our Mission
+            </a>
+            <a
+              className={`${styles.heroButton} ${styles.videoButton}`}
+              href="https://www.youtube.com/watch?v=69VFG8OXVAs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className={styles.videoShimmer} />
+              <span className={styles.playIcon} aria-hidden="true" />
+              <span>Watch Video</span>
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

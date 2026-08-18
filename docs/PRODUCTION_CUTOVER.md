@@ -138,7 +138,7 @@ Until that decision is recorded, cutover configuration remains on hold. The cuto
 | --- | --- | --- |
 | Resend | Server-only trailer form; authenticated From, configured To, visitor Reply-To; three required Production variables | Confirm Production variable presence; owner performs one clearly labeled manual acceptance submission after authorized deployment |
 | Instagram API with Instagram Login | Server-only `graph.instagram.com/v26.0` provider; 24-post/15-minute cache; native React cards and Load More | Confirm both Production variable names, 16 initial cards, secure links, Load More, and fallback |
-| YouTube | Care Coach iframe; testimonial click-to-load iframes; campaign/watch links | Sources, controls, fullscreen, and mobile containment |
+| YouTube | Care Coach iframe; testimonial and Volunteer click-to-load iframes; campaign/watch links | Sources, controls, fullscreen, and mobile containment |
 | Typeform | Volunteer/partner/application links | Destination and intended new-tab behavior |
 | PlanStreet | Family-assistance public form link | Destination and same-tab behavior |
 | Kindful/Bloom | Donation links and floating donate control | Donation destination on desktop/mobile |

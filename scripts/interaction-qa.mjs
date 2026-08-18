@@ -806,6 +806,7 @@ async function main() {
     }
 
     if (route === "/volunteer/") {
+      const volunteerVideoButton = reduced.locator('main button[data-youtube-id="T3XRcY1_nG4"]');
       const volunteerContract = {
         h1: await reduced.locator("main h1").allTextContents(),
         images: await reduced.locator("main img").count(),
@@ -820,8 +821,40 @@ async function main() {
           volunteerContract.formLinks.length === 3 &&
           volunteerContract.formLinks.every(
             (link) => link.target === "_blank" && link.rel === "noopener noreferrer",
-          ),
+        ),
         volunteerContract,
+      );
+      check(
+        "Volunteer video thumbnail contract",
+        (await volunteerVideoButton.count()) === 1 &&
+          (await volunteerVideoButton.getAttribute("aria-label")) === "Play 2024 Christmas Gathering" &&
+          (await reduced.locator("main iframe").count()) === 0,
+        {
+          count: await volunteerVideoButton.count(),
+          label: await volunteerVideoButton.getAttribute("aria-label"),
+          initialFrames: await reduced.locator("main iframe").count(),
+        },
+      );
+
+      await volunteerVideoButton.focus();
+      const volunteerVideoFocused = await volunteerVideoButton.evaluate(
+        (element) => document.activeElement === element,
+      );
+      await volunteerVideoButton.press("Enter");
+      const volunteerVideoFrame = reduced.locator('main iframe[title="Play 2024 Christmas Gathering"]');
+      await volunteerVideoFrame.waitFor({ state: "visible" });
+      const volunteerVideoContract = {
+        focused: volunteerVideoFocused,
+        src: await volunteerVideoFrame.getAttribute("src"),
+        allowFullscreen: await volunteerVideoFrame.getAttribute("allowfullscreen"),
+      };
+      check(
+        "Volunteer video keyboard activation and provider contract",
+        volunteerVideoContract.focused &&
+          volunteerVideoContract.src ===
+            "https://www.youtube.com/embed/T3XRcY1_nG4?autoplay=1&rel=0" &&
+          volunteerVideoContract.allowFullscreen !== null,
+        volunteerVideoContract,
       );
     }
 

@@ -21,6 +21,17 @@
   margin: 0 auto;
 }
 
+.featureGrid {
+  grid-template-columns: minmax(0, 760px);
+  justify-content: center;
+}
+
+.featureGrid .card,
+.featureGrid .card:last-child:nth-child(3n + 1) {
+  width: 100%;
+  grid-column: auto;
+}
+
 .card {
   overflow: hidden;
   border: 1px solid rgba(7, 27, 42, 0.06);
@@ -161,6 +172,15 @@
     width: calc((100% - 28px) / 2);
     grid-column: 1 / -1;
     justify-self: center;
+  }
+
+  .featureGrid {
+    grid-template-columns: minmax(0, 720px);
+  }
+
+  .featureGrid .card:last-child:nth-child(odd) {
+    width: 100%;
+    grid-column: auto;
   }
 }
 

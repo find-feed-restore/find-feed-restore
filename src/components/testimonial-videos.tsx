@@ -53,12 +53,14 @@ export function TestimonialVideos({
   title = "See The Mission In Motion",
   description = "Watch stories, outreach moments, community events, and real impact from Find Feed Restore.",
   variant = "editorial",
+  layout = "grid",
 }: {
   videos: TestimonialVideo[];
   eyebrow?: string;
   title?: string;
   description?: string;
   variant?: "editorial" | "program";
+  layout?: "grid" | "feature";
 }) {
   return (
     <section
@@ -72,7 +74,7 @@ export function TestimonialVideos({
           description={description}
           id="testimonial-videos-title"
         />
-        <div className={styles.grid}>
+        <div className={`${styles.grid} ${layout === "feature" ? styles.featureGrid : ""}`}>
           {videos.map((video) => (
             <TestimonialVideoCard video={video} key={video.id} />
           ))}

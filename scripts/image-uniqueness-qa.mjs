@@ -19,12 +19,16 @@ const routes = [
   "/volunteer/",
   "/terms-conditions/",
 ];
-const preservedRouteSpecificImages = new Set([
+const allowedSharedImages = new Set([
   "/images/housing-first.jpg",
   "/images/homelessness-avoidance.jpg",
   "/images/care-coach.jpg",
   "/images/programs/care-coach/care-coach.jpg",
   "/images/give-banner.jpg",
+  // Approved client videos are intentionally cross-listed on Housing First and Testimonials.
+  "/images/editorial/testimonials/pLxLVhRZUso.jpg",
+  "/images/editorial/testimonials/4AtAVDaScBI.jpg",
+  "/images/editorial/testimonials/SFWs27dkzeM.jpg",
 ]);
 const chromeCandidates = [
   process.env.PLAYWRIGHT_CHROME_PATH,
@@ -80,7 +84,7 @@ for (const route of routes) {
 await browser.close();
 
 const duplicates = [...usage.entries()]
-  .filter(([source, placements]) => placements.length > 1 && !preservedRouteSpecificImages.has(source))
+  .filter(([source, placements]) => placements.length > 1 && !allowedSharedImages.has(source))
   .sort(([left], [right]) => left.localeCompare(right));
 
 if (duplicates.length) {

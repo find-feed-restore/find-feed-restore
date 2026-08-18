@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { TestimonialVideos } from "@/components/testimonial-videos";
 import {
   VolunteerCta,
   VolunteerHero,
@@ -8,6 +9,17 @@ import {
   VolunteerOpportunities,
   VolunteerSteps,
 } from "@/components/volunteer-sections";
+import type { TestimonialVideo } from "@/data/testimonial-videos";
+
+const volunteerVideos: TestimonialVideo[] = [
+  {
+    id: "T3XRcY1_nG4",
+    eyebrow: "Volunteer Spotlight",
+    title: "2024 Christmas Gathering",
+    description: "Watch community members come together in service and celebration at the 2024 Christmas Gathering.",
+    thumbnail: "/images/volunteer/T3XRcY1_nG4.jpg",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Volunteer - Find Feed Restore",
@@ -34,6 +46,14 @@ export default function VolunteerPage() {
         <VolunteerHero />
         <VolunteerIntro />
         <VolunteerOpportunities />
+        <TestimonialVideos
+          videos={volunteerVideos}
+          eyebrow="Community In Action"
+          title="See What Showing Up Can Mean."
+          description="Watch the 2024 Christmas Gathering and see community members come together in service and celebration."
+          variant="program"
+          layout="feature"
+        />
         <VolunteerSteps />
         <VolunteerCta />
       </main>

@@ -109,11 +109,16 @@
 
 .inner {
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  grid-template-areas: "image copy";
   align-items: center;
   width: min(100%, 1140px);
   margin-inline: auto;
   gap: 72px;
+}
+
+.introCopy {
+  grid-area: copy;
 }
 
 .introCopy h2,
@@ -141,6 +146,7 @@
 }
 
 .introImage {
+  grid-area: image;
   overflow: hidden;
   border-radius: 34px;
   box-shadow: 0 28px 80px rgb(7 27 42 / 12%);
@@ -397,6 +403,9 @@
 
   .inner {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "image";
     gap: 42px;
   }
 

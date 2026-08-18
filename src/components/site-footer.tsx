@@ -99,7 +99,7 @@ export function SiteFooter() {
           <div className={styles.footerBottom}>
             <Image src="/images/ffr-logo-light.png" alt="Find Feed Restore" width={600} height={236} />
             <p>
-              Copyright © 2025. Find Feed Restore.
+              Copyright © {new Date().getFullYear()}. Find Feed &amp; Restore.
               <br />
               <Link href="/terms-conditions/">Terms &amp; Conditions</Link>
               {" · "}

@@ -168,7 +168,12 @@ async function collectMetrics(page) {
       footerSupportHeading: rect(textElement("footer h2", "Support Our Mission")),
       footerSeal: rect(visible('footer img[alt*="Candid"], footer img[alt*="Platinum"]')),
       footerLogo: rect(visible('footer img[alt="Find Feed Restore"]')),
-      footerCopyright: rect(textElement("footer p, footer div", "Copyright © 2025. Find Feed Restore. Terms & Conditions")),
+      footerCopyright: rect(
+        textElement(
+          "footer p, footer div",
+          `Copyright © ${new Date().getFullYear()}. Find Feed & Restore. Terms & Conditions`,
+        ),
+      ),
       floatingDonate: rect(document.querySelector('a[aria-label="Donate now"], .givewp-donation-widget-button')),
       headings: Array.from(document.querySelectorAll("h1, h2, h3")).map((element) => ({
         text: element.textContent?.replace(/\s+/g, " ").trim(),

@@ -333,7 +333,7 @@ async function main() {
         mobileCards,
       );
     }
-    if (route === "/affordable-housing/") {
+    if (route === "/housing-first/") {
       const storyCards = await mobile.locator('main button[data-youtube-id]').evaluateAll((buttons) =>
         buttons.map((button) => {
           const card = button.closest("article");
@@ -342,7 +342,7 @@ async function main() {
         }),
       );
       check(
-        "Affordable Housing client stories fit mobile",
+        "Housing First client stories fit mobile",
         storyCards.length === 3 &&
           storyCards.every(
             (card) => card && Math.round(card.x) === 18 && Math.round(card.right) === 372,
@@ -546,7 +546,7 @@ async function main() {
         (await reduced.getByRole("heading", { level: 1, name: programPage.name }).count()) === 1,
         await reduced.locator("main h1").allTextContents(),
       );
-      if (route === "/affordable-housing/") {
+      if (route === "/housing-first/") {
         const storyContracts = await reduced.locator('main button[data-youtube-id]').evaluateAll((buttons) =>
           buttons.map((button) => ({
             id: button.getAttribute("data-youtube-id"),
@@ -554,7 +554,7 @@ async function main() {
           })),
         );
         check(
-          "Affordable Housing client story video contracts",
+          "Housing First client story video contracts",
           JSON.stringify(storyContracts) ===
             JSON.stringify([
               { id: "pLxLVhRZUso", label: "Play Brittney’s Story" },

@@ -239,9 +239,9 @@ Interaction QA passes for sticky desktop header behavior, Programs dropdown, key
 
 Homepage regression capture reproduces the accepted baseline: 4712/4712px at 1440, 5828/5829px at 1024, 6108/6108px at 768, and 8176/8175px at 390, with the same documented rasterization/icon differences. Homepage interaction checks also pass. No accepted homepage component or global header/footer geometry was changed for this route.
 
-### Affordable Housing client-story update — 2026-08-17
+### Housing First client-story correction — 2026-08-18
 
-The later site-audit review identified that the four production “Stories Of Hope” photos did not open or contain the stories implied by that heading. Those unlabeled photos were replaced on Affordable Housing with the three organization-approved client testimonials for Brittney, Alliania, and Andre. Each name is attached only to its verified YouTube video and exact local thumbnail; no pictured-person identity was inferred. The cards retain the established click-to-load YouTube behavior, native controls, fullscreen support, keyboard activation, and mobile containment. Housing First, Homelessness Avoidance, and Care Coach retain their route-specific imagery but now label those visual sections “Program Impact” rather than implying that the images open named client stories. Care Coach and its factual media remain unchanged.
+The later site-audit review identified that the four production “Stories Of Hope” photos did not open or contain the stories implied by that heading. The three organization-approved client testimonials for Brittney, Alliania, and Andre now appear on Housing First, where the client stories belong, after its route-specific Program Impact gallery. Affordable Housing no longer presents those Housing First videos. Each name is attached only to its verified YouTube video and exact local thumbnail; no pictured-person identity was inferred. The cards retain the established click-to-load YouTube behavior, native controls, fullscreen support, keyboard activation, and mobile containment. Homelessness Avoidance and Care Coach retain their route-specific imagery under the “Program Impact” label. Care Coach and its factual media remain unchanged.
 
 ## Milestone 4 — Housing First implementation and parity QA
 

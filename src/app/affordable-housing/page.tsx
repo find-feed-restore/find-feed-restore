@@ -8,8 +8,6 @@ import {
 import programStyles from "@/components/program-sections.module.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { TestimonialVideos } from "@/components/testimonial-videos";
-import { clientTestimonialVideos } from "@/data/testimonial-videos";
 
 export const metadata: Metadata = {
   title: "Affordable Housing - Find Feed Restore",
@@ -75,13 +73,6 @@ export default function AffordableHousingPage() {
             src: "/images/unique/affordable-intro.webp",
             alt: "Family receiving housing support",
           }}
-        />
-        <TestimonialVideos
-          videos={clientTestimonialVideos}
-          eyebrow="Stories Of Hope"
-          title="Hear Their Stories In Their Own Words."
-          description="Brittney, Alliania, and Andre share their experiences with Find, Feed & Restore and the hope that comes with a path toward stability."
-          variant="program"
         />
         <ProgramSupportCta
           title="Your support can help a family come home."

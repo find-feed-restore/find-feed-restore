@@ -9,6 +9,8 @@ import {
 import programStyles from "@/components/program-sections.module.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { TestimonialVideos } from "@/components/testimonial-videos";
+import { clientTestimonialVideos } from "@/data/testimonial-videos";
 
 export const metadata: Metadata = {
   title: "Housing First - Find Feed Restore",
@@ -87,6 +89,13 @@ export default function HousingFirstPage() {
           title="Stability starts at home."
           description="Through Housing First, families receive the breathing room, support, and stability needed to move toward self-sufficiency."
           images={storyImages}
+        />
+        <TestimonialVideos
+          videos={clientTestimonialVideos}
+          eyebrow="Stories Of Hope"
+          title="Hear Their Stories In Their Own Words."
+          description="Brittney, Alliania, and Andre share their experiences with Find, Feed & Restore and the hope that comes with a path toward stability."
+          variant="program"
         />
         <ProgramSupportCta
           title="Your support can help a family rebuild."

@@ -130,8 +130,10 @@ Next.js permanent redirects return 308. Each audited no-slash alias takes one re
 | `/trailer-ministry` | `/we-need-trailers` | 308 permanent | 1 | 200 |
 | `/news` | `/news-media` | 308 permanent | 1 | 200 |
 | `/about-us` | `/board-staff` | 308 permanent | 1 | 200 |
+| `/about` | `/board-staff` | 308 permanent | 1 | 200 |
+| `/feed` | `/news-media` | 308 permanent | 1 | 200 |
 
-`/news` was required by the original inventory, and `/about-us/` is the current production people-page URL. Both were missing locally and were added as narrow launch corrections. Next.js performs its normal slash normalization before configured redirects when a slash variant is requested; canonical internal links do not use these aliases.
+`/news` was required by the original inventory, and `/about-us/` is the current production people-page URL. Search Console later confirmed the historical `/about/` and `/feed/` WordPress variants, which now redirect semantically to Board & Staff and News & Media. A homepage-only Proxy permanently removes the obsolete `trk`, `et_fb`, `PageSpeed`, and `et_core_page_resource` parameters in one hop; unrelated query parameters remain unchanged. Old WordPress runtime assets remain unavailable rather than redirecting JavaScript requests to HTML. Next.js performs its normal slash normalization before configured redirects when a slash variant is requested; canonical internal links do not use these aliases.
 
 ## Metadata and structured data
 

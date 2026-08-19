@@ -49,6 +49,16 @@ const nextConfig: NextConfig = {
         destination: "/board-staff/",
         permanent: true,
       },
+      {
+        source: "/about/",
+        destination: "/board-staff/",
+        permanent: true,
+      },
+      {
+        source: "/feed/",
+        destination: "/news-media/",
+        permanent: true,
+      },
     ];
   },
 };

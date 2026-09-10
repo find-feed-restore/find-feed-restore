@@ -15,6 +15,8 @@ export type TrailerFormState = {
   message: string;
 };
 
+export const RESEND_REQUEST_TIMEOUT_MS = 8_000;
+
 type SubmissionDependencies = {
   now?: () => number;
   deliver: (submission: TrailerSubmission) => Promise<boolean>;
@@ -167,6 +169,7 @@ export async function sendTrailerSubmissionViaResend(
       "Content-Type": "application/json",
     },
     body: JSON.stringify(buildResendPayload(submission, configuration.fromEmail, configuration.toEmail)),
+    signal: AbortSignal.timeout(RESEND_REQUEST_TIMEOUT_MS),
   });
 
   return response.ok;

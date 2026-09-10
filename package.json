@@ -9,6 +9,7 @@
     "lint": "eslint",
     "test:trailer-form": "node --test tests/trailer-submission.test.mjs",
     "test:instagram-feed": "node --test tests/instagram-feed.test.mjs",
+    "test:security-headers": "node --test tests/security-headers.test.mjs",
     "qa:instagram-provider": "node --env-file=.env.local scripts/instagram-provider-verify.mjs",
     "qa:trailer-form": "node scripts/trailer-form-qa.mjs",
     "qa:hope-feed": "node scripts/hope-feed-qa.mjs",
@@ -23,7 +24,7 @@
     "visual:qa:interactions": "node scripts/interaction-qa.mjs"
   },
   "dependencies": {
-    "next": "16.3.0",
+    "next": "16.3.4",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
@@ -34,9 +35,9 @@
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.3.0",
+    "eslint-config-next": "16.3.4",
     "playwright-core": "^1.62.1",
-    "sharp": "^0.35.3",
+    "sharp": "0.35.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

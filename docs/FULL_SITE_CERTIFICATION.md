@@ -2,7 +2,7 @@
 
 Certification date: 2026-08-11
 
-Local production target: Next.js 16.3 optimized build served with `next start`
+Local production target: Next.js 16.3.4 optimized build served with `next start`
 
 Production comparison source: <https://www.findfeedrestore.com/>
 
@@ -35,6 +35,12 @@ Focused certification passes at 1440, 1024, 768, 440, 430, 390, 375, 360, and 32
 `/privacy-policy/` is a second approved post-migration enhancement, bringing the canonical sitemap to **16 routes**. It uses the accepted legal-page shell and adds semantic website privacy disclosures plus the organization-provided Meta Instagram API policy, server-side credential treatment, cache/retention language, deletion-request instructions, and the existing public mailing address, email, and Contact page. The route is linked directly from the global footer and has unique metadata and a production-domain canonical.
 
 Focused local certification passes at 1440, 1024, 768, 430, 390, 375, 360, and 320px. The route returns 200 with one H1, logical H2 sections, complete links, visible keyboard focus, zero console/page errors, and zero horizontal overflow. The dedicated five-width mobile interaction sweep confirms the accepted header/menu and footer behavior. The optimized build prerenders the page and includes it in `/sitemap.xml`. Because WordPress has no corresponding source page, this is validated against the accepted Terms legal shell rather than represented as a production/local content-parity capture.
+
+### Security hardening follow-up — 2026-09-10
+
+The repository now targets patched Next.js and `eslint-config-next` 16.3.4 plus Sharp 0.35.4. The transitive `js-yaml` resolution is 4.3.2, and the current npm audit reports zero known vulnerabilities. Next.js framework disclosure is disabled. Canonical application and static-asset responses set `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, a restrictive camera/geolocation/microphone/payment/USB `Permissions-Policy`, and `X-Frame-Options: DENY`; the existing image cache policy remains intact.
+
+Resend delivery requests now abort after eight seconds and continue through the existing generic visitor-safe error path. The ignored local `.env.local` file is restricted to owner read/write permissions. CSP remains intentionally separate because it requires nonce/static-rendering, YouTube, Instagram media, image, font, form, and Vercel validation. Durable POST rate limiting remains an owner-side Vercel WAF task. No DNS, WordPress, Vercel dashboard, production environment, or deployment setting was changed in this follow-up.
 
 ## Native Instagram certification refresh
 

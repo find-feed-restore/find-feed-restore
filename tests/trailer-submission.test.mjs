@@ -6,6 +6,7 @@ import {
   buildResendPayload,
   handleTrailerSubmission,
   parseTrailerSubmission,
+  RESEND_REQUEST_TIMEOUT_MS,
   sendTrailerSubmissionViaResend,
 } from "../src/lib/trailer-submission.ts";
 
@@ -105,6 +106,9 @@ test("sends the Resend request and reports its successful status", async () => {
   assert.equal(requestUrl, "https://api.resend.com/emails");
   assert.equal(requestInit?.method, "POST");
   assert.equal(requestInit?.headers.Authorization, "Bearer test-key");
+  assert.equal(RESEND_REQUEST_TIMEOUT_MS, 8_000);
+  assert.ok(requestInit?.signal instanceof AbortSignal);
+  assert.equal(requestInit?.signal.aborted, false);
 });
 
 test("returns a safe generic error status when delivery fails", async () => {

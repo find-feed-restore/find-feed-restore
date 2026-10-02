@@ -8,7 +8,7 @@ type ProgramHeroProps = {
   title: string;
   description: string;
   backgroundClassName: string;
-  backgroundImage: string;
+  backgroundImage?: string;
 };
 
 type ProgramIntroProps = {
@@ -55,7 +55,7 @@ function ProgramButton({ href, children }: { href: string; children: React.React
 export function ProgramHero({ eyebrow, title, description, backgroundClassName, backgroundImage }: ProgramHeroProps) {
   return (
     <>
-      <HeroImagePreload href={backgroundImage} />
+      {backgroundImage ? <HeroImagePreload href={backgroundImage} /> : null}
       <section className={`${styles.hero} ${backgroundClassName}`} aria-labelledby="program-title">
         <div className={styles.heroContent}>
           <span className={styles.lightEyebrow}>{eyebrow}</span>
@@ -168,10 +168,12 @@ export function ProgramSupportCta({
   title,
   description,
   backgroundClassName,
+  buttonLabel = "Donate Today",
 }: {
   title: string;
   description: string;
   backgroundClassName?: string;
+  buttonLabel?: string;
 }) {
   return (
     <section
@@ -182,7 +184,7 @@ export function ProgramSupportCta({
         <span className={styles.lightEyebrow}>How Can You Help?</span>
         <h2 id="program-support-title">{title}</h2>
         <p>{description}</p>
-        <ProgramButton href={donationUrl}>Donate Today</ProgramButton>
+        <ProgramButton href={donationUrl}>{buttonLabel}</ProgramButton>
       </div>
     </section>
   );

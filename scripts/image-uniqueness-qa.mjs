@@ -6,6 +6,7 @@ const routes = [
   "/",
   "/affordable-housing/",
   "/housing-first/",
+  "/miriams-hope/",
   "/homelessness-avoidance/",
   "/care-coach-mobile-unit/",
   "/news-media/",

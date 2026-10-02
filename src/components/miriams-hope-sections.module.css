@@ -1,0 +1,280 @@
+.intro {
+  padding: 110px 24px;
+  background: var(--color-warm);
+}
+
+.introInner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 72px;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.introCopy h2,
+.goalHeading h2 {
+  margin: 0;
+  color: var(--color-ink);
+  font-family: Georgia, serif;
+  font-size: clamp(42px, 4.6vw, 72px);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.introCopy p {
+  max-width: 650px;
+  margin: 22px 0 0;
+  color: var(--color-text-soft);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.quoteCard {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 64px 52px 48px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 100% 0%, rgb(103 134 155 / 45%), transparent 55%),
+    linear-gradient(160deg, #0e4061 0%, var(--color-ink) 100%);
+  box-shadow: 0 28px 80px rgb(7 27 42 / 18%);
+  color: white;
+}
+
+.quoteMark {
+  position: absolute;
+  top: -18px;
+  left: 34px;
+  color: rgb(255 255 255 / 14%);
+  font-family: Georgia, serif;
+  font-size: 220px;
+  line-height: 1;
+}
+
+.quoteCard blockquote {
+  position: relative;
+  margin: 0;
+}
+
+.quoteCard blockquote p {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(30px, 2.8vw, 42px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.quoteStats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin: 44px 0 0;
+  padding-top: 32px;
+  border-top: 1px solid rgb(255 255 255 / 18%);
+}
+
+.quoteStats dt {
+  color: rgb(255 255 255 / 70%);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.quoteStats dd {
+  margin: 8px 0 0;
+  font-family: Georgia, serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.services {
+  padding: 100px 24px;
+  background: white;
+}
+
+.servicesInner,
+.goalInner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.serviceList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 26px;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.serviceList li {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 24px 28px;
+  border-left: 4px solid #67869b;
+  border-radius: 20px;
+  background: var(--color-warm);
+  color: var(--color-ink);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.check {
+  position: relative;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-red);
+}
+
+.check::after {
+  position: absolute;
+  top: 9px;
+  left: 13px;
+  width: 7px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 2.5px 2.5px 0;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.goal {
+  padding: 110px 24px;
+  background: var(--color-warm);
+}
+
+.goalHeading {
+  max-width: 820px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.goalHeading p {
+  margin: 24px auto 0;
+  color: var(--color-text-soft);
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.pathway {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pathway li {
+  position: relative;
+  padding: 38px 34px;
+  border-top: 4px solid var(--color-red);
+  border-radius: 28px;
+  background: white;
+  box-shadow: 0 22px 60px rgb(7 27 42 / 8%);
+}
+
+.pathway li:not(:last-child)::after {
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  z-index: 1;
+  color: #67869b;
+  font-size: 22px;
+  font-weight: 900;
+  content: "→";
+  transform: translateY(-50%);
+}
+
+.stepNumber {
+  display: block;
+  margin-bottom: 14px;
+  color: #67869b;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+}
+
+.pathway strong {
+  color: var(--color-ink);
+  font-family: Georgia, serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+@media (max-width: 1100px) {
+  .pathway {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pathway li:not(:last-child)::after {
+    content: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .introInner {
+    grid-template-columns: 1fr;
+  }
+
+  .introCopy {
+    text-align: center;
+  }
+
+  .introCopy p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .serviceList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .intro,
+  .services,
+  .goal {
+    padding: 70px 18px;
+  }
+
+  .introCopy h2,
+  .goalHeading h2 {
+    font-size: 42px;
+  }
+
+  .goalHeading p {
+    font-size: 17px;
+  }
+
+  .quoteCard {
+    padding: 52px 30px 36px;
+  }
+
+  .quoteStats dd {
+    font-size: 32px;
+  }
+
+  .serviceList li {
+    padding: 20px 22px;
+    font-size: 16px;
+  }
+
+  .pathway {
+    grid-template-columns: 1fr;
+  }
+}

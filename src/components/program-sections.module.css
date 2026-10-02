@@ -35,6 +35,13 @@
     url("/images/programs/care-coach/care-coach.jpg");
 }
 
+.miriamsHopeHero {
+  background-image:
+    radial-gradient(circle at 18% 22%, rgb(103 134 155 / 55%), transparent 52%),
+    radial-gradient(circle at 86% 88%, rgb(124 36 35 / 38%), transparent 48%),
+    linear-gradient(135deg, #0e4061 0%, var(--color-ink) 100%);
+}
+
 .heroContent {
   max-width: 920px;
 }
@@ -104,6 +111,10 @@
 
 .careCoachLogo {
   width: 170px;
+}
+
+.miriamsHopeLogo {
+  width: 210px;
 }
 
 .introCopy h2,
@@ -286,6 +297,12 @@
     url("/images/give-banner.jpg");
 }
 
+.miriamsHopeSupportCta {
+  background-image:
+    radial-gradient(circle at 82% 18%, rgb(103 134 155 / 50%), transparent 50%),
+    linear-gradient(135deg, var(--color-ink) 0%, #0e4061 100%);
+}
+
 .supportCtaInner {
   max-width: 860px;
   margin: 0 auto;
@@ -450,6 +467,10 @@
 
   .careCoachLogo {
     width: 140px;
+  }
+
+  .miriamsHopeLogo {
+    width: 170px;
   }
 
   .applicationCard > img.housingFirstApplicationImage {

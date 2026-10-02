@@ -12,6 +12,17 @@ const impactItems = [
 
 const causes = [
   {
+    image: "/images/programs/miriams-hope/hero.webp",
+    alt: "Mother and child embracing outdoors",
+    kicker: "Miriam’s Hope",
+    title: "Domestic Violence",
+    text: "Providing survivors of domestic violence and their children 6–12 months of no-cost transitional housing, counseling, and support to rebuild.",
+    href: "/miriams-hope/",
+    width: 2400,
+    height: 1600,
+    featured: true,
+  },
+  {
     image: "/images/affordable-housing.jpg",
     alt: "Affordable housing family",
     kicker: "Housing Stability",
@@ -154,14 +165,21 @@ export function CausesSection() {
         </header>
         <div className={styles.causesGrid}>
           {causes.map((cause) => (
-            <article className={styles.causeCard} key={cause.title}>
+            <article
+              className={`${styles.causeCard} ${"featured" in cause ? styles.causeCardFeatured : ""}`}
+              key={cause.title}
+            >
               <div className={styles.causeImage}>
                 <Image
                   src={cause.image}
                   alt={cause.alt}
                   width={cause.width}
                   height={cause.height}
-                  sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1300px) calc(50vw - 38px), 25vw"
+                  sizes={
+                    "featured" in cause
+                      ? "(max-width: 700px) calc(100vw - 36px), 50vw"
+                      : "(max-width: 700px) calc(100vw - 36px), (max-width: 1300px) calc(50vw - 38px), 25vw"
+                  }
                 />
               </div>
               <div className={styles.causeContent}>

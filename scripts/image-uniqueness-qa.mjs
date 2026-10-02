@@ -26,6 +26,8 @@ const allowedSharedImages = new Set([
   "/images/care-coach.jpg",
   "/images/programs/care-coach/care-coach.jpg",
   "/images/give-banner.jpg",
+  // The Miriam's Hope hero doubles as its homepage program card, like the other program heroes.
+  "/images/programs/miriams-hope/hero.webp",
   // Approved client videos are intentionally cross-listed on Housing First and Testimonials.
   "/images/editorial/testimonials/pLxLVhRZUso.jpg",
   "/images/editorial/testimonials/4AtAVDaScBI.jpg",

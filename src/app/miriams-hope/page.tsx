@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { MiriamsHopeGoal, MiriamsHopeIntro, MiriamsHopeServices } from "@/components/miriams-hope-sections";
-import { OtherPrograms, ProgramHero, ProgramSupportCta } from "@/components/program-sections";
+import {
+  OtherPrograms,
+  ProgramHero,
+  ProgramStoryGallery,
+  ProgramSupportCta,
+} from "@/components/program-sections";
 import programStyles from "@/components/program-sections.module.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -18,6 +23,13 @@ export const metadata: Metadata = {
     description: "Miriam’s Hope provides 6–12 months of no-cost transitional housing and support for survivors of domestic violence and their children.",
   },
 };
+
+const storyImages = [
+  { src: "/images/programs/miriams-hope/story-reading.webp", alt: "Mother reading a picture book with her daughter" },
+  { src: "/images/programs/miriams-hope/story-park.webp", alt: "Mother braiding her daughter’s hair in a park" },
+  { src: "/images/programs/miriams-hope/story-home.webp", alt: "Mother kissing her young daughter at home" },
+  { src: "/images/programs/miriams-hope/story-embrace.webp", alt: "Mother lifting her smiling child outdoors" },
+];
 
 const otherPrograms = [
   {
@@ -52,6 +64,12 @@ export default function MiriamsHopePage() {
         />
         <MiriamsHopeIntro />
         <MiriamsHopeServices />
+        <ProgramStoryGallery
+          eyebrow="A Fresh Start"
+          title="Room to heal. Space to grow."
+          description="Miriam’s Hope gives survivors and their children a safe, stable place to heal, rebuild and plan for what comes next."
+          images={storyImages}
+        />
         <MiriamsHopeGoal />
         <ProgramSupportCta
           title="Your support can help a survivor rebuild."

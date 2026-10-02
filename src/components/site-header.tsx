@@ -17,7 +17,7 @@ const navigation: NavItem[] = [
     label: "Programs",
     href: "#",
     children: [
-      { label: "Miriam’s Hope", href: "/miriams-hope/" },
+      { label: "Domestic Violence", href: "/miriams-hope/" },
       { label: "Affordable Housing", href: "/affordable-housing/" },
       { label: "Housing First", href: "/housing-first/" },
       { label: "Homelessness Avoidance", href: "/homelessness-avoidance/" },

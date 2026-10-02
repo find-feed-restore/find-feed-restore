@@ -19,6 +19,9 @@ const securityHeaders: Array<{ key: string; value: string }> = [
   },
 ];
 
+// Preview deployments (the develop branch's dev domain and pull request URLs) stay out of search results.
+const isPreviewDeployment = process.env.VERCEL_ENV === "preview";
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactCompiler: true,
@@ -40,6 +43,14 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
+      ...(isPreviewDeployment
+        ? [
+            {
+              source: "/:path*",
+              headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+            },
+          ]
+        : []),
       {
         source: "/images/:path*",
         headers: [

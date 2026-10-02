@@ -20,7 +20,6 @@ const causes = [
     href: "/miriams-hope/",
     width: 2400,
     height: 1600,
-    featured: true,
   },
   {
     image: "/images/affordable-housing.jpg",
@@ -165,21 +164,14 @@ export function CausesSection() {
         </header>
         <div className={styles.causesGrid}>
           {causes.map((cause) => (
-            <article
-              className={`${styles.causeCard} ${"featured" in cause ? styles.causeCardFeatured : ""}`}
-              key={cause.title}
-            >
+            <article className={styles.causeCard} key={cause.title}>
               <div className={styles.causeImage}>
                 <Image
                   src={cause.image}
                   alt={cause.alt}
                   width={cause.width}
                   height={cause.height}
-                  sizes={
-                    "featured" in cause
-                      ? "(max-width: 700px) calc(100vw - 36px), 50vw"
-                      : "(max-width: 700px) calc(100vw - 36px), (max-width: 1300px) calc(50vw - 38px), 25vw"
-                  }
+                  sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1100px) calc(50vw - 38px), (max-width: 1500px) 33vw, 20vw"
                 />
               </div>
               <div className={styles.causeContent}>

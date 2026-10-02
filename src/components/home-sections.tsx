@@ -14,7 +14,7 @@ const causes = [
   {
     image: "/images/programs/miriams-hope/hero.webp",
     alt: "Mother and child embracing outdoors",
-    kicker: "Miriam’s Hope",
+    kicker: "Survivor Support",
     title: "Domestic Violence",
     text: "Providing survivors of domestic violence and their children 6–12 months of no-cost transitional housing, counseling, and support to rebuild.",
     href: "/miriams-hope/",

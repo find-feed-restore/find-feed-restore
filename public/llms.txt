@@ -16,7 +16,7 @@ This file provides a concise directory of the site's canonical public pages. Use
 
 - [Affordable Housing](https://www.findfeedrestore.com/affordable-housing/): Affordable housing for working families with children.
 - [Housing First](https://www.findfeedrestore.com/housing-first/): Housing and support that help families regain stability.
-- [Miriam’s Hope](https://www.findfeedrestore.com/miriams-hope/): No-cost transitional housing and support for survivors of domestic violence and their children.
+- [Domestic Violence (Miriam’s Hope)](https://www.findfeedrestore.com/miriams-hope/): No-cost transitional housing and support for survivors of domestic violence and their children.
 - [Homelessness Avoidance](https://www.findfeedrestore.com/homelessness-avoidance/): Assistance for households at risk of homelessness.
 - [Care Coach Mobile Unit](https://www.findfeedrestore.com/care-coach-mobile-unit/): Mobile health, housing, meal, and support resources.
 

@@ -14,7 +14,7 @@ const quickLinks = [
 ];
 
 const programs = [
-  ["Miriam’s Hope", "/miriams-hope/"],
+  ["Domestic Violence", "/miriams-hope/"],
   ["Affordable Housing", "/affordable-housing/"],
   ["Housing First", "/housing-first/"],
   ["Homelessness Avoidance", "/homelessness-avoidance/"],

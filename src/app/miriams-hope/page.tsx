@@ -9,6 +9,8 @@ import {
 import programStyles from "@/components/program-sections.module.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { TestimonialVideos } from "@/components/testimonial-videos";
+import type { TestimonialVideo } from "@/data/testimonial-videos";
 
 export const metadata: Metadata = {
   title: "Miriam’s Hope - Find Feed Restore",
@@ -23,6 +25,16 @@ export const metadata: Metadata = {
     description: "Miriam’s Hope provides 6–12 months of no-cost transitional housing and support for survivors of domestic violence and their children.",
   },
 };
+
+const miriamsHopeVideos: TestimonialVideo[] = [
+  {
+    id: "1rDQZta18EY",
+    eyebrow: "Featured Video",
+    title: "Miriam’s Hope",
+    description: "Learn more about Miriam’s Hope from Find, Feed & Restore.",
+    thumbnail: "/images/programs/miriams-hope/1rDQZta18EY.jpg",
+  },
+];
 
 const storyImages = [
   { src: "/images/programs/miriams-hope/story-reading.webp", alt: "Mother reading a picture book with her daughter" },
@@ -63,6 +75,14 @@ export default function MiriamsHopePage() {
           backgroundImage="/images/programs/miriams-hope/hero.webp"
         />
         <MiriamsHopeIntro />
+        <TestimonialVideos
+          videos={miriamsHopeVideos}
+          eyebrow="Inside Miriam’s Hope"
+          title="See Miriam’s Hope In Action."
+          description="Watch Find, Feed & Restore share how Miriam’s Hope helps survivors and their children find safety, stability and hope."
+          variant="program"
+          layout="feature"
+        />
         <MiriamsHopeServices />
         <ProgramStoryGallery
           eyebrow="A Fresh Start"

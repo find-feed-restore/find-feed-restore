@@ -37,9 +37,9 @@
 
 .miriamsHopeHero {
   background-image:
-    radial-gradient(circle at 18% 22%, rgb(103 134 155 / 55%), transparent 52%),
-    radial-gradient(circle at 86% 88%, rgb(124 36 35 / 38%), transparent 48%),
-    linear-gradient(135deg, #0e4061 0%, var(--color-ink) 100%);
+    linear-gradient(135deg, rgb(14 64 97 / 80%) 0%, rgb(7 27 42 / 74%) 100%),
+    url("/images/programs/miriams-hope/hero.webp");
+  background-position: center 35%;
 }
 
 .heroContent {

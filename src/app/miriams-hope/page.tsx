@@ -48,6 +48,7 @@ export default function MiriamsHopePage() {
           title="Miriam’s Hope"
           description="Safe. Stable. Hopeful."
           backgroundClassName={programStyles.miriamsHopeHero}
+          backgroundImage="/images/programs/miriams-hope/hero.webp"
         />
         <MiriamsHopeIntro />
         <MiriamsHopeServices />

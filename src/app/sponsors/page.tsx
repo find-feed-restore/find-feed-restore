@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SponsorsPageBody } from "@/components/sponsor-sections";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { defaultOpenGraphImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Partners & Sponsors - Find Feed Restore",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/sponsors/",
     siteName: "Find Feed Restore",
+    images: defaultOpenGraphImages,
     title: "Partners & Sponsors - Find Feed Restore",
     description: "Community partners helping Find, Feed & Restore provide housing and hope for families.",
   },

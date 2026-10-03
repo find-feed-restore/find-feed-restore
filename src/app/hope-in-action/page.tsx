@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { HopePageBody } from "@/components/hope-sections";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { defaultOpenGraphImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Hope In Action - Find Feed Restore",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/hope-in-action/",
     siteName: "Find Feed Restore",
+    images: defaultOpenGraphImages,
     title: "Hope In Action - Find Feed Restore",
     description: "Follow Find Feed Restore stories of hope and moments of impact across Central Florida.",
   },

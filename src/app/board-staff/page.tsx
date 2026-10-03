@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BoardSection, PeopleCta, PeopleHero, StaffSection } from "@/components/people-sections";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { defaultOpenGraphImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Board & Staff - Find Feed Restore",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/board-staff/",
     siteName: "Find Feed Restore",
+    images: defaultOpenGraphImages,
     title: "Board & Staff - Find Feed Restore",
     description: "Meet the staff and board members guiding Find, Feed & Restore.",
   },

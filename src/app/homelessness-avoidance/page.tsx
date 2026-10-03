@@ -9,6 +9,7 @@ import {
 import programStyles from "@/components/program-sections.module.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { defaultOpenGraphImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Homelessness Avoidance - Find Feed Restore",
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/homelessness-avoidance/",
     siteName: "Find Feed Restore",
+    images: defaultOpenGraphImages,
     title: "Homelessness Avoidance - Find Feed Restore",
     description: "Find Feed Restore provides temporary financial assistance and stability services that help Central Florida families avoid homelessness.",
   },

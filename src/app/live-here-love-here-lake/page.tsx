@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { LiveHerePageBody } from "@/components/live-here-sections";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { defaultOpenGraphImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Corporate Partnership - Find Feed Restore",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/live-here-love-here-lake/",
     siteName: "Find Feed Restore",
+    images: defaultOpenGraphImages,
     title: "Corporate Partnership - Find Feed Restore",
     description: "Corporate partnership opportunities for local businesses helping families find home through Find, Feed & Restore.",
   },

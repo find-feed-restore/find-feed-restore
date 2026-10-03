@@ -10,6 +10,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TestimonialVideos } from "@/components/testimonial-videos";
 import type { TestimonialVideo } from "@/data/testimonial-videos";
+import { defaultOpenGraphImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Affordable Housing - Find Feed Restore",
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/affordable-housing/",
     siteName: "Find Feed Restore",
+    images: defaultOpenGraphImages,
     title: "Affordable Housing - Find Feed Restore",
     description: "Find Feed Restore helps working families with children find safe, stable, and affordable housing in Central Florida.",
   },

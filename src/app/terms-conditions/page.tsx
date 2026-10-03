@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { LegalTermsPageBody } from "@/components/legal-sections";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { defaultOpenGraphImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions - Find Feed Restore",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/terms-conditions/",
     siteName: "Find Feed Restore",
+    images: defaultOpenGraphImages,
     title: "Terms & Conditions - Find Feed Restore",
     description: "Terms and Conditions governing use of the Find Feed Restore website.",
   },

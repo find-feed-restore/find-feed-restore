@@ -10,6 +10,7 @@ import {
   VolunteerSteps,
 } from "@/components/volunteer-sections";
 import type { TestimonialVideo } from "@/data/testimonial-videos";
+import { defaultOpenGraphImages } from "@/lib/seo";
 
 const volunteerVideos: TestimonialVideo[] = [
   {
@@ -31,6 +32,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/volunteer/",
     siteName: "Find Feed Restore",
+    images: defaultOpenGraphImages,
     title: "Volunteer - Find Feed Restore",
     description:
       "Give your time and talents to help families with children move toward housing, stability, and hope.",

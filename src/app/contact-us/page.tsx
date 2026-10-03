@@ -8,6 +8,7 @@ import {
 } from "@/components/contact-sections";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { defaultOpenGraphImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contact Us - Find Feed Restore",
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/contact-us/",
     siteName: "Find Feed Restore",
+    images: defaultOpenGraphImages,
     title: "Contact Us - Find Feed Restore",
     description: "Contact Find Feed Restore for housing assistance, volunteer opportunities, partnerships, donations, and general questions.",
   },

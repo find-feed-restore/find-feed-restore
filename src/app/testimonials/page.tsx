@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TestimonialVideos } from "@/components/testimonial-videos";
 import { testimonialVideos } from "@/data/testimonial-videos";
+import { defaultOpenGraphImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Testimonials - Find Feed Restore",
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/testimonials/",
     siteName: "Find Feed Restore",
+    images: defaultOpenGraphImages,
     title: "Testimonials - Find Feed Restore",
     description: "Watch client stories and community videos showing how Find Feed Restore helps families move from crisis toward housing, stability, and hope.",
   },

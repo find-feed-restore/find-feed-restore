@@ -25,18 +25,21 @@ const heebo = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.findfeedrestore.com"),
-  title: "Find Feed Restore - Home - Find Feed Restore",
+  title: "Find Feed Restore - Housing for Central Florida Families",
   description:
-    "Find, Feed & Restore is a Central Florida non-profit organization working to end homelessness for families with children through housing, financial literacy, and mental health counseling.",
+    "Find, Feed & Restore is a Central Florida nonprofit helping homeless families with children find housing, financial stability, counseling, and hope.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "/",
     siteName: "Find Feed Restore",
-    title: "Find Feed Restore - Home - Find Feed Restore",
+    title: "Find Feed Restore - Housing for Central Florida Families",
     description:
-      "A Central Florida non-profit organization helping homeless families with children through housing, financial literacy, and mental health counseling.",
+      "A Central Florida nonprofit helping homeless families with children find housing, financial stability, counseling, and hope.",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 

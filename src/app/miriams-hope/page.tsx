@@ -14,7 +14,7 @@ import type { TestimonialVideo } from "@/data/testimonial-videos";
 
 export const metadata: Metadata = {
   title: "Miriam’s Hope - Find Feed Restore",
-  description: "Miriam’s Hope provides 6–12 months of no-cost transitional housing and support for survivors of domestic violence and their children.",
+  description: "Miriam’s Hope gives survivors of domestic violence and their children in Central Florida 6–12 months of no-cost transitional housing and support.",
   alternates: { canonical: "/miriams-hope/" },
   openGraph: {
     type: "website",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     url: "/miriams-hope/",
     siteName: "Find Feed Restore",
     title: "Miriam’s Hope - Find Feed Restore",
-    description: "Miriam’s Hope provides 6–12 months of no-cost transitional housing and support for survivors of domestic violence and their children.",
+    description: "Miriam’s Hope gives survivors of domestic violence and their children in Central Florida 6–12 months of no-cost transitional housing and support.",
   },
 };
 

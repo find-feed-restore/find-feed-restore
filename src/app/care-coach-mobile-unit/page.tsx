@@ -9,6 +9,7 @@ import {
 import programStyles from "@/components/program-sections.module.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { defaultOpenGraphImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Care Coach - Find Feed Restore",
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/care-coach-mobile-unit/",
     siteName: "Find Feed Restore",
+    images: defaultOpenGraphImages,
     title: "Care Coach - Find Feed Restore",
     description: "The Care Coach mobile unit brings health, housing, hunger relief, and practical support to underserved Central Florida communities.",
   },

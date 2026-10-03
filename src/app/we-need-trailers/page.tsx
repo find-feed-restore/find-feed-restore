@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TrailerPageBody } from "@/components/trailer-sections";
+import { defaultOpenGraphImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "We Need Trailers - Find Feed Restore",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/we-need-trailers/",
     siteName: "Find Feed Restore",
+    images: defaultOpenGraphImages,
     title: "We Need Trailers - Find Feed Restore",
     description: "Donate a travel trailer, fifth wheel, or RV to help house families with children in Central Florida.",
   },

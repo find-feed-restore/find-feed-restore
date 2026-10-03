@@ -1,24 +1,30 @@
 # Find Feed Restore
 
-> Find Feed Restore is a Central Florida nonprofit helping families with children move from homelessness to stability through housing, financial literacy, mental health counseling, and practical support.
+> Find Feed Restore (Find, Feed & Restore) is a Central Florida nonprofit, based in Clermont, FL, helping families with children and survivors of domestic violence move from homelessness to stability through housing, financial literacy, mental health counseling, and practical support.
 
 This file provides a concise directory of the site's canonical public pages. Use the linked pages as the authoritative source for program details, legal terms, contact information, and current campaigns.
 
+- Address: 20180 US Highway 27 Ste 308, Clermont, FL 34715
+- Phone: (866) 236-2983
+- Email: info@findfeedrestore.com
+- Donate: https://findfeedrestore-bloom.kindful.com/
+- Apply for housing assistance: https://app.planstreetinc.com/findfeedrestore/PublicForm
+
 ## Main Pages
 
-- [Home](https://www.findfeedrestore.com/): Mission, vision, impact, programs, and ways to support Find Feed Restore.
+- [Home](https://www.findfeedrestore.com/): Mission, impact, programs, and ways to support Find Feed Restore.
 - [Contact Us](https://www.findfeedrestore.com/contact-us/): Contact information and links for assistance, volunteering, donations, and partnerships.
 - [Board & Staff](https://www.findfeedrestore.com/board-staff/): Staff and board members guiding the organization.
-- [Sponsors](https://www.findfeedrestore.com/sponsors/): Organizations supporting Find Feed Restore.
-- [Terms & Conditions](https://www.findfeedrestore.com/terms-conditions/): Terms governing use of the website.
+- [Volunteer](https://www.findfeedrestore.com/volunteer/): Volunteer opportunities supporting families across Central Florida.
+- [Partners & Sponsors](https://www.findfeedrestore.com/sponsors/): Organizations supporting Find Feed Restore.
 
 ## Programs
 
-- [Affordable Housing](https://www.findfeedrestore.com/affordable-housing/): Affordable housing for working families with children.
-- [Housing First](https://www.findfeedrestore.com/housing-first/): Housing and support that help families regain stability.
-- [Domestic Violence (Miriam’s Hope)](https://www.findfeedrestore.com/miriams-hope/): No-cost transitional housing and support for survivors of domestic violence and their children.
-- [Homelessness Avoidance](https://www.findfeedrestore.com/homelessness-avoidance/): Assistance for households at risk of homelessness.
-- [Care Coach Mobile Unit](https://www.findfeedrestore.com/care-coach-mobile-unit/): Mobile health, housing, meal, and support resources.
+- [Domestic Violence (Miriam’s Hope)](https://www.findfeedrestore.com/miriams-hope/): 6–12 months of no-cost transitional housing for survivors of domestic violence and their children, with trauma-informed and mental health counseling, case management, financial literacy, employment and credit support, childcare connections, and help preparing for permanent housing.
+- [Affordable Housing](https://www.findfeedrestore.com/affordable-housing/): Permanent affordable housing (Hannah Grace Gardens) for working families with children.
+- [Housing First](https://www.findfeedrestore.com/housing-first/): 6–12 months of rent- and utility-free housing and support that help homeless families with children regain stability.
+- [Homelessness Avoidance](https://www.findfeedrestore.com/homelessness-avoidance/): Temporary financial assistance with rent, mortgage, and utilities, plus stability services, for households at risk of homelessness.
+- [Care Coach Mobile Unit](https://www.findfeedrestore.com/care-coach-mobile-unit/): Mobile health, housing, meal, and support resources for underserved communities.
 
 ## Stories and Media
 
@@ -28,8 +34,13 @@ This file provides a concise directory of the site's canonical public pages. Use
 
 ## Campaigns
 
-- [Live Here Love Here Lake](https://www.findfeedrestore.com/live-here-love-here-lake/): Local business campaign supporting housing for families.
-- [We Need Trailers](https://www.findfeedrestore.com/we-need-trailers/): Trailer ministry information and the website's server-processed inquiry form.
+- [Live Here Love Here Lake](https://www.findfeedrestore.com/live-here-love-here-lake/): Corporate partnership campaign for local businesses supporting housing for families.
+- [We Need Trailers](https://www.findfeedrestore.com/we-need-trailers/): Donate a travel trailer, fifth wheel, or RV to house a family; includes the trailer donation inquiry form.
+
+## Legal
+
+- [Terms & Conditions](https://www.findfeedrestore.com/terms-conditions/): Terms governing use of the website.
+- [Privacy Policy](https://www.findfeedrestore.com/privacy-policy/): How the website handles personal information.
 
 ## Site Index
 

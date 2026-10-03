@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PrivacyPolicyPageBody } from "@/components/privacy-policy-sections";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { defaultOpenGraphImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Privacy Policy - Find Feed Restore",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/privacy-policy/",
     siteName: "Find Feed Restore",
+    images: defaultOpenGraphImages,
     title: "Privacy Policy - Find Feed Restore",
     description: "Privacy Policy for the Find Feed Restore website and Instagram API integration.",
   },

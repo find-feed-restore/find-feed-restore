@@ -8,6 +8,7 @@ import {
 } from "@/components/editorial-sections";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { defaultOpenGraphImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "News & Media - Find Feed Restore",
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/news-media/",
     siteName: "Find Feed Restore",
+    images: defaultOpenGraphImages,
     title: "News & Media - Find Feed Restore",
     description: "Recent news, press coverage, community partnerships, and stories of impact from Find Feed Restore.",
   },

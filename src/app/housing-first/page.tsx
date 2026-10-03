@@ -11,6 +11,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TestimonialVideos } from "@/components/testimonial-videos";
 import { clientTestimonialVideos } from "@/data/testimonial-videos";
+import { defaultOpenGraphImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Housing First - Find Feed Restore",
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/housing-first/",
     siteName: "Find Feed Restore",
+    images: defaultOpenGraphImages,
     title: "Housing First - Find Feed Restore",
     description: "Housing First gives homeless families with children temporary rent- and utility-free housing while they regain stability.",
   },

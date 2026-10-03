@@ -41,6 +41,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+  // Preview deployments (dev.findfeedrestore.com and pull request URLs) must never be indexed.
+  ...(process.env.VERCEL_ENV === "preview" ? { robots: { index: false, follow: false } } : {}),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

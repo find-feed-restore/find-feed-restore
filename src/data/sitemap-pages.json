@@ -1,0 +1,273 @@
+[
+  {
+    "path": "/",
+    "title": "Home",
+    "description": "Find, Feed & Restore is a Central Florida nonprofit helping homeless families with children find housing, financial stability, counseling, and hope.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/hero-family.jpg",
+      "/images/programs/miriams-hope/hero.webp",
+      "/images/affordable-housing.jpg",
+      "/images/housing-first.jpg",
+      "/images/homelessness-avoidance.jpg",
+      "/images/care-coach.jpg"
+    ]
+  },
+  {
+    "path": "/miriams-hope/",
+    "title": "Miriam’s Hope",
+    "description": "Miriam’s Hope gives survivors of domestic violence and their children in Central Florida 6–12 months of no-cost transitional housing and support.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/programs/miriams-hope/hero.webp",
+      "/images/programs/miriams-hope/story-reading.webp",
+      "/images/programs/miriams-hope/story-park.webp",
+      "/images/programs/miriams-hope/story-home.webp",
+      "/images/programs/miriams-hope/story-embrace.webp",
+      "/images/programs/miriams-hope/1rDQZta18EY.jpg"
+    ]
+  },
+  {
+    "path": "/affordable-housing/",
+    "title": "Affordable Housing",
+    "description": "Find Feed Restore helps working families with children find safe, stable, and affordable housing in Central Florida.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/programs/affordable-housing/hero.jpg",
+      "/images/unique/affordable-intro.webp",
+      "/images/programs/affordable-housing/UIg8fVh3lq0.jpg"
+    ]
+  },
+  {
+    "path": "/housing-first/",
+    "title": "Housing First",
+    "description": "Housing First gives homeless families with children temporary rent- and utility-free housing while they regain stability.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/housing-first.jpg",
+      "/images/unique/housing-intro-v2.webp",
+      "/images/unique/housing-story-1.webp",
+      "/images/unique/housing-story-2.webp",
+      "/images/unique/housing-story-3.webp",
+      "/images/unique/housing-story-4.webp",
+      "/images/editorial/testimonials/pLxLVhRZUso.jpg",
+      "/images/editorial/testimonials/4AtAVDaScBI.jpg",
+      "/images/editorial/testimonials/SFWs27dkzeM.jpg"
+    ]
+  },
+  {
+    "path": "/homelessness-avoidance/",
+    "title": "Homelessness Avoidance",
+    "description": "Find Feed Restore provides temporary financial assistance and stability services that help Central Florida families avoid homelessness.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/unique/homelessness-hero.webp",
+      "/images/homelessness-avoidance.jpg",
+      "/images/unique/homelessness-story-1.webp",
+      "/images/unique/homelessness-story-2.webp",
+      "/images/unique/homelessness-story-3.webp",
+      "/images/unique/homelessness-story-4.webp"
+    ]
+  },
+  {
+    "path": "/care-coach-mobile-unit/",
+    "title": "Care Coach",
+    "description": "The Care Coach mobile unit brings health, housing, hunger relief, and practical support to underserved Central Florida communities.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/programs/care-coach/care-coach.jpg",
+      "/images/programs/affordable-housing/support-family.jpg",
+      "/images/programs/care-coach/framing.jpg",
+      "/images/give-banner.jpg"
+    ]
+  },
+  {
+    "path": "/volunteer/",
+    "title": "Volunteer",
+    "description": "Volunteer with Find Feed Restore and help families with children move toward housing, stability, and hope across Central Florida.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/volunteer/volunteer-hero.webp",
+      "/images/volunteer/neighbors-helping.webp",
+      "/images/volunteer/T3XRcY1_nG4.jpg"
+    ]
+  },
+  {
+    "path": "/live-here-love-here-lake/",
+    "title": "Corporate Partnership",
+    "description": "Corporate partnership opportunities for local businesses helping families find home through Find, Feed & Restore.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/campaigns/live-here-love-here/campaign-logo.png",
+      "/images/campaigns/live-here-love-here/denise-calderon.png",
+      "/images/campaigns/live-here-love-here/living-message.jpg",
+      "/images/campaigns/live-here-love-here/bluewater-family-wellness.jpg",
+      "/images/campaigns/live-here-love-here/dahl-family-law.jpg",
+      "/images/campaigns/live-here-love-here/southern-stoneworks.png",
+      "/images/campaigns/live-here-love-here/christine-holland.png",
+      "/images/campaigns/live-here-love-here/kiwanis-golden-triangle.png",
+      "/images/campaigns/live-here-love-here/legacy-construction.png",
+      "/images/campaigns/live-here-love-here/southern-home-specialists.png",
+      "/images/campaigns/live-here-love-here/teamont.jpeg",
+      "/images/campaigns/live-here-love-here/super-claims-adjusting.png",
+      "/images/campaigns/live-here-love-here/south-lake-business-leaders.png",
+      "/images/campaigns/live-here-love-here/hrs-construction.png",
+      "/images/campaigns/live-here-love-here/omg-juice.png",
+      "/images/campaigns/live-here-love-here/lincoln-park.webp",
+      "/images/campaigns/live-here-love-here/cruz-team.png",
+      "/images/campaigns/live-here-love-here/olympus-realty.jpg",
+      "/images/campaigns/live-here-love-here/key-food.png",
+      "/images/campaigns/live-here-love-here/main-squeeze.jpg",
+      "/images/campaigns/live-here-love-here/pdq.png",
+      "/images/campaigns/live-here-love-here/paula-wold.png",
+      "/images/campaigns/live-here-love-here/a-very-handyman.jpeg",
+      "/images/campaigns/live-here-love-here/milestone-counseling.jpg",
+      "/images/campaigns/live-here-love-here/skillful-antics.png",
+      "/images/campaigns/live-here-love-here/better-life-church.jpg",
+      "/images/campaigns/live-here-love-here/affordable-insurance.webp",
+      "/images/campaigns/live-here-love-here/home-instead.jpeg",
+      "/images/campaigns/live-here-love-here/wheatley-realty.webp",
+      "/images/campaigns/live-here-love-here/bret-jones-law.png",
+      "/images/campaigns/live-here-love-here/video-poster.jpg"
+    ]
+  },
+  {
+    "path": "/sponsors/",
+    "title": "Partners & Sponsors",
+    "description": "Community partners helping Find, Feed & Restore provide housing and hope for families.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/unique/sponsors-hero.webp",
+      "/images/sponsors/duke-energy.png",
+      "/images/sponsors/live-well.png",
+      "/images/sponsors/adventhealth.png",
+      "/images/sponsors/united-way.png",
+      "/images/sponsors/community-foundation.png",
+      "/images/sponsors/truist-logo.png",
+      "/images/sponsors/bret-jones.jpg",
+      "/images/sponsors/womens-giving-alliance.png",
+      "/images/sponsors/kiwanis-clermont.png",
+      "/images/sponsors/morgridge-foundation.png",
+      "/images/sponsors/lake-county.jpg",
+      "/images/sponsors/rjs-boat-lifts.png",
+      "/images/sponsors/marks-flooring.png",
+      "/images/sponsors/living-hope.png",
+      "/images/sponsors/merideth-nagel.png",
+      "/images/sponsors/living-message.png",
+      "/images/sponsors/lincoln-park.png",
+      "/images/sponsors/kiwanis-south-lake.webp"
+    ]
+  },
+  {
+    "path": "/we-need-trailers/",
+    "title": "We Need Trailers",
+    "description": "Donate a travel trailer, fifth wheel, or RV to help house families with children in Central Florida.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/programs/care-coach/care-coach.jpg",
+      "/images/campaigns/we-need-trailers/trailer-ffr.png",
+      "/images/campaigns/we-need-trailers/latoya-family.jpg",
+      "/images/campaigns/we-need-trailers/community-support.jpg"
+    ]
+  },
+  {
+    "path": "/news-media/",
+    "title": "News & Media",
+    "description": "Recent news, press coverage, community partnerships, and stories of impact from Find Feed Restore.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/unique/news-hero.webp"
+    ]
+  },
+  {
+    "path": "/testimonials/",
+    "title": "Testimonials",
+    "description": "Watch client stories and community videos showing how Find Feed Restore helps families move from crisis toward housing, stability, and hope.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/unique/testimonials-hero.webp",
+      "/images/editorial/testimonials/pLxLVhRZUso.jpg",
+      "/images/editorial/testimonials/4AtAVDaScBI.jpg",
+      "/images/editorial/testimonials/SFWs27dkzeM.jpg",
+      "/images/editorial/testimonials/xEHiFubpcks.jpg",
+      "/images/editorial/testimonials/kyG14I1jJDg.jpg",
+      "/images/editorial/testimonials/7VC1Sl9h0VI.jpg",
+      "/images/editorial/testimonials/8_yZI7EGC84.jpg"
+    ]
+  },
+  {
+    "path": "/hope-in-action/",
+    "title": "Hope In Action",
+    "description": "Follow Find Feed Restore stories of hope and moments of impact across Central Florida.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/unique/hope-hero.webp"
+    ]
+  },
+  {
+    "path": "/board-staff/",
+    "title": "Board & Staff",
+    "description": "Meet the staff and board members guiding Find, Feed & Restore.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/unique/people-hero.webp",
+      "/images/people/brian-broadway.jpg",
+      "/images/people/allison-broadway.jpg",
+      "/images/people/lisa-bishop.jpg",
+      "/images/people/holly-grant.jpg",
+      "/images/people/jeremy-elliott.jpg",
+      "/images/people/mia-cortes.jpg",
+      "/images/people/jennifer-bachmann.jpg",
+      "/images/people/dawn-simons.jpg",
+      "/images/people/lauren-narvaez.jpg",
+      "/images/people/carolyn-scott.jpg",
+      "/images/people/mark-hughes.jpg",
+      "/images/people/bridget-montemayor.jpg",
+      "/images/people/kelley-moring.jpg",
+      "/images/people/jaime-simons.jpg",
+      "/images/people/kathy-smith.jpg",
+      "/images/people/brian-hughey.jpg",
+      "/images/people/carlos-martinez.jpg"
+    ]
+  },
+  {
+    "path": "/contact-us/",
+    "title": "Contact Us",
+    "description": "Contact Find Feed Restore for housing assistance, volunteer opportunities, partnerships, donations, and general questions.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/unique/contact-hero.webp",
+      "/images/unique/contact-intro.webp",
+      "/images/unique/contact-gallery-1.webp",
+      "/images/contact/family-by-trailer.jpg",
+      "/images/unique/contact-gallery-2.webp",
+      "/images/contact/amelia-and-ariel.jpg",
+      "/images/unique/contact-gallery-3.webp"
+    ]
+  },
+  {
+    "path": "/terms-conditions/",
+    "title": "Terms & Conditions",
+    "description": "Terms and Conditions governing use of the Find Feed Restore website.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/legal/terms-hero.jpg"
+    ]
+  },
+  {
+    "path": "/privacy-policy/",
+    "title": "Privacy Policy",
+    "description": "Privacy Policy for the Find Feed Restore website and Instagram API integration.",
+    "lastModified": "2026-10-02",
+    "images": [
+      "/images/legal/terms-hero.jpg"
+    ]
+  },
+  {
+    "path": "/sitemap/",
+    "title": "Site Map",
+    "description": "Browse every page on the Find Feed Restore website, including programs, ways to get involved, stories, and contact details.",
+    "lastModified": "2026-10-02",
+    "images": []
+  }
+]

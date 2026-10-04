@@ -64,7 +64,7 @@ export default function HousingFirstPage() {
           title="Housing First"
           description="Helping homeless families with children live rent and utility free while they regain stability."
           backgroundClassName={programStyles.housingFirstHero}
-          backgroundImage="/images/housing-first.jpg"
+          backgroundName="housing-first-hero"
         />
         <ProgramIntro
           eyebrow="Housing First"

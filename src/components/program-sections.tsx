@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HeroImagePreload } from "./hero-image-preload";
+import { ProgramVideo, type ProgramVideoSource } from "./program-video";
 import styles from "./program-sections.module.css";
 
 type ProgramHeroProps = {
@@ -8,7 +9,7 @@ type ProgramHeroProps = {
   title: string;
   description: string;
   backgroundClassName: string;
-  backgroundImage?: string;
+  backgroundName?: string;
 };
 
 type ProgramIntroProps = {
@@ -52,10 +53,10 @@ function ProgramButton({ href, children }: { href: string; children: React.React
   );
 }
 
-export function ProgramHero({ eyebrow, title, description, backgroundClassName, backgroundImage }: ProgramHeroProps) {
+export function ProgramHero({ eyebrow, title, description, backgroundClassName, backgroundName }: ProgramHeroProps) {
   return (
     <>
-      {backgroundImage ? <HeroImagePreload href={backgroundImage} /> : null}
+      {backgroundName ? <HeroImagePreload name={backgroundName} /> : null}
       <section className={`${styles.hero} ${backgroundClassName}`} aria-labelledby="program-title">
         <div className={styles.heroContent}>
           <span className={styles.lightEyebrow}>{eyebrow}</span>
@@ -129,10 +130,7 @@ export function ProgramStoryGallery({
   description: string;
   images: StoryImage[];
   galleryClassName?: string;
-  video?: {
-    src: string;
-    title: string;
-  };
+  video?: ProgramVideoSource;
 }) {
   return (
     <section className={styles.media} aria-labelledby="program-stories-title">
@@ -154,11 +152,7 @@ export function ProgramStoryGallery({
             />
           ))}
         </div>
-        {video ? (
-          <div className={styles.programVideo}>
-            <iframe src={video.src} title={video.title} frameBorder="0" allowFullScreen />
-          </div>
-        ) : null}
+        {video ? <ProgramVideo video={video} /> : null}
       </div>
     </section>
   );

@@ -22,7 +22,7 @@ export function LiveHereStoryVideo() {
         className={styles.video}
         src={`${assetRoot}/keller-williams-volunteer-day.mp4`}
         controls
-        preload="metadata"
+        preload="none"
         controlsList="nodownload"
       >
         Your browser does not support the video element.

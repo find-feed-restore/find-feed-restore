@@ -87,7 +87,7 @@ const givingOptions = [
 export function HeroSection() {
   return (
     <>
-      <HeroImagePreload href="/images/hero-family.jpg" />
+      <HeroImagePreload name="home-hero" mobileMaxWidth={520} />
       <section className={styles.hero} aria-labelledby="hero-title">
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>

@@ -9,7 +9,7 @@ const donationUrl = "https://findfeedrestore-bloom.kindful.com/";
 export function ContactHero() {
   return (
     <>
-      <HeroImagePreload href="/images/unique/contact-hero.webp" />
+      <HeroImagePreload name="contact-hero" />
       <section className={styles.hero} aria-labelledby="contact-title">
         <div className={styles.heroInner}>
           <span>Get In Touch</span>
@@ -161,13 +161,9 @@ export function ContactGallery() {
         </header>
         <div className={styles.galleryGrid}>
           {galleryImages.map((image) => (
-            <div
-              className={`${styles.galleryItem} ${image.className ?? ""}`}
-              style={{ backgroundImage: `url("${image.src}")` }}
-              role="img"
-              aria-label={image.label}
-              key={image.src}
-            />
+            <div className={`${styles.galleryItem} ${image.className ?? ""}`} key={image.src}>
+              <Image src={image.src} alt={image.label} fill sizes="(max-width: 700px) calc(100vw - 36px), 50vw" />
+            </div>
           ))}
         </div>
       </div>

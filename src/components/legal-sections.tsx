@@ -55,7 +55,7 @@ const sections = [
 export function LegalTermsPageBody() {
   return (
     <div className={styles.page}>
-      <HeroImagePreload href="/images/legal/terms-hero.jpg" />
+      <HeroImagePreload name="legal-hero" />
       <section className={styles.hero} aria-labelledby="terms-title">
         <div className={styles.heroContainer}>
           <div className={styles.heroGrid}>

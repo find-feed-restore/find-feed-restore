@@ -34,7 +34,7 @@ const sponsors: Sponsor[] = [
 export function SponsorsHero() {
   return (
     <>
-      <HeroImagePreload href="/images/unique/sponsors-hero.webp" />
+      <HeroImagePreload name="sponsors-hero" />
       <section className={styles.hero} aria-labelledby="sponsors-title">
         <div className={styles.heroInner}>
           <span>Partners & Sponsors</span>

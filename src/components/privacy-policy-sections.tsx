@@ -5,7 +5,7 @@ import styles from "./legal-sections.module.css";
 export function PrivacyPolicyPageBody() {
   return (
     <div className={styles.page}>
-      <HeroImagePreload href="/images/legal/terms-hero.jpg" />
+      <HeroImagePreload name="legal-hero" />
       <section className={styles.hero} aria-labelledby="privacy-title">
         <div className={styles.heroContainer}>
           <div className={styles.heroGrid}>

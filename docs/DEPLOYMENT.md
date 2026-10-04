@@ -35,6 +35,24 @@ QA_BASE_URL=http://localhost:3000 npm run sitemap:scan
 
 The scan crawls internal links from the homepage, keeps pages that return 200 with a matching canonical URL and no `noindex`, records each page's images and last git change date, and fails if it finds a broken internal link. New pages appear under "More Pages" on `/sitemap/` until they are added to a section in `src/lib/sitemap.ts`.
 
+## Background images and performance
+
+Page heroes, call-to-action banners, and the footer texture are CSS backgrounds served from `public/images/backgrounds/`. Those files are generated, not hand-edited. After replacing a source photo or adding a hero, list it in `scripts/build-background-images.mjs` and run:
+
+```sh
+npm run images:backgrounds
+```
+
+Each hero gets a desktop file and a smaller `-mobile` file. The stylesheet picks one through the `--hero-image` variable and a `max-width` media query, and `HeroImagePreload` preloads the matching file with the same media query, so the two must stay in step.
+
+Files under `/images/` are cached by browsers for a week. When a photo is replaced, give it a new filename if returning visitors must see it immediately.
+
+YouTube videos load only when a visitor presses play (`ProgramVideo`, `TestimonialVideos`), which keeps YouTube's player and cookies off the initial page load.
+
+## Analytics
+
+Google Analytics 4 (measurement ID `G-C884BBPZ88`, property `347722460`) is loaded by `src/components/google-analytics.tsx` from the root layout. It only renders when `VERCEL_ENV` is `production`, so dev and pull request previews are never counted. To test it locally, build with `VERCEL_ENV=production npm run build`.
+
 ## Daily development
 
 1. Branch from `develop` for non-trivial work.

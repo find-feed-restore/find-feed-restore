@@ -11,10 +11,11 @@
 }
 
 .hero {
+  --hero-image: url("/images/backgrounds/legal-hero.webp");
   position: relative;
   min-height: 331px;
   padding: 162px 0 100px;
-  background: url("/images/legal/terms-hero.jpg") 0 29% / cover no-repeat;
+  background: var(--hero-image) 0 29% / cover no-repeat;
 }
 
 .hero::before {
@@ -124,4 +125,11 @@
   .hero h1 { font-size: 22px; line-height: 1.3; }
   .breadcrumb { justify-content: center; margin-top: 10px; }
   .content { padding: 40px 10px; }
+}
+
+/* Phones get a smaller hero file; scripts/build-background-images.mjs generates both. */
+@media (max-width: 767px) {
+  .hero {
+    --hero-image: url("/images/backgrounds/legal-hero-mobile.webp");
+  }
 }

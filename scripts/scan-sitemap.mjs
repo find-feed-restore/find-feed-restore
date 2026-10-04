@@ -24,6 +24,8 @@ function localImage(source) {
   const url = new URL(decode(source), baseUrl);
   const pathname =
     url.pathname.replace(/\/$/, "") === "/_next/image" ? new URL(url.searchParams.get("url") ?? "", baseUrl).pathname : url.pathname;
+  // Phone-size hero files duplicate the desktop ones, so only the desktop file is listed.
+  if (/^\/images\/backgrounds\/.+-mobile\.webp$/.test(pathname)) return null;
   return pathname.startsWith("/images/") && !pathname.endsWith(".svg") ? pathname : null;
 }
 

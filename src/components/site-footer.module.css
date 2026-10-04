@@ -10,7 +10,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: url("/images/footer-hands.png") 0 80% / cover no-repeat;
+  background: url("/images/backgrounds/footer-hands.webp") 0 80% / cover no-repeat;
   opacity: 0.01;
   pointer-events: none;
 }

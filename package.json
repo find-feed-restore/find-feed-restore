@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "sitemap:scan": "node scripts/scan-sitemap.mjs",
+    "images:backgrounds": "node scripts/build-background-images.mjs",
     "test:trailer-form": "node --test tests/trailer-submission.test.mjs",
     "test:instagram-feed": "node --test tests/instagram-feed.test.mjs",
     "test:security-headers": "node --test tests/security-headers.test.mjs",

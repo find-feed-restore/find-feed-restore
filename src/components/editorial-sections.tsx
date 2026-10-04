@@ -33,13 +33,11 @@ export type NewsItem = {
 };
 
 export function EditorialHero({ eyebrow, title, description, variant }: EditorialHeroProps) {
-  const backgroundImage = variant === "news"
-    ? "/images/unique/news-hero.webp"
-    : "/images/unique/testimonials-hero.webp";
+  const backgroundName = variant === "news" ? "news-hero" : "testimonials-hero";
 
   return (
     <>
-      <HeroImagePreload href={backgroundImage} />
+      <HeroImagePreload name={backgroundName} />
       <section className={`${styles.hero} ${variant === "news" ? styles.newsHero : styles.testimonialsHero}`} aria-labelledby="editorial-title">
         <div className={styles.heroInner}>
           <span>{eyebrow}</span>

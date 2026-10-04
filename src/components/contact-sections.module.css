@@ -15,6 +15,7 @@
 }
 
 .hero {
+  --hero-image: url("/images/backgrounds/contact-hero.webp");
   position: relative;
   min-height: 520px;
   padding: 120px 24px;
@@ -24,7 +25,7 @@
   text-align: center;
   background:
     linear-gradient(rgba(7, 27, 42, 0.72), rgba(7, 27, 42, 0.72)),
-    url("/images/unique/contact-hero.webp") center / cover;
+    var(--hero-image) center / cover;
   color: #fff;
 }
 
@@ -325,9 +326,11 @@
   position: relative;
   overflow: hidden;
   border-radius: 34px;
-  background-position: center;
-  background-size: cover;
   box-shadow: 0 22px 60px rgba(7, 27, 42, 0.07), 0 2px 12px rgba(7, 27, 42, 0.04);
+}
+
+.galleryItem img {
+  object-fit: cover;
 }
 
 .galleryItem::after {
@@ -350,7 +353,7 @@
   text-align: center;
   background:
     linear-gradient(rgba(7, 27, 42, 0.8), rgba(7, 27, 42, 0.8)),
-    url("/images/unique/contact-cta.webp") center / cover;
+    url("/images/backgrounds/contact-cta.webp") center / cover;
 }
 
 .ctaInner {
@@ -480,5 +483,12 @@
   .connectionCard a,
   .mainButton {
     transition: none;
+  }
+}
+
+/* Phones get a smaller hero file; scripts/build-background-images.mjs generates both. */
+@media (max-width: 767px) {
+  .hero {
+    --hero-image: url("/images/backgrounds/contact-hero-mobile.webp");
   }
 }

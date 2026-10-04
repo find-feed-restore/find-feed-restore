@@ -10,6 +10,7 @@
 }
 
 .hero {
+  --hero-image: url("/images/backgrounds/people-hero.webp");
   position: relative;
   min-height: 390px;
   padding: 95px 24px;
@@ -19,7 +20,7 @@
   text-align: center;
   background:
     linear-gradient(rgba(7, 27, 42, 0.74), rgba(7, 27, 42, 0.74)),
-    url("/images/unique/people-hero.webp") center / cover;
+    var(--hero-image) center / cover;
   color: #fff;
 }
 
@@ -222,7 +223,7 @@
   text-align: center;
   background:
     linear-gradient(rgba(7, 27, 42, 0.78), rgba(7, 27, 42, 0.78)),
-    url("/images/unique/people-cta.webp") center / cover;
+    url("/images/backgrounds/people-cta.webp") center / cover;
 }
 
 .cta h2 {
@@ -398,5 +399,12 @@
   .personCard,
   .button {
     transition: none;
+  }
+}
+
+/* Phones get a smaller hero file; scripts/build-background-images.mjs generates both. */
+@media (max-width: 767px) {
+  .hero {
+    --hero-image: url("/images/backgrounds/people-hero-mobile.webp");
   }
 }

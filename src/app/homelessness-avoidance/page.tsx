@@ -62,7 +62,7 @@ export default function HomelessnessAvoidancePage() {
           title="Homelessness Avoidance"
           description="Providing temporary financial assistance and stability services to help families avoid homelessness."
           backgroundClassName={programStyles.homelessnessAvoidanceHero}
-          backgroundImage="/images/unique/homelessness-hero.webp"
+          backgroundName="homelessness-avoidance-hero"
         />
         <ProgramIntro
           eyebrow="Homelessness Avoidance"

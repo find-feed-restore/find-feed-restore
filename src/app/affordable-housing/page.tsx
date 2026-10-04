@@ -68,7 +68,7 @@ export default function AffordableHousingPage() {
           title="Affordable Housing"
           description="Helping working families with children find safe, stable, and affordable housing."
           backgroundClassName={programStyles.affordableHousingHero}
-          backgroundImage="/images/programs/affordable-housing/hero.jpg"
+          backgroundName="affordable-housing-hero"
         />
         <ProgramIntro
           eyebrow="Affordable Housing"

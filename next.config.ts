@@ -27,7 +27,8 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   trailingSlash: true,
   images: {
-    minimumCacheTTL: 86_400,
+    // A week: long enough for repeat visits, short enough that a replaced photo shows up soon.
+    minimumCacheTTL: 604_800,
     remotePatterns: [
       {
         protocol: "https",
@@ -56,7 +57,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=86400, stale-while-revalidate=604800",
+            value: "public, max-age=604800, stale-while-revalidate=2592000",
           },
         ],
       },

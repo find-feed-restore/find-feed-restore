@@ -5,7 +5,7 @@
     "description": "Find, Feed & Restore is a Central Florida nonprofit helping homeless families with children find housing, financial stability, counseling, and hope.",
     "lastModified": "2026-10-02",
     "images": [
-      "/images/hero-family.jpg",
+      "/images/backgrounds/home-hero.webp",
       "/images/programs/miriams-hope/hero.webp",
       "/images/affordable-housing.jpg",
       "/images/housing-first.jpg",
@@ -19,7 +19,7 @@
     "description": "Miriam’s Hope gives survivors of domestic violence and their children in Central Florida 6–12 months of no-cost transitional housing and support.",
     "lastModified": "2026-10-02",
     "images": [
-      "/images/programs/miriams-hope/hero.webp",
+      "/images/backgrounds/miriams-hope-hero.webp",
       "/images/programs/miriams-hope/story-reading.webp",
       "/images/programs/miriams-hope/story-park.webp",
       "/images/programs/miriams-hope/story-home.webp",
@@ -33,7 +33,7 @@
     "description": "Find Feed Restore helps working families with children find safe, stable, and affordable housing in Central Florida.",
     "lastModified": "2026-10-02",
     "images": [
-      "/images/programs/affordable-housing/hero.jpg",
+      "/images/backgrounds/affordable-housing-hero.webp",
       "/images/unique/affordable-intro.webp",
       "/images/programs/affordable-housing/UIg8fVh3lq0.jpg"
     ]
@@ -44,7 +44,7 @@
     "description": "Housing First gives homeless families with children temporary rent- and utility-free housing while they regain stability.",
     "lastModified": "2026-10-02",
     "images": [
-      "/images/housing-first.jpg",
+      "/images/backgrounds/housing-first-hero.webp",
       "/images/unique/housing-intro-v2.webp",
       "/images/unique/housing-story-1.webp",
       "/images/unique/housing-story-2.webp",
@@ -61,7 +61,7 @@
     "description": "Find Feed Restore provides temporary financial assistance and stability services that help Central Florida families avoid homelessness.",
     "lastModified": "2026-10-02",
     "images": [
-      "/images/unique/homelessness-hero.webp",
+      "/images/backgrounds/homelessness-avoidance-hero.webp",
       "/images/homelessness-avoidance.jpg",
       "/images/unique/homelessness-story-1.webp",
       "/images/unique/homelessness-story-2.webp",
@@ -75,10 +75,12 @@
     "description": "The Care Coach mobile unit brings health, housing, hunger relief, and practical support to underserved Central Florida communities.",
     "lastModified": "2026-10-02",
     "images": [
+      "/images/backgrounds/care-coach-hero.webp",
       "/images/programs/care-coach/care-coach.jpg",
       "/images/programs/affordable-housing/support-family.jpg",
       "/images/programs/care-coach/framing.jpg",
-      "/images/give-banner.jpg"
+      "/images/give-banner.jpg",
+      "/images/programs/care-coach/SonlnoRUCQg.jpg"
     ]
   },
   {
@@ -137,7 +139,7 @@
     "description": "Community partners helping Find, Feed & Restore provide housing and hope for families.",
     "lastModified": "2026-10-02",
     "images": [
-      "/images/unique/sponsors-hero.webp",
+      "/images/backgrounds/sponsors-hero.webp",
       "/images/sponsors/duke-energy.png",
       "/images/sponsors/live-well.png",
       "/images/sponsors/adventhealth.png",
@@ -164,8 +166,9 @@
     "description": "Donate a travel trailer, fifth wheel, or RV to help house families with children in Central Florida.",
     "lastModified": "2026-10-02",
     "images": [
-      "/images/programs/care-coach/care-coach.jpg",
+      "/images/backgrounds/care-coach-hero.webp",
       "/images/campaigns/we-need-trailers/trailer-ffr.png",
+      "/images/programs/care-coach/care-coach.jpg",
       "/images/campaigns/we-need-trailers/latoya-family.jpg",
       "/images/campaigns/we-need-trailers/community-support.jpg"
     ]
@@ -176,7 +179,7 @@
     "description": "Recent news, press coverage, community partnerships, and stories of impact from Find Feed Restore.",
     "lastModified": "2026-10-02",
     "images": [
-      "/images/unique/news-hero.webp"
+      "/images/backgrounds/news-hero.webp"
     ]
   },
   {
@@ -185,7 +188,7 @@
     "description": "Watch client stories and community videos showing how Find Feed Restore helps families move from crisis toward housing, stability, and hope.",
     "lastModified": "2026-10-02",
     "images": [
-      "/images/unique/testimonials-hero.webp",
+      "/images/backgrounds/testimonials-hero.webp",
       "/images/editorial/testimonials/pLxLVhRZUso.jpg",
       "/images/editorial/testimonials/4AtAVDaScBI.jpg",
       "/images/editorial/testimonials/SFWs27dkzeM.jpg",
@@ -201,7 +204,7 @@
     "description": "Follow Find Feed Restore stories of hope and moments of impact across Central Florida.",
     "lastModified": "2026-10-02",
     "images": [
-      "/images/unique/hope-hero.webp"
+      "/images/backgrounds/hope-hero.webp"
     ]
   },
   {
@@ -210,7 +213,7 @@
     "description": "Meet the staff and board members guiding Find, Feed & Restore.",
     "lastModified": "2026-10-02",
     "images": [
-      "/images/unique/people-hero.webp",
+      "/images/backgrounds/people-hero.webp",
       "/images/people/brian-broadway.jpg",
       "/images/people/allison-broadway.jpg",
       "/images/people/lisa-bishop.jpg",
@@ -236,7 +239,7 @@
     "description": "Contact Find Feed Restore for housing assistance, volunteer opportunities, partnerships, donations, and general questions.",
     "lastModified": "2026-10-02",
     "images": [
-      "/images/unique/contact-hero.webp",
+      "/images/backgrounds/contact-hero.webp",
       "/images/unique/contact-intro.webp",
       "/images/unique/contact-gallery-1.webp",
       "/images/contact/family-by-trailer.jpg",
@@ -251,7 +254,7 @@
     "description": "Terms and Conditions governing use of the Find Feed Restore website.",
     "lastModified": "2026-10-02",
     "images": [
-      "/images/legal/terms-hero.jpg"
+      "/images/backgrounds/legal-hero.webp"
     ]
   },
   {
@@ -260,7 +263,7 @@
     "description": "Privacy Policy for the Find Feed Restore website and Instagram API integration.",
     "lastModified": "2026-10-02",
     "images": [
-      "/images/legal/terms-hero.jpg"
+      "/images/backgrounds/legal-hero.webp"
     ]
   },
   {

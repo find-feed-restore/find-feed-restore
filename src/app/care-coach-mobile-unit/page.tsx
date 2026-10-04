@@ -61,7 +61,7 @@ export default function CareCoachPage() {
           title="Care Coach"
           description="Providing health, housing, hunger, and hope to underserved communities."
           backgroundClassName={programStyles.careCoachHero}
-          backgroundImage="/images/programs/care-coach/care-coach.jpg"
+          backgroundName="care-coach-hero"
         />
         <ProgramIntro
           eyebrow="Care Coach Mobile Unit"
@@ -91,8 +91,9 @@ export default function CareCoachPage() {
           images={storyImages}
           galleryClassName={programStyles.careCoachGallery}
           video={{
-            src: "https://www.youtube.com/embed/SonlnoRUCQg",
+            id: "SonlnoRUCQg",
             title: "Care Coach Video",
+            thumbnail: "/images/programs/care-coach/SonlnoRUCQg.jpg",
           }}
         />
         <ProgramSupportCta

@@ -43,11 +43,13 @@
 }
 
 .newsHero {
-  background-image: linear-gradient(rgba(7, 27, 42, 0.72), rgba(7, 27, 42, 0.72)), url("/images/unique/news-hero.webp");
+  --hero-image: url("/images/backgrounds/news-hero.webp");
+  background-image: linear-gradient(rgba(7, 27, 42, 0.72), rgba(7, 27, 42, 0.72)), var(--hero-image);
 }
 
 .testimonialsHero {
-  background-image: linear-gradient(rgba(7, 27, 42, 0.72), rgba(7, 27, 42, 0.72)), url("/images/unique/testimonials-hero.webp");
+  --hero-image: url("/images/backgrounds/testimonials-hero.webp");
+  background-image: linear-gradient(rgba(7, 27, 42, 0.72), rgba(7, 27, 42, 0.72)), var(--hero-image);
 }
 
 .heroInner {
@@ -312,11 +314,11 @@
 }
 
 .newsCta {
-  background-image: linear-gradient(rgba(7, 27, 42, 0.8), rgba(7, 27, 42, 0.82)), url("/images/unique/news-cta.webp");
+  background-image: linear-gradient(rgba(7, 27, 42, 0.8), rgba(7, 27, 42, 0.82)), url("/images/backgrounds/news-cta.webp");
 }
 
 .testimonialsCta {
-  background-image: linear-gradient(rgba(7, 27, 42, 0.8), rgba(7, 27, 42, 0.82)), url("/images/unique/testimonials-cta.webp");
+  background-image: linear-gradient(rgba(7, 27, 42, 0.8), rgba(7, 27, 42, 0.82)), url("/images/backgrounds/testimonials-cta.webp");
 }
 
 .ctaInner {
@@ -424,5 +426,16 @@
   .newsCard,
   .button {
     transition: none;
+  }
+}
+
+/* Phones get a smaller hero file; scripts/build-background-images.mjs generates both. */
+@media (max-width: 767px) {
+  .newsHero {
+    --hero-image: url("/images/backgrounds/news-hero-mobile.webp");
+  }
+
+  .testimonialsHero {
+    --hero-image: url("/images/backgrounds/testimonials-hero-mobile.webp");
   }
 }

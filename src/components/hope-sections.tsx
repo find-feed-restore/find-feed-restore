@@ -29,7 +29,7 @@ const socialLinks = [
 export function HopePageBody() {
   return (
     <div className={styles.page}>
-      <HeroImagePreload href="/images/unique/hope-hero.webp" />
+      <HeroImagePreload name="hope-hero" />
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <span>Hope In Action</span>

@@ -8,7 +8,7 @@ const missionUrl = "https://findfeedrestore-bloom.kindful.com/";
 export function TrailerPageBody() {
   return (
     <div className={styles.page}>
-      <HeroImagePreload href="/images/programs/care-coach/care-coach.jpg" />
+      <HeroImagePreload name="care-coach-hero" />
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <span>We Need Your Trailer</span>

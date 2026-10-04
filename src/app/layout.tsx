@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { GoogleAnalytics } from "@/components/google-analytics";
 import "./globals.css";
 
 const notoSerif = localFont({
@@ -51,7 +52,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en-US"
       className={`${notoSerif.variable} ${notoSans.variable} ${heebo.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        {/* Visits are only counted on the live site, never on dev or pull request previews. */}
+        {process.env.VERCEL_ENV === "production" ? <GoogleAnalytics /> : null}
+      </body>
     </html>
   );
 }

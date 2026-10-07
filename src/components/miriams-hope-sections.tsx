@@ -51,7 +51,7 @@ export function MiriamsHopeIntro() {
         <figure className={styles.quoteCard}>
           <span className={styles.quoteMark} aria-hidden="true">“</span>
           <blockquote>
-            <p>No one should have to run from their abuser right into the arms of homelessness.</p>
+            <p>No one should have to run from the hands of abuse, just to run into the arms of homelessness.</p>
           </blockquote>
           <dl className={styles.quoteStats}>
             <div>

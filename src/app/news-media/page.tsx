@@ -27,6 +27,17 @@ export const metadata: Metadata = {
 
 const newsItems: NewsItem[] = [
   {
+    publishedAt: "2026-09-29",
+    day: "29",
+    monthYear: "Sep 2026",
+    source: "Lake & Sumter Style",
+    location: "Clermont, FL",
+    title: "South Lake Chamber Ends Clermont Cops’ Winning Streak at Battle for Hope",
+    description:
+      "The South Lake Chamber of Commerce won the championship belt at Find Feed Restore’s Battle for Hope fundraiser, ending the Clermont Police Department’s five-year run at the organization’s largest event to date.",
+    href: "https://lakeandsumterstyle.com/south-lake-chamber-ends-clermont-cops-winning-streak-at-battle-for-hope/",
+  },
+  {
     publishedAt: "2026-07-19",
     day: "19",
     monthYear: "Jul 2026",

@@ -23,7 +23,7 @@ const heroes = [
   { name: "miriams-hope-hero", source: "programs/miriams-hope/hero.webp" },
   { name: "hope-hero", source: "unique/hope-hero.webp" },
   { name: "sponsors-hero", source: "unique/sponsors-hero.webp" },
-  { name: "people-hero", source: "unique/people-hero.webp" },
+  { name: "board-staff-hero", source: "unique/board-staff-team.jpg" },
   { name: "legal-hero", source: "legal/terms-hero.jpg" },
   { name: "contact-hero", source: "unique/contact-hero.webp" },
   { name: "news-hero", source: "unique/news-hero.webp" },

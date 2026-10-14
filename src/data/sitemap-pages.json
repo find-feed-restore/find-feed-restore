@@ -3,7 +3,7 @@
     "path": "/",
     "title": "Home",
     "description": "Find, Feed & Restore is a Central Florida nonprofit helping homeless families with children find housing, financial stability, counseling, and hope.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
       "/images/backgrounds/home-hero.webp",
       "/images/programs/miriams-hope/hero.webp",
@@ -17,7 +17,7 @@
     "path": "/miriams-hope/",
     "title": "Miriam’s Hope",
     "description": "Miriam’s Hope gives survivors of domestic violence and their children in Central Florida 6–12 months of no-cost transitional housing and support.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-07",
     "images": [
       "/images/backgrounds/miriams-hope-hero.webp",
       "/images/programs/miriams-hope/story-reading.webp",
@@ -31,7 +31,7 @@
     "path": "/affordable-housing/",
     "title": "Affordable Housing",
     "description": "Find Feed Restore helps working families with children find safe, stable, and affordable housing in Central Florida.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
       "/images/backgrounds/affordable-housing-hero.webp",
       "/images/unique/affordable-intro.webp",
@@ -42,7 +42,7 @@
     "path": "/housing-first/",
     "title": "Housing First",
     "description": "Housing First gives homeless families with children temporary rent- and utility-free housing while they regain stability.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
       "/images/backgrounds/housing-first-hero.webp",
       "/images/unique/housing-intro-v2.webp",
@@ -59,7 +59,7 @@
     "path": "/homelessness-avoidance/",
     "title": "Homelessness Avoidance",
     "description": "Find Feed Restore provides temporary financial assistance and stability services that help Central Florida families avoid homelessness.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
       "/images/backgrounds/homelessness-avoidance-hero.webp",
       "/images/homelessness-avoidance.jpg",
@@ -73,7 +73,7 @@
     "path": "/care-coach-mobile-unit/",
     "title": "Care Coach",
     "description": "The Care Coach mobile unit brings health, housing, hunger relief, and practical support to underserved Central Florida communities.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
       "/images/backgrounds/care-coach-hero.webp",
       "/images/programs/care-coach/care-coach.jpg",
@@ -87,7 +87,7 @@
     "path": "/volunteer/",
     "title": "Volunteer",
     "description": "Volunteer with Find Feed Restore and help families with children move toward housing, stability, and hope across Central Florida.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
       "/images/volunteer/volunteer-hero.webp",
       "/images/volunteer/neighbors-helping.webp",
@@ -98,7 +98,7 @@
     "path": "/live-here-love-here-lake/",
     "title": "Corporate Partnership",
     "description": "Corporate partnership opportunities for local businesses helping families find home through Find, Feed & Restore.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
       "/images/campaigns/live-here-love-here/campaign-logo.png",
       "/images/campaigns/live-here-love-here/denise-calderon.png",
@@ -137,7 +137,7 @@
     "path": "/sponsors/",
     "title": "Partners & Sponsors",
     "description": "Community partners helping Find, Feed & Restore provide housing and hope for families.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
       "/images/backgrounds/sponsors-hero.webp",
       "/images/sponsors/duke-energy.png",
@@ -164,7 +164,7 @@
     "path": "/we-need-trailers/",
     "title": "We Need Trailers",
     "description": "Donate a travel trailer, fifth wheel, or RV to help house families with children in Central Florida.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
       "/images/backgrounds/care-coach-hero.webp",
       "/images/campaigns/we-need-trailers/trailer-ffr.png",
@@ -177,7 +177,7 @@
     "path": "/news-media/",
     "title": "News & Media",
     "description": "Recent news, press coverage, community partnerships, and stories of impact from Find Feed Restore.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
       "/images/backgrounds/news-hero.webp"
     ]
@@ -186,7 +186,7 @@
     "path": "/testimonials/",
     "title": "Testimonials",
     "description": "Watch client stories and community videos showing how Find Feed Restore helps families move from crisis toward housing, stability, and hope.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
       "/images/backgrounds/testimonials-hero.webp",
       "/images/editorial/testimonials/pLxLVhRZUso.jpg",
@@ -202,7 +202,7 @@
     "path": "/hope-in-action/",
     "title": "Hope In Action",
     "description": "Follow Find Feed Restore stories of hope and moments of impact across Central Florida.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
       "/images/backgrounds/hope-hero.webp"
     ]
@@ -211,9 +211,9 @@
     "path": "/board-staff/",
     "title": "Board & Staff",
     "description": "Meet the staff and board members guiding Find, Feed & Restore.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
-      "/images/backgrounds/people-hero.webp",
+      "/images/backgrounds/board-staff-hero.webp",
       "/images/people/brian-broadway.jpg",
       "/images/people/allison-broadway.jpg",
       "/images/people/lisa-bishop.jpg",
@@ -237,7 +237,7 @@
     "path": "/contact-us/",
     "title": "Contact Us",
     "description": "Contact Find Feed Restore for housing assistance, volunteer opportunities, partnerships, donations, and general questions.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
       "/images/backgrounds/contact-hero.webp",
       "/images/unique/contact-intro.webp",
@@ -252,7 +252,7 @@
     "path": "/terms-conditions/",
     "title": "Terms & Conditions",
     "description": "Terms and Conditions governing use of the Find Feed Restore website.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
       "/images/backgrounds/legal-hero.webp"
     ]
@@ -261,7 +261,7 @@
     "path": "/privacy-policy/",
     "title": "Privacy Policy",
     "description": "Privacy Policy for the Find Feed Restore website and Instagram API integration.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": [
       "/images/backgrounds/legal-hero.webp"
     ]
@@ -270,7 +270,7 @@
     "path": "/sitemap/",
     "title": "Site Map",
     "description": "Browse every page on the Find Feed Restore website, including programs, ways to get involved, stories, and contact details.",
-    "lastModified": "2026-10-02",
+    "lastModified": "2026-10-04",
     "images": []
   }
 ]

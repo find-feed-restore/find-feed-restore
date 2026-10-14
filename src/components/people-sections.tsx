@@ -118,7 +118,7 @@ function PersonCard({ person }: { person: Person }) {
 export function PeopleHero() {
   return (
     <>
-      <HeroImagePreload name="people-hero" />
+      <HeroImagePreload name="board-staff-hero" />
       <section className={styles.hero} aria-labelledby="people-title">
         <div className={styles.heroInner}>
           <span>About Find, Feed & Restore</span>
